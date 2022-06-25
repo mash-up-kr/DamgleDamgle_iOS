@@ -13,6 +13,8 @@
 		9D4E925F286745C30009F6E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E925D286745C30009F6E1 /* Main.storyboard */; };
 		9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E9260286745C40009F6E1 /* Assets.xcassets */; };
 		9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */; };
+		9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E926E286748050009F6E1 /* Kingfisher */; };
+		9D4E9272286748E20009F6E1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E9271286748E20009F6E1 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */,
+				9D4E9272286748E20009F6E1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +46,7 @@
 			children = (
 				9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */,
 				9D4E9255286745C30009F6E1 /* Products */,
+				9D4E926C2867475B0009F6E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,13 @@
 			path = DamgleDamgle_iOS;
 			sourceTree = "<group>";
 		};
+		9D4E926C2867475B0009F6E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +95,10 @@
 			dependencies = (
 			);
 			name = DamgleDamgle_iOS;
+			packageProductDependencies = (
+				9D4E926E286748050009F6E1 /* Kingfisher */,
+				9D4E9271286748E20009F6E1 /* Lottie */,
+			);
 			productName = DamgleDamgle_iOS;
 			productReference = 9D4E9254286745C30009F6E1 /* DamgleDamgle_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +127,11 @@
 				Base,
 			);
 			mainGroup = 9D4E924B286745C30009F6E1;
+			packageReferences = (
+				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 9D4E9255286745C30009F6E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,6 +379,46 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D4E926E286748050009F6E1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		9D4E9271286748E20009F6E1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D4E924C286745C30009F6E1 /* Project object */;
 }
