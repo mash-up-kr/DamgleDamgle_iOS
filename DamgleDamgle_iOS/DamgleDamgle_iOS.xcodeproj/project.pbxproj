@@ -15,6 +15,8 @@
 		9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */; };
 		9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E926E286748050009F6E1 /* Kingfisher */; };
 		9D4E9272286748E20009F6E1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E9271286748E20009F6E1 /* Lottie */; };
+		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
+		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */,
 				9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */,
+				9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */,
 				9D4E9272286748E20009F6E1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +102,8 @@
 			packageProductDependencies = (
 				9D4E926E286748050009F6E1 /* Kingfisher */,
 				9D4E9271286748E20009F6E1 /* Lottie */,
+				9DCAE8A5287024DA009578E1 /* RxCocoa */,
+				9DCAE8A7287024DE009578E1 /* RxSwift */,
 			);
 			productName = DamgleDamgle_iOS;
 			productReference = 9D4E9254286745C30009F6E1 /* DamgleDamgle_iOS.app */;
@@ -417,6 +423,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		9DCAE8A5287024DA009578E1 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		9DCAE8A7287024DE009578E1 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
