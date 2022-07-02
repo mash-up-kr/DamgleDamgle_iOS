@@ -17,6 +17,7 @@
 		9D4E9272286748E20009F6E1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E9271286748E20009F6E1 /* Lottie */; };
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
+		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9D4E9260286745C40009F6E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D4E9263286745C40009F6E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D4E9265286745C40009F6E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				9D4E925B286745C30009F6E1 /* ViewController.swift */,
 				9D4E925D286745C30009F6E1 /* Main.storyboard */,
 				9D4E9260286745C40009F6E1 /* Assets.xcassets */,
+				9DD3BC0428702BCE007907DC /* Colors.xcassets */,
 				9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */,
 				9D4E9265286745C40009F6E1 /* Info.plist */,
 			);
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
+				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D4E925F286745C30009F6E1 /* Main.storyboard in Resources */,
 			);
