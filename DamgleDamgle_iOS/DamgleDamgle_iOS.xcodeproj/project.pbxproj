@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
+		9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D13FF762870339400B38051 /* PostingStoryboard.storyboard */; };
 		9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E9257286745C30009F6E1 /* AppDelegate.swift */; };
 		9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E9259286745C30009F6E1 /* SceneDelegate.swift */; };
 		9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E925B286745C30009F6E1 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
+		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
 		9D4E9254286745C30009F6E1 /* DamgleDamgle_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamgleDamgle_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4E9257286745C30009F6E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D4E9259286745C30009F6E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D13FF732870333800B38051 /* Posting */ = {
+			isa = PBXGroup;
+			children = (
+				9D13FF742870334D00B38051 /* PostingMainViewController.swift */,
+				9D13FF762870339400B38051 /* PostingStoryboard.storyboard */,
+			);
+			path = Posting;
+			sourceTree = "<group>";
+		};
 		9D4E924B286745C30009F6E1 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +80,7 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				9D13FF732870333800B38051 /* Posting */,
 				9D4E9257286745C30009F6E1 /* AppDelegate.swift */,
 				9D4E9259286745C30009F6E1 /* SceneDelegate.swift */,
 				9D4E925B286745C30009F6E1 /* ViewController.swift */,
@@ -155,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */,
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
@@ -171,6 +186,7 @@
 			files = (
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
+				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
