@@ -59,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */,
-				9D5E0CE628715B3C00A3705C /* Global */,
 				9D4E9255286745C30009F6E1 /* Products */,
 				9D4E926C2867475B0009F6E1 /* Frameworks */,
 			);
@@ -80,6 +79,7 @@
 				9D4E9259286745C30009F6E1 /* SceneDelegate.swift */,
 				9D4E925B286745C30009F6E1 /* ViewController.swift */,
 				9D4E925D286745C30009F6E1 /* Main.storyboard */,
+				9D5E0CE628715B3C00A3705C /* Global */,
 				9D4E9260286745C40009F6E1 /* Assets.xcassets */,
 				9DD3BC0428702BCE007907DC /* Colors.xcassets */,
 				9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */,
