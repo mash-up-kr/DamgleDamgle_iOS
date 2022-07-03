@@ -17,6 +17,10 @@
 		9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */; };
 		9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E926E286748050009F6E1 /* Kingfisher */; };
 		9D4E9272286748E20009F6E1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9D4E9271286748E20009F6E1 /* Lottie */; };
+		9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEA28715CCE00A3705C /* Akzidenz-Grotesk BQ Bold.ttf */; };
+		9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */; };
+		9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */; };
+		9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */; };
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
@@ -33,6 +37,10 @@
 		9D4E9260286745C40009F6E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D4E9263286745C40009F6E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D4E9265286745C40009F6E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D5E0CEA28715CCE00A3705C /* Akzidenz-Grotesk BQ Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akzidenz-Grotesk BQ Bold.ttf"; sourceTree = "<group>"; };
+		9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +93,7 @@
 				9D4E9259286745C30009F6E1 /* SceneDelegate.swift */,
 				9D4E925B286745C30009F6E1 /* ViewController.swift */,
 				9D4E925D286745C30009F6E1 /* Main.storyboard */,
+				9D5E0CE628715B3C00A3705C /* Global */,
 				9D4E9260286745C40009F6E1 /* Assets.xcassets */,
 				9DD3BC0428702BCE007907DC /* Colors.xcassets */,
 				9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */,
@@ -98,6 +107,41 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D5E0CE628715B3C00A3705C /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				9D5E0CE928715BC100A3705C /* Fonts */,
+				9D5E0CE828715B9200A3705C /* Components */,
+				9D5E0CE728715B5F00A3705C /* Extension */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		9D5E0CE728715B5F00A3705C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9D5E0CE828715B9200A3705C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9D5E0CE928715BC100A3705C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9D5E0CEA28715CCE00A3705C /* Akzidenz-Grotesk BQ Bold.ttf */,
+				9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */,
+				9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */,
+				9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +214,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */,
+				9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */,
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
+				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
+				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
+				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				9D4E925F286745C30009F6E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
