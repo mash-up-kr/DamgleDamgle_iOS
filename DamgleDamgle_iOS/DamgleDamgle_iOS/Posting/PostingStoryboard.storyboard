@@ -28,34 +28,36 @@
         <!--담벼락 전체보기-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="PostingMainViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="uis-aL-XMV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-OE-18b">
-                                            <rect key="frame" x="20" y="27.5" width="36.5" height="17"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="최신순">
-                                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="-1" bottom="0.0" trailing="0.0"/>
-                                            </buttonConfiguration>
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-OE-18b" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="22" width="34" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="최신순">
+                                                <color key="titleColor" name="grey900"/>
+                                            </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-cL-abV">
-                                            <rect key="frame" x="64.5" y="27.5" width="37" height="17"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="인기순">
-                                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="-1" bottom="0.0" trailing="0.0"/>
-                                            </buttonConfiguration>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-cL-abV" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="62" y="22" width="34" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="인기순">
+                                                <color key="titleColor" name="grey700"/>
+                                            </state>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="backgroundColor" name="grey500"/>
                                     <constraints>
                                         <constraint firstItem="fIS-OE-18b" firstAttribute="leading" secondItem="uis-aL-XMV" secondAttribute="leading" constant="20" id="Opu-eE-tGx"/>
                                         <constraint firstItem="IPO-cL-abV" firstAttribute="leading" secondItem="fIS-OE-18b" secondAttribute="trailing" constant="8" id="bja-ux-bSn"/>
@@ -64,7 +66,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="547" id="K4B-om-Is7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="547" id="K4B-om-Is7" customClass="PostTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="116.5" width="414" height="547"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4B-om-Is7" id="X6k-vD-rKA">
@@ -104,16 +106,30 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oT-kl-tI8">
                                                     <rect key="frame" x="20" y="110" width="374" height="348"/>
-                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zxcaask;mas;lxams;lxasml;asmxl;asmx;lasmlx;asml;xasa;xmas;lxmasl;xasm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt">
+                                                            <rect key="frame" x="24" y="24" width="326" height="130"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="130" id="Xsp-Ck-SZk"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="grey400"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="348" id="CUp-57-hIk"/>
+                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="24" id="Ejh-Hf-vJf"/>
+                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="JhV-e5-r0U"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="iBZ-xg-MLQ"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW">
-                                                    <rect key="frame" x="321" y="474" width="73" height="30"/>
+                                                    <rect key="frame" x="364" y="474" width="30" height="62"/>
                                                     <color key="backgroundColor" name="grey900"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="klnklnlklnn">
+                                                    <state key="normal">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
@@ -126,6 +142,7 @@
                                                 <constraint firstItem="WNp-wV-5Gm" firstAttribute="top" secondItem="jTf-D2-Nbh" secondAttribute="bottom" constant="23.5" id="DRn-gW-YsQ"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="FmJ-Pt-F8d"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="top" secondItem="cv2-ga-gvt" secondAttribute="bottom" constant="16" id="Lg3-YS-Jtb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Q7r-RP-3AW" secondAttribute="bottom" id="LsU-o7-eQH"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="leading" secondItem="cv2-ga-gvt" secondAttribute="trailing" constant="7" id="P6k-oa-bEW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Q7r-RP-3AW" secondAttribute="trailing" id="Sye-UA-dZk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ZSS-4L-yCq" secondAttribute="trailing" id="TLm-rX-5Tc"/>
@@ -137,12 +154,19 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="6oT-kl-tI8" secondAttribute="trailing" id="uYe-pg-cve"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkMeLabel" destination="cv2-ga-gvt" id="2bj-VG-AYZ"/>
+                                            <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
+                                            <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="8zc-Gl-CsC"/>
+                                            <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>
+                                            <outlet property="userNameLabel" destination="WNp-wV-5Gm" id="uNu-zC-Qrh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="grey500"/>
                         <constraints>
                             <constraint firstItem="7kJ-9s-gCx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="63P-HJ-RKz"/>
                             <constraint firstItem="7kJ-9s-gCx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8n6-9c-Seb"/>
@@ -155,6 +179,11 @@
                             <color key="tintColor" name="grey900"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="popularitySortButton" destination="IPO-cL-abV" id="f1D-j7-ms1"/>
+                        <outlet property="postingTableView" destination="7kJ-9s-gCx" id="WVa-ia-2va"/>
+                        <outlet property="timeSortButton" destination="fIS-OE-18b" id="gYE-pk-qFT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,6 +192,12 @@
     </scenes>
     <resources>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="grey400">
+            <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey500">
+            <color red="0.80800002813339233" green="0.7839999794960022" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="grey700">
             <color red="0.37999999523162842" green="0.37999999523162842" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -174,12 +209,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

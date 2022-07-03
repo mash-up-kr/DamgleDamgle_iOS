@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
 		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
 		9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D13FF762870339400B38051 /* PostingStoryboard.storyboard */; };
 		9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E9257286745C30009F6E1 /* AppDelegate.swift */; };
@@ -24,9 +25,13 @@
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
+		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
+		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
+		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
 		9D4E9254286745C30009F6E1 /* DamgleDamgle_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamgleDamgle_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +47,9 @@
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
+		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				9D13FF742870334D00B38051 /* PostingMainViewController.swift */,
+				9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */,
+				9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */,
+				9DD63FFF28719D78000D9C32 /* PostModel.swift */,
 				9D13FF762870339400B38051 /* PostingStoryboard.storyboard */,
 			);
 			path = Posting;
@@ -129,6 +140,7 @@
 		9D5E0CE828715B9200A3705C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9D0DCFC028718CFA00039594 /* SelectableButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -232,7 +244,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */,
+				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
+				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
