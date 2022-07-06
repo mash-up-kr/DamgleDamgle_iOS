@@ -22,6 +22,12 @@
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
+		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
+		CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960692875B62F003DBF20 /* CustomViewProtocol.swift */; };
+		CB29606D2875B8B9003DBF20 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29606C2875B8B9003DBF20 /* UIFont+Extension.swift */; };
+		CB29606F2875BBAA003DBF20 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */; };
+		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
+		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,12 @@
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
+		CB2960692875B62F003DBF20 /* CustomViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewProtocol.swift; sourceTree = "<group>"; };
+		CB29606C2875B8B9003DBF20 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
+		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
+		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,9 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CB2960682875B625003DBF20 /* Protocol */,
+				CB2960652875B5DA003DBF20 /* Custom */,
+				CB432ABB2875B3DF00840132 /* Authorization */,
 				9D4E9257286745C30009F6E1 /* AppDelegate.swift */,
 				9D4E9259286745C30009F6E1 /* SceneDelegate.swift */,
 				9D4E925B286745C30009F6E1 /* ViewController.swift */,
@@ -98,6 +113,7 @@
 		9D5E0CE628715B3C00A3705C /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CB29606B2875B8AE003DBF20 /* DesignExtension */,
 				9D5E0CE928715BC100A3705C /* Fonts */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
 			);
@@ -120,6 +136,40 @@
 				9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CB2960652875B5DA003DBF20 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				CB2960662875B5EB003DBF20 /* FullDimView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		CB2960682875B625003DBF20 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CB2960692875B62F003DBF20 /* CustomViewProtocol.swift */,
+				CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CB29606B2875B8AE003DBF20 /* DesignExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CB29606C2875B8B9003DBF20 /* UIFont+Extension.swift */,
+			);
+			path = DesignExtension;
+			sourceTree = "<group>";
+		};
+		CB432ABB2875B3DF00840132 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */,
+				CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +249,7 @@
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
+				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
 				9D4E925F286745C30009F6E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB29606D2875B8B9003DBF20 /* UIFont+Extension.swift in Sources */,
+				CB29606F2875BBAA003DBF20 /* BaseViewControllerProtocol.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
+				CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */,
+				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 			);
