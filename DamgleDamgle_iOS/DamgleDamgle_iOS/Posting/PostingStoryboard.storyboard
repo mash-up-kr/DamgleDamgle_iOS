@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,28 +32,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_list_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nhD-C8-JWe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="uis-aL-XMV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-OE-18b" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="22" width="34" height="28"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <rect key="frame" x="20" y="22.5" width="32" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="최신순">
                                                 <color key="titleColor" name="grey900"/>
                                             </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalTitleColor">
+                                                    <color key="value" name="grey700"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectTitleColor">
+                                                    <color key="value" name="grey900"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="timeSortingButtonTouchUp:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xsc-kn-T0W"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-cL-abV" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                            <rect key="frame" x="62" y="22" width="34" height="28"/>
+                                            <rect key="frame" x="60" y="22" width="34" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="인기순">
                                                 <color key="titleColor" name="grey700"/>
                                             </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalTitleColor">
+                                                    <color key="value" name="grey700"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectTitleColor">
+                                                    <color key="value" name="grey900"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="popularitySortButtonTouchUp:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n4R-5c-8kH"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" name="grey500"/>
@@ -66,81 +102,226 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="547" id="K4B-om-Is7" customClass="PostTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116.5" width="414" height="547"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="628" id="K4B-om-Is7" customClass="PostTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116.5" width="414" height="628"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4B-om-Is7" id="X6k-vD-rKA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-D2-Nbh">
-                                                    <rect key="frame" x="20" y="11" width="76" height="38.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <rect key="frame" x="20" y="11" width="87" height="158.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                                     <color key="textColor" name="grey900"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNp-wV-5Gm">
-                                                    <rect key="frame" x="20" y="73" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNp-wV-5Gm">
+                                                    <rect key="frame" x="20" y="176.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="grey900"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-ga-gvt">
-                                                    <rect key="frame" x="62" y="73" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-ga-gvt">
+                                                    <rect key="frame" x="62" y="176.5" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="grey900"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-4L-yCq">
-                                                    <rect key="frame" x="352" y="73" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-4L-yCq">
+                                                    <rect key="frame" x="352" y="176.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="yellow"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-Ht-4f1">
-                                                    <rect key="frame" x="111" y="83" width="232" height="1"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-Ht-4f1">
+                                                    <rect key="frame" x="110.5" y="186.5" width="232.5" height="0.5"/>
                                                     <color key="backgroundColor" name="grey700"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.75" id="pkx-IN-0zC"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oT-kl-tI8">
-                                                    <rect key="frame" x="20" y="110" width="374" height="348"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oT-kl-tI8" customClass="RoundView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="213" width="374" height="348"/>
                                                     <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_write" translatesAutoresizingMaskIntoConstraints="NO" id="clq-PX-v4L">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="348"/>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zxcaask;mas;lxams;lxasml;asmxl;asmx;lasmlx;asml;xasa;xmas;lxmasl;xasm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt">
-                                                            <rect key="frame" x="24" y="24" width="326" height="130"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="130" id="Xsp-Ck-SZk"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <rect key="frame" x="24" y="24" width="326" height="31.5"/>
+                                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="grey400"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="clq-PX-v4L" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" id="0Du-zq-ELT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="clq-PX-v4L" secondAttribute="trailing" id="6kP-FY-uze"/>
                                                         <constraint firstAttribute="height" constant="348" id="CUp-57-hIk"/>
-                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="24" id="Ejh-Hf-vJf"/>
-                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="JhV-e5-r0U"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="iBZ-xg-MLQ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="Ck5-KI-hPE"/>
+                                                        <constraint firstItem="clq-PX-v4L" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" id="FTg-Hk-Ypq"/>
+                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="VjX-K7-CxT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" id="nyI-PC-2pR"/>
+                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="24" id="tj7-kX-ECP"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW">
-                                                    <rect key="frame" x="364" y="474" width="30" height="62"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-h2-rEa" userLabel="bestButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="337" y="577" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="MiY-Kj-I7z"/>
+                                                        <constraint firstAttribute="width" constant="40" id="Zne-hP-ydY"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=best"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=best_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="bestButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="59z-bv-Mq5"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-KF-Uej" userLabel="sadButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="337" y="577" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Dc6-pU-prR"/>
+                                                        <constraint firstAttribute="width" constant="40" id="eX4-Ox-9gT"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=sad"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=sad_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="sadButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="bqr-Ns-tG8"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Tq-STE" userLabel="amazingButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="337" y="577" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Mrf-Cm-30B"/>
+                                                        <constraint firstAttribute="width" constant="40" id="qrW-Ev-WqE"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=amazing"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=amazing_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="amazingButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="pbZ-VM-oNB"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-op-CUs" userLabel="angryButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="337" y="577" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="bS4-Hv-jlW"/>
+                                                        <constraint firstAttribute="height" constant="40" id="hCm-3P-iul"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=angry"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=angry_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="angryButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="IyI-jk-17L"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-Tj-DAK" userLabel="likeButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="337" y="577" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="shL-aj-XLW"/>
+                                                        <constraint firstAttribute="height" constant="40" id="wyh-5L-RVa"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=like"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=like_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="likeButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="5We-gL-cqy"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="320" y="577" width="74" height="40"/>
                                                     <color key="backgroundColor" name="grey900"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="MgG-Vl-0iZ"/>
+                                                        <constraint firstAttribute="width" constant="74" id="YJu-Ko-OIL"/>
+                                                    </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal">
+                                                    <state key="normal" image="icn=best">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey400"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=best"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=best_inactive"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="iconStartButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="lds-Dd-bSH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="0to-2m-ddx"/>
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="leading" secondItem="WNp-wV-5Gm" secondAttribute="trailing" id="2PL-aC-klj"/>
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="3gi-f2-d4R"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="4ZA-8P-t6t"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="7PO-CC-P5f"/>
                                                 <constraint firstItem="Q7r-RP-3AW" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="bottom" constant="16" id="BPR-gJ-c2x"/>
                                                 <constraint firstItem="jTf-D2-Nbh" firstAttribute="top" secondItem="X6k-vD-rKA" secondAttribute="topMargin" id="CV0-C2-OEP"/>
-                                                <constraint firstItem="WNp-wV-5Gm" firstAttribute="top" secondItem="jTf-D2-Nbh" secondAttribute="bottom" constant="23.5" id="DRn-gW-YsQ"/>
+                                                <constraint firstItem="WNp-wV-5Gm" firstAttribute="top" secondItem="jTf-D2-Nbh" secondAttribute="bottom" constant="7" id="DRn-gW-YsQ"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="F23-3u-25c"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="FmJ-Pt-F8d"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="GFi-jQ-1qy"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="top" secondItem="cv2-ga-gvt" secondAttribute="bottom" constant="16" id="Lg3-YS-Jtb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Q7r-RP-3AW" secondAttribute="bottom" id="LsU-o7-eQH"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="leading" secondItem="cv2-ga-gvt" secondAttribute="trailing" constant="7" id="P6k-oa-bEW"/>
@@ -151,13 +332,30 @@
                                                 <constraint firstItem="ZSS-4L-yCq" firstAttribute="leading" secondItem="Hcm-Ht-4f1" secondAttribute="trailing" constant="9" id="aYX-Ux-syH"/>
                                                 <constraint firstItem="jTf-D2-Nbh" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="dyM-De-uCZ"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="h9D-Q6-5xE"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="mwc-ZQ-kgD"/>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="oFC-I3-uAI" userLabel="amazingButtonX Point Constraint"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6oT-kl-tI8" secondAttribute="trailing" id="uYe-pg-cve"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="uhI-rY-qAv"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="v3a-ng-OvX"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="w7t-sg-pX4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="amazingButton" destination="iNy-Tq-STE" id="510-Mi-KL5"/>
+                                            <outlet property="amazingButtonXPointConstraint" destination="oFC-I3-uAI" id="Avu-HT-RA7"/>
+                                            <outlet property="angryButton" destination="pda-op-CUs" id="VIe-Id-fDR"/>
+                                            <outlet property="angryButtonXPointConstraint" destination="GFi-jQ-1qy" id="Ogs-jv-6Ff"/>
+                                            <outlet property="bestButton" destination="37h-h2-rEa" id="D1k-n6-wqG"/>
+                                            <outlet property="bestButtonXPointConstraint" destination="mwc-ZQ-kgD" id="44p-En-1aD"/>
                                             <outlet property="checkMeLabel" destination="cv2-ga-gvt" id="2bj-VG-AYZ"/>
                                             <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
+                                            <outlet property="iconsStartButton" destination="Q7r-RP-3AW" id="fvH-1K-1ec"/>
+                                            <outlet property="likeButton" destination="mPj-Tj-DAK" id="OXW-cs-Hu9"/>
+                                            <outlet property="likeButtonXPointConstraint" destination="w7t-sg-pX4" id="ftz-X6-oOp"/>
                                             <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="8zc-Gl-CsC"/>
+                                            <outlet property="sadButton" destination="e3Z-KF-Uej" id="pXI-Em-vrB"/>
+                                            <outlet property="sadButtonXPointConstraint" destination="7PO-CC-P5f" id="Bxc-kN-jDP"/>
                                             <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>
                                             <outlet property="userNameLabel" destination="WNp-wV-5Gm" id="uNu-zC-Qrh"/>
                                         </connections>
@@ -169,7 +367,11 @@
                         <color key="backgroundColor" name="grey500"/>
                         <constraints>
                             <constraint firstItem="7kJ-9s-gCx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="63P-HJ-RKz"/>
+                            <constraint firstItem="nhD-C8-JWe" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="6id-tT-Xbw"/>
                             <constraint firstItem="7kJ-9s-gCx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8n6-9c-Seb"/>
+                            <constraint firstAttribute="trailing" secondItem="nhD-C8-JWe" secondAttribute="trailing" id="FKs-fA-ebi"/>
+                            <constraint firstItem="nhD-C8-JWe" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="GyP-yV-heM"/>
+                            <constraint firstItem="nhD-C8-JWe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="kfV-WS-2E5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7kJ-9s-gCx" secondAttribute="bottom" id="rwF-qR-U2I"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7kJ-9s-gCx" secondAttribute="trailing" id="tNQ-JO-lL4"/>
                         </constraints>
@@ -191,6 +393,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icn=amazing" width="30" height="30"/>
+        <image name="icn=amazing_y" width="30" height="30"/>
+        <image name="icn=angry" width="30" height="30"/>
+        <image name="icn=angry_y" width="30" height="30"/>
+        <image name="icn=best" width="30" height="30"/>
+        <image name="icn=best_inactive" width="30" height="30"/>
+        <image name="icn=best_y" width="30" height="30"/>
+        <image name="icn=like" width="30" height="30"/>
+        <image name="icn=like_y" width="30" height="30"/>
+        <image name="icn=sad" width="30" height="30"/>
+        <image name="icn=sad_y" width="30" height="30"/>
+        <image name="img_list_bg" width="375" height="812"/>
+        <image name="img_write" width="343" height="356"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="grey400">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -207,8 +422,5 @@
         <namedColor name="yellow">
             <color red="0.85900002717971802" green="0.99199998378753662" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

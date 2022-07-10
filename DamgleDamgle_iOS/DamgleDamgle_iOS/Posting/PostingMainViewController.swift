@@ -11,46 +11,63 @@ import RxCocoa
 
 class PostingMainViewController: UIViewController {
 
-    private let postingViewModel = PostingViewModel()
-
+    var viewModel = PostingViewModel()
     private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.timeSortButton.rx.tap
-            .bind { [weak self] _ in
+        self.setViewDefault()
+    }
 
-                guard let self = self else { return }
-
-                self.timeSortButton.isSelected = true
-                self.popularitySortButton.isSelected = false
-
-            }
-            .disposed(by: self.disposeBag)
-
-        self.popularitySortButton.rx.tap
-            .bind { [weak self] _ in
-
-                guard let self = self else { return }
-
-                self.popularitySortButton.isSelected = true
-                self.timeSortButton.isSelected = false
-
-            }
-            .disposed(by: self.disposeBag)
-
-        self.postingViewModel.postObservable
-            .observe(on: MainScheduler.instance)
-            .bind(to: self.postingTableView.rx.items(cellIdentifier: PostTableViewCell.identifier, cellType: PostTableViewCell.self)) { index, item, cell in
-
-                cell.onData.onNext(item)
-            }
-            .disposed(by: self.disposeBag)
+    private func setViewDefault() {
+        self.postingTableView.delegate = self
+        self.postingTableView.dataSource = self
     }
 
     // MARK: - InterfaceBuilder Links
     @IBOutlet private weak var timeSortButton: SelectableButton!
     @IBOutlet private weak var popularitySortButton: SelectableButton!
     @IBOutlet private weak var postingTableView: UITableView!
+
+    @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
+        self.timeSortButton.isSelected = true
+        self.popularitySortButton.isSelected = false
+    }
+
+    @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
+        self.timeSortButton.isSelected = false
+        self.popularitySortButton.isSelected = true
+    }
+}
+
+// MARK: - TableViewDelegate
+extension PostingMainViewController: UITableViewDelegate {
+
+}
+
+// MARK: - TableViewDataSource
+extension PostingMainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.postModels.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else {
+            return UITableViewCell()
+        }
+
+        let viewModel = self.viewModel.postModels[indexPath.row]
+        cell.setUI(viewModel: viewModel)
+        cell.addSelectedIcon = { [weak self] iconButton in
+            print(iconButton)
+            guard let self = self else { return }
+            self.viewModel.addIconInModel(original: viewModel, icon: iconButton)
+        }
+        cell.deleteSeletedIcon = { [weak self] in
+            self?.viewModel.deleteIconInModel(original: viewModel)
+        }
+
+        return cell
+    }
 }

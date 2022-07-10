@@ -8,10 +8,11 @@
 import Foundation
 
 struct PostModel {
+    var id: Int
     var placeAddress: String
     var time: String
     var content: String
     var userName: String
     var checkMyContent: Bool
-//    var emoticon: Array<String>
+    var icon: iconsButton?
 }
