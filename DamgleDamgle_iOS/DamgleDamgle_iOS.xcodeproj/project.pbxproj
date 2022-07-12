@@ -28,6 +28,9 @@
 		CB29606F2875BBAA003DBF20 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
+		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
+		CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */; };
+		CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
+		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "DamgleDamgle_iOS/Global/Define/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,8 @@
 		9D5E0CE628715B3C00A3705C /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CB636CDF2875E4E9006603C5 /* Enum */,
+				CB636CD82875D3B7006603C5 /* Define */,
 				CB29606B2875B8AE003DBF20 /* DesignExtension */,
 				9D5E0CE928715BC100A3705C /* Fonts */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
@@ -123,6 +131,7 @@
 		9D5E0CE728715B5F00A3705C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -170,6 +179,22 @@
 				CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CB636CD82875D3B7006603C5 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				CB636CD92875D3C1006603C5 /* LocationService.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		CB636CDF2875E4E9006603C5 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,11 +308,14 @@
 			files = (
 				CB29606D2875B8B9003DBF20 /* UIFont+Extension.swift in Sources */,
 				CB29606F2875BBAA003DBF20 /* BaseViewControllerProtocol.swift in Sources */,
+				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
 				CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
+				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
+				CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -437,6 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MYR6MP3VKX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DamgleDamgle_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -464,6 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MYR6MP3VKX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DamgleDamgle_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
