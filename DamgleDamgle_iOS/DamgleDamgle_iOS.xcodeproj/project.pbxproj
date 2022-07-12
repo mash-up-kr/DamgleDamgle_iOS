@@ -126,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				9D5E0CE928715BC100A3705C /* Fonts */,
-				9D5E0CE828715B9200A3705C /* Components */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
 			);
 			path = Global;
@@ -139,6 +138,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+
 		9D5E0CE828715B9200A3705C /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +148,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+    
 		9D5E0CE928715BC100A3705C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +167,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D4E9268286745C40009F6E1 /* Build configuration list for PBXNativeTarget "DamgleDamgle_iOS" */;
 			buildPhases = (
+				9D0A11BF2875953C00E7D123 /* ShellScript */,
 				9D4E9250286745C30009F6E1 /* Sources */,
 				9D4E9251286745C30009F6E1 /* Frameworks */,
 				9D4E9252286745C30009F6E1 /* Resources */,
@@ -241,6 +243,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9D0A11BF2875953C00E7D123 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script oif which swiftlint >/dev/null; then\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D4E9250286745C30009F6E1 /* Sources */ = {
