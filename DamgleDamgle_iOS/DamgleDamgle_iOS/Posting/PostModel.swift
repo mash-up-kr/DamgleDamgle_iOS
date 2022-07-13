@@ -14,5 +14,5 @@ struct PostModel {
     var content: String
     var userName: String
     var checkMyContent: Bool
-    var icon: iconsButton?
+    var icon: IconsButton?
 }

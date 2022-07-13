@@ -22,7 +22,7 @@ class PostingViewModel {
         self.postModels = postModels
     }
 
-    internal func addIconInModel(original: PostModel, icon: iconsButton) -> Void {
+    internal func addIconInModel(original: PostModel, icon: IconsButton) -> Void {
         let newPostModel = self.postModels.map { (model: PostModel) -> PostModel in
             if model.id == original.id {
                 return PostModel(id: original.id, placeAddress: original.placeAddress, time: original.time, content: original.content, userName: original.userName, checkMyContent: original.checkMyContent, icon: icon)
