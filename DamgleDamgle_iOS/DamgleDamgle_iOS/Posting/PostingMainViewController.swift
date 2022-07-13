@@ -6,23 +6,13 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class PostingMainViewController: UIViewController {
+final class PostingMainViewController: UIViewController {
 
     var viewModel = PostingViewModel()
-    private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setViewDefault()
-    }
-
-    private func setViewDefault() {
-        self.postingTableView.delegate = self
-        self.postingTableView.dataSource = self
     }
 
     // MARK: - InterfaceBuilder Links
@@ -43,7 +33,6 @@ class PostingMainViewController: UIViewController {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: UITableViewDelegate {
-
 }
 
 // MARK: - TableViewDataSource
@@ -58,9 +47,8 @@ extension PostingMainViewController: UITableViewDataSource {
         }
 
         let viewModel = self.viewModel.postModels[indexPath.row]
-        cell.setUI(viewModel: viewModel)
+        cell.setupText(viewModel: viewModel)
         cell.addSelectedIcon = { [weak self] iconButton in
-            print(iconButton)
             guard let self = self else { return }
             self.viewModel.addIconInModel(original: viewModel, icon: iconButton)
         }

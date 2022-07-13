@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+final class PostTableViewCell: UITableViewCell {
 
     static let identifier = "PostTableViewCell"
 
@@ -28,11 +28,11 @@ class PostTableViewCell: UITableViewCell {
         self.iconsStartButton.imageView?.contentMode = .scaleAspectFit
     }
 
-    internal func setUI(viewModel: PostModel) {
+    internal func setupText(viewModel: PostModel) {
         self.placeAddressLabel.text = viewModel.placeAddress
         self.userNameLabel.text = viewModel.userName
-        self.checkMeLabel.text = viewModel.checkMyContent ? " • ME" : ""
-        self.timeLabel.text = viewModel.time
+        self.checkMeLabel.text = viewModel.isChecked ? " • ME" : ""
+        self.timeLabel.text = viewModel.timeText
         self.contentLabel.text = viewModel.content
     }
 
@@ -44,11 +44,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet private weak var iconsStartButton: UIButton!
-    @IBOutlet private weak var likeButton: UIButton!
-    @IBOutlet private weak var angryButton: UIButton!
-    @IBOutlet private weak var amazingButton: UIButton!
-    @IBOutlet private weak var sadButton: UIButton!
-    @IBOutlet private weak var bestButton: UIButton!
+
+    @IBOutlet private var iconsButtonCollection: [SelectableButton]!
+
 
     @IBOutlet private weak var likeButtonXPointConstraint: NSLayoutConstraint!
     @IBOutlet private weak var angryButtonXPointConstraint: NSLayoutConstraint!
@@ -56,8 +54,12 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet private weak var sadButtonXPointConstraint: NSLayoutConstraint!
     @IBOutlet private weak var bestButtonXPointConstraint: NSLayoutConstraint!
 
-    @IBAction private func iconStartButtonTouchUp(_ sender: UIButton) {
-        let stackConstraints: [(NSLayoutConstraint, IconsButton)] = [(self.likeButtonXPointConstraint, IconsButton.likeButton), (self.angryButtonXPointConstraint, IconsButton.angryButton), (self.amazingButtonXPointConstraint, IconsButton.amazingButton), (self.sadButtonXPointConstraint, IconsButton.sadButton), (self.bestButtonXPointConstraint, IconsButton.bestButton)]
+    @IBAction private func touchUpiconStartButton(_ sender: UIButton) {
+        let stackConstraints: [(NSLayoutConstraint, IconsButton)] = [(self.likeButtonXPointConstraint, IconsButton.likeButton),
+                                                                     (self.angryButtonXPointConstraint, IconsButton.angryButton),
+                                                                     (self.amazingButtonXPointConstraint, IconsButton.amazingButton),
+                                                                     (self.sadButtonXPointConstraint, IconsButton.sadButton),
+                                                                     (self.bestButtonXPointConstraint, IconsButton.bestButton)]
 
         if sender.isSelected {
             sender.isSelected = false
@@ -90,7 +92,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction private func likeButtonTouchUp(_ sender: UIButton) {
+    @IBAction private func touchUpLikeButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
             self.deleteSeletedIcon?()
@@ -104,7 +106,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction private func angryButtonTouchUp(_ sender: UIButton) {
+    @IBAction private func touchUpAngryButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
             self.deleteSeletedIcon?()
@@ -117,7 +119,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction private func amazingButtonTouchUp(_ sender: UIButton) {
+    @IBAction private func touchUpAmazingButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
             self.deleteSeletedIcon?()
@@ -130,7 +132,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction private func sadButtonTouchUp(_ sender: UIButton) {
+    @IBAction private func touchUpSadButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
             self.deleteSeletedIcon?()
@@ -143,7 +145,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction private func bestButtonTouchUp(_ sender: UIButton) {
+    @IBAction private func touchUpBestButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
             self.deleteSeletedIcon?()
@@ -158,18 +160,20 @@ class PostTableViewCell: UITableViewCell {
 
     private func deselectAnotherButton(button: UIButton) {
         if button.isSelected {
-            let iconsButtons = [self.likeButton, self.angryButton, self.amazingButton, self.sadButton, self.bestButton]
-
-            iconsButtons.forEach {
+            iconsButtonCollection.forEach {
                 if $0 != button {
-                    $0?.isSelected = false
+                    $0.isSelected = false
                 }
             }
         }
     }
 
     private func changeConstraintsAndImage(to icon: IconsButton) {
-        let stackConstraints: [(NSLayoutConstraint, IconsButton)] = [(self.likeButtonXPointConstraint, IconsButton.likeButton), (self.angryButtonXPointConstraint, IconsButton.angryButton), (self.amazingButtonXPointConstraint, IconsButton.amazingButton), (self.sadButtonXPointConstraint, IconsButton.sadButton), (self.bestButtonXPointConstraint, IconsButton.bestButton)]
+        let stackConstraints: [(NSLayoutConstraint, IconsButton)] = [(self.likeButtonXPointConstraint, IconsButton.likeButton),
+                                                                     (self.angryButtonXPointConstraint, IconsButton.angryButton),
+                                                                     (self.amazingButtonXPointConstraint, IconsButton.amazingButton),
+                                                                     (self.sadButtonXPointConstraint, IconsButton.sadButton),
+                                                                     (self.bestButtonXPointConstraint, IconsButton.bestButton)]
 
         stackConstraints.forEach {
             let constraint = $0.0
@@ -191,7 +195,6 @@ class PostTableViewCell: UITableViewCell {
         }
     }
 }
-
 
 enum IconsButton {
     case likeButton

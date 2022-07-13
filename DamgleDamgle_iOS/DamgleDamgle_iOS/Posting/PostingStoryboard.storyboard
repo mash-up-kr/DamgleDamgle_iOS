@@ -192,7 +192,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="bestButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="59z-bv-Mq5"/>
+                                                        <action selector="bestButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="9X7-RK-jxc"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-KF-Uej" userLabel="sadButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -214,7 +214,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="sadButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="bqr-Ns-tG8"/>
+                                                        <action selector="sadButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="qaL-Sh-zR2"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Tq-STE" userLabel="amazingButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -236,7 +236,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="amazingButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="pbZ-VM-oNB"/>
+                                                        <action selector="amazingButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="B6z-3k-Bs3"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-op-CUs" userLabel="angryButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -258,7 +258,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="angryButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="IyI-jk-17L"/>
+                                                        <action selector="angryButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="zA7-OD-jql"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-Tj-DAK" userLabel="likeButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -280,7 +280,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="likeButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="5We-gL-cqy"/>
+                                                        <action selector="likeButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="2Ra-bz-Ac9"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -342,25 +342,29 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="amazingButton" destination="iNy-Tq-STE" id="510-Mi-KL5"/>
                                             <outlet property="amazingButtonXPointConstraint" destination="oFC-I3-uAI" id="Avu-HT-RA7"/>
-                                            <outlet property="angryButton" destination="pda-op-CUs" id="VIe-Id-fDR"/>
                                             <outlet property="angryButtonXPointConstraint" destination="GFi-jQ-1qy" id="Ogs-jv-6Ff"/>
-                                            <outlet property="bestButton" destination="37h-h2-rEa" id="D1k-n6-wqG"/>
                                             <outlet property="bestButtonXPointConstraint" destination="mwc-ZQ-kgD" id="44p-En-1aD"/>
                                             <outlet property="checkMeLabel" destination="cv2-ga-gvt" id="2bj-VG-AYZ"/>
                                             <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
                                             <outlet property="iconsStartButton" destination="Q7r-RP-3AW" id="fvH-1K-1ec"/>
-                                            <outlet property="likeButton" destination="mPj-Tj-DAK" id="OXW-cs-Hu9"/>
                                             <outlet property="likeButtonXPointConstraint" destination="w7t-sg-pX4" id="ftz-X6-oOp"/>
                                             <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="8zc-Gl-CsC"/>
-                                            <outlet property="sadButton" destination="e3Z-KF-Uej" id="pXI-Em-vrB"/>
                                             <outlet property="sadButtonXPointConstraint" destination="7PO-CC-P5f" id="Bxc-kN-jDP"/>
                                             <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>
                                             <outlet property="userNameLabel" destination="WNp-wV-5Gm" id="uNu-zC-Qrh"/>
+                                            <outletCollection property="iconsButtonCollection" destination="mPj-Tj-DAK" collectionClass="NSMutableArray" id="84P-pc-lQR"/>
+                                            <outletCollection property="iconsButtonCollection" destination="pda-op-CUs" collectionClass="NSMutableArray" id="iQZ-zY-zQW"/>
+                                            <outletCollection property="iconsButtonCollection" destination="iNy-Tq-STE" collectionClass="NSMutableArray" id="Hg2-NV-rvn"/>
+                                            <outletCollection property="iconsButtonCollection" destination="e3Z-KF-Uej" collectionClass="NSMutableArray" id="fUp-pz-jPs"/>
+                                            <outletCollection property="iconsButtonCollection" destination="37h-h2-rEa" collectionClass="NSMutableArray" id="gLe-wJ-fja"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="7kF-13-mpL"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Eeb-9s-dcG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

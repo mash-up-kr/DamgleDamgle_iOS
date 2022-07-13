@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct PostModel {
+struct PostModel: Identifiable {
     var id: Int
     var placeAddress: String
-    var time: String
+    var timeText: String
     var content: String
     var userName: String
-    var checkMyContent: Bool
+    var isChecked: Bool
     var icon: IconsButton?
 }
