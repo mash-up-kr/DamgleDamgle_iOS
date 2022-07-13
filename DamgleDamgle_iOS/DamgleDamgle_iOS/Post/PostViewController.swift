@@ -50,7 +50,7 @@ final class PostViewController: UIViewController, BaseViewController {
         myStoryGuideLabel.isHidden = false
         
         view.layer.cornerRadius = 24
-        self.view.layer.isOpaque = false
-        self.view.layer.masksToBounds = true
+        view.layer.masksToBounds = true
+        view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     }
 }
