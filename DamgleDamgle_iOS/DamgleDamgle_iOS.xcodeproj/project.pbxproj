@@ -126,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5E0CE928715BC100A3705C /* Fonts */,
+				9D5E0CE828715B9200A3705C /* Components */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
 			);
 			path = Global;
@@ -148,7 +149,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-    
+
 		9D5E0CE928715BC100A3705C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
