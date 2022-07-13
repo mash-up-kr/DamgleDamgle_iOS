@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FullDimView: UIView, BaseView {
+final class FullDimView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +22,4 @@ final class FullDimView: UIView, BaseView {
     func initView() {
         self.backgroundColor = UIColor(named: "dimViewColor")
     }
-    
-    func setUpView() {}
 }

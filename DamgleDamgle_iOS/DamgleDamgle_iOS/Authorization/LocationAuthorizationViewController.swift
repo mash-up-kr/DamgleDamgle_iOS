@@ -7,24 +7,23 @@
 
 import UIKit
 
-final class LocationAuthorizationViewController: UIViewController, BaseViewController {
+final class LocationAuthorizationViewController: UIViewController {
     @IBOutlet private weak var guideLabel: UILabel!
     
-    let fullDimView: UIView = FullDimView()
+    private let fullDimView: UIView = FullDimView()
     private let locationManager: LocationService = LocationService.shared
 
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         layoutView()
-        setUpView()
         
         locationManager.delegate = self
     }
@@ -38,20 +37,15 @@ final class LocationAuthorizationViewController: UIViewController, BaseViewContr
     }
     
 // MARK: - objc
-    @objc func appMovedToForeground() {
+    @objc
+    func didMoveToForeground() {
         locationManager.checkLocationServiceAuthorization()
     }
     
 // MARK: - UDF
     func layoutView() {
         view.addSubview(fullDimView)
-        
-        let superViewFrame: CGRect = UIScreen.main.bounds
-        fullDimView.frame = CGRect(x: 0, y: 0, width: superViewFrame.width, height: superViewFrame.height)
-    }
-    
-    func setUpView() {
-        guideLabel.font = DamgleFont.bodyBold18.font
+        fullDimView.frame = view.bounds
     }
     
     func checkCurrentStatus(currentStatus: LocationAuthorizationStatus?) {

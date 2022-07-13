@@ -23,9 +23,6 @@
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
-		CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960692875B62F003DBF20 /* CustomViewProtocol.swift */; };
-		CB29606D2875B8B9003DBF20 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29606C2875B8B9003DBF20 /* UIFont+Extension.swift */; };
-		CB29606F2875BBAA003DBF20 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
 		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
@@ -48,9 +45,6 @@
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
-		CB2960692875B62F003DBF20 /* CustomViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewProtocol.swift; sourceTree = "<group>"; };
-		CB29606C2875B8B9003DBF20 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
-		CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
 		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -93,7 +87,6 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CB2960682875B625003DBF20 /* Protocol */,
 				CB2960652875B5DA003DBF20 /* Custom */,
 				CB432ABB2875B3DF00840132 /* Authorization */,
 				9D4E9257286745C30009F6E1 /* AppDelegate.swift */,
@@ -121,7 +114,6 @@
 			children = (
 				CB636CDF2875E4E9006603C5 /* Enum */,
 				CB636CD82875D3B7006603C5 /* Define */,
-				CB29606B2875B8AE003DBF20 /* DesignExtension */,
 				9D5E0CE928715BC100A3705C /* Fonts */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
 			);
@@ -153,23 +145,6 @@
 				CB2960662875B5EB003DBF20 /* FullDimView.swift */,
 			);
 			path = Custom;
-			sourceTree = "<group>";
-		};
-		CB2960682875B625003DBF20 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				CB2960692875B62F003DBF20 /* CustomViewProtocol.swift */,
-				CB29606E2875BBAA003DBF20 /* BaseViewControllerProtocol.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		CB29606B2875B8AE003DBF20 /* DesignExtension */ = {
-			isa = PBXGroup;
-			children = (
-				CB29606C2875B8B9003DBF20 /* UIFont+Extension.swift */,
-			);
-			path = DesignExtension;
 			sourceTree = "<group>";
 		};
 		CB432ABB2875B3DF00840132 /* Authorization */ = {
@@ -306,11 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB29606D2875B8B9003DBF20 /* UIFont+Extension.swift in Sources */,
-				CB29606F2875BBAA003DBF20 /* BaseViewControllerProtocol.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
-				CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
