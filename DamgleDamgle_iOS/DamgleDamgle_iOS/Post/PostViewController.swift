@@ -12,8 +12,6 @@ final class PostViewController: UIViewController, BaseViewController {
     @IBOutlet private weak var myStoryGuideLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    let (originWidth, originHeight) : (CGFloat, CGFloat) = (UIScreen.main.bounds.width, UIScreen.main.bounds.height)
-    
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +25,17 @@ final class PostViewController: UIViewController, BaseViewController {
     
 // MARK: - @IBAction
     @IBAction private func swipeUpDown(_ sender: UISwipeGestureRecognizer) {
+        let originWidth: CGFloat = UIScreen.main.bounds.width
+        let originHeight: CGFloat = UIScreen.main.bounds.height
+        
         UIView.animate(withDuration: 0.3) {
             switch sender.direction {
             case .up:
-                self.view.frame = CGRect(x: 0, y: self.originHeight * 0.05, width: self.originWidth, height: self.originHeight * 0.95)
+                self.view.frame = CGRect(x: 0, y: originHeight * 0.05, width: originWidth, height: originHeight * 0.95)
                 self.myStoryGuideLabel.isHidden = true
                 self.view.layoutIfNeeded()
             case .down:
-                self.view.frame = CGRect(x: 0, y: self.originHeight * 0.85, width: self.originWidth, height: self.originHeight * 0.15)
+                self.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
                 self.myStoryGuideLabel.isHidden = false
                 self.view.layoutIfNeeded()
             default:

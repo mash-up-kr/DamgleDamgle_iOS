@@ -13,24 +13,18 @@ class HomeViewController: UIViewController, BaseViewController {
     @IBOutlet private weak var monthlyPaintingBGView: UIView!
     @IBOutlet private weak var monthlyPaintingRemainingTimeLabel: UILabel!
     
-    fileprivate enum MonthlyPaintingMode: String {
+    private enum MonthlyPaintingMode: String {
         case moreThanOneHour = "grey1000"
         case lessThanOneHour = "orange500"
     }
     
-    let (originWidth, originHeight) : (CGFloat, CGFloat) = (UIScreen.main.bounds.width, UIScreen.main.bounds.height)
-    
-    fileprivate var currentPaintingMode: MonthlyPaintingMode = .moreThanOneHour {
+    private var currentPaintingMode: MonthlyPaintingMode = .moreThanOneHour {
         didSet {
             monthlyPaintingBGView.backgroundColor = UIColor(named: currentPaintingMode.rawValue)
         }
     }
     
 // MARK: - override
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpView()
@@ -43,12 +37,15 @@ class HomeViewController: UIViewController, BaseViewController {
 
 // MARK: - @IBAction
     @IBAction private func myPageButtonTapped(_ sender: UIButton) {
+        // TODO: my page로 이동
     }
     
     @IBAction private func refreshButtonTapped(_ sender: UIButton) {
+        // TODO: 새로 고침
     }
     
     @IBAction private func currentLocationButtonTapped(_ sender: UIButton) {
+        // TODO: 현재 위치로 이동
     }
     
 // MARK: - UDF
@@ -59,8 +56,11 @@ class HomeViewController: UIViewController, BaseViewController {
     }
     
     func setChildPostView() {
+        let originWidth: CGFloat = UIScreen.main.bounds.width
+        let originHeight: CGFloat = UIScreen.main.bounds.height
+        
         let childView: PostViewController = PostViewController()
-        childView.view.frame = CGRect(x: 0, y: self.originHeight * 0.85, width: self.originWidth, height: self.originHeight * 0.15)
+        childView.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
         self.addChild(childView)
         
         self.view.addSubview(childView.view)
