@@ -192,7 +192,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="bestButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="9X7-RK-jxc"/>
+                                                        <action selector="touchUpBestButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="cIy-Oa-lQ4"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-KF-Uej" userLabel="sadButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -214,7 +214,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="sadButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="qaL-Sh-zR2"/>
+                                                        <action selector="touchUpSadButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="Xh9-68-vAf"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Tq-STE" userLabel="amazingButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -236,7 +236,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="amazingButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="B6z-3k-Bs3"/>
+                                                        <action selector="touchUpAmazingButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="hbB-Ra-rpy"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-op-CUs" userLabel="angryButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -258,7 +258,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="angryButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="zA7-OD-jql"/>
+                                                        <action selector="touchUpAngryButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="JiX-Jf-XQN"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-Tj-DAK" userLabel="likeButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -280,7 +280,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="likeButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="2Ra-bz-Ac9"/>
+                                                        <action selector="touchUpLikeButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="joc-xv-tpm"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -305,7 +305,7 @@
                                                         <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=best_inactive"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="iconStartButtonTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="lds-Dd-bSH"/>
+                                                        <action selector="touchUpiconStartButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="gDj-dB-mgA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
