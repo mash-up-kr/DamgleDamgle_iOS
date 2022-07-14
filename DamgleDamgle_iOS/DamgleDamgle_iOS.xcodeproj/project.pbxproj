@@ -32,6 +32,10 @@
 		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
 		CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */; };
 		CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */; };
+		CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7A1D92287DB5DD003320B6 /* HomeViewController.swift */; };
+		CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */; };
+		CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7A1D97287DC21D003320B6 /* PostViewController.swift */; };
+		CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7A1D98287DC21D003320B6 /* PostViewController.xib */; };
 		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
 		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
 		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
@@ -61,6 +65,10 @@
 		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "DamgleDamgle_iOS/Global/Define/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationStatus.swift; sourceTree = "<group>"; };
+		CB7A1D92287DB5DD003320B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		CB7A1D97287DC21D003320B6 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		CB7A1D98287DC21D003320B6 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +121,9 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CB7A1D96287DC1C9003320B6 /* Post */,
+				CB7A1D91287DB5CE003320B6 /* Home */,
+				CB2960682875B625003DBF20 /* Protocol */,
 				CB2960652875B5DA003DBF20 /* Custom */,
 				CB432ABB2875B3DF00840132 /* Authorization */,
 				9D13FF732870333800B38051 /* Posting */,
@@ -209,6 +220,24 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		CB7A1D91287DB5CE003320B6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CB7A1D92287DB5DD003320B6 /* HomeViewController.swift */,
+				CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CB7A1D96287DC1C9003320B6 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				CB7A1D97287DC21D003320B6 /* PostViewController.swift */,
+				CB7A1D98287DC21D003320B6 /* PostViewController.xib */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,6 +316,8 @@
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
+				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
+				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
 				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
 				9D4E925F286745C30009F6E1 /* Main.storyboard in Resources */,
 			);
@@ -320,6 +351,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
+				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
+				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
+				CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
@@ -333,6 +367,7 @@
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
 				9D916E462875A97B004B2D3E /* RoundView.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
+				CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
