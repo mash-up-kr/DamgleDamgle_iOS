@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PostViewController: UIViewController, BaseViewController {
+final class PostViewController: UIViewController {
     
     @IBOutlet private weak var myStoryGuideLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
