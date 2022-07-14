@@ -5,7 +5,8 @@
 ## Commit Convention
 🐛 fix a bug  
 📝 add or update documentation  
-⚡ improve performance  
+⚡ create file  
+🚀 Introduce new feature  
 🔥 remove code or files  
 ✨ add or update the UI and style files  
 🎨 refactoring  
