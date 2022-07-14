@@ -8,14 +8,14 @@
 import CoreLocation
 import Foundation
 
-protocol LocationDataProtocol {
+protocol LocationDataProtocol: AnyObject {
     func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?)
 }
 
 final class LocationService: NSObject, CLLocationManagerDelegate {
     static let shared: LocationService = LocationService()
     
-    var delegate: LocationDataProtocol?
+    weak var delegate: LocationDataProtocol?
     
     private let manager: CLLocationManager = CLLocationManager()
 
