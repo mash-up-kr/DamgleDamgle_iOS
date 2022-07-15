@@ -9,13 +9,13 @@ import UIKit
 
 final class PostTableViewCell: UITableViewCell {
 
-    static let identifier = "PostTableViewCell"
+    static let identifier: String = "PostTableViewCell"
 
     internal var addSelectedIcon: ((IconsButton) -> Void)?
     internal var deleteSeletedIcon: (() -> Void)?
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
         didSet {
-            self.changeConstraintsAndImage(to: self.nowSelectedButtonIcon)
+            self.closeIconsButton(isSelected: self.nowSelectedButtonIcon)
         }
     }
 
@@ -46,67 +46,19 @@ final class PostTableViewCell: UITableViewCell {
     @IBOutlet private weak var iconsStartButton: UIButton!
 
     @IBOutlet private var iconsButtonCollection: [SelectableButton]!
-
-
-    @IBOutlet private weak var likeButtonXPointConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var angryButtonXPointConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var amazingButtonXPointConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var sadButtonXPointConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var bestButtonXPointConstraint: NSLayoutConstraint!
+    @IBOutlet private var iconsButtonXPointConstraint: [NSLayoutConstraint]!
 
     @IBAction private func touchUpiconStartButton(_ sender: UIButton) {
-        let stackConstraints: [(NSLayoutConstraint, IconsButton)] = [(self.likeButtonXPointConstraint, IconsButton.likeButton),
-                                                                     (self.angryButtonXPointConstraint, IconsButton.angryButton),
-                                                                     (self.amazingButtonXPointConstraint, IconsButton.amazingButton),
-                                                                     (self.sadButtonXPointConstraint, IconsButton.sadButton),
-                                                                     (self.bestButtonXPointConstraint, IconsButton.bestButton)]
-
         if sender.isSelected {
             sender.isSelected = false
-
-            stackConstraints.forEach {
-                let constraint = $0.0
-                let constant = IconsButton.none.distanceFromStartButton
-
-                UIView.animate(withDuration: 0.5) { [weak self] in
-                    guard let self = self else { return }
-
-                    constraint.constant = constant ?? 0
-                    self.layoutIfNeeded()
-                }
-            }
+            closeIconsButton(isSelected: self.nowSelectedButtonIcon)
         } else {
             sender.isSelected = true
-
-            stackConstraints.forEach {
-                let constraint = $0.0
-                let constant = $0.1.distanceFromStartButton
-
-                UIView.animate(withDuration: 0.5) { [weak self] in
-                    guard let self = self else { return }
-
-                    constraint.constant = constant ?? 0
-                    self.layoutIfNeeded()
-                }
-            }
+            openIconsButton()
         }
     }
 
-    @IBAction private func touchUpLikeButton(_ sender: UIButton) {
-        if sender.isSelected {
-            sender.isSelected = false
-            self.deleteSeletedIcon?()
-            self.nowSelectedButtonIcon = IconsButton.none
-
-        } else {
-            sender.isSelected = true
-            self.deselectAnotherButton(button: sender)
-            self.addSelectedIcon?(IconsButton.likeButton)
-            self.nowSelectedButtonIcon = IconsButton.likeButton
-        }
-    }
-
-    @IBAction private func touchUpAngryButton(_ sender: UIButton) {
+    @IBAction private func touchUpIconsButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
             self.deleteSeletedIcon?()
@@ -114,47 +66,10 @@ final class PostTableViewCell: UITableViewCell {
         } else {
             sender.isSelected = true
             self.deselectAnotherButton(button: sender)
-            self.addSelectedIcon?(IconsButton.angryButton)
-            self.nowSelectedButtonIcon = IconsButton.angryButton
-        }
-    }
 
-    @IBAction private func touchUpAmazingButton(_ sender: UIButton) {
-        if sender.isSelected {
-            sender.isSelected = false
-            self.deleteSeletedIcon?()
-            self.nowSelectedButtonIcon = IconsButton.none
-        } else {
-            sender.isSelected = true
-            self.deselectAnotherButton(button: sender)
-            self.addSelectedIcon?(IconsButton.amazingButton)
-            self.nowSelectedButtonIcon = IconsButton.amazingButton
-        }
-    }
-
-    @IBAction private func touchUpSadButton(_ sender: UIButton) {
-        if sender.isSelected {
-            sender.isSelected = false
-            self.deleteSeletedIcon?()
-            self.nowSelectedButtonIcon = IconsButton.none
-        } else {
-            sender.isSelected = true
-            self.deselectAnotherButton(button: sender)
-            self.addSelectedIcon?(IconsButton.sadButton)
-            self.nowSelectedButtonIcon = IconsButton.sadButton
-        }
-    }
-
-    @IBAction private func touchUpBestButton(_ sender: UIButton) {
-        if sender.isSelected {
-            sender.isSelected = false
-            self.deleteSeletedIcon?()
-            self.nowSelectedButtonIcon = IconsButton.none
-        } else {
-            sender.isSelected = true
-            self.deselectAnotherButton(button: sender)
-            self.addSelectedIcon?(IconsButton.bestButton)
-            self.nowSelectedButtonIcon = IconsButton.bestButton
+            let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
+            self.addSelectedIcon?(isSelectedIcon)
+            self.nowSelectedButtonIcon = isSelectedIcon
         }
     }
 
@@ -168,21 +83,59 @@ final class PostTableViewCell: UITableViewCell {
         }
     }
 
-    private func changeConstraintsAndImage(to icon: IconsButton) {
-        let stackConstraints: [(NSLayoutConstraint, IconsButton)] = [(self.likeButtonXPointConstraint, IconsButton.likeButton),
-                                                                     (self.angryButtonXPointConstraint, IconsButton.angryButton),
-                                                                     (self.amazingButtonXPointConstraint, IconsButton.amazingButton),
-                                                                     (self.sadButtonXPointConstraint, IconsButton.sadButton),
-                                                                     (self.bestButtonXPointConstraint, IconsButton.bestButton)]
+    private func isSelectedIcons(button: UIButton) -> IconsButton {
+        switch button.tag {
+        case 0:
+            return IconsButton.likeButton
+        case 1:
+            return IconsButton.angryButton
+        case 2:
+            return IconsButton.amazingButton
+        case 3:
+            return IconsButton.sadButton
+        case 4:
+            return IconsButton.bestButton
+        default:
+            return IconsButton.none
+        }
+    }
 
-        stackConstraints.forEach {
-            let constraint = $0.0
-            let constant = IconsButton.none.distanceFromStartButton
+    private func openIconsButton() {
+        iconsButtonXPointConstraint.forEach {
+            let constraint: NSLayoutConstraint = $0
+            let constant: CGFloat? = {
+                if constraint.identifier == "likeButton" {
+                    return IconsButton.likeButton.distanceFromStartButton
+                } else if constraint.identifier == "angryButton" {
+                    return IconsButton.angryButton.distanceFromStartButton
+                } else if constraint.identifier == "amazingButton" {
+                    return IconsButton.amazingButton.distanceFromStartButton
+                } else if constraint.identifier == "sadButton" {
+                    return IconsButton.sadButton.distanceFromStartButton
+                } else if constraint.identifier == "bestButton" {
+                    return IconsButton.bestButton.distanceFromStartButton
+                } else {
+                    return nil
+                }
+            }()
+
+            UIView.animate(withDuration: 0.5) {
+                guard let constant = constant else { return }
+                constraint.constant = constant
+                self.layoutIfNeeded()
+            }
+        }
+    }
+
+    private func closeIconsButton(isSelected icon: IconsButton) {
+        iconsButtonXPointConstraint.forEach {
+            let constraint: NSLayoutConstraint = $0
+            let constant: CGFloat = IconsButton.none.distanceFromStartButton
 
             UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let self = self else { return }
 
-                constraint.constant = constant ?? 0
+                constraint.constant = constant
                 self.layoutIfNeeded()
             } completion: { [weak self] _ in
                 guard let self = self else { return }
@@ -204,25 +157,37 @@ enum IconsButton {
     case bestButton
     case none
 
-    var distanceFromStartButton: CGFloat? {
+    var distanceFromStartButton: CGFloat {
         switch self {
-        case .likeButton: return -73
-        case .angryButton: return -121
-        case .amazingButton: return -169
-        case .sadButton: return -217
-        case .bestButton: return -265
-        case .none: return 0
+        case .likeButton:
+            return -73
+        case .angryButton:
+            return -121
+        case .amazingButton:
+            return -169
+        case .sadButton:
+            return -217
+        case .bestButton:
+            return -265
+        case .none:
+            return 0
         }
     }
 
     var selectImageName: String? {
         switch self {
-        case .likeButton: return "icn=like_y"
-        case .angryButton: return "icn=angry_y"
-        case .amazingButton: return "icn=amazing_y"
-        case .sadButton: return "icn=sad_y"
-        case .bestButton: return "icn=best_y"
-        case .none: return nil
+        case .likeButton:
+            return "icn=like_y"
+        case .angryButton:
+            return "icn=angry_y"
+        case .amazingButton:
+            return "icn=amazing_y"
+        case .sadButton:
+            return "icn=sad_y"
+        case .bestButton:
+            return "icn=best_y"
+        case .none:
+            return nil
         }
     }
 }

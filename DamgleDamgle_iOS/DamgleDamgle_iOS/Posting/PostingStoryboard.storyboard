@@ -173,7 +173,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-h2-rEa" userLabel="bestButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-h2-rEa" userLabel="bestButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="337" y="577" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="MiY-Kj-I7z"/>
@@ -192,10 +192,10 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="touchUpBestButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="cIy-Oa-lQ4"/>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="q3V-bS-CcD"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-KF-Uej" userLabel="sadButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-KF-Uej" userLabel="sadButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="337" y="577" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Dc6-pU-prR"/>
@@ -214,10 +214,10 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="touchUpSadButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="Xh9-68-vAf"/>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="aDP-DA-ygP"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Tq-STE" userLabel="amazingButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Tq-STE" userLabel="amazingButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="337" y="577" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Mrf-Cm-30B"/>
@@ -236,10 +236,10 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="touchUpAmazingButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="hbB-Ra-rpy"/>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="Fpz-nv-eVO"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-op-CUs" userLabel="angryButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-op-CUs" userLabel="angryButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                     <rect key="frame" x="337" y="577" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="bS4-Hv-jlW"/>
@@ -258,7 +258,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="touchUpAngryButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="JiX-Jf-XQN"/>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="24Y-Cx-359"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-Tj-DAK" userLabel="likeButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -280,7 +280,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="touchUpLikeButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="joc-xv-tpm"/>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="vFO-Sj-vcE"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
@@ -315,13 +315,13 @@
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="leading" secondItem="WNp-wV-5Gm" secondAttribute="trailing" id="2PL-aC-klj"/>
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="3gi-f2-d4R"/>
                                                 <constraint firstItem="pda-op-CUs" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="4ZA-8P-t6t"/>
-                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="7PO-CC-P5f"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="sadButton" id="7PO-CC-P5f"/>
                                                 <constraint firstItem="Q7r-RP-3AW" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="bottom" constant="16" id="BPR-gJ-c2x"/>
                                                 <constraint firstItem="jTf-D2-Nbh" firstAttribute="top" secondItem="X6k-vD-rKA" secondAttribute="topMargin" id="CV0-C2-OEP"/>
                                                 <constraint firstItem="WNp-wV-5Gm" firstAttribute="top" secondItem="jTf-D2-Nbh" secondAttribute="bottom" constant="7" id="DRn-gW-YsQ"/>
                                                 <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="F23-3u-25c"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="FmJ-Pt-F8d"/>
-                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="GFi-jQ-1qy"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="angryButton" id="GFi-jQ-1qy"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="top" secondItem="cv2-ga-gvt" secondAttribute="bottom" constant="16" id="Lg3-YS-Jtb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Q7r-RP-3AW" secondAttribute="bottom" id="LsU-o7-eQH"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="leading" secondItem="cv2-ga-gvt" secondAttribute="trailing" constant="7" id="P6k-oa-bEW"/>
@@ -332,25 +332,20 @@
                                                 <constraint firstItem="ZSS-4L-yCq" firstAttribute="leading" secondItem="Hcm-Ht-4f1" secondAttribute="trailing" constant="9" id="aYX-Ux-syH"/>
                                                 <constraint firstItem="jTf-D2-Nbh" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="dyM-De-uCZ"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="h9D-Q6-5xE"/>
-                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="mwc-ZQ-kgD"/>
-                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="oFC-I3-uAI" userLabel="amazingButtonX Point Constraint"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="bestButton" id="mwc-ZQ-kgD"/>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="amazingButton" id="oFC-I3-uAI" userLabel="amazingButtonX Point Constraint"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6oT-kl-tI8" secondAttribute="trailing" id="uYe-pg-cve"/>
                                                 <constraint firstItem="37h-h2-rEa" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="uhI-rY-qAv"/>
                                                 <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="v3a-ng-OvX"/>
-                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" id="w7t-sg-pX4"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="likeButton" id="w7t-sg-pX4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="amazingButtonXPointConstraint" destination="oFC-I3-uAI" id="Avu-HT-RA7"/>
-                                            <outlet property="angryButtonXPointConstraint" destination="GFi-jQ-1qy" id="Ogs-jv-6Ff"/>
-                                            <outlet property="bestButtonXPointConstraint" destination="mwc-ZQ-kgD" id="44p-En-1aD"/>
                                             <outlet property="checkMeLabel" destination="cv2-ga-gvt" id="2bj-VG-AYZ"/>
                                             <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
                                             <outlet property="iconsStartButton" destination="Q7r-RP-3AW" id="fvH-1K-1ec"/>
-                                            <outlet property="likeButtonXPointConstraint" destination="w7t-sg-pX4" id="ftz-X6-oOp"/>
                                             <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="8zc-Gl-CsC"/>
-                                            <outlet property="sadButtonXPointConstraint" destination="7PO-CC-P5f" id="Bxc-kN-jDP"/>
                                             <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>
                                             <outlet property="userNameLabel" destination="WNp-wV-5Gm" id="uNu-zC-Qrh"/>
                                             <outletCollection property="iconsButtonCollection" destination="mPj-Tj-DAK" collectionClass="NSMutableArray" id="84P-pc-lQR"/>
@@ -358,6 +353,11 @@
                                             <outletCollection property="iconsButtonCollection" destination="iNy-Tq-STE" collectionClass="NSMutableArray" id="Hg2-NV-rvn"/>
                                             <outletCollection property="iconsButtonCollection" destination="e3Z-KF-Uej" collectionClass="NSMutableArray" id="fUp-pz-jPs"/>
                                             <outletCollection property="iconsButtonCollection" destination="37h-h2-rEa" collectionClass="NSMutableArray" id="gLe-wJ-fja"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="w7t-sg-pX4" collectionClass="NSMutableArray" id="ugx-oE-Oo2"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="oFC-I3-uAI" collectionClass="NSMutableArray" id="U9Q-kE-qdW"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="GFi-jQ-1qy" collectionClass="NSMutableArray" id="TqJ-LA-NQx"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="7PO-CC-P5f" collectionClass="NSMutableArray" id="9Rf-AT-bcp"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="mwc-ZQ-kgD" collectionClass="NSMutableArray" id="fNR-uH-XK2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

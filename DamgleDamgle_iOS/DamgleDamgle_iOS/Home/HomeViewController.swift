@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, BaseViewController {
+class HomeViewController: UIViewController {
     
     @IBOutlet private weak var currentAddressLabel: UILabel!
     @IBOutlet private weak var monthlyPaintingBGView: UIView!
