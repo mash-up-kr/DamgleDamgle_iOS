@@ -11,6 +11,10 @@ final class PostViewController: UIViewController {
     
     @IBOutlet private weak var myStoryGuideLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var postingTextView: UITextView!
+    @IBOutlet weak var textViewOverLimitButton: UIButton!
+
+    @IBOutlet private var postingComponents: [UIView]!
     
 // MARK: - override
     override func viewDidLoad() {
@@ -32,11 +36,18 @@ final class PostViewController: UIViewController {
             switch sender.direction {
             case .up:
                 self.view.frame = CGRect(x: 0, y: originHeight * 0.05, width: originWidth, height: originHeight * 0.95)
-                self.myStoryGuideLabel.isHidden = true
+                self.myStoryGuideLabel.isHidden.toggle()
+                self.postingComponents.forEach {
+                    $0.isHidden.toggle()
+                }
                 self.view.layoutIfNeeded()
             case .down:
                 self.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
-                self.myStoryGuideLabel.isHidden = false
+                self.myStoryGuideLabel.isHidden.toggle()
+                self.postingComponents.forEach {
+                    $0.isHidden.toggle()
+                }
+                self.postingTextView.resignFirstResponder()
                 self.view.layoutIfNeeded()
             default:
                 break
@@ -44,11 +55,37 @@ final class PostViewController: UIViewController {
         }
     }
     
+    @IBAction private func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        self.postingTextView.resignFirstResponder()
+    }
+    
+    @IBAction private func postButtonTapped(_ sender: UIButton) {
+        let title = "담글을 이대로 남기시겠어요?"
+        let message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
+        let okTitle = "이대로 남기기"
+        let cancelTitle = "다시 확인하기"
+        
+        showAlertController(
+            type: .double,
+            title: title,
+            message: message,
+            okActionTitle: okTitle,
+            okActionHandler: {
+                // TODO: Post API 연결
+            },
+            cancelActionTitle: cancelTitle
+        )
+    }
+    
 // MARK: - UDF
     func layoutView() { }
     
     func setUpView() {
         myStoryGuideLabel.isHidden = false
+        textViewOverLimitButton.isHidden = true
+        postingComponents.forEach {
+            $0.isHidden = true
+        }
         
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
