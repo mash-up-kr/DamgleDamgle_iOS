@@ -49,8 +49,6 @@ class HomeViewController: UIViewController {
     }
     
 // MARK: - UDF
-    func layoutView() { }
-    
     func setUpView() {
         monthlyPaintingBGView.layer.cornerRadius = 8
     }
@@ -60,7 +58,7 @@ class HomeViewController: UIViewController {
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
         let childView: PostViewController = PostViewController()
-        childView.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
+        childView.view.frame = CGRect(x: 0, y: originHeight * 0.88, width: originWidth, height: originHeight * 0.12)
         self.addChild(childView)
         
         self.view.addSubview(childView.view)
