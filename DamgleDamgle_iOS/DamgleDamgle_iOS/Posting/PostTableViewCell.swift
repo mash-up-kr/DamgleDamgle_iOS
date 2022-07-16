@@ -119,8 +119,10 @@ final class PostTableViewCell: UITableViewCell {
                 }
             }()
 
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                guard let self = self else { return }
                 guard let constant = constant else { return }
+
                 constraint.constant = constant
                 self.layoutIfNeeded()
             }
