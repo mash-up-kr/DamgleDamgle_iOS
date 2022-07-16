@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBAction private func myButtonDidTap() {
+        let myViewController = MyViewController.instantiate()
+        myViewController.modalPresentationStyle = .overFullScreen
+        present(myViewController, animated: true)
     }
-
-
 }
 
