@@ -12,13 +12,13 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     internal var deleteSeletedIcon: (() -> Void)?
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
         didSet {
-            self.closeIconsButton(isSelected: self.nowSelectedButtonIcon)
+            closeIconsButton(isSelected: self.nowSelectedButtonIcon)
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.setViewDefault()
+        setViewDefault()
     }
 
     private func setViewDefault() {
@@ -26,11 +26,11 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
 
     internal func setupText(viewModel: PostModel) {
-        self.placeAddressLabel.text = viewModel.placeAddress
-        self.userNameLabel.text = viewModel.userName
-        self.checkMeLabel.text = viewModel.isChecked ? " • ME" : ""
-        self.timeLabel.text = viewModel.timeText
-        self.contentLabel.text = viewModel.content
+        placeAddressLabel.text = viewModel.placeAddress
+        userNameLabel.text = viewModel.userName
+        checkMeLabel.text = viewModel.isChecked ? " • ME" : ""
+        timeLabel.text = viewModel.timeText
+        contentLabel.text = viewModel.content
     }
 
     // MARK: - InterfaceBuilder Links
@@ -58,15 +58,15 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBAction private func touchUpIconsButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
-            self.deleteSeletedIcon?()
-            self.nowSelectedButtonIcon = IconsButton.none
+            deleteSeletedIcon?()
+            nowSelectedButtonIcon = IconsButton.none
         } else {
             sender.isSelected = true
-            self.deselectAnotherButton(button: sender)
+            deselectAnotherButton(button: sender)
 
             let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
-            self.addSelectedIcon?(isSelectedIcon)
-            self.nowSelectedButtonIcon = isSelectedIcon
+            addSelectedIcon?(isSelectedIcon)
+            nowSelectedButtonIcon = isSelectedIcon
         }
     }
 
@@ -81,20 +81,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
 
     private func isSelectedIcons(button: UIButton) -> IconsButton {
-        switch button.tag {
-        case 0:
-            return IconsButton.likeButton
-        case 1:
-            return IconsButton.angryButton
-        case 2:
-            return IconsButton.amazingButton
-        case 3:
-            return IconsButton.sadButton
-        case 4:
-            return IconsButton.bestButton
-        default:
-            return IconsButton.none
+        guard let button = IconsButton(rawValue: button.tag) else {
+            return .none
         }
+        return button
     }
 
     private func openIconsButton() {
@@ -117,9 +107,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             }()
 
             UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let self = self else { return }
-                guard let constant = constant else { return }
-
+                guard let self = self, let constant = constant else { return }
                 constraint.constant = constant
                 self.layoutIfNeeded()
             }
@@ -148,8 +136,8 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
 }
 
-enum IconsButton {
-    case likeButton
+enum IconsButton: Int {
+    case likeButton = 0
     case angryButton
     case amazingButton
     case sadButton
@@ -188,5 +176,9 @@ enum IconsButton {
         case .none:
             return nil
         }
+    }
+
+    var tag: Int {
+        self.rawValue
     }
 }
