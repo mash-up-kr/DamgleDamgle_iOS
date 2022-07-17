@@ -7,10 +7,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     @IBOutlet private weak var currentAddressLabel: UILabel!
-    @IBOutlet private weak var monthlyPaintingBGView: UIView!
+    @IBOutlet private weak var monthlyPaintingBGView: UIView! {
+        didSet {
+            monthlyPaintingBGView.layer.cornerRadius = 8
+        }
+    }
     @IBOutlet private weak var monthlyPaintingRemainingTimeLabel: UILabel!
     
     private enum MonthlyPaintingMode: String {

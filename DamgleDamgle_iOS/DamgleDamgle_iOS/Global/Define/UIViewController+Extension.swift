@@ -17,18 +17,22 @@ extension UIViewController {
         }
         alertController.addAction(okAction)
         
-        switch type {
-        case .single:
-            self.present(alertController, animated: true, completion: nil)
-        case .double:
+        if type == .double {
             let cancelAction: UIAlertAction = UIAlertAction(title: cancelActionTitle, style: .cancel) { _ in
                 if let cancelActionHandler = cancelActionHandler {
                     cancelActionHandler()
                 }
             }
             alertController.addAction(cancelAction)
-            
-            self.present(alertController, animated: true, completion: nil)
         }
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    enum AlertType {
+        case single
+        case double
     }
 }

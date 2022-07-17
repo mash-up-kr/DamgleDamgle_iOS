@@ -12,9 +12,11 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var myStoryGuideLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var postingTextView: UITextView!
-    @IBOutlet weak var textViewOverLimitButton: UIButton!
-
+    @IBOutlet private weak var textViewOverLimitButton: UIButton!
     @IBOutlet private var postingComponents: [UIView]!
+    
+    private let swipeUpHeightRatio = 0.05
+    private let swipeDownHeightRatio = 0.85
     
 // MARK: - override
     override func viewDidLoad() {
@@ -23,7 +25,6 @@ final class PostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setUpView()
     }
     
@@ -32,23 +33,22 @@ final class PostViewController: UIViewController {
         let originWidth: CGFloat = UIScreen.main.bounds.width
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
+        func updateAnimatingView(heightRatio: Double) {
+            self.view.frame = CGRect(x: 0, y: originHeight * heightRatio, width: originWidth, height: originHeight * (1 - heightRatio))
+            self.myStoryGuideLabel.isHidden.toggle()
+            self.postingComponents.forEach {
+                $0.isHidden.toggle()
+            }
+            self.view.layoutIfNeeded()
+        }
+        
         UIView.animate(withDuration: 0.3) {
             switch sender.direction {
             case .up:
-                self.view.frame = CGRect(x: 0, y: originHeight * 0.05, width: originWidth, height: originHeight * 0.95)
-                self.myStoryGuideLabel.isHidden.toggle()
-                self.postingComponents.forEach {
-                    $0.isHidden.toggle()
-                }
-                self.view.layoutIfNeeded()
+                updateAnimatingView(heightRatio: self.swipeUpHeightRatio)
             case .down:
-                self.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
-                self.myStoryGuideLabel.isHidden.toggle()
-                self.postingComponents.forEach {
-                    $0.isHidden.toggle()
-                }
                 self.postingTextView.resignFirstResponder()
-                self.view.layoutIfNeeded()
+                updateAnimatingView(heightRatio: self.swipeDownHeightRatio)
             default:
                 break
             }
@@ -78,8 +78,6 @@ final class PostViewController: UIViewController {
     }
     
 // MARK: - UDF
-    func layoutView() { }
-    
     func setUpView() {
         myStoryGuideLabel.isHidden = false
         textViewOverLimitButton.isHidden = true
