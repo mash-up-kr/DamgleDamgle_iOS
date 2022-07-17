@@ -52,26 +52,33 @@ final class LocationAuthorizationViewController: UIViewController {
         let title: String = "위치정보 이용에 대한 엑세스 권한이 없어요"
         let message: String = "설정으로 이동해서 권한을 변경해주세요!"
         
-        switch currentStatus {
-        case .authorizationDenied, .locationServiceDisabled:
-            // 이렇게 파라미터가 많고 긴 함수를 사용할 때, 이렇게 한 줄 한 줄 나누는게 좋을지 간단한 파라미터는 한 줄에 쓰고 handler같은 파라미터만 줄 나눠서 쓰는게 좋을지 의견 부탁드려요!
-            self.showAlertController(
-                type: .single,
-                title: title,
-                message: message,
-                okActionHandler: {
-                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-                    
-                    if UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url)
-                    }
-                })
-        case .success:
-            // TODO: push 권한 받는 뷰컨으로 이동
-            break
-        case .locationUpdateFail, .none:
-            break
-        }
+        let nicknameViewController = NicknameViewController.instantiate()
+        nicknameViewController.modalPresentationStyle = .overFullScreen
+        self.present(nicknameViewController, animated: true)
+        
+        // TODO: 일단 권한 설정없어도 넘어가게 설정, 추후 변경 필요
+//        switch currentStatus {
+//        case .authorizationDenied, .locationServiceDisabled:
+//            // 이렇게 파라미터가 많고 긴 함수를 사용할 때, 이렇게 한 줄 한 줄 나누는게 좋을지 간단한 파라미터는 한 줄에 쓰고 handler같은 파라미터만 줄 나눠서 쓰는게 좋을지 의견 부탁드려요!
+//            self.showAlertController(
+//                type: .single,
+//                title: title,
+//                message: message,
+//                okActionHandler: {
+//                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+//
+//                    if UIApplication.shared.canOpenURL(url) {
+//                        UIApplication.shared.open(url)
+//                    }
+//                })
+//        case .success:
+//            // TODO: push 권한 받는 뷰컨으로 이동
+//            let nicknameViewController = NicknameViewController.instantiate()
+//            nicknameViewController.modalPresentationStyle = .overFullScreen
+//            self.present(nicknameViewController, animated: true)
+//        case .locationUpdateFail, .none:
+//            break
+//        }
     }
 }
 

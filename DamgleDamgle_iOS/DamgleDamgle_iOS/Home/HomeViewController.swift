@@ -40,7 +40,9 @@ final class HomeViewController: UIViewController {
 
 // MARK: - @IBAction
     @IBAction private func myPageButtonTapped(_ sender: UIButton) {
-        // TODO: my page로 이동
+        let myViewController = MyViewController.instantiate()
+        myViewController.modalPresentationStyle = .overFullScreen
+        present(myViewController, animated: true)
     }
     
     @IBAction private func refreshButtonTapped(_ sender: UIButton) {
@@ -61,10 +63,10 @@ final class HomeViewController: UIViewController {
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
         let childView: PostViewController = PostViewController()
+        view.addSubview(childView.view)
         childView.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
         self.addChild(childView)
         
-        self.view.addSubview(childView.view)
         childView.didMove(toParent: self)
     }
 }
