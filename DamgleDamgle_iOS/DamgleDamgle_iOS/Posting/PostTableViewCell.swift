@@ -7,10 +7,7 @@
 
 import UIKit
 
-final class PostTableViewCell: UITableViewCell {
-
-    static let identifier = "PostTableViewCell"
-
+final class PostTableViewCell: UITableViewCell, Reusable {
     internal var addSelectedIcon: ((IconsButton) -> Void)?
     internal var deleteSeletedIcon: (() -> Void)?
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
