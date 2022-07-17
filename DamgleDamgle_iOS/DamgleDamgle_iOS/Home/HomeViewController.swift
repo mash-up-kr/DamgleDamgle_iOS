@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
-    
+final class HomeViewController: UIViewController {    
     @IBOutlet private weak var currentAddressLabel: UILabel!
     @IBOutlet private weak var monthlyPaintingBGView: UIView! {
         didSet {
