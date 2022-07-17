@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class PostTableViewCell: UITableViewCell, Reusable {
     internal var addSelectedIcon: ((IconsButton) -> Void)?
