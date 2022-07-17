@@ -54,13 +54,18 @@ final class LocationAuthorizationViewController: UIViewController {
         
         switch currentStatus {
         case .authorizationDenied, .locationServiceDisabled:
-            self.showSingleAlertController(title: title, message: message) {
-                guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-                
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
-            }
+            // 이렇게 파라미터가 많고 긴 함수를 사용할 때, 이렇게 한 줄 한 줄 나누는게 좋을지 간단한 파라미터는 한 줄에 쓰고 handler같은 파라미터만 줄 나눠서 쓰는게 좋을지 의견 부탁드려요!
+            self.showAlertController(
+                type: .single,
+                title: title,
+                message: message,
+                okActionHandler: {
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                    
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                })
         case .success:
             // TODO: push 권한 받는 뷰컨으로 이동
             break

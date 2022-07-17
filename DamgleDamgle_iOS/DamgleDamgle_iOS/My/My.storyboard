@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--My View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MyViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-sC-YGM">
+                                <rect key="frame" x="179" y="114" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Yt8-WD-bhh"/>
+                                    <constraint firstAttribute="width" constant="56" id="xRL-ow-Z7h"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1번째 말많은 코알라" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPm-fa-4Ra">
+                                <rect key="frame" x="156" y="178" width="102.5" height="16"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                <color key="textColor" name="grey900"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KIH-tO-lGM">
+                                <rect key="frame" x="114" y="258" width="186" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2u-6E-fwX" customClass="DGButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="711-R3-mz4"/>
+                                            <constraint firstAttribute="width" constant="89" id="CES-nf-2fZ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="내 담글"/>
+                                        <connections>
+                                            <action selector="listButtonDidTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="U8b-EK-ZoL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8Z-hS-mcT" customClass="DGButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="97" y="0.0" width="89" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="a0I-bQ-aN0"/>
+                                            <constraint firstAttribute="width" constant="89" id="cA6-va-oxU"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="설정"/>
+                                        <connections>
+                                            <action selector="settingButtonDidTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iV3-ag-JHh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxS-Pf-wLZ">
+                                <rect key="frame" x="370" y="64" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="QpU-np-3yd"/>
+                                    <constraint firstAttribute="height" constant="24" id="YAe-gN-0Aw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="icn_close" title=" "/>
+                                <connections>
+                                    <action selector="closeButtonDidTap" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ohf-Wo-kHf"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHG-nD-UuY">
+                                <rect key="frame" x="0.0" y="298" width="414" height="598"/>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="grey500"/>
+                        <constraints>
+                            <constraint firstItem="KIH-tO-lGM" firstAttribute="top" secondItem="aPm-fa-4Ra" secondAttribute="bottom" constant="64" id="1jK-1U-jUZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FHG-nD-UuY" secondAttribute="trailing" id="LXl-Du-CqZ"/>
+                            <constraint firstItem="KIH-tO-lGM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OWw-9W-svS"/>
+                            <constraint firstItem="aPm-fa-4Ra" firstAttribute="top" secondItem="kh7-sC-YGM" secondAttribute="bottom" constant="8" id="PwA-0S-8kH"/>
+                            <constraint firstItem="mxS-Pf-wLZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="V1F-4T-4bE"/>
+                            <constraint firstItem="aPm-fa-4Ra" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="V1v-VZ-xlj"/>
+                            <constraint firstAttribute="bottom" secondItem="FHG-nD-UuY" secondAttribute="bottom" id="ZKv-iF-MIc"/>
+                            <constraint firstItem="kh7-sC-YGM" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="h7u-Zd-tvK"/>
+                            <constraint firstItem="FHG-nD-UuY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kOf-xK-uQS"/>
+                            <constraint firstItem="kh7-sC-YGM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="nCm-rM-SLf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mxS-Pf-wLZ" secondAttribute="trailing" constant="20" id="qMm-nq-D7n"/>
+                            <constraint firstItem="FHG-nD-UuY" firstAttribute="top" secondItem="KIH-tO-lGM" secondAttribute="bottom" id="xIr-fN-HGf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="FHG-nD-UuY" id="mkN-tz-gkT"/>
+                        <outlet property="listButton" destination="V2u-6E-fwX" id="Vzj-Pz-J3r"/>
+                        <outlet property="settingButton" destination="H8Z-hS-mcT" id="rgA-pO-3M3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
+        </scene>
+        <!--My Post List View Controller-->
+        <scene sceneID="FpO-RL-6OS">
+            <objects>
+                <viewController storyboardIdentifier="MyPostListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zt3-aq-OO4" customClass="MyPostListViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRB-Vw-bmx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eqD-5q-hMZ"/>
+                        <color key="backgroundColor" name="grey600"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qo2-qS-vXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845" y="98"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="Jx8-cT-ys0">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iku-fV-goJ" customClass="SettingViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wak-xB-EES">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9Ub-Td-W67"/>
+                        <color key="backgroundColor" name="grey700"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0Q-cF-gth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icn_close" width="24" height="24"/>
+        <image name="icn_profileImage" width="56" height="56"/>
+        <namedColor name="grey500">
+            <color red="0.80800002813339233" green="0.7839999794960022" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey600">
+            <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey700">
+            <color red="0.37999999523162842" green="0.37999999523162842" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey900">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

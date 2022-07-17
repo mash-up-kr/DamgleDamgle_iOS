@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E76243D287F19B6002E1600 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76243C287F19B6002E1600 /* Reusable.swift */; };
+		3E76244D2882ACF3002E1600 /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E76244B2882ACF3002E1600 /* My.storyboard */; };
+		3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244C2882ACF3002E1600 /* MyViewController.swift */; };
+		3E7624502882AE1F002E1600 /* DGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244F2882AE1F002E1600 /* DGButton.swift */; };
+		3E7624522882AF9C002E1600 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624512882AF9C002E1600 /* UIColor+Extension.swift */; };
+		3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624532882B3BB002E1600 /* StoryboardBased.swift */; };
+		3E7624562882BF2B002E1600 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624552882BF2B002E1600 /* Array+Extension.swift */; };
+		3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyPostListViewController.swift */; };
+		3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624592882C033002E1600 /* SettingViewController.swift */; };
 		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
 		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
 		9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D13FF762870339400B38051 /* PostingStoryboard.storyboard */; };
@@ -22,6 +31,8 @@
 		9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */; };
 		9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */; };
 		9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */; };
+		9D9F4F88287EE9B2001771DC /* OnboardingNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* OnboardingNicknameViewController.swift */; };
+		9D9F4F8A287EE9C7001771DC /* OnboardingNicknameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* OnboardingNicknameStoryboard.storyboard */; };
 		9D916E462875A97B004B2D3E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D916E452875A97B004B2D3E /* RoundView.swift */; };
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
@@ -42,6 +53,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E76243C287F19B6002E1600 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		3E76244B2882ACF3002E1600 /* My.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
+		3E76244C2882ACF3002E1600 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		3E76244F2882AE1F002E1600 /* DGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGButton.swift; sourceTree = "<group>"; };
+		3E7624512882AF9C002E1600 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "DamgleDamgle_iOS/My/UIColor+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		3E7624532882B3BB002E1600 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardBased.swift; path = DamgleDamgle_iOS/Global/Protocol/StoryboardBased.swift; sourceTree = SOURCE_ROOT; };
+		3E7624552882BF2B002E1600 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "DamgleDamgle_iOS/My/Array+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		3E7624572882BFEC002E1600 /* MyPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListViewController.swift; sourceTree = "<group>"; };
+		3E7624592882C033002E1600 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -57,6 +77,8 @@
 		9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		9D9F4F87287EE9B1001771DC /* OnboardingNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNicknameViewController.swift; sourceTree = "<group>"; };
+		9D9F4F89287EE9C7001771DC /* OnboardingNicknameStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingNicknameStoryboard.storyboard; sourceTree = "<group>"; };
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
@@ -89,6 +111,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E76243B287F19A9002E1600 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3E76243C287F19B6002E1600 /* Reusable.swift */,
+				3E7624532882B3BB002E1600 /* StoryboardBased.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3E76244A2882ACF3002E1600 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				3E76244F2882AE1F002E1600 /* DGButton.swift */,
+				3E76244B2882ACF3002E1600 /* My.storyboard */,
+				3E76244C2882ACF3002E1600 /* MyViewController.swift */,
+				3E7624572882BFEC002E1600 /* MyPostListViewController.swift */,
+				3E7624592882C033002E1600 /* SettingViewController.swift */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
 		9D13FF732870333800B38051 /* Posting */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +169,8 @@
 				CB2960652875B5DA003DBF20 /* Custom */,
 				CB432ABB2875B3DF00840132 /* Authorization */,
 				9D13FF732870333800B38051 /* Posting */,
+				9D9F4F86287EE998001771DC /* Onboarding */,
+				3E76244A2882ACF3002E1600 /* My */,
 				9D4E9257286745C30009F6E1 /* AppDelegate.swift */,
 				9D4E9259286745C30009F6E1 /* SceneDelegate.swift */,
 				9D4E925B286745C30009F6E1 /* ViewController.swift */,
@@ -154,6 +199,7 @@
 				9D5E0CE928715BC100A3705C /* Fonts */,
 				9D5E0CE828715B9200A3705C /* Components */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
+				3E76243B287F19A9002E1600 /* Protocol */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -162,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */,
+				3E7624512882AF9C002E1600 /* UIColor+Extension.swift */,
+				3E7624552882BF2B002E1600 /* Array+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -184,6 +232,15 @@
 				9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9D9F4F86287EE998001771DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9D9F4F87287EE9B1001771DC /* OnboardingNicknameViewController.swift */,
+				9D9F4F89287EE9C7001771DC /* OnboardingNicknameStoryboard.storyboard */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		CB2960652875B5DA003DBF20 /* Custom */ = {
@@ -311,12 +368,14 @@
 				9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */,
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
+				9D9F4F8A287EE9C7001771DC /* OnboardingNicknameStoryboard.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
 				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
+				3E76244D2882ACF3002E1600 /* My.storyboard in Resources */,
 				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
 				9D4E925F286745C30009F6E1 /* Main.storyboard in Resources */,
 			);
@@ -349,20 +408,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7624522882AF9C002E1600 /* UIColor+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
+				9D9F4F88287EE9B2001771DC /* OnboardingNicknameViewController.swift in Sources */,
+				CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
+				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
 				CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */,
 				9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */,
+				3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */,
+				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
+				3E7624562882BF2B002E1600 /* Array+Extension.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
+				3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
+				3E7624502882AE1F002E1600 /* DGButton.swift in Sources */,
 				9D916E462875A97B004B2D3E /* RoundView.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 				CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */,
@@ -442,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -497,7 +566,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -533,7 +602,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -563,7 +632,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
