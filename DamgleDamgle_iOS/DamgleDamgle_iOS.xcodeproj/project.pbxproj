@@ -26,6 +26,9 @@
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
+		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
+		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
+		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
@@ -36,9 +39,6 @@
 		CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */; };
 		CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7A1D97287DC21D003320B6 /* PostViewController.swift */; };
 		CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7A1D98287DC21D003320B6 /* PostViewController.xib */; };
-		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
-		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
-		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +59,9 @@
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
+		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
@@ -69,9 +72,6 @@
 		CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CB7A1D97287DC21D003320B6 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		CB7A1D98287DC21D003320B6 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
-		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
-		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
-		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,6 @@
 			children = (
 				CB7A1D96287DC1C9003320B6 /* Post */,
 				CB7A1D91287DB5CE003320B6 /* Home */,
-				CB2960682875B625003DBF20 /* Protocol */,
 				CB2960652875B5DA003DBF20 /* Custom */,
 				CB432ABB2875B3DF00840132 /* Authorization */,
 				9D13FF732870333800B38051 /* Posting */,
@@ -353,7 +352,6 @@
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
-				CB29606A2875B62F003DBF20 /* CustomViewProtocol.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,

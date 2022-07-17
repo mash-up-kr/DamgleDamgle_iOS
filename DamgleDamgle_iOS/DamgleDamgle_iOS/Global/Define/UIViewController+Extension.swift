@@ -8,13 +8,31 @@
 import UIKit
 
 extension UIViewController {
-    func showSingleAlertController(title: String, message: String, okActionTitle: String = "확인", okActionHandler: @escaping () -> Void) {
+    func showAlertController(type: AlertType, title: String, message: String, okActionTitle: String = "확인", okActionHandler: (() -> Void)? = nil, cancelActionTitle: String = "취소", cancelActionHandler: (() -> Void)? = nil) {
         let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let settingAction: UIAlertAction = UIAlertAction(title: okActionTitle, style: .default) { _ in
-            okActionHandler()
+        let okAction: UIAlertAction = UIAlertAction(title: okActionTitle, style: .default) { _ in
+            if let okActionHandler = okActionHandler {
+                okActionHandler()
+            }
         }
-        alertController.addAction(settingAction)
+        alertController.addAction(okAction)
         
+        if type == .double {
+            let cancelAction: UIAlertAction = UIAlertAction(title: cancelActionTitle, style: .cancel) { _ in
+                if let cancelActionHandler = cancelActionHandler {
+                    cancelActionHandler()
+                }
+            }
+            alertController.addAction(cancelAction)
+        }
+
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    enum AlertType {
+        case single
+        case double
     }
 }
