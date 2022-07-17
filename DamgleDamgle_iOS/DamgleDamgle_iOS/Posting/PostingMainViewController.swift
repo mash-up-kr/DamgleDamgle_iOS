@@ -21,13 +21,13 @@ final class PostingMainViewController: UIViewController {
     @IBOutlet private weak var postingTableView: UITableView!
 
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
-        self.timeSortButton.isSelected = true
-        self.popularitySortButton.isSelected = false
+        timeSortButton.isSelected = true
+        popularitySortButton.isSelected = false
     }
 
     @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
-        self.timeSortButton.isSelected = false
-        self.popularitySortButton.isSelected = true
+        timeSortButton.isSelected = false
+        popularitySortButton.isSelected = true
     }
 }
 
