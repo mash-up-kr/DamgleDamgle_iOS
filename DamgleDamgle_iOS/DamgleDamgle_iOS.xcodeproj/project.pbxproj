@@ -119,13 +119,28 @@
 		3E76244A2882ACF3002E1600 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				3E76244F2882AE1F002E1600 /* DGButton.swift */,
 				3E76244B2882ACF3002E1600 /* My.storyboard */,
 				3E76244C2882ACF3002E1600 /* MyViewController.swift */,
-				3E7624572882BFEC002E1600 /* MyPostListViewController.swift */,
-				3E7624592882C033002E1600 /* SettingViewController.swift */,
+				3E7624692883FAEB002E1600 /* PostList */,
+				3E76246A2883FC9E002E1600 /* Setting */,
 			);
 			path = My;
+			sourceTree = "<group>";
+		};
+		3E7624692883FAEB002E1600 /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				3E7624572882BFEC002E1600 /* MyPostListViewController.swift */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		3E76246A2883FC9E002E1600 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3E7624592882C033002E1600 /* SettingViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		9D13FF732870333800B38051 /* Posting */ = {
@@ -240,6 +255,7 @@
 		CB2960652875B5DA003DBF20 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				3E76244F2882AE1F002E1600 /* DGButton.swift */,
 				CB2960662875B5EB003DBF20 /* FullDimView.swift */,
 			);
 			path = Custom;
