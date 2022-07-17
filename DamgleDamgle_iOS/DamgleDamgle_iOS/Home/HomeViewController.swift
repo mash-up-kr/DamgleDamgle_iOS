@@ -28,10 +28,6 @@ final class HomeViewController: UIViewController {
     }
     
 // MARK: - override
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpView()
@@ -67,7 +63,7 @@ final class HomeViewController: UIViewController {
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
         let childView: PostViewController = PostViewController()
-        self.view.addSubview(childView.view)
+        view.addSubview(childView.view)
         childView.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
         self.addChild(childView)
         
