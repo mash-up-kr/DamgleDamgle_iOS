@@ -12,6 +12,9 @@
         <array key="Pretendard-Medium.otf">
             <string>Pretendard-Medium</string>
         </array>
+        <array key="Pretendard-SemiBold.otf">
+            <string>Pretendard-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--My View Controller-->
@@ -116,13 +119,23 @@
                     <view key="view" contentMode="scaleToFill" id="dRB-Vw-bmx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_mypage_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hok-SA-FMq">
+                                <rect key="frame" x="27.5" y="0.0" width="359" height="896"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eqD-5q-hMZ"/>
-                        <color key="backgroundColor" name="grey600"/>
+                        <color key="backgroundColor" name="grey500"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hok-SA-FMq" secondAttribute="bottom" id="5Cx-wi-LLr"/>
+                            <constraint firstItem="hok-SA-FMq" firstAttribute="top" secondItem="dRB-Vw-bmx" secondAttribute="top" id="CkO-9A-1yB"/>
+                            <constraint firstItem="hok-SA-FMq" firstAttribute="centerX" secondItem="dRB-Vw-bmx" secondAttribute="centerX" id="icY-PA-05X"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qo2-qS-vXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845" y="98"/>
+            <point key="canvasLocation" x="844.92753623188412" y="97.767857142857139"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Jx8-cT-ys0">
@@ -131,29 +144,91 @@
                     <view key="view" contentMode="scaleToFill" id="Wak-xB-EES">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 107" translatesAutoresizingMaskIntoConstraints="NO" id="XrQ-dK-6XN">
+                                <rect key="frame" x="31.5" y="44" width="351" height="182"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSm-Jx-yVJ">
+                                <rect key="frame" x="0.0" y="84" width="414" height="102"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_setting" translatesAutoresizingMaskIntoConstraints="NO" id="DjO-ml-R0v">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="102" id="mP6-1n-k0c"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH 알림 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-Ca-Kmd">
+                                        <rect key="frame" x="44" y="24" width="106" height="20"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                                        <color key="textColor" name="grey900"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ml3-dK-RF3">
+                                        <rect key="frame" x="44" y="48" width="130" height="31.5"/>
+                                        <string key="text">내 주변이야기가 등장하면
+바로 알려드려요!</string>
+                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                        <color key="textColor" name="grey800"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXy-a5-uvE">
+                                        <rect key="frame" x="321" y="35.5" width="51" height="31"/>
+                                        <color key="onTintColor" name="grey400"/>
+                                        <color key="thumbTintColor" name="orange500"/>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ml3-dK-RF3" firstAttribute="leading" secondItem="jSm-Jx-yVJ" secondAttribute="leading" constant="44" id="3Ew-4z-xMH"/>
+                                    <constraint firstItem="uXy-a5-uvE" firstAttribute="centerY" secondItem="jSm-Jx-yVJ" secondAttribute="centerY" id="J5X-UP-ZKa"/>
+                                    <constraint firstItem="DjO-ml-R0v" firstAttribute="top" secondItem="jSm-Jx-yVJ" secondAttribute="top" id="M21-I1-sjZ"/>
+                                    <constraint firstItem="OfU-Ca-Kmd" firstAttribute="top" secondItem="jSm-Jx-yVJ" secondAttribute="top" constant="24" id="NvN-qA-QFW"/>
+                                    <constraint firstItem="DjO-ml-R0v" firstAttribute="leading" secondItem="jSm-Jx-yVJ" secondAttribute="leading" id="SR4-dm-W4T"/>
+                                    <constraint firstAttribute="trailing" secondItem="uXy-a5-uvE" secondAttribute="trailing" constant="44" id="Z99-dH-77G"/>
+                                    <constraint firstItem="Ml3-dK-RF3" firstAttribute="top" secondItem="OfU-Ca-Kmd" secondAttribute="bottom" constant="4" id="ZHo-ar-DJp"/>
+                                    <constraint firstItem="OfU-Ca-Kmd" firstAttribute="leading" secondItem="jSm-Jx-yVJ" secondAttribute="leading" constant="44" id="aRN-oA-K4F"/>
+                                    <constraint firstAttribute="trailing" secondItem="DjO-ml-R0v" secondAttribute="trailing" id="f6T-J2-wyI"/>
+                                    <constraint firstAttribute="bottom" secondItem="DjO-ml-R0v" secondAttribute="bottom" id="l8T-8r-oU3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9Ub-Td-W67"/>
-                        <color key="backgroundColor" name="grey700"/>
+                        <color key="backgroundColor" name="grey500"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jSm-Jx-yVJ" secondAttribute="trailing" id="OZ3-9i-kAI"/>
+                            <constraint firstItem="jSm-Jx-yVJ" firstAttribute="centerY" secondItem="XrQ-dK-6XN" secondAttribute="centerY" id="Q3p-0H-kjt"/>
+                            <constraint firstItem="XrQ-dK-6XN" firstAttribute="top" secondItem="9Ub-Td-W67" secondAttribute="top" id="YRd-DY-oec"/>
+                            <constraint firstItem="XrQ-dK-6XN" firstAttribute="centerX" secondItem="Wak-xB-EES" secondAttribute="centerX" id="izI-nA-If8"/>
+                            <constraint firstItem="jSm-Jx-yVJ" firstAttribute="leading" secondItem="Wak-xB-EES" secondAttribute="leading" id="sYX-GJ-XCl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0Q-cF-gth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="98"/>
+            <point key="canvasLocation" x="1627.536231884058" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Rectangle 107" width="351" height="182"/>
         <image name="icn_close" width="24" height="24"/>
         <image name="icn_profileImage" width="56" height="56"/>
+        <image name="img_mypage_bg" width="359" height="664"/>
+        <image name="img_setting" width="343" height="110"/>
+        <namedColor name="grey400">
+            <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="grey500">
             <color red="0.80800002813339233" green="0.7839999794960022" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="grey600">
-            <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="grey700">
-            <color red="0.37999999523162842" green="0.37999999523162842" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="grey800">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grey900">
             <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange500">
+            <color red="0.99599999189376831" green="0.41200000047683716" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
