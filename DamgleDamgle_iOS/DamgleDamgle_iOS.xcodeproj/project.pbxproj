@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E76243D287F19B6002E1600 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76243C287F19B6002E1600 /* Reusable.swift */; };
 		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
 		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
 		9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D13FF762870339400B38051 /* PostingStoryboard.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E76243C287F19B6002E1600 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E76243B287F19A9002E1600 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3E76243C287F19B6002E1600 /* Reusable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		9D13FF732870333800B38051 /* Posting */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 				9D5E0CE928715BC100A3705C /* Fonts */,
 				9D5E0CE828715B9200A3705C /* Components */,
 				9D5E0CE728715B5F00A3705C /* Extension */,
+				3E76243B287F19A9002E1600 /* Protocol */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -360,6 +371,7 @@
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
@@ -442,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -497,7 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -531,7 +543,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -559,7 +571,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
