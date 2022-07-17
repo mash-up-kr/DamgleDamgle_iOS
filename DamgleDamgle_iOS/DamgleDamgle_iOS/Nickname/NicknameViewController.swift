@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NicknameViewController: UIViewController, StoryboardBased {
+final class NicknameViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
         UIStoryboard(name: "Nickname", bundle: nil)
     }
@@ -24,7 +24,7 @@ class NicknameViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var changeAdjectiveButton: UIButton!
     @IBOutlet private weak var changeAnimalNameButton: UIButton!
     
-    @IBAction func startButtonDidTap(_ sender: UIButton) {
+    @IBAction private func startButtonDidTap(_ sender: UIButton) {
         let homeViewController = HomeViewController()
         homeViewController.modalPresentationStyle = .overFullScreen
         self.present(homeViewController, animated: true)
