@@ -18,7 +18,8 @@ extension UIViewController {
         alertController.addAction(okAction)
         
         if type == .double {
-            let cancelAction: UIAlertAction = UIAlertAction(title: cancelActionTitle, style: .cancel) { _ in
+            // ???: cancel action의 경우 style 논의 필요
+            let cancelAction: UIAlertAction = UIAlertAction(title: cancelActionTitle, style: .default) { _ in
                 if let cancelActionHandler = cancelActionHandler {
                     cancelActionHandler()
                 }
