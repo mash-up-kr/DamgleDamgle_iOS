@@ -8,7 +8,6 @@
 import UIKit
 
 final class PostViewController: UIViewController {
-    
     @IBOutlet private weak var myStoryGuideLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var postingTextView: UITextView!
@@ -21,10 +20,6 @@ final class PostViewController: UIViewController {
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setUpView()
     }
     
@@ -34,7 +29,12 @@ final class PostViewController: UIViewController {
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
         func updateAnimatingView(heightRatio: Double) {
-            self.view.frame = CGRect(x: 0, y: originHeight * heightRatio, width: originWidth, height: originHeight * (1 - heightRatio))
+            self.view.frame = CGRect(
+                x: 0,
+                y: originHeight * heightRatio,
+                width: originWidth,
+                height: originHeight * (1 - heightRatio)
+            )
             self.myStoryGuideLabel.isHidden.toggle()
             self.postingComponents.forEach {
                 $0.isHidden.toggle()
@@ -60,20 +60,19 @@ final class PostViewController: UIViewController {
     }
     
     @IBAction private func postButtonTapped(_ sender: UIButton) {
-        let title = "담글을 이대로 남기시겠어요?"
-        let message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
-        let okTitle = "이대로 남기기"
-        let cancelTitle = "다시 확인하기"
-        
         showAlertController(
             type: .double,
-            title: title,
-            message: message,
-            okActionTitle: okTitle,
+            title: PostViewStringResource.title.rawValue,
+            message: PostViewStringResource.message.rawValue,
+            okActionTitle: PostViewStringResource.okTitle.rawValue,
             okActionHandler: {
                 // TODO: Post API 연결
+                let postProcessViewController = PostProcessViewController.instantiate()
+                postProcessViewController.modalPresentationStyle = .fullScreen
+                postProcessViewController.postStatus = .success
+                self.present(postProcessViewController, animated: true)
             },
-            cancelActionTitle: cancelTitle
+            cancelActionTitle: PostViewStringResource.cancelTitle.rawValue
         )
     }
     
@@ -84,9 +83,19 @@ final class PostViewController: UIViewController {
         postingComponents.forEach {
             $0.isHidden = true
         }
+        postingTextView.text = ""
         
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
         view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+    }
+}
+
+extension PostViewController {
+    enum PostViewStringResource: String {
+        case title = "담글을 이대로 남기시겠어요?"
+        case message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
+        case okTitle = "이대로 남기기"
+        case cancelTitle = "다시 확인하기"
     }
 }
