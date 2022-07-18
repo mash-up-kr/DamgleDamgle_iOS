@@ -10,12 +10,6 @@ import UIKit
 extension UIViewController {
     func showAlertController(type: AlertType, title: String, message: String, okActionTitle: String = "확인", okActionHandler: (() -> Void)? = nil, cancelActionTitle: String = "취소", cancelActionHandler: (() -> Void)? = nil) {
         let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction: UIAlertAction = UIAlertAction(title: okActionTitle, style: .default) { _ in
-            if let okActionHandler = okActionHandler {
-                okActionHandler()
-            }
-        }
-        alertController.addAction(okAction)
         
         if type == .double {
             // ???: cancel action의 경우 style 논의 필요
@@ -26,7 +20,13 @@ extension UIViewController {
             }
             alertController.addAction(cancelAction)
         }
-
+        
+        let okAction: UIAlertAction = UIAlertAction(title: okActionTitle, style: .default) { _ in
+            if let okActionHandler = okActionHandler {
+                okActionHandler()
+            }
+        }
+        alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
 }
