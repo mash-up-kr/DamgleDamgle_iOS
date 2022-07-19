@@ -13,9 +13,14 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var postingTextView: UITextView!
     @IBOutlet private weak var textViewOverLimitButton: UIButton!
     @IBOutlet private var postingComponents: [UIView]!
+    @IBOutlet private weak var currentTextCountLabel: UILabel!
+    @IBOutlet var swipeDownGestureRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet var swipeUpGestureRecognizer: UISwipeGestureRecognizer!
     
     private let swipeUpHeightRatio = 0.05
     private let swipeDownHeightRatio = 0.85
+    
+    private let viewModel = PostViewModel()
     
 // MARK: - override
     override func viewDidLoad() {
@@ -40,12 +45,17 @@ final class PostViewController: UIViewController {
                 $0.isHidden.toggle()
             }
             self.view.layoutIfNeeded()
+            
+            [swipeUpGestureRecognizer, swipeDownGestureRecognizer].forEach {
+                $0?.isEnabled.toggle()
+            }
         }
         
         UIView.animate(withDuration: 0.3) {
             switch sender.direction {
             case .up:
                 updateAnimatingView(heightRatio: self.swipeUpHeightRatio)
+                
             case .down:
                 self.postingTextView.resignFirstResponder()
                 updateAnimatingView(heightRatio: self.swipeDownHeightRatio)
@@ -84,6 +94,10 @@ final class PostViewController: UIViewController {
             $0.isHidden = true
         }
         postingTextView.text = ""
+        swipeUpGestureRecognizer.isEnabled = true
+        swipeDownGestureRecognizer.isEnabled = false
+        
+        postingTextView.delegate = self
         
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
@@ -98,4 +112,14 @@ extension PostViewController {
         case okTitle = "이대로 남기기"
         case cancelTitle = "다시 확인하기"
     }
+}
+
+extension PostViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        currentTextCountLabel.text = "\(textView.text.count)"
+    }
+    
+    // TODO: 글이 없을 때 placeholder 처리(text, color)
+    // TODO: 글자수 제한 로직 구현
+    // TODO: 글자수에 따라 button 활성화, 비활성화 처리
 }

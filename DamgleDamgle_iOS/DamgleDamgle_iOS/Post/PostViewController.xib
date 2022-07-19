@@ -21,8 +21,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImageView" destination="Od8-jy-lOm" id="u7J-mi-iIC"/>
+                <outlet property="currentTextCountLabel" destination="KHg-ye-vp3" id="R76-Fz-9mW"/>
                 <outlet property="myStoryGuideLabel" destination="tA5-16-9Wn" id="iSy-mU-yAK"/>
                 <outlet property="postingTextView" destination="4CO-x8-6G4" id="Prr-PI-0Oh"/>
+                <outlet property="swipeDownGestureRecognizer" destination="jc4-GQ-ChJ" id="uzD-Hp-CuO"/>
+                <outlet property="swipeUpGestureRecognizer" destination="wWp-Jb-khR" id="eVA-Hc-UE0"/>
                 <outlet property="textViewOverLimitButton" destination="uc0-FG-Esm" id="2V8-WM-TuS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="postingComponents" destination="ohk-sT-j8s" collectionClass="NSMutableArray" id="SK2-AK-SYd"/>
@@ -65,14 +68,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-yg-zvG">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-yg-zvG">
                     <rect key="frame" x="0.0" y="806.5" width="414" height="89.5"/>
-                    <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" name="grey600"/>
                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
                     <color key="tintColor" name="white"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="담글 남기기">
                         <color key="titleColor" name="white"/>
+                    </state>
+                    <state key="disabled" title="담글 남기기">
+                        <color key="titleColor" name="grey400"/>
                     </state>
                     <state key="selected" title="담글 남기기"/>
                     <state key="highlighted" title="담글 남기기"/>
@@ -87,16 +93,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="377" height="391.5"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-F6-ZCZ">
-                            <rect key="frame" x="302.5" y="357.5" width="54.5" height="16"/>
+                            <rect key="frame" x="310.5" y="357.5" width="46.5" height="16"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-ye-vp3">
-                                    <rect key="frame" x="0.0" y="0.0" width="16.5" height="16"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-ye-vp3">
+                                    <rect key="frame" x="0.0" y="0.0" width="8.5" height="16"/>
                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                     <color key="textColor" name="grey800"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/100자" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIn-Aa-e7L">
-                                    <rect key="frame" x="16.5" y="0.0" width="38" height="16"/>
+                                    <rect key="frame" x="8.5" y="0.0" width="38" height="16"/>
                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                     <color key="textColor" name="grey800"/>
                                     <nil key="highlightedColor"/>
@@ -198,6 +204,12 @@
         <image name="img_write" width="343" height="356"/>
         <image name="img_write_bg" width="375" height="763"/>
         <image name="indicatorBar" width="64" height="5"/>
+        <namedColor name="grey400">
+            <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey600">
+            <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="grey800">
             <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
