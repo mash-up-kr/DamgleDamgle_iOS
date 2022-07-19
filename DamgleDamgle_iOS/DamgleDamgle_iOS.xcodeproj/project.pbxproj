@@ -51,6 +51,7 @@
 		CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */; };
 		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
 		CBA18F2D2883F886002572D0 /* paint_this.json in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F2C2883F885002572D0 /* paint_this.json */; };
+		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessViewController.swift; sourceTree = "<group>"; };
 		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
 		CBA18F2C2883F885002572D0 /* paint_this.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = paint_this.json; path = ../../../../asset/paint_this.json; sourceTree = "<group>"; };
+		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 			children = (
 				CB7A1D97287DC21D003320B6 /* PostViewController.swift */,
 				CB7A1D98287DC21D003320B6 /* PostViewController.xib */,
+				CBA704F42885BC6200263386 /* PostViewModel.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				3E7624522882AF9C002E1600 /* UIColor+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
