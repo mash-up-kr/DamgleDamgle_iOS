@@ -110,7 +110,7 @@
                             </subviews>
                         </stackView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4CO-x8-6G4">
-                            <rect key="frame" x="24" y="14" width="329" height="228"/>
+                            <rect key="frame" x="20" y="10" width="337" height="337.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <attributedString key="attributedText">
                                 <fragment content="안녕하세요! 오늘은 이 카페에서 공감해조팀에서 회의를 하였어요~~ 다들 여기서 팀플해도 좋을듯용~~! 주인이 카공해도 뭐라고 안함~~참고하세요~~~!! 지금 넘 졸린데 오늘 일찍 자고 싶어서 커피를 마시지 않고 버틸 거에요~!!">
@@ -124,7 +124,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uc0-FG-Esm">
-                            <rect key="frame" x="24" y="224" width="191" height="18"/>
+                            <rect key="frame" x="20" y="355.5" width="191" height="18"/>
                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                             <state key="normal" title="100자까지만 입력할 수 있어요." image="icn_error">
@@ -134,17 +134,17 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="uc0-FG-Esm" firstAttribute="bottom" secondItem="Bd5-F6-ZCZ" secondAttribute="bottom" id="4FT-3j-6Ue"/>
                         <constraint firstAttribute="width" secondItem="SbN-ch-zk7" secondAttribute="height" multiplier="335:348" id="7DO-Jq-vzG"/>
                         <constraint firstItem="uc0-FG-Esm" firstAttribute="width" secondItem="SbN-ch-zk7" secondAttribute="width" multiplier="0.506631" id="BRb-Nu-JCz"/>
-                        <constraint firstItem="4CO-x8-6G4" firstAttribute="height" secondItem="SbN-ch-zk7" secondAttribute="height" multiplier="0.582375" id="D3e-pW-AaE"/>
-                        <constraint firstItem="4CO-x8-6G4" firstAttribute="top" secondItem="SbN-ch-zk7" secondAttribute="top" constant="14" id="DYC-89-nDx"/>
+                        <constraint firstItem="4CO-x8-6G4" firstAttribute="top" secondItem="SbN-ch-zk7" secondAttribute="top" constant="10" id="DYC-89-nDx"/>
                         <constraint firstItem="LtW-J2-pch" firstAttribute="leading" secondItem="SbN-ch-zk7" secondAttribute="leading" id="HX2-WR-Ytq"/>
-                        <constraint firstItem="4CO-x8-6G4" firstAttribute="leading" secondItem="SbN-ch-zk7" secondAttribute="leading" constant="24" id="L3w-3N-mMF"/>
+                        <constraint firstItem="Bd5-F6-ZCZ" firstAttribute="top" secondItem="4CO-x8-6G4" secondAttribute="bottom" constant="10" id="IOY-FO-LCK"/>
+                        <constraint firstItem="4CO-x8-6G4" firstAttribute="leading" secondItem="SbN-ch-zk7" secondAttribute="leading" constant="20" id="L3w-3N-mMF"/>
                         <constraint firstAttribute="trailing" secondItem="LtW-J2-pch" secondAttribute="trailing" id="LNz-3e-roM"/>
                         <constraint firstItem="uc0-FG-Esm" firstAttribute="leading" secondItem="4CO-x8-6G4" secondAttribute="leading" id="NIa-ql-n6d"/>
-                        <constraint firstItem="uc0-FG-Esm" firstAttribute="bottom" secondItem="4CO-x8-6G4" secondAttribute="bottom" id="PD3-Uj-VCy"/>
                         <constraint firstAttribute="bottom" secondItem="Bd5-F6-ZCZ" secondAttribute="bottom" constant="18" id="Xk9-S8-Olo"/>
-                        <constraint firstAttribute="trailing" secondItem="4CO-x8-6G4" secondAttribute="trailing" constant="24" id="jlT-Up-B4O"/>
+                        <constraint firstAttribute="trailing" secondItem="4CO-x8-6G4" secondAttribute="trailing" constant="20" id="jlT-Up-B4O"/>
                         <constraint firstItem="LtW-J2-pch" firstAttribute="top" secondItem="SbN-ch-zk7" secondAttribute="top" id="lXc-Sl-hok"/>
                         <constraint firstAttribute="trailing" secondItem="Bd5-F6-ZCZ" secondAttribute="trailing" constant="20" id="lqY-Pz-rgL"/>
                         <constraint firstAttribute="bottom" secondItem="LtW-J2-pch" secondAttribute="bottom" id="yfT-Xz-jwL"/>
