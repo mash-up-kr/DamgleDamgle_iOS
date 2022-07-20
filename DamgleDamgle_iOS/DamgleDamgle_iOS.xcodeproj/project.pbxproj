@@ -51,6 +51,7 @@
 		CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */; };
 		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
 		CBA18F2D2883F886002572D0 /* paint_this.json in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F2C2883F885002572D0 /* paint_this.json */; };
+		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
 		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessViewController.swift; sourceTree = "<group>"; };
 		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
 		CBA18F2C2883F885002572D0 /* paint_this.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = paint_this.json; path = ../../../../asset/paint_this.json; sourceTree = "<group>"; };
+		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +269,7 @@
 			children = (
 				3E76244F2882AE1F002E1600 /* DGButton.swift */,
 				CB2960662875B5EB003DBF20 /* FullDimView.swift */,
+				CBA68FC328883F7D00FE2293 /* ContinueButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,

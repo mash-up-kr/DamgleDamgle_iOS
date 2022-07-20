@@ -16,12 +16,14 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var currentTextCountLabel: UILabel!
     @IBOutlet private var swipeDownGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet private var swipeUpGestureRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet private weak var postButton: ContinueButton!
     
     private let swipeUpHeightRatio = 0.05
     private let swipeDownHeightRatio = 0.85
     private var textViewWordCount: Int = 0 {
         didSet {
             currentTextCountLabel.text = "\(textViewWordCount)"
+            postButton.isEnabled = textViewWordCount > 0
         }
     }
     private var textViewStatus: TextViewStatus = .placeholder {
@@ -157,7 +159,7 @@ extension PostViewController: UITextViewDelegate {
             textViewStatus = .placeholder
         }
     }
-    
+        
     // TODO: 글자수 제한 로직 구현
-    // TODO: 글자수에 따라 button 활성화, 비활성화 처리
+    // TODO: 글자수 제한에 따라 alert 보여주기
 }

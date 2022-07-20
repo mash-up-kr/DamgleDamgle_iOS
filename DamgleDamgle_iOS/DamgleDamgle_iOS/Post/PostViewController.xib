@@ -23,6 +23,7 @@
                 <outlet property="backgroundImageView" destination="Od8-jy-lOm" id="u7J-mi-iIC"/>
                 <outlet property="currentTextCountLabel" destination="KHg-ye-vp3" id="R76-Fz-9mW"/>
                 <outlet property="myStoryGuideLabel" destination="tA5-16-9Wn" id="iSy-mU-yAK"/>
+                <outlet property="postButton" destination="yJw-yg-zvG" id="WdQ-Ik-4kX"/>
                 <outlet property="postingTextView" destination="4CO-x8-6G4" id="Prr-PI-0Oh"/>
                 <outlet property="swipeDownGestureRecognizer" destination="jc4-GQ-ChJ" id="uzD-Hp-CuO"/>
                 <outlet property="swipeUpGestureRecognizer" destination="wWp-Jb-khR" id="eVA-Hc-UE0"/>
@@ -68,7 +69,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-yg-zvG">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-yg-zvG" customClass="ContinueButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="806.5" width="414" height="89.5"/>
                     <color key="backgroundColor" name="grey600"/>
                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="18"/>
