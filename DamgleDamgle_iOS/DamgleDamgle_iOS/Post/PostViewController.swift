@@ -18,6 +18,7 @@ final class PostViewController: UIViewController {
     @IBOutlet private var swipeUpGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet private weak var postButton: ContinueButton!
     
+    private let maxTextLength = 100
     private let swipeUpHeightRatio = 0.05
     private let swipeDownHeightRatio = 0.85
     private var textViewWordCount: Int = 0 {
@@ -144,8 +145,10 @@ extension PostViewController {
 
 // MARK: - TextView Delegate
 extension PostViewController: UITextViewDelegate {
+    // TODO: 추후 개선 예정
     func textViewDidChange(_ textView: UITextView) {
-        textViewWordCount = textView.text.count
+        let textCount = textView.text.textCountWithoutSpacingAndLines
+        textViewWordCount = textCount
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -159,7 +162,12 @@ extension PostViewController: UITextViewDelegate {
             textViewStatus = .placeholder
         }
     }
-        
-    // TODO: 글자수 제한 로직 구현
-    // TODO: 글자수 제한에 따라 alert 보여주기
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfText = newText.textCountWithoutSpacingAndLines
+        let isUnderLimit = numberOfText <= maxTextLength
+        textViewOverLimitButton.isHidden = isUnderLimit
+        return isUnderLimit
+    }
 }
