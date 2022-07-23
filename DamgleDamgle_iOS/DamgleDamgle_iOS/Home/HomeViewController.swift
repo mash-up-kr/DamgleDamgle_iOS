@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NMapsMap
 
 final class HomeViewController: UIViewController {    
     @IBOutlet private weak var currentAddressLabel: UILabel!
@@ -28,6 +29,11 @@ final class HomeViewController: UIViewController {
     }
     
 // MARK: - override
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addMapView()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpView()
@@ -54,6 +60,12 @@ final class HomeViewController: UIViewController {
     }
     
 // MARK: - UDF
+    func addMapView() {
+        let mapView = NMFMapView(frame: view.frame)
+        view.addSubview(mapView)
+        view.sendSubviewToBack(mapView)
+    }
+    
     func setUpView() {
         monthlyPaintingBGView.layer.cornerRadius = 8
     }
