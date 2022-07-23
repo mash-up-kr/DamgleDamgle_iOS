@@ -26,7 +26,6 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
 
     var currentLocation: CLLocation = CLLocation() {
         didSet {
-            print("updated! : \(currentLocation)")
             locationDelegate?.updateCurrentLocation(location: currentLocation)
         }
     }
