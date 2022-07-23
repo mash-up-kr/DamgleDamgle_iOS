@@ -12,15 +12,24 @@ protocol LocationDataProtocol: AnyObject {
     func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?)
 }
 
+protocol LocationUpdateProtocol: AnyObject {
+    func updateCurrentLocation(location: CLLocation)
+}
+
 final class LocationService: NSObject, CLLocationManagerDelegate {
     static let shared: LocationService = LocationService()
     
-    weak var delegate: LocationDataProtocol?
+    weak var dataDelegate: LocationDataProtocol?
+    weak var locationDelegate: LocationUpdateProtocol?
     
     private let manager: CLLocationManager = CLLocationManager()
 
-    // 추후 사용예정
-    var currentLocation: CLLocation?
+    var currentLocation: CLLocation = CLLocation() {
+        didSet {
+            print("updated! : \(currentLocation)")
+            locationDelegate?.updateCurrentLocation(location: currentLocation)
+        }
+    }
     
     override private init() {
         super.init()
@@ -38,7 +47,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        delegate?.updateCurrentStatus(.locationUpdateFail)
+        dataDelegate?.updateCurrentStatus(.locationUpdateFail)
     }
     
 // MARK: - UDF
@@ -48,7 +57,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization(authorizationStatus)
         } else {
-            delegate?.updateCurrentStatus(.locationServiceDisabled)
+            dataDelegate?.updateCurrentStatus(.locationServiceDisabled)
         }
     }
     
@@ -58,11 +67,15 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.requestWhenInUseAuthorization()
         case .restricted, .denied:
-            delegate?.updateCurrentStatus(.authorizationDenied)
+            dataDelegate?.updateCurrentStatus(.authorizationDenied)
         case .authorizedAlways, .authorizedWhenInUse:
-            delegate?.updateCurrentStatus(.success)
+            dataDelegate?.updateCurrentStatus(.success)
         @unknown default:
             break
         }
+    }
+    
+    func startUpdatingCurrentLocation() {
+        manager.startUpdatingLocation()
     }
 }
