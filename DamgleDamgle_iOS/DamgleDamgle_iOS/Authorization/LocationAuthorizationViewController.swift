@@ -14,26 +14,19 @@ final class LocationAuthorizationViewController: UIViewController {
     private let locationManager: LocationService = LocationService.shared
 
 // MARK: - override
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         layoutView()
         
-        locationManager.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        locationManager.dataDelegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        locationManager.delegate = nil
-        
         NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        locationManager.dataDelegate = nil
     }
     
 // MARK: - objc
@@ -59,7 +52,6 @@ final class LocationAuthorizationViewController: UIViewController {
         // TODO: 일단 권한 설정없어도 넘어가게 설정, 추후 변경 필요
 //        switch currentStatus {
 //        case .authorizationDenied, .locationServiceDisabled:
-//            // 이렇게 파라미터가 많고 긴 함수를 사용할 때, 이렇게 한 줄 한 줄 나누는게 좋을지 간단한 파라미터는 한 줄에 쓰고 handler같은 파라미터만 줄 나눠서 쓰는게 좋을지 의견 부탁드려요!
 //            self.showAlertController(
 //                type: .single,
 //                title: title,
