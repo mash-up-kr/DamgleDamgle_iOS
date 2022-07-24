@@ -25,8 +25,11 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var changeAnimalNameButton: UIButton!
     
     @IBAction private func startButtonDidTap(_ sender: UIButton) {
-        let homeViewController = HomeViewController()
-        homeViewController.modalPresentationStyle = .overFullScreen
-        self.present(homeViewController, animated: true)
+        let viewController = HomeViewController()
+        UIApplication.shared.windows.first?.rootViewController = viewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+//        let homeViewController = HomeViewController()
+//        homeViewController.modalPresentationStyle = .overFullScreen
+//        self.present(homeViewController, animated: true)
     }
 }
