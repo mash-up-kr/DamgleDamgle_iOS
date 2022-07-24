@@ -9,10 +9,12 @@ import UIKit
 
 final class PostingMainViewController: UIViewController {
 
-    var viewModel = PostingViewModel()
+    var viewModel: PostingViewModel = PostingViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        self.viewModel.delegate = self
     }
 
     // MARK: - InterfaceBuilder Links
@@ -38,24 +40,31 @@ extension PostingMainViewController: UITableViewDelegate {
 // MARK: - TableViewDataSource
 extension PostingMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.postModels.count
+        return viewModel.postModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else {
             return UITableViewCell()
         }
-
-        let viewModel = self.viewModel.postModels[indexPath.row]
-        cell.setupText(viewModel: viewModel)
+        let viewModel = viewModel.postModels[indexPath.row]
+        cell.setupUI(viewModel: viewModel)
         cell.addSelectedIcon = { [weak self] iconButton in
             guard let self = self else { return }
             self.viewModel.addIconInModel(original: viewModel, icon: iconButton)
         }
-        cell.deleteSeletedIcon = { [weak self] in
-            self?.viewModel.deleteIconInModel(original: viewModel)
+        cell.deleteSeletedIcon = { [weak self] iconsButton in
+            guard let self = self else { return }
+            self.viewModel.deleteIconInModel(original: viewModel, icon: iconsButton)
         }
+        cell.delegate = self
 
         return cell
+    }
+}
+
+extension PostingMainViewController: TableViewCellDelegate {
+    func iconButtonAnimationIsClosed() {
+        self.postingTableView.reloadData()
     }
 }

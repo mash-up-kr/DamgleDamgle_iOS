@@ -23,6 +23,14 @@
 		9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */; };
 		9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */; };
 		9D916E462875A97B004B2D3E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D916E452875A97B004B2D3E /* RoundView.swift */; };
+		9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC52882891600993C12 /* NoIconsView.xib */; };
+		9DBDCEC82882893C00993C12 /* NoIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC72882893C00993C12 /* NoIconsView.swift */; };
+		9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCECA28828F0200993C12 /* OneIconView.swift */; };
+		9DBDCECD28828F1100993C12 /* OneIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCECC28828F1100993C12 /* OneIconView.xib */; };
+		9DBDCECF2882913C00993C12 /* RotatableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCECE2882913C00993C12 /* RotatableImageView.swift */; };
+		9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCED02882977800993C12 /* RoundLabel.swift */; };
+		9DBDCED328829E0700993C12 /* ManyIconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCED228829E0700993C12 /* ManyIconsView.xib */; };
+		9DBDCED528829E1800993C12 /* ManyIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCED428829E1800993C12 /* ManyIconsView.swift */; };
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
@@ -58,6 +66,14 @@
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		9DBDCEC52882891600993C12 /* NoIconsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoIconsView.xib; sourceTree = "<group>"; };
+		9DBDCEC72882893C00993C12 /* NoIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIconsView.swift; sourceTree = "<group>"; };
+		9DBDCECA28828F0200993C12 /* OneIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneIconView.swift; sourceTree = "<group>"; };
+		9DBDCECC28828F1100993C12 /* OneIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneIconView.xib; sourceTree = "<group>"; };
+		9DBDCECE2882913C00993C12 /* RotatableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatableImageView.swift; sourceTree = "<group>"; };
+		9DBDCED02882977800993C12 /* RoundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
+		9DBDCED228829E0700993C12 /* ManyIconsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManyIconsView.xib; sourceTree = "<group>"; };
+		9DBDCED428829E1800993C12 /* ManyIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManyIconsView.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -97,6 +113,7 @@
 				9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */,
 				9DD63FFF28719D78000D9C32 /* PostModel.swift */,
 				9D13FF762870339400B38051 /* PostingStoryboard.storyboard */,
+				9DBDCEC928828EA800993C12 /* IconsImageView */,
 			);
 			path = Posting;
 			sourceTree = "<group>";
@@ -171,6 +188,8 @@
 			children = (
 				9D0DCFC028718CFA00039594 /* SelectableButton.swift */,
 				9D916E452875A97B004B2D3E /* RoundView.swift */,
+				9DBDCECE2882913C00993C12 /* RotatableImageView.swift */,
+				9DBDCED02882977800993C12 /* RoundLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -184,6 +203,19 @@
 				9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9DBDCEC928828EA800993C12 /* IconsImageView */ = {
+			isa = PBXGroup;
+			children = (
+				9DBDCEC72882893C00993C12 /* NoIconsView.swift */,
+				9DBDCEC52882891600993C12 /* NoIconsView.xib */,
+				9DBDCECA28828F0200993C12 /* OneIconView.swift */,
+				9DBDCECC28828F1100993C12 /* OneIconView.xib */,
+				9DBDCED428829E1800993C12 /* ManyIconsView.swift */,
+				9DBDCED228829E0700993C12 /* ManyIconsView.xib */,
+			);
+			path = IconsImageView;
 			sourceTree = "<group>";
 		};
 		CB2960652875B5DA003DBF20 /* Custom */ = {
@@ -307,9 +339,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBDCECD28828F1100993C12 /* OneIconView.xib in Resources */,
+				9DBDCED328829E0700993C12 /* ManyIconsView.xib in Resources */,
 				9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */,
 				9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */,
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
+				9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
@@ -340,7 +375,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script oif which swiftlint >/dev/null; then\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script oif which swiftlint >/dev/null; then\n#if which swiftlint >/dev/null; then\n#  swiftlint\n#else\n#  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -352,7 +387,9 @@
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
+				9DBDCECF2882913C00993C12 /* RotatableImageView.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
 				CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */,
@@ -360,12 +397,15 @@
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
 				9D916E462875A97B004B2D3E /* RoundView.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 				CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */,
+				9DBDCED528829E1800993C12 /* ManyIconsView.swift in Sources */,
+				9DBDCEC82882893C00993C12 /* NoIconsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +561,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 정보를 얻기 위해 반드시 필요해요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = PostingStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -551,7 +591,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 정보를 얻기 위해 반드시 필요해요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = PostingStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
