@@ -5,8 +5,8 @@
 //  Created by 최혜린 on 2022/07/12.
 //
 
-import UIKit
 import NMapsMap
+import UIKit
 
 final class HomeViewController: UIViewController {    
     @IBOutlet private weak var currentAddressLabel: UILabel!
@@ -41,6 +41,7 @@ final class HomeViewController: UIViewController {
     }()
     private let defaultZoomLevel = 15.5
     private var isFirstUpdate = true
+    private let defaultLocation = CLLocationCoordinate2D(latitude: 37.56157, longitude: 126.9966302)
     
 // MARK: - override
     override func viewDidLoad() {
@@ -50,25 +51,24 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpView()
-        NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         locationManager.dataDelegate = self
         locationManager.locationDelegate = self
-        
-        locationManager.checkLocationServiceAuthorization()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
-        locationManager.dataDelegate = nil
-        locationManager.locationDelegate = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setChildPostView()
+        locationManager.checkLocationServiceAuthorization()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        locationManager.dataDelegate = nil
+        locationManager.locationDelegate = nil
+    }
+    
 
 // MARK: - @IBAction
     @IBAction private func myPageButtonTapped(_ sender: UIButton) {
@@ -82,30 +82,46 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction private func currentLocationButtonTapped(_ sender: UIButton) {
-        let lat = locationManager.currentLocation.coordinate.latitude
-        let lng = locationManager.currentLocation.coordinate.longitude
-        let mapPosition = NMGLatLng(lat: lat, lng: lng)
-        mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
+        let currentStatus = locationManager.currentStatus
+        
+        switch currentStatus {
+        case .authorizationDenied, .locationServiceDisabled:
+            let mapPosition = NMGLatLng(from: defaultLocation)
+            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
+            
+            showAlertController(
+                type: .single,
+                title: CommonStringResource.noLocationAuthorization.title,
+                message: CommonStringResource.noLocationAuthorization.message,
+                okActionHandler: {
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                })
+        case .success:
+            let mapPosition = NMGLatLng(from: locationManager.currentLocation)
+            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
+        default:
+            break
+        }
     }
     
 // MARK: - objc
-    @objc
-    func didMoveToForeground() {
-        locationManager.checkLocationServiceAuthorization()
-    }
+//    @objc
+//    func didMoveToForeground() {
+//
+//    }
     
 // MARK: - UDF
-    func addMapView() {
+    private func addMapView() {
         mapView.frame = view.frame
         view.addSubview(mapView)
         view.sendSubviewToBack(mapView)
     }
     
-    func setUpView() {
-        monthlyPaintingBGView.layer.cornerRadius = 8
-    }
-    
-    func setChildPostView() {
+    private func setChildPostView() {
         let originWidth: CGFloat = UIScreen.main.bounds.width
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
@@ -117,10 +133,13 @@ final class HomeViewController: UIViewController {
         childView.didMove(toParent: self)
     }
     
-    func checkCurrentStatus(currentStatus: LocationAuthorizationStatus?) {
+    private func checkCurrentStatus(currentStatus: LocationAuthorizationStatus?) {
         switch currentStatus {
         case .authorizationDenied, .locationServiceDisabled:
-            self.showAlertController(
+            let mapPosition = NMGLatLng(from: defaultLocation)
+            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
+            
+            showAlertController(
                 type: .single,
                 title: CommonStringResource.noLocationAuthorization.title,
                 message: CommonStringResource.noLocationAuthorization.message,
@@ -146,11 +165,9 @@ extension HomeViewController: LocationDataProtocol {
 }
 
 extension HomeViewController: LocationUpdateProtocol {
-    func updateCurrentLocation(location: CLLocation) {
-        let lat = location.coordinate.latitude
-        let lng = location.coordinate.longitude
-        let mapPosition = NMGLatLng(lat: lat, lng: lng)
-        
+    func updateCurrentLocation(location: CLLocationCoordinate2D) {
+        let mapPosition = NMGLatLng(from: location)
+
         currentLocationMarker.position = mapPosition
         currentLocationMarker.mapView = mapView
         
