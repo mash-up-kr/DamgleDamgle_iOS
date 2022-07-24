@@ -35,9 +35,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_write_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Od8-jy-lOm">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicatorBar" translatesAutoresizingMaskIntoConstraints="NO" id="1la-yE-68E">
                     <rect key="frame" x="170.5" y="38" width="73" height="50"/>
                     <constraints>

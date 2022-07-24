@@ -7,62 +7,86 @@
 
 import Foundation
 
+protocol ViewModelProtocol: AnyObject {
+    func bind()
+}
+
 class PostingViewModel {
 
-    private(set) var postModels: [PostModel] 
+    weak var delegate: ViewModelProtocol?
+
+    private(set) var postModels: [PostModel]
 
     init() {
         let postModels: [PostModel] = [
-            PostModel(id: 0, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true),
-            PostModel(id: 1, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true),
-            PostModel(id: 2, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true),
-            PostModel(id: 3, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true)
+            PostModel(id: 0, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true, selectedIcons: [SelectedIconButton(icon: IconsButton.likeButton, count: 5),SelectedIconButton(icon: IconsButton.bestButton, count: 3),SelectedIconButton(icon: IconsButton.sadButton, count: 2),SelectedIconButton(icon: IconsButton.amazingButton, count: 1)]),
+            PostModel(id: 1, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true, selectedIcons: [SelectedIconButton(icon: IconsButton.bestButton, count: 5)]),
+            PostModel(id: 2, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true, selectedIcons: []),
+            PostModel(id: 3, placeAddress: "충무로", timeText: "10:10", content: "안녕하세요. 충무로 투섬플레이스 입니다. 잘 부탁드립니다.", userName: "시원한 대머리독수리 1호", isChecked: true, selectedIcons: [SelectedIconButton(icon: IconsButton.likeButton, count: 5),SelectedIconButton(icon: IconsButton.angryButton, count: 4),SelectedIconButton(icon: IconsButton.bestButton, count: 3),SelectedIconButton(icon: IconsButton.sadButton, count: 2),SelectedIconButton(icon: IconsButton.amazingButton, count: 1)])
         ]
 
         self.postModels = postModels
     }
 
-    internal func addIconInModel(original: PostModel, icon: IconsButton) -> Void {
+    func addIconInModel(original: PostModel, icon: IconsButton) -> Void {
         let newPostModel = self.postModels.map { (model: PostModel) -> PostModel in
             if model.id == original.id {
+                var newSelectedIcons: [SelectedIconButton] = original.selectedIcons.map { (selectedIcon: SelectedIconButton) -> SelectedIconButton in
+                    var selectedIcon = selectedIcon
+                    if selectedIcon.icon == icon {
+                        selectedIcon.plusCount()
+                    }
+                    return selectedIcon
+                }
+                let newIconsButton: [IconsButton] = original.selectedIcons.map { (selectedIcon: SelectedIconButton) -> IconsButton in
+                    var iconButton = selectedIcon.icon
+                    return iconButton
+                }
+                if !newIconsButton.contains(icon) {
+                    newSelectedIcons.append(SelectedIconButton(icon: icon, count: 1))
+                }
                 return PostModel(id: original.id,
                                  placeAddress: original.placeAddress,
                                  timeText: original.timeText,
                                  content: original.content,
                                  userName: original.userName,
                                  isChecked: original.isChecked,
-                                 icon: icon)
+                                 icon: icon,
+                                 selectedIcons: newSelectedIcons)
             } else {
-                return PostModel(id: original.id,
-                                 placeAddress: original.placeAddress,
-                                 timeText: original.timeText,
-                                 content: original.content,
-                                 userName: original.userName,
-                                 isChecked: original.isChecked,
-                                 icon: nil)
+                return model
             }
         }
         self.postModels = newPostModel
     }
 
-    internal func deleteIconInModel(original: PostModel) -> Void {
+    func deleteIconInModel(original: PostModel, icon: IconsButton) -> Void {
         let newPostModel = self.postModels.map { (model: PostModel) -> PostModel in
             if model.id == original.id {
+                var newSelectedIcons: [SelectedIconButton] = original.selectedIcons.map { (selectedIcon: SelectedIconButton) -> SelectedIconButton in
+                    var selectedIcon = selectedIcon
+                    if selectedIcon.icon == icon {
+                        selectedIcon.minusCount()
+                    }
+                    return selectedIcon
+                }
+
+                let newSelectedIcons2 = newSelectedIcons
+                for (index, icon) in newSelectedIcons2.enumerated() {
+                    if (icon.count == 0) {
+                        newSelectedIcons.remove(at: index)
+                    }
+                }
                 return PostModel(id: original.id,
                                  placeAddress: original.placeAddress,
                                  timeText: original.timeText,
                                  content: original.content,
                                  userName: original.userName,
                                  isChecked: original.isChecked,
-                                 icon: nil)
+                                 icon: nil,
+                                 selectedIcons: newSelectedIcons)
             } else {
-                return PostModel(id: original.id,
-                                 placeAddress: original.placeAddress,
-                                 timeText: original.timeText,
-                                 content: original.content,
-                                 userName: original.userName,
-                                 isChecked: original.isChecked,
-                                 icon: nil)
+                return model
             }
         }
         self.postModels = newPostModel
