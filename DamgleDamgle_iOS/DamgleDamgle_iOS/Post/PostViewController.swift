@@ -62,9 +62,9 @@ final class PostViewController: UIViewController {
     @IBAction private func postButtonTapped(_ sender: UIButton) {
         showAlertController(
             type: .double,
-            title: PostViewStringResource.title.rawValue,
-            message: PostViewStringResource.message.rawValue,
-            okActionTitle: PostViewStringResource.okTitle.rawValue,
+            title: PostViewStringResource.title,
+            message: PostViewStringResource.message,
+            okActionTitle: PostViewStringResource.okTitle,
             okActionHandler: {
                 // TODO: Post API 연결
                 let postProcessViewController = PostProcessViewController.instantiate()
@@ -72,7 +72,7 @@ final class PostViewController: UIViewController {
                 postProcessViewController.postStatus = .success
                 self.present(postProcessViewController, animated: true)
             },
-            cancelActionTitle: PostViewStringResource.cancelTitle.rawValue
+            cancelActionTitle: PostViewStringResource.cancelTitle
         )
     }
     
@@ -92,10 +92,10 @@ final class PostViewController: UIViewController {
 }
 
 extension PostViewController {
-    enum PostViewStringResource: String {
-        case title = "담글을 이대로 남기시겠어요?"
-        case message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
-        case okTitle = "이대로 남기기"
-        case cancelTitle = "다시 확인하기"
+    enum PostViewStringResource {
+        static let title = "담글을 이대로 남기시겠어요?"
+        static let message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
+        static let okTitle = "이대로 남기기"
+        static let cancelTitle = "다시 확인하기"
     }
 }
