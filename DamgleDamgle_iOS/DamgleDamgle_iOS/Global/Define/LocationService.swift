@@ -13,7 +13,7 @@ protocol LocationDataProtocol: AnyObject {
 }
 
 protocol LocationUpdateProtocol: AnyObject {
-    func updateCurrentLocation(location: CLLocation)
+    func updateCurrentLocation(location: CLLocationCoordinate2D)
 }
 
 final class LocationService: NSObject, CLLocationManagerDelegate {
@@ -24,9 +24,14 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     
     private let manager: CLLocationManager = CLLocationManager()
 
-    var currentLocation: CLLocation = CLLocation() {
+    var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D() {
         didSet {
             locationDelegate?.updateCurrentLocation(location: currentLocation)
+        }
+    }
+    var currentStatus: LocationAuthorizationStatus? {
+        didSet {
+            dataDelegate?.updateCurrentStatus(currentStatus)
         }
     }
     
@@ -42,11 +47,11 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        currentLocation = location
+        currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        dataDelegate?.updateCurrentStatus(.locationUpdateFail)
+        currentStatus = .locationUpdateFail
     }
     
 // MARK: - UDF
@@ -56,7 +61,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization(authorizationStatus)
         } else {
-            dataDelegate?.updateCurrentStatus(.locationServiceDisabled)
+            currentStatus = .locationServiceDisabled
         }
     }
     
@@ -65,12 +70,10 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         case .notDetermined:
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.requestWhenInUseAuthorization()
-        case .restricted, .denied:
-            dataDelegate?.updateCurrentStatus(.authorizationDenied)
-        case .authorizedAlways, .authorizedWhenInUse:
-            dataDelegate?.updateCurrentStatus(.success)
-        @unknown default:
-            break
+        case .denied, .restricted:
+            currentStatus = .authorizationDenied
+        case .authorizedWhenInUse, .authorizedAlways:
+            currentStatus = .success
         }
     }
     
