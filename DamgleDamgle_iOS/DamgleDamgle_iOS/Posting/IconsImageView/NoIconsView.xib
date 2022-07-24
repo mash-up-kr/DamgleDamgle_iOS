@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_no_emoji_ios" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-qJ-qmb">
+                    <rect key="frame" x="0.0" y="0.0" width="335" height="128"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="2F4-qJ-qmb" secondAttribute="bottom" id="HDx-Pe-Cru"/>
+                <constraint firstItem="2F4-qJ-qmb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HX3-Ud-SCO"/>
+                <constraint firstItem="2F4-qJ-qmb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tnt-sk-Ejs"/>
+                <constraint firstAttribute="trailing" secondItem="2F4-qJ-qmb" secondAttribute="trailing" id="muQ-CD-Bzh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="879.71014492753625" y="-102.45535714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_no_emoji_ios" width="335" height="128"/>
+    </resources>
+</document>
