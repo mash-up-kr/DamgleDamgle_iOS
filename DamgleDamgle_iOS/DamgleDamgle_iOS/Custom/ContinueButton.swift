@@ -32,6 +32,11 @@ final class ContinueButton: UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            updateButtonColor(isEnabled: isEnabled)
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -42,12 +47,6 @@ final class ContinueButton: UIButton {
         setUp()
     }
 
-    override var isEnabled: Bool {
-        didSet {
-            updateButtonColor(isEnabled: isEnabled)
-        }
-    }
-    
     private func setUp() {
         guard let title = titleLabel?.text else {
             return
@@ -65,19 +64,16 @@ final class ContinueButton: UIButton {
         }
         
         titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        setTitleColor(ButtonState.normal.textColor, for: .normal)
+        setTitleColor(ButtonState.disabled.textColor, for: .disabled)
     }
     
     private func updateButtonColor(isEnabled: Bool) {
-        var currentState: ButtonState
-        
         if isEnabled {
-            currentState = ButtonState.normal
-            self.backgroundColor = currentState.backgroundColor
-            self.setTitleColor(currentState.textColor, for: .normal)
+            self.backgroundColor = ButtonState.normal.backgroundColor
         } else {
-            currentState = ButtonState.disabled
-            self.backgroundColor = currentState.backgroundColor
-            self.setTitleColor(currentState.textColor, for: .disabled)
+            self.backgroundColor = ButtonState.disabled.backgroundColor
         }
     }
 }

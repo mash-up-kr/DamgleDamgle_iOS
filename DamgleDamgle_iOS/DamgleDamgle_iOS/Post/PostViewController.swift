@@ -14,8 +14,8 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var textViewOverLimitButton: UIButton!
     @IBOutlet private var postingComponents: [UIView]!
     @IBOutlet private weak var currentTextCountLabel: UILabel!
-    @IBOutlet private var swipeDownGestureRecognizer: UISwipeGestureRecognizer!
-    @IBOutlet private var swipeUpGestureRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet private weak var swipeDownGestureRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet private weak var swipeUpGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet private weak var postButton: ContinueButton!
     
     private let maxTextLength = 100
