@@ -51,7 +51,6 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         locationManager.dataDelegate = self
         locationManager.locationDelegate = self
     }
@@ -64,12 +63,10 @@ final class HomeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
         locationManager.dataDelegate = nil
         locationManager.locationDelegate = nil
     }
     
-
 // MARK: - @IBAction
     @IBAction private func myPageButtonTapped(_ sender: UIButton) {
         let myViewController = MyViewController.instantiate()
@@ -86,20 +83,7 @@ final class HomeViewController: UIViewController {
         
         switch currentStatus {
         case .authorizationDenied, .locationServiceDisabled:
-            let mapPosition = NMGLatLng(from: defaultLocation)
-            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
-            
-            showAlertController(
-                type: .single,
-                title: CommonStringResource.noLocationAuthorization.title,
-                message: CommonStringResource.noLocationAuthorization.message,
-                okActionHandler: {
-                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-
-                    if UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url)
-                    }
-                })
+            showDefaultLocation()
         case .success:
             let mapPosition = NMGLatLng(from: locationManager.currentLocation)
             mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
@@ -136,25 +120,30 @@ final class HomeViewController: UIViewController {
     private func checkCurrentStatus(currentStatus: LocationAuthorizationStatus?) {
         switch currentStatus {
         case .authorizationDenied, .locationServiceDisabled:
-            let mapPosition = NMGLatLng(from: defaultLocation)
-            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
-            
-            showAlertController(
-                type: .single,
-                title: CommonStringResource.noLocationAuthorization.title,
-                message: CommonStringResource.noLocationAuthorization.message,
-                okActionHandler: {
-                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-
-                    if UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url)
-                    }
-                })
+            showDefaultLocation()
         case .success:
             locationManager.startUpdatingCurrentLocation()
         case .locationUpdateFail, .none:
             break
         }
+    }
+    
+    private func showDefaultLocation() {
+        let mapPosition = NMGLatLng(from: defaultLocation)
+        mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
+        
+        showAlertController(
+            type: .single,
+            title: CommonStringResource.noLocationAuthorization.title,
+            message: CommonStringResource.noLocationAuthorization.message,
+            okActionHandler: {
+                guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        )
     }
 }
 
