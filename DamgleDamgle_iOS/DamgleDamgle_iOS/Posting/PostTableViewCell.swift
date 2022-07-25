@@ -14,6 +14,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     internal var addSelectedIcon: ((IconsButton) -> Void)?
     internal var deleteSeletedIcon: (() -> Void)?
     weak var delegate: TableViewCellDelegate?
+    var cellModel: PostModel?
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedButtonIcon)
