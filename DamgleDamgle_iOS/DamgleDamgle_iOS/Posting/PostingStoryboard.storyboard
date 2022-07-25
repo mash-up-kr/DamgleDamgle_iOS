@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QA9-8L-ZQG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8aS-yB-O1C">
             <objects>
-                <navigationController id="QA9-8L-ZQG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostingMainNavigationViewController" id="QA9-8L-ZQG" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9DQ-ee-g8G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -194,8 +195,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="37h-h2-rEa" secondAttribute="height" multiplier="1:1" id="73O-7e-YRO"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=best"/>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=best_y"/>
@@ -215,8 +215,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="e3Z-KF-Uej" secondAttribute="height" multiplier="1:1" id="YjZ-mD-FW3"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=sad"/>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=sad_y"/>
@@ -236,8 +235,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="iNy-Tq-STE" secondAttribute="height" multiplier="1:1" id="iO5-SC-sYY"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=amazing"/>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=amazing_y"/>
@@ -257,8 +255,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="pda-op-CUs" secondAttribute="height" multiplier="1:1" id="7er-sQ-JKu"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=angry"/>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=angry_y"/>
@@ -278,8 +275,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mPj-Tj-DAK" secondAttribute="height" multiplier="1:1" id="hfF-vo-RY4"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=like"/>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=like_y"/>

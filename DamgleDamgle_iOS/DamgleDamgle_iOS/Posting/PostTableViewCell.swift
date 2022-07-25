@@ -11,16 +11,14 @@ protocol TableViewCellDelegate: AnyObject {
     func iconButtonAnimationIsClosed()
 }
 final class PostTableViewCell: UITableViewCell, Reusable {
-    internal var addSelectedIcon: ((IconsButton) -> Void)?
-    internal var deleteSeletedIcon: (() -> Void)?
     weak var delegate: TableViewCellDelegate?
-    var cellModel: PostModel?
+    var addSelectedIcon: ((IconsButton) -> Void)?
+    var deleteSeletedIcon: ((IconsButton) -> Void)?
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedButtonIcon)
         }
     }
-
     private var id: Int?
 
     override func awakeFromNib() {
@@ -44,9 +42,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
 
     private func setViewDefault() {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
-
-        guard let cellModel = cellModel else { return }
-        setupIconsView(selectedIcons: cellModel.selectedIcons)
     }
 
     func setupUI(viewModel: PostModel) {
@@ -58,7 +53,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         setupIconsView(selectedIcons: viewModel.selectedIcons)
         setupIconsStartButton(selectedIcon: viewModel.icon ?? IconsButton.none)
         setupIconsButton(selectedIcon: viewModel.icon ?? IconsButton.none)
-        cellModel = viewModel
     }
 
     private func setupIconsStartButton(selectedIcon: IconsButton) {
@@ -117,8 +111,8 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             sender.isSelected = false
 
             let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
-            self.deleteSeletedIcon?(isSelectedIcon)
-            self.nowSelectedButtonIcon = IconsButton.none
+            deleteSeletedIcon?(isSelectedIcon)
+            nowSelectedButtonIcon = IconsButton.none
         } else {
             sender.isSelected = true
             deselectAnotherButton(button: sender)
