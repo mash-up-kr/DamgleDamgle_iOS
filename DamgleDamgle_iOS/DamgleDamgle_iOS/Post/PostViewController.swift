@@ -32,7 +32,7 @@ final class PostViewController: UIViewController {
             switch textViewStatus {
             case .placeholder:
                 textViewWordCount = 0
-                postingTextView.text = StringResource.textViewPlaceholder.rawValue
+                postingTextView.text = StringResource.textViewPlaceholder
                 postingTextView.textColor = UIColor(named: "grey600")
             case .editing:
                 postingTextView.text = nil
@@ -92,9 +92,9 @@ final class PostViewController: UIViewController {
     @IBAction private func postButtonTapped(_ sender: UIButton) {
         showAlertController(
             type: .double,
-            title: PostViewStringResource.title,
-            message: PostViewStringResource.message,
-            okActionTitle: PostViewStringResource.okTitle,
+            title: StringResource.title,
+            message: StringResource.message,
+            okActionTitle: StringResource.okTitle,
             okActionHandler: {
                 // TODO: Post API 연결
                 let postProcessViewController = PostProcessViewController.instantiate()
@@ -102,7 +102,7 @@ final class PostViewController: UIViewController {
                 postProcessViewController.postStatus = .success
                 self.present(postProcessViewController, animated: true)
             },
-            cancelActionTitle: PostViewStringResource.cancelTitle
+            cancelActionTitle: StringResource.cancelTitle
         )
     }
     
@@ -129,7 +129,7 @@ final class PostViewController: UIViewController {
 
 // MARK: - Enum
 extension PostViewController {
-    private enum StringResource: String {
+    private enum StringResource {
         static let title = "담글을 이대로 남기시겠어요?"
         static let message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
         static let okTitle = "이대로 남기기"
@@ -152,7 +152,7 @@ extension PostViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == StringResource.textViewPlaceholder.rawValue {
+        if textView.text == StringResource.textViewPlaceholder {
             textViewStatus = .editing
         }
     }
