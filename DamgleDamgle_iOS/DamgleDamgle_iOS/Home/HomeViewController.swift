@@ -43,6 +43,8 @@ final class HomeViewController: UIViewController {
     private var isFirstUpdate = true
     private let defaultLocation = CLLocationCoordinate2D(latitude: 37.56157, longitude: 126.9966302)
     private let postViewHeightRatio = 0.85
+    private let originWidth: CGFloat = UIScreen.main.bounds.width
+    private let originHeight: CGFloat = UIScreen.main.bounds.height
     
 // MARK: - override
     override func viewDidLoad() {
@@ -124,9 +126,6 @@ final class HomeViewController: UIViewController {
     }
     
     private func setChildPostView() {
-        let originWidth: CGFloat = UIScreen.main.bounds.width
-        let originHeight: CGFloat = UIScreen.main.bounds.height
-        
         let childView: PostViewController = PostViewController()
         view.addSubview(childView.view)
         childView.view.frame = CGRect(

@@ -338,6 +338,7 @@
 				42D1B25031D1A1D34014C61E /* Pods-DamgleDamgle_iOS.release.xcconfig */,
 			);
 			path = Pods;
+		};
 		CB9ACC852883DF8600D2AC6B /* PostProcess */ = {
 			isa = PBXGroup;
 			children = (
