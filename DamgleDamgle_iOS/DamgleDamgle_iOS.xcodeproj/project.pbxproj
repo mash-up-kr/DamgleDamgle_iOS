@@ -456,7 +456,6 @@
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
-				9D4E925C286745C30009F6E1 /* ViewController.swift in Sources */,
 				9DBDCECF2882913C00993C12 /* RotatableImageView.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */,
@@ -627,9 +626,9 @@
 				INFOPLIST_FILE = DamgleDamgle_iOS/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치 정보를 얻기 위해 반드시 필요해요!";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 얻기 위해 반드시 필요해요!";
-				INFOPLIST_KEY_NSMainNibFile = LocationAuthorizationViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = PostingStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -657,9 +656,9 @@
 				INFOPLIST_FILE = DamgleDamgle_iOS/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치 정보를 얻기 위해 반드시 필요해요!";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 얻기 위해 반드시 필요해요!";
-				INFOPLIST_KEY_NSMainNibFile = LocationAuthorizationViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = PostingStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -46,7 +46,7 @@ extension PostingMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels[indexPath.row]
-        cell.setupText(viewModel: viewModel)
+        cell.setupUI(viewModel: viewModel)
         cell.addSelectedIcon = { [weak self] iconButton in
             guard let self = self else { return }
             self.viewModel.addIconInModel(original: viewModel, icon: iconButton)

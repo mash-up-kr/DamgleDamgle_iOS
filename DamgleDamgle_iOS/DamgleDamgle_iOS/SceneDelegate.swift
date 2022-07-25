@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         window?.windowScene = windowScene
-        window?.rootViewController = LocationAuthorizationViewController()
+        guard let postingMainNavigationViewController = UIStoryboard.init(name: "PostingStoryboard", bundle: nil).instantiateViewController(identifier: "PostingMainNavigationViewController") as? UINavigationController  else { return }
+        window?.rootViewController = postingMainNavigationViewController
+//        window?.rootViewController = LocationAuthorizationViewController()
         window?.makeKeyAndVisible()
     }
 
