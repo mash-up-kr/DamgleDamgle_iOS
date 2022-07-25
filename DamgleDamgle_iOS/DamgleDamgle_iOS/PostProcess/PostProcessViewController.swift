@@ -1,0 +1,109 @@
+//
+//  PostProcessViewController.swift
+//  DamgleDamgle_iOS
+//
+//  Created by 최혜린 on 2022/07/17.
+//
+
+import Lottie
+import UIKit
+
+protocol PostProcessDismissProtocol: AnyObject {
+    func dismissToMain()
+    func dismissToPost()
+}
+
+final class PostProcessViewController: UIViewController, StoryboardBased {
+    static var storyboard: UIStoryboard {
+        UIStoryboard(name: "PostProcess", bundle: nil)
+    }
+    
+    weak var delegate: PostProcessDismissProtocol?
+        
+    @IBOutlet private weak var processStatusTitleLabel: UILabel!
+    @IBOutlet private weak var processStatusSubTitleLabel: UILabel!
+    @IBOutlet private weak var processImageView: UIImageView!
+    @IBOutlet private weak var nextStepButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
+    
+    var postStatus: PostStatus = .inProgress
+    private let paintLottieName = "paint_this"
+    private let lottieSize = UIScreen.main.bounds.width * 0.9
+    
+// MARK: - override
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addLottieAnimation()
+    }
+
+// MARK: - @IBAction
+    @IBAction private func nextStepButtonDidTap(_ sender: UIButton) {
+        switch postStatus {
+        case .inProgress:
+            break
+        case .success:
+            // TODO: 해당 글로 이동
+            break
+        case .fail:
+            self.dismiss(animated: true)
+        }
+    }
+    
+    @IBAction private func closeButtonDidTap(_ sender: UIButton) {
+        let presentingViewController = self.presentingViewController as? HomeViewController
+        presentingViewController?.resetChildView()
+        self.presentingViewController?.dismiss(animated: true)
+    }
+   
+// MARK: - UDF
+    private func setUpView() {
+        updateViewData(type: .inProgress)
+    }
+    
+    private func updateViewData(type: PostStatus) {
+        processStatusTitleLabel.text = type.statusTitle
+        processStatusSubTitleLabel.text = type.subTitle
+        
+        if let image = type.image {
+            processImageView.image = image
+        }
+        
+        processImageView.image = type.image
+        
+        if let buttonTitle = type.buttonTitle {
+            nextStepButton.isHidden = false
+            nextStepButton.setTitle(buttonTitle, for: .normal)
+        } else {
+            nextStepButton.isHidden = true
+        }
+        
+        let isCloseButtonHidden = type == .inProgress
+        closeButton.isHidden = isCloseButtonHidden
+    }
+    
+    private func addLottieAnimation() {
+        let originWidth: CGFloat = UIScreen.main.bounds.width
+        let originHeight: CGFloat = UIScreen.main.bounds.height
+        
+        let animationView = Lottie.AnimationView(name: paintLottieName)
+        animationView.frame = CGRect(
+            x: (originWidth - lottieSize) / 2,
+            y: (originHeight - lottieSize) / 2,
+            width: lottieSize,
+            height: lottieSize
+        )
+        animationView.contentMode = .scaleAspectFill
+        animationView.isUserInteractionEnabled = false
+
+        view.addSubview(animationView)
+        animationView.play { _ in
+            animationView.removeFromSuperview()
+            self.updateViewData(type: self.postStatus)
+        }
+    }
+}

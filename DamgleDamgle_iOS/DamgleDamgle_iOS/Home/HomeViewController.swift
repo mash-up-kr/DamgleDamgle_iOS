@@ -42,6 +42,7 @@ final class HomeViewController: UIViewController {
     private let defaultZoomLevel = 15.5
     private var isFirstUpdate = true
     private let defaultLocation = CLLocationCoordinate2D(latitude: 37.56157, longitude: 126.9966302)
+    private let postViewHeightRatio = 0.85
     
 // MARK: - override
     override func viewDidLoad() {
@@ -55,10 +56,27 @@ final class HomeViewController: UIViewController {
         locationManager.locationDelegate = self
     }
     
+// MARK: - override
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setChildPostView()
+        
         locationManager.checkLocationServiceAuthorization()
+        
+        if children.isEmpty {
+            setChildPostView()
+        }
+    }
+    
+    func resetChildView() {
+        if let childrenViewController = children.first as? PostViewController {
+            childrenViewController.view.frame = CGRect(
+                x: 0,
+                y: originHeight * postViewHeightRatio,
+                width: originWidth,
+                height: originHeight * (1 - postViewHeightRatio)
+            )
+            childrenViewController.setUpView()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -111,9 +129,13 @@ final class HomeViewController: UIViewController {
         
         let childView: PostViewController = PostViewController()
         view.addSubview(childView.view)
-        childView.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
-        self.addChild(childView)
-        
+        childView.view.frame = CGRect(
+            x: 0,
+            y: originHeight * postViewHeightRatio,
+            width: originWidth,
+            height: originHeight * (1 - postViewHeightRatio)
+        )
+        addChild(childView)
         childView.didMove(toParent: self)
     }
     
