@@ -12,15 +12,28 @@ protocol LocationDataProtocol: AnyObject {
     func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?)
 }
 
+protocol LocationUpdateProtocol: AnyObject {
+    func updateCurrentLocation(location: CLLocationCoordinate2D)
+}
+
 final class LocationService: NSObject, CLLocationManagerDelegate {
     static let shared: LocationService = LocationService()
     
-    weak var delegate: LocationDataProtocol?
+    weak var dataDelegate: LocationDataProtocol?
+    weak var locationDelegate: LocationUpdateProtocol?
     
     private let manager: CLLocationManager = CLLocationManager()
 
-    // 추후 사용예정
-    var currentLocation: CLLocation?
+    var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D() {
+        didSet {
+            locationDelegate?.updateCurrentLocation(location: currentLocation)
+        }
+    }
+    var currentStatus: LocationAuthorizationStatus? {
+        didSet {
+            dataDelegate?.updateCurrentStatus(currentStatus)
+        }
+    }
     
     override private init() {
         super.init()
@@ -34,11 +47,11 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        currentLocation = location
+        currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        delegate?.updateCurrentStatus(.locationUpdateFail)
+        currentStatus = .locationUpdateFail
     }
     
 // MARK: - UDF
@@ -48,7 +61,7 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization(authorizationStatus)
         } else {
-            delegate?.updateCurrentStatus(.locationServiceDisabled)
+            currentStatus = .locationServiceDisabled
         }
     }
     
@@ -57,12 +70,14 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         case .notDetermined:
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.requestWhenInUseAuthorization()
-        case .restricted, .denied:
-            delegate?.updateCurrentStatus(.authorizationDenied)
-        case .authorizedAlways, .authorizedWhenInUse:
-            delegate?.updateCurrentStatus(.success)
-        @unknown default:
-            break
+        case .denied, .restricted:
+            currentStatus = .authorizationDenied
+        case .authorizedWhenInUse, .authorizedAlways:
+            currentStatus = .success
         }
+    }
+    
+    func startUpdatingCurrentLocation() {
+        manager.startUpdatingLocation()
     }
 }

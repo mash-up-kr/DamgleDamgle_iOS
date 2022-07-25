@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05812E08EC6C94456DEA993B /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B530477473CC386F0F0ED /* Pods_DamgleDamgle_iOS.framework */; };
 		3E76243D287F19B6002E1600 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76243C287F19B6002E1600 /* Reusable.swift */; };
 		3E76244D2882ACF3002E1600 /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E76244B2882ACF3002E1600 /* My.storyboard */; };
 		3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244C2882ACF3002E1600 /* MyViewController.swift */; };
@@ -41,6 +42,7 @@
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
+		CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */; };
 		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
 		CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */; };
 		CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */; };
@@ -66,6 +68,8 @@
 		3E7624552882BF2B002E1600 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "DamgleDamgle_iOS/My/Array+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		3E7624572882BFEC002E1600 /* MyPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListViewController.swift; sourceTree = "<group>"; };
 		3E7624592882C033002E1600 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		42D1B25031D1A1D34014C61E /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		6D32D9071278AB7D5DE8442D /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -86,9 +90,11 @@
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		A55B530477473CC386F0F0ED /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
+		CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStringResource.swift; sourceTree = "<group>"; };
 		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extension.swift"; path = "DamgleDamgle_iOS/Global/Define/UIViewController+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationStatus.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */,
 				9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */,
 				9D4E9272286748E20009F6E1 /* Lottie in Frameworks */,
+				05812E08EC6C94456DEA993B /* Pods_DamgleDamgle_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +180,7 @@
 				9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */,
 				9D4E9255286745C30009F6E1 /* Products */,
 				9D4E926C2867475B0009F6E1 /* Frameworks */,
+				EC7E6FA18DA534442217BE97 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +217,7 @@
 		9D4E926C2867475B0009F6E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A55B530477473CC386F0F0ED /* Pods_DamgleDamgle_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -298,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */,
+				CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -321,6 +331,13 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
+		EC7E6FA18DA534442217BE97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D32D9071278AB7D5DE8442D /* Pods-DamgleDamgle_iOS.debug.xcconfig */,
+				42D1B25031D1A1D34014C61E /* Pods-DamgleDamgle_iOS.release.xcconfig */,
+			);
+			path = Pods;
 		CB9ACC852883DF8600D2AC6B /* PostProcess */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,10 +362,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D4E9268286745C40009F6E1 /* Build configuration list for PBXNativeTarget "DamgleDamgle_iOS" */;
 			buildPhases = (
+				D0065D748BC5B13FEAAB91FD /* [CP] Check Pods Manifest.lock */,
 				9D0A11BF2875953C00E7D123 /* ShellScript */,
 				9D4E9250286745C30009F6E1 /* Sources */,
 				9D4E9251286745C30009F6E1 /* Frameworks */,
 				9D4E9252286745C30009F6E1 /* Resources */,
+				69EB057B8E4DCF39CB40B9A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -429,6 +448,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		69EB057B8E4DCF39CB40B9A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9D0A11BF2875953C00E7D123 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +482,28 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script oif which swiftlint >/dev/null; then\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		D0065D748BC5B13FEAAB91FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DamgleDamgle_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -453,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				3E7624522882AF9C002E1600 /* UIColor+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
@@ -616,6 +675,7 @@
 		};
 		9D4E9269286745C40009F6E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D32D9071278AB7D5DE8442D /* Pods-DamgleDamgle_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -646,6 +706,7 @@
 		};
 		9D4E926A286745C40009F6E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42D1B25031D1A1D34014C61E /* Pods-DamgleDamgle_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
