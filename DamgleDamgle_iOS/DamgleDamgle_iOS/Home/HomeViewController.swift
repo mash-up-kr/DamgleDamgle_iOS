@@ -34,20 +34,20 @@ final class HomeViewController: UIViewController {
 // MARK: - override
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if self.children.isEmpty {
+        if children.isEmpty {
             setChildPostView()
         }
     }
     
     func resetChildView() {
-        if let childrenVC = self.children.first as? PostViewController {
-            childrenVC.view.frame = CGRect(
+        if let childrenViewController = children.first as? PostViewController {
+            childrenViewController.view.frame = CGRect(
                 x: 0,
                 y: originHeight * postViewHeightRatio,
                 width: originWidth,
                 height: originHeight * (1 - postViewHeightRatio)
             )
-            childrenVC.setUpView()
+            childrenViewController.setUpView()
         }
     }
 
@@ -76,7 +76,7 @@ final class HomeViewController: UIViewController {
             width: originWidth,
             height: originHeight * (1 - postViewHeightRatio)
         )
-        self.addChild(childView)
+        addChild(childView)
         
         childView.didMove(toParent: self)
     }

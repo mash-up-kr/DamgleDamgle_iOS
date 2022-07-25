@@ -92,9 +92,9 @@ final class PostViewController: UIViewController {
     @IBAction private func postButtonTapped(_ sender: UIButton) {
         showAlertController(
             type: .double,
-            title: StringResource.title.rawValue,
-            message: StringResource.message.rawValue,
-            okActionTitle: StringResource.okTitle.rawValue,
+            title: PostViewStringResource.title,
+            message: PostViewStringResource.message,
+            okActionTitle: PostViewStringResource.okTitle,
             okActionHandler: {
                 // TODO: Post API 연결
                 let postProcessViewController = PostProcessViewController.instantiate()
@@ -102,7 +102,7 @@ final class PostViewController: UIViewController {
                 postProcessViewController.postStatus = .success
                 self.present(postProcessViewController, animated: true)
             },
-            cancelActionTitle: StringResource.cancelTitle.rawValue
+            cancelActionTitle: PostViewStringResource.cancelTitle
         )
     }
     
@@ -130,11 +130,11 @@ final class PostViewController: UIViewController {
 // MARK: - Enum
 extension PostViewController {
     private enum StringResource: String {
-        case title = "담글을 이대로 남기시겠어요?"
-        case message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
-        case okTitle = "이대로 남기기"
-        case cancelTitle = "다시 확인하기"
-        case textViewPlaceholder = "지도 담벼락에 나만의 글을 남겨보세요."
+        static let title = "담글을 이대로 남기시겠어요?"
+        static let message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
+        static let okTitle = "이대로 남기기"
+        static let cancelTitle = "다시 확인하기"
+        static let textViewPlaceholder = "지도 담벼락에 나만의 글을 남겨보세요."
     }
     
     private enum TextViewStatus {
