@@ -48,6 +48,12 @@
 		CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */; };
 		CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7A1D97287DC21D003320B6 /* PostViewController.swift */; };
 		CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7A1D98287DC21D003320B6 /* PostViewController.xib */; };
+		CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */; };
+		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
+		CBA18F2D2883F886002572D0 /* paint_this.json in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F2C2883F885002572D0 /* paint_this.json */; };
+		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
+		CBA68FC628885B9D00FE2293 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC528885B9D00FE2293 /* String+Extension.swift */; };
+		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +96,12 @@
 		CB7A1D93287DB5DD003320B6 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CB7A1D97287DC21D003320B6 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		CB7A1D98287DC21D003320B6 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessViewController.swift; sourceTree = "<group>"; };
+		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
+		CBA18F2C2883F885002572D0 /* paint_this.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = paint_this.json; path = ../../../../asset/paint_this.json; sourceTree = "<group>"; };
+		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
+		CBA68FC528885B9D00FE2293 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "DamgleDamgle_iOS/Custom/String+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +187,7 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CB9ACC852883DF8600D2AC6B /* PostProcess */,
 				CB7A1D96287DC1C9003320B6 /* Post */,
 				CB7A1D91287DB5CE003320B6 /* Home */,
 				CB2960652875B5DA003DBF20 /* Custom */,
@@ -203,6 +216,7 @@
 		9D5E0CE628715B3C00A3705C /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CBA18F2B2883F87A002572D0 /* Lottie */,
 				CB636CDF2875E4E9006603C5 /* Enum */,
 				CB636CD82875D3B7006603C5 /* Define */,
 				9D5E0CE928715BC100A3705C /* Fonts */,
@@ -219,6 +233,7 @@
 				CB636CDD2875E1FA006603C5 /* UIViewController+Extension.swift */,
 				3E7624512882AF9C002E1600 /* UIColor+Extension.swift */,
 				3E7624552882BF2B002E1600 /* Array+Extension.swift */,
+				CBA68FC528885B9D00FE2293 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -257,6 +272,7 @@
 			children = (
 				3E76244F2882AE1F002E1600 /* DGButton.swift */,
 				CB2960662875B5EB003DBF20 /* FullDimView.swift */,
+				CBA68FC328883F7D00FE2293 /* ContinueButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -300,8 +316,26 @@
 			children = (
 				CB7A1D97287DC21D003320B6 /* PostViewController.swift */,
 				CB7A1D98287DC21D003320B6 /* PostViewController.xib */,
+				CBA704F42885BC6200263386 /* PostViewModel.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		CB9ACC852883DF8600D2AC6B /* PostProcess */ = {
+			isa = PBXGroup;
+			children = (
+				CBA18F272883E2FD002572D0 /* PostProcessViewController.swift */,
+				CBA18F292883E308002572D0 /* PostProcess.storyboard */,
+			);
+			path = PostProcess;
+			sourceTree = "<group>";
+		};
+		CBA18F2B2883F87A002572D0 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				CBA18F2C2883F885002572D0 /* paint_this.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +408,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */,
 				9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */,
 				9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */,
+				CBA18F2D2883F886002572D0 /* paint_this.json in Resources */,
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
@@ -417,12 +453,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				3E7624522882AF9C002E1600 /* UIColor+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
+				CBA68FC628885B9D00FE2293 /* String+Extension.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
 				CB636CDE2875E1FA006603C5 /* UIViewController+Extension.swift in Sources */,
@@ -431,6 +470,7 @@
 				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				3E7624562882BF2B002E1600 /* Array+Extension.swift in Sources */,
+				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */,

@@ -27,15 +27,28 @@ final class HomeViewController: UIViewController {
         }
     }
     
-// MARK: - override
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setUpView()
-    }
+    private let originWidth: CGFloat = UIScreen.main.bounds.width
+    private let originHeight: CGFloat = UIScreen.main.bounds.height
+    private let postViewHeightRatio = 0.85
     
+// MARK: - override
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setChildPostView()
+        if children.isEmpty {
+            setChildPostView()
+        }
+    }
+    
+    func resetChildView() {
+        if let childrenViewController = children.first as? PostViewController {
+            childrenViewController.view.frame = CGRect(
+                x: 0,
+                y: originHeight * postViewHeightRatio,
+                width: originWidth,
+                height: originHeight * (1 - postViewHeightRatio)
+            )
+            childrenViewController.setUpView()
+        }
     }
 
 // MARK: - @IBAction
@@ -54,18 +67,16 @@ final class HomeViewController: UIViewController {
     }
     
 // MARK: - UDF
-    func setUpView() {
-        monthlyPaintingBGView.layer.cornerRadius = 8
-    }
-    
     func setChildPostView() {
-        let originWidth: CGFloat = UIScreen.main.bounds.width
-        let originHeight: CGFloat = UIScreen.main.bounds.height
-        
         let childView: PostViewController = PostViewController()
         view.addSubview(childView.view)
-        childView.view.frame = CGRect(x: 0, y: originHeight * 0.85, width: originWidth, height: originHeight * 0.15)
-        self.addChild(childView)
+        childView.view.frame = CGRect(
+            x: 0,
+            y: originHeight * postViewHeightRatio,
+            width: originWidth,
+            height: originHeight * (1 - postViewHeightRatio)
+        )
+        addChild(childView)
         
         childView.didMove(toParent: self)
     }
