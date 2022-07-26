@@ -16,6 +16,7 @@
 		3E7624562882BF2B002E1600 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624552882BF2B002E1600 /* Array+Extension.swift */; };
 		3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyPostListViewController.swift */; };
 		3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624592882C033002E1600 /* SettingViewController.swift */; };
+		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
 		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
 		9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D13FF762870339400B38051 /* PostingStoryboard.storyboard */; };
@@ -38,7 +39,6 @@
 		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
 		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
 		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
-		AA3999EB69D9D2DDFA4C9FA6 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27ED599B75DB9821C79DB9F /* Pods_DamgleDamgle_iOS.framework */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
@@ -68,7 +68,8 @@
 		3E7624552882BF2B002E1600 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "DamgleDamgle_iOS/My/Array+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		3E7624572882BFEC002E1600 /* MyPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListViewController.swift; sourceTree = "<group>"; };
 		3E7624592882C033002E1600 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		64800D6A4206A5B84AE4241B /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -89,7 +90,7 @@
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		B27ED599B75DB9821C79DB9F /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA68FC528885B9D00FE2293 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "DamgleDamgle_iOS/Custom/String+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		F26E6453234FC81BB7E60EAD /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +119,7 @@
 				9D4E926F286748050009F6E1 /* Kingfisher in Frameworks */,
 				9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */,
 				9D4E9272286748E20009F6E1 /* Lottie in Frameworks */,
-				AA3999EB69D9D2DDFA4C9FA6 /* Pods_DamgleDamgle_iOS.framework in Frameworks */,
+				88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,8 +179,8 @@
 			children = (
 				9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */,
 				9D4E9255286745C30009F6E1 /* Products */,
-				BE1BFCE21D91AB25B19A20C5 /* Pods */,
-				ECD757416FABFD330BB549FD /* Frameworks */,
+				A400A3597BFF519C7BA64C9A /* Pods */,
+				F6F0A3826233C1FFD8667AF4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,13 +268,12 @@
 			path = Nickname;
 			sourceTree = "<group>";
 		};
-		BE1BFCE21D91AB25B19A20C5 /* Pods */ = {
+		A400A3597BFF519C7BA64C9A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F26E6453234FC81BB7E60EAD /* Pods-DamgleDamgle_iOS.debug.xcconfig */,
-				64800D6A4206A5B84AE4241B /* Pods-DamgleDamgle_iOS.release.xcconfig */,
+				67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */,
+				BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -350,10 +349,10 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
-		ECD757416FABFD330BB549FD /* Frameworks */ = {
+		F6F0A3826233C1FFD8667AF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B27ED599B75DB9821C79DB9F /* Pods_DamgleDamgle_iOS.framework */,
+				60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,12 +364,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D4E9268286745C40009F6E1 /* Build configuration list for PBXNativeTarget "DamgleDamgle_iOS" */;
 			buildPhases = (
-				C3F6E35289AA6A72ADAFCE3C /* [CP] Check Pods Manifest.lock */,
+				D05809317AECAE2752F3849E /* [CP] Check Pods Manifest.lock */,
 				9D0A11BF2875953C00E7D123 /* ShellScript */,
 				9D4E9250286745C30009F6E1 /* Sources */,
 				9D4E9251286745C30009F6E1 /* Frameworks */,
 				9D4E9252286745C30009F6E1 /* Resources */,
-				CB010876AECED0C3971BCEDE /* [CP] Embed Pods Frameworks */,
+				1031C7D9E657DBA236977F27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,9 +411,9 @@
 			);
 			mainGroup = 9D4E924B286745C30009F6E1;
 			packageReferences = (
-				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
-				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
-				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */,
+				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 9D4E9255286745C30009F6E1 /* Products */;
 			projectDirPath = "";
@@ -451,6 +450,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1031C7D9E657DBA236977F27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9D0A11BF2875953C00E7D123 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -468,7 +482,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script oif which swiftlint >/dev/null; then\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		C3F6E35289AA6A72ADAFCE3C /* [CP] Check Pods Manifest.lock */ = {
+		D05809317AECAE2752F3849E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -488,23 +502,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB010876AECED0C3971BCEDE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -678,7 +675,7 @@
 		};
 		9D4E9269286745C40009F6E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F26E6453234FC81BB7E60EAD /* Pods-DamgleDamgle_iOS.debug.xcconfig */;
+			baseConfigurationReference = 67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -709,7 +706,7 @@
 		};
 		9D4E926A286745C40009F6E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64800D6A4206A5B84AE4241B /* Pods-DamgleDamgle_iOS.release.xcconfig */;
+			baseConfigurationReference = BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -762,7 +759,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -770,7 +767,7 @@
 				kind = branch;
 			};
 		};
-		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -778,7 +775,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */ = {
+		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -791,22 +788,22 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9D4E926E286748050009F6E1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		9D4E9271286748E20009F6E1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */;
+			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 		9DCAE8A5287024DA009578E1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		9DCAE8A7287024DE009578E1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
