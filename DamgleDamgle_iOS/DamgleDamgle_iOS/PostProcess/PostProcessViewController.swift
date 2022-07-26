@@ -27,7 +27,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var closeButton: UIButton!
     
     var postStatus: PostStatus = .inProgress
-    private let paintLottieName = "paint_this"
+    private let paintLottieName = "writeLottie"
     private let lottieSize = UIScreen.main.bounds.width * 0.9
     
 // MARK: - override
