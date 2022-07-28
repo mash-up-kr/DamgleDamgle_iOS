@@ -17,14 +17,14 @@ final class HomeViewController: UIViewController {
     }
     @IBOutlet private weak var monthlyPaintingRemainingTimeLabel: UILabel!
     
-    private enum MonthlyPaintingMode: String {
-        case moreThanOneHour = "grey1000"
-        case lessThanOneHour = "orange500"
-    }
+//    private enum MonthlyPaintingMode: String {
+//        case moreThanOneHour = "grey1000"
+//        case lessThanOneHour = "orange500"
+//    }
     
-    private var currentPaintingMode: MonthlyPaintingMode = .moreThanOneHour {
+    private var currentPaintingMode: DateIntervalType = .moreThanDay {
         didSet {
-            monthlyPaintingBGView.backgroundColor = UIColor(named: currentPaintingMode.rawValue)
+            monthlyPaintingBGView.backgroundColor = currentPaintingMode.backgroundColor
         }
     }
     
@@ -46,6 +46,15 @@ final class HomeViewController: UIViewController {
     private let originWidth: CGFloat = UIScreen.main.bounds.width
     private let originHeight: CGFloat = UIScreen.main.bounds.height
     
+    private var timerType: DateIntervalType?
+    private var timeValue: Int = 0 {
+        didSet {
+            updateTimer()
+        }
+    }
+    
+    private var timer: Timer?
+    
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +65,8 @@ final class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         locationManager.dataDelegate = self
         locationManager.locationDelegate = self
+        
+        getLastDateOfMonth()
     }
     
 // MARK: - override
@@ -184,6 +195,49 @@ extension HomeViewController: LocationUpdateProtocol {
         if isFirstUpdate {
             mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
             isFirstUpdate = false
+        }
+    }
+
+    func getLastDateOfMonth() {
+//        let resut = Date().getIntervalTilLastDate()
+//        currentPaintingMode = resut.0
+//        timeValue = resut.1
+        currentPaintingMode = .moreThanDay
+        timeValue = 4
+    }
+    
+    func updateTimer() {
+        if timer != nil && timer!.isValid {
+            timer?.invalidate()
+        }
+        
+        switch currentPaintingMode {
+        case .moreThanDay:
+            monthlyPaintingRemainingTimeLabel.text = "D-\(timeValue)"
+        case .betweenHourAndDay, .lessThanHour:
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc
+    func fire() {
+        if timeValue <= 60 {
+            currentPaintingMode = .lessThanHour
+        }
+        else if timeValue < 24 * 60 * 60 {
+            currentPaintingMode = .betweenHourAndDay
+        }
+        
+        let hour = (timeValue / 3600).intToStringWithZero
+        let minute = ((timeValue % 3600) / 60).intToStringWithZero
+        let second = (timeValue % 60).intToStringWithZero
+        
+        monthlyPaintingRemainingTimeLabel.text = "\(hour):\(minute):\(second)"
+        timeValue -= 1
+        
+        
+        if timeValue < 0 {
+            timer?.invalidate()
         }
     }
 }
