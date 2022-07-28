@@ -53,6 +53,9 @@
 		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
 		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
 		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
+		CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89A28903748002E2065 /* Date+Extension.swift */; };
+		CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */; };
+		CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E8A028918841002E2065 /* Int+Extension.swift */; };
 		CBE1F0092890343C00AEC66E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0052890343C00AEC66E /* String+Extension.swift */; };
 		CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */; };
 		CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */; };
@@ -105,6 +108,9 @@
 		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
 		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		CBB1E89A28903748002E2065 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalType.swift; sourceTree = "<group>"; };
+		CBB1E8A028918841002E2065 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0052890343C00AEC66E /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -233,10 +239,12 @@
 		9D5E0CE728715B5F00A3705C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CBB1E89A28903748002E2065 /* Date+Extension.swift */,
 				CBE1F0082890343C00AEC66E /* Array+Extension.swift */,
 				CBE1F0052890343C00AEC66E /* String+Extension.swift */,
 				CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */,
 				CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */,
+				CBB1E8A028918841002E2065 /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -311,6 +319,7 @@
 			children = (
 				CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */,
 				CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */,
+				CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -520,6 +529,7 @@
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
+				CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
@@ -536,9 +546,11 @@
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */,
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
+				CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
+				CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */,
 				3E7624502882AE1F002E1600 /* DGButton.swift in Sources */,
 				9D916E462875A97B004B2D3E /* RoundView.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
