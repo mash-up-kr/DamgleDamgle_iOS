@@ -20,6 +20,7 @@ final class PostingMainViewController: UIViewController {
     @IBOutlet private weak var timeSortButton: SelectableButton!
     @IBOutlet private weak var popularitySortButton: SelectableButton!
     @IBOutlet private weak var postingTableView: UITableView!
+    @IBOutlet private weak var mainViewBackgroundImageView: UIImageView!
 
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true

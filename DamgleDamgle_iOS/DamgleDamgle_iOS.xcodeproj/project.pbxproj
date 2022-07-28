@@ -32,6 +32,8 @@
 		9D916E462875A97B004B2D3E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D916E452875A97B004B2D3E /* RoundView.swift */; };
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
+		9DB730952892B8ED00F75D08 /* APIErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB730942892B8ED00F75D08 /* APIErrorView.swift */; };
+		9DB730972892B9A200F75D08 /* APIErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB730962892B9A200F75D08 /* APIErrorView.xib */; };
 		9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC52882891600993C12 /* NoIconsView.xib */; };
 		9DBDCEC82882893C00993C12 /* NoIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC72882893C00993C12 /* NoIconsView.swift */; };
 		9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCECA28828F0200993C12 /* OneIconView.swift */; };
@@ -95,6 +97,8 @@
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
+		9DB730942892B8ED00F75D08 /* APIErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorView.swift; sourceTree = "<group>"; };
+		9DB730962892B9A200F75D08 /* APIErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APIErrorView.xib; sourceTree = "<group>"; };
 		9DBDCEC52882891600993C12 /* NoIconsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoIconsView.xib; sourceTree = "<group>"; };
 		9DBDCEC72882893C00993C12 /* NoIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIconsView.swift; sourceTree = "<group>"; };
 		9DBDCECA28828F0200993C12 /* OneIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneIconView.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				9DBDCECC28828F1100993C12 /* OneIconView.xib */,
 				9DBDCED428829E1800993C12 /* ManyIconsView.swift */,
 				9DBDCED228829E0700993C12 /* ManyIconsView.xib */,
+				9DB730942892B8ED00F75D08 /* APIErrorView.swift */,
+				9DB730962892B9A200F75D08 /* APIErrorView.xib */,
 			);
 			path = IconsImageView;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
 				9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
+				9DB730972892B9A200F75D08 /* APIErrorView.xib in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
@@ -565,6 +572,7 @@
 				9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
+				9DB730952892B8ED00F75D08 /* APIErrorView.swift in Sources */,
 				CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
 				9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */,

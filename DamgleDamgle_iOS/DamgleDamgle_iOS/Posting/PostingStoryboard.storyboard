@@ -402,6 +402,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainViewBackgroundImageView" destination="nhD-C8-JWe" id="8go-2l-9fk"/>
                         <outlet property="popularitySortButton" destination="IPO-cL-abV" id="f1D-j7-ms1"/>
                         <outlet property="postingTableView" destination="7kJ-9s-gCx" id="WVa-ia-2va"/>
                         <outlet property="timeSortButton" destination="fIS-OE-18b" id="gYE-pk-qFT"/>
