@@ -16,12 +16,12 @@ extension Date {
         60
     }
 
-    func startOfCurrentMonth() -> Date {
+    private func startOfCurrentMonth() -> Date {
         let currentMonthComponent = Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self))
         return Calendar.current.date(from: currentMonthComponent)!
     }
     
-    func startOfNextMonth() -> Date {
+    private func startOfNextMonth() -> Date {
         let nextMonthInDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: startOfCurrentMonth())!
         let startOfNextMonth = Calendar.current.startOfDay(for: nextMonthInDate)
         return startOfNextMonth
