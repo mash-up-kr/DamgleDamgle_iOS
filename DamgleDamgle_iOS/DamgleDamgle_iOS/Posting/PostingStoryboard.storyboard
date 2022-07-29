@@ -34,8 +34,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhD-C8-JWe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fb8-9p-bgG" customClass="NoDataView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="208" width="414" height="331"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fb8-9p-bgG" secondAttribute="height" multiplier="375:300" id="rrW-qE-xE5"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1378"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -499,6 +506,9 @@
                             <constraint firstItem="nhD-C8-JWe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="kfV-WS-2E5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7kJ-9s-gCx" secondAttribute="bottom" id="rwF-qR-U2I"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7kJ-9s-gCx" secondAttribute="trailing" id="tNQ-JO-lL4"/>
+                            <constraint firstAttribute="trailing" secondItem="fb8-9p-bgG" secondAttribute="trailing" id="xkr-Ra-aYS"/>
+                            <constraint firstItem="fb8-9p-bgG" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="208" id="yd9-A6-in3"/>
+                            <constraint firstItem="fb8-9p-bgG" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="zxL-H0-q3c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="담벼락 전체보기" id="IUc-dZ-tnj">
@@ -508,7 +518,8 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
-                        <outlet property="mainViewImageView" destination="nhD-C8-JWe" id="8go-2l-9fk"/>
+                        <outlet property="mainViewImageView" destination="nhD-C8-JWe" id="Tw1-bq-aTf"/>
+                        <outlet property="noDataView" destination="fb8-9p-bgG" id="kns-rm-Jjs"/>
                         <outlet property="popularitySortButton" destination="IPO-cL-abV" id="f1D-j7-ms1"/>
                         <outlet property="postingTableView" destination="7kJ-9s-gCx" id="WVa-ia-2va"/>
                         <outlet property="timeSortButton" destination="fIS-OE-18b" id="gYE-pk-qFT"/>

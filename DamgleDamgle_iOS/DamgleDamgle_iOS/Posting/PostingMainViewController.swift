@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class PostingMainViewController: UIViewController {
 
@@ -22,7 +23,7 @@ final class PostingMainViewController: UIViewController {
     @IBOutlet private weak var popularitySortButton: SelectableButton!
     @IBOutlet private weak var postingTableView: UITableView!
     @IBOutlet private weak var mainViewImageView: UIImageView!
-
+    @IBOutlet private weak var noDataView: UIView!
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
         popularitySortButton.isSelected = false
@@ -41,8 +42,10 @@ extension PostingMainViewController: UITableViewDelegate {
             mainViewImageView.image = APIState.error.BackgroundimageView
         } else if indexPath.row > 0 {
             mainViewImageView.image = APIState.dataExit.BackgroundimageView
+            noDataView.isHidden = true
         } else {
             mainViewImageView.image = APIState.dataNone.BackgroundimageView
+            noDataView.isHidden = false
         }
     }
 }
@@ -85,7 +88,6 @@ extension PostingMainViewController: TableViewCellDelegate {
     }
 }
 
-// TODO: 테스트용 enum값 => API 연결시 제거 예정
 enum APIState {
     case dataExit
     case dataNone
