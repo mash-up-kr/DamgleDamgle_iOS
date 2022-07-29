@@ -14,6 +14,9 @@
 		3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624532882B3BB002E1600 /* StoryboardBased.swift */; };
 		3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyPostListViewController.swift */; };
 		3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624592882C033002E1600 /* SettingViewController.swift */; };
+		3EA4A3242891808F002D94BE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A3232891808F002D94BE /* splash.json */; };
+		3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4A325289180AB002D94BE /* SplashViewController.swift */; };
+		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
 		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
@@ -67,6 +70,9 @@
 		3E7624532882B3BB002E1600 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardBased.swift; path = DamgleDamgle_iOS/Global/Protocol/StoryboardBased.swift; sourceTree = SOURCE_ROOT; };
 		3E7624572882BFEC002E1600 /* MyPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListViewController.swift; sourceTree = "<group>"; };
 		3E7624592882C033002E1600 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3EA4A3232891808F002D94BE /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		3EA4A325289180AB002D94BE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		3EA4A32A28918153002D94BE /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
@@ -164,6 +170,15 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		3EA4A327289180F9002D94BE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				3EA4A325289180AB002D94BE /* SplashViewController.swift */,
+				3EA4A32A28918153002D94BE /* Splash.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		9D13FF732870333800B38051 /* Posting */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9ACC852883DF8600D2AC6B /* PostProcess */,
+				3EA4A327289180F9002D94BE /* Splash */,
 				CB7A1D96287DC1C9003320B6 /* Post */,
 				CB7A1D91287DB5CE003320B6 /* Home */,
 				CB2960652875B5DA003DBF20 /* Custom */,
@@ -347,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				CB1FEA0428903334001850B7 /* writeLottie.json */,
+				3EA4A3232891808F002D94BE /* splash.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -414,10 +431,10 @@
 			);
 			mainGroup = 9D4E924B286745C30009F6E1;
 			packageReferences = (
-				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
+				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */,
+				CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 			);
 			productRefGroup = 9D4E9255286745C30009F6E1 /* Products */;
 			projectDirPath = "";
@@ -440,6 +457,7 @@
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
+				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
@@ -447,6 +465,7 @@
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
 				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
 				3E76244D2882ACF3002E1600 /* My.storyboard in Resources */,
+				3EA4A3242891808F002D94BE /* splash.json in Resources */,
 				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,9 +479,11 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -519,6 +540,7 @@
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
+				3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
@@ -763,7 +785,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -771,7 +793,7 @@
 				kind = branch;
 			};
 		};
-		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -779,7 +801,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -787,7 +809,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -800,27 +822,27 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9D4E926E286748050009F6E1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		9D4E9271286748E20009F6E1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */;
 			productName = Lottie;
 		};
 		9DCAE8A5287024DA009578E1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxCocoa;
 		};
 		9DCAE8A7287024DE009578E1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxSwift;
 		};
 		CB1FEA00289031A0001850B7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
