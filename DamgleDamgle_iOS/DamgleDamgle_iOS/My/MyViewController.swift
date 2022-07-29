@@ -37,7 +37,7 @@ final class MyViewController: UIViewController, StoryboardBased {
     }
     
     private func configurePageView() {
-        let listViewController = MyPostListViewController.instantiate()
+        let listViewController = MyStoryListViewController.instantiate()
         let settingViewController = SettingViewController.instantiate()
         
         addChild(pageViewController)

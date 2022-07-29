@@ -6,9 +6,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Akzidenz-Grotesk BQ Bold.ttf">
+            <string>AkzidenzGroteskBQ-Bold</string>
+        </array>
         <array key="Pretendard-Medium.otf">
             <string>Pretendard-Medium</string>
         </array>
@@ -112,26 +116,101 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
         </scene>
-        <!--My Post List View Controller-->
+        <!--My Story List View Controller-->
         <scene sceneID="FpO-RL-6OS">
             <objects>
-                <viewController storyboardIdentifier="MyPostListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zt3-aq-OO4" customClass="MyPostListViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyStoryListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zt3-aq-OO4" customClass="MyStoryListViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRB-Vw-bmx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_mypage_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hok-SA-FMq">
-                                <rect key="frame" x="27.5" y="0.0" width="359" height="896"/>
+                                <rect key="frame" x="27.5" y="-10" width="359" height="916"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eft-vB-3Pv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="blP-bK-oXu">
+                                    <size key="itemSize" width="414" height="137"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyStoryCollectionViewCell" id="ZQl-GT-dcL" customClass="MyStoryCollectionViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YSf-M4-hgI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_mydamgle" translatesAutoresizingMaskIntoConstraints="NO" id="QLd-wn-VQf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mystory_reaction" translatesAutoresizingMaskIntoConstraints="NO" id="sj1-Nx-BJp">
+                                                    <rect key="frame" x="16" y="16" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="g1A-fW-Lv7"/>
+                                                        <constraint firstAttribute="height" constant="70" id="hdj-G5-DtP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxF-pL-lwS">
+                                                    <rect key="frame" x="102" y="28" width="243" height="42"/>
+                                                    <string key="text">GANGNAMGU
+YEOKSAMDONG</string>
+                                                    <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="5분 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgi-xY-lEm">
+                                                    <rect key="frame" x="361" y="53" width="34" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                                    <color key="textColor" name="orange500"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="QLd-wn-VQf" secondAttribute="bottom" id="0x1-2X-uQJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="vgi-xY-lEm" secondAttribute="trailing" constant="19" id="6lq-S6-pvq"/>
+                                                <constraint firstAttribute="bottom" secondItem="vxF-pL-lwS" secondAttribute="bottom" constant="32" id="6xk-9N-SEV"/>
+                                                <constraint firstItem="vgi-xY-lEm" firstAttribute="leading" secondItem="vxF-pL-lwS" secondAttribute="trailing" constant="16" id="A4B-J9-VF4"/>
+                                                <constraint firstItem="QLd-wn-VQf" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" id="LaH-WH-Vez"/>
+                                                <constraint firstItem="vxF-pL-lwS" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" constant="28" id="O8M-tc-Gir"/>
+                                                <constraint firstItem="sj1-Nx-BJp" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" constant="16" id="Vr2-bI-OO3"/>
+                                                <constraint firstItem="sj1-Nx-BJp" firstAttribute="leading" secondItem="YSf-M4-hgI" secondAttribute="leading" constant="16" id="YzT-fE-H7e"/>
+                                                <constraint firstItem="QLd-wn-VQf" firstAttribute="leading" secondItem="YSf-M4-hgI" secondAttribute="leading" id="aJp-J9-qzW"/>
+                                                <constraint firstItem="vxF-pL-lwS" firstAttribute="leading" secondItem="sj1-Nx-BJp" secondAttribute="trailing" constant="16" id="dxe-Ad-cUG"/>
+                                                <constraint firstAttribute="bottom" secondItem="vgi-xY-lEm" secondAttribute="bottom" constant="33" id="hHt-dQ-CqP"/>
+                                                <constraint firstAttribute="bottom" secondItem="sj1-Nx-BJp" secondAttribute="bottom" constant="16" id="tFD-cA-th0"/>
+                                                <constraint firstAttribute="trailing" secondItem="QLd-wn-VQf" secondAttribute="trailing" id="yXn-0b-6H5"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="414" height="102"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="delegate" destination="Zt3-aq-OO4" id="5XL-dB-7nU"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eqD-5q-hMZ"/>
                         <color key="backgroundColor" name="grey500"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="hok-SA-FMq" secondAttribute="bottom" id="5Cx-wi-LLr"/>
-                            <constraint firstItem="hok-SA-FMq" firstAttribute="top" secondItem="dRB-Vw-bmx" secondAttribute="top" id="CkO-9A-1yB"/>
+                            <constraint firstAttribute="bottom" secondItem="hok-SA-FMq" secondAttribute="bottom" constant="-10" id="5Cx-wi-LLr"/>
+                            <constraint firstItem="eft-vB-3Pv" firstAttribute="top" secondItem="eqD-5q-hMZ" secondAttribute="top" id="982-N6-HUZ"/>
+                            <constraint firstItem="eft-vB-3Pv" firstAttribute="leading" secondItem="eqD-5q-hMZ" secondAttribute="leading" id="Air-ty-NGP"/>
+                            <constraint firstItem="hok-SA-FMq" firstAttribute="top" secondItem="dRB-Vw-bmx" secondAttribute="top" constant="-10" id="CkO-9A-1yB"/>
+                            <constraint firstItem="eqD-5q-hMZ" firstAttribute="trailing" secondItem="eft-vB-3Pv" secondAttribute="trailing" id="bKp-4L-aPx"/>
+                            <constraint firstAttribute="bottom" secondItem="eft-vB-3Pv" secondAttribute="bottom" id="glp-bu-prX"/>
                             <constraint firstItem="hok-SA-FMq" firstAttribute="centerX" secondItem="dRB-Vw-bmx" secondAttribute="centerX" id="icY-PA-05X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="eft-vB-3Pv" id="1i7-2L-emc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qo2-qS-vXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +255,9 @@
                                         <rect key="frame" x="321" y="35.5" width="51" height="31"/>
                                         <color key="onTintColor" name="grey400"/>
                                         <color key="thumbTintColor" name="orange500"/>
+                                        <connections>
+                                            <action selector="didTapPushSwitch:" destination="iku-fV-goJ" eventType="valueChanged" id="JNv-ec-xMG"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,12 +274,25 @@
                                     <constraint firstAttribute="bottom" secondItem="DjO-ml-R0v" secondAttribute="bottom" id="l8T-8r-oU3"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-PF-to0">
+                                <rect key="frame" x="141.5" y="818" width="131.5" height="30"/>
+                                <color key="tintColor" name="grey700"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="서비스 그만 사용하기">
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapResignButton:" destination="iku-fV-goJ" eventType="touchUpInside" id="wAK-Hg-TtY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Ub-Td-W67"/>
                         <color key="backgroundColor" name="grey500"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="jSm-Jx-yVJ" secondAttribute="trailing" id="OZ3-9i-kAI"/>
                             <constraint firstItem="jSm-Jx-yVJ" firstAttribute="centerY" secondItem="XrQ-dK-6XN" secondAttribute="centerY" id="Q3p-0H-kjt"/>
+                            <constraint firstAttribute="bottom" secondItem="n1H-PF-to0" secondAttribute="bottom" constant="48" id="TUK-ty-7tc"/>
+                            <constraint firstItem="n1H-PF-to0" firstAttribute="centerX" secondItem="Wak-xB-EES" secondAttribute="centerX" id="UpV-bI-J9w"/>
                             <constraint firstItem="XrQ-dK-6XN" firstAttribute="top" secondItem="9Ub-Td-W67" secondAttribute="top" id="YRd-DY-oec"/>
                             <constraint firstItem="XrQ-dK-6XN" firstAttribute="centerX" secondItem="Wak-xB-EES" secondAttribute="centerX" id="izI-nA-If8"/>
                             <constraint firstItem="jSm-Jx-yVJ" firstAttribute="leading" secondItem="Wak-xB-EES" secondAttribute="leading" id="sYX-GJ-XCl"/>
@@ -213,13 +308,18 @@
         <image name="Rectangle 107" width="351" height="182"/>
         <image name="icn_close" width="24" height="24"/>
         <image name="icn_profileImage" width="56" height="56"/>
+        <image name="img_mydamgle" width="343" height="110"/>
         <image name="img_mypage_bg" width="359" height="664"/>
         <image name="img_setting" width="343" height="110"/>
+        <image name="mystory_reaction" width="70" height="70"/>
         <namedColor name="grey400">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grey500">
             <color red="0.80800002813339233" green="0.7839999794960022" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey700">
+            <color red="0.37999999523162842" green="0.37999999523162842" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grey800">
             <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
