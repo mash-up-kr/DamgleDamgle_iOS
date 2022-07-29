@@ -1,6 +1,9 @@
 
 # - 제작 Jercy - 
 disabled_rules: #사용하지 않는 룰
+    # enum의 아규먼트가 없을경우 비운다 https://realm.github.io/SwiftLint/empty_enum_arguments.html
+    - empty_enum_arguments # new
+
     # case의 파리미터갯수가 5개 이하여야 한다 https://realm.github.io/SwiftLint/enum_case_associated_values_count.html
     - enum_case_associated_values_count # new
     
@@ -241,9 +244,6 @@ opt_in_rules: #사용하는 룰
     
     # 빈 collection체크시에는 .isEmpty 사용 https://realm.github.io/SwiftLint/empty_collection_literal.html
     - empty_collection_literal
-    
-    # enum의 아규먼트가 없을경우 비운다 https://realm.github.io/SwiftLint/empty_enum_arguments.html
-    - empty_enum_arguments # new
     
     # void -> 대신 () -> 사용한다 https://realm.github.io/SwiftLint/empty_parameters.html
     - empty_parameters # new
