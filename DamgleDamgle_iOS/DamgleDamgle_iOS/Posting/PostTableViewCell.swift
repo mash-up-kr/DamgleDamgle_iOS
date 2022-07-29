@@ -19,7 +19,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             closeIconsButton(isSelected: nowSelectedButtonIcon)
         }
     }
-    private var id: Int?
 
     override func awakeFromNib() {
         super.awakeFromNib()

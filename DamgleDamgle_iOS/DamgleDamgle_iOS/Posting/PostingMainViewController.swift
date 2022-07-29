@@ -9,12 +9,11 @@ import UIKit
 
 final class PostingMainViewController: UIViewController {
 
-    var viewModel: PostingViewModel = PostingViewModel()
+    var viewModel = PostingViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.viewModel.delegate = self
     }
 
     // MARK: - InterfaceBuilder Links

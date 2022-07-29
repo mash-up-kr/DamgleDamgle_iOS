@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SelectableButton: UIButton {
+final class SelectableButton: UIButton {
 
     @IBInspectable var normalImage: UIImage? {
         didSet {

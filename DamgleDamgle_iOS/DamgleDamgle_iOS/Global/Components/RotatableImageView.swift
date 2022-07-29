@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RotatableImageView: UIImageView {
+final class RotatableImageView: UIImageView {
 
     @IBInspectable var rotationDegrees: Float = 0 {
         didSet {

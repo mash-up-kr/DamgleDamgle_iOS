@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class OneIconView: UIView {
-
-//    let selectIconModel: [SelectedIconButton]
+final class OneIconView: UIView, NibBased {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -19,15 +17,6 @@ final class OneIconView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
-    }
-
-    private func initialize() {
-        let nib = Bundle.main.loadNibNamed("OneIconView", owner: self, options: nil)
-
-        guard let oneIconView = nib?.first as? UIView else { return }
-
-        oneIconView.frame = self.bounds
-        addSubview(oneIconView)
     }
 
     func setupText(selectedIcons: [SelectedIconButton]) {

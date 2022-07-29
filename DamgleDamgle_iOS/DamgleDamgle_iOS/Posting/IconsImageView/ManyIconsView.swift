@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SwiftUI
 
-final class ManyIconsView: UIView {
+final class ManyIconsView: UIView, NibBased {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -18,15 +17,6 @@ final class ManyIconsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
-    }
-
-    private func initialize() {
-        let nib = Bundle.main.loadNibNamed("ManyIconsView", owner: self, options: nil)
-
-        guard let manyIconsView = nib?.first as? UIView else { return }
-
-        manyIconsView.frame = self.bounds
-        addSubview(manyIconsView)
     }
 
     func setupUI(selectedIcons: [SelectedIconButton]) {

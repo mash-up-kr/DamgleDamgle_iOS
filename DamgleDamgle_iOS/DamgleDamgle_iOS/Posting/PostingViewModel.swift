@@ -7,14 +7,8 @@
 
 import Foundation
 
-protocol ViewModelProtocol: AnyObject {
-    func bind()
-}
-
-class PostingViewModel {
-
-    weak var delegate: ViewModelProtocol?
-
+final class PostingViewModel {
+    
     private(set) var postModels: [PostModel]
 
     init() {

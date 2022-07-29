@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoundLabel: UILabel {
+final class RoundLabel: UILabel {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,9 +20,9 @@ class RoundLabel: UILabel {
     }
 
     private func updateViewPropertie() {
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = self.frame.width / 2
-        self.layer.masksToBounds = true
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1.0
+        layer.cornerRadius = self.frame.width / 2
+        layer.masksToBounds = true
     }
 }

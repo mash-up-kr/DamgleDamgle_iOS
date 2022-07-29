@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NoIconsView: UIView {
+final class NoIconsView: UIView, NibBased {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -17,14 +17,5 @@ final class NoIconsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
-    }
-
-    private func initialize() {
-        let nib = Bundle.main.loadNibNamed("NoIconsView", owner: self, options: nil)
-
-        guard let noIconsView = nib?.first as? UIView else { return }
-
-        noIconsView.frame = self.bounds
-        addSubview(noIconsView)
     }
 }
