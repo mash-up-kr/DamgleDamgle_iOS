@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoDataView: UIView {
+final class NoDataView: UIView, CustomViewType {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -19,7 +19,7 @@ class NoDataView: UIView {
         initialize()
     }
 
-    private func initialize() {
+    func initialize() {
         let nib = Bundle.main.loadNibNamed("NoDataView", owner: self, options: nil)
 
         guard let noDataView = nib?.first as? UIView else { return }

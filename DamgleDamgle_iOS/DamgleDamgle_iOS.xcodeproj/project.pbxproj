@@ -32,6 +32,7 @@
 		9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8170C22892C1A400E0EB2A /* NoDataView.swift */; };
 		9D8170C52892C1B000E0EB2A /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8170C42892C1B000E0EB2A /* NoDataView.xib */; };
 		9D916E462875A97B004B2D3E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D916E452875A97B004B2D3E /* RoundView.swift */; };
+		9D9AB96728942F8000A56347 /* CustomViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9AB96628942F8000A56347 /* CustomViewType.swift */; };
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
 		9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC52882891600993C12 /* NoIconsView.xib */; };
@@ -98,6 +99,7 @@
 		9D8170C22892C1A400E0EB2A /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		9D8170C42892C1B000E0EB2A /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		9D9AB96628942F8000A56347 /* CustomViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewType.swift; sourceTree = "<group>"; };
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
 		9DBDCEC52882891600993C12 /* NoIconsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoIconsView.xib; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				9D0180352894369300168064 /* NibBased.swift in Sources */,
 				9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
+				9D9AB96728942F8000A56347 /* CustomViewType.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
 				3E7624502882AE1F002E1600 /* DGButton.swift in Sources */,
