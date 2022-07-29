@@ -48,6 +48,7 @@
 		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
 		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
 		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
+		9DDB14EC28941A2600935AEC /* PostErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB14EB28941A2600935AEC /* PostErrorTableViewCell.swift */; };
 		CB1FEA01289031A0001850B7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CB1FEA00289031A0001850B7 /* Alamofire */; };
 		CB1FEA0528903334001850B7 /* writeLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1FEA0428903334001850B7 /* writeLottie.json */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
@@ -111,6 +112,7 @@
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		9DDB14EB28941A2600935AEC /* PostErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostErrorTableViewCell.swift; sourceTree = "<group>"; };
 		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB1FEA0428903334001850B7 /* writeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = writeLottie.json; sourceTree = "<group>"; };
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				9D13FF742870334D00B38051 /* PostingMainViewController.swift */,
 				9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */,
+				9DDB14EB28941A2600935AEC /* PostErrorTableViewCell.swift */,
 				9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */,
 				9DD63FFF28719D78000D9C32 /* PostModel.swift */,
 				9D13FF762870339400B38051 /* PostingStoryboard.storyboard */,
@@ -580,6 +583,7 @@
 				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
+				9DDB14EC28941A2600935AEC /* PostErrorTableViewCell.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
 				9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
