@@ -111,12 +111,12 @@ final class HomeViewController: UIViewController {
     
 // MARK: - objc
     @objc
-    func didMoveToForeground() {
+    private func didMoveToForeground() {
         getLastDateOfMonth()
     }
     
     @objc
-    func resetTimer() {
+    private func resetTimer() {
         if timeValue <= Date.hourInSec {
             currentPaintingMode = .lessThanHour
         } else if timeValue < Date.dateInSec {
