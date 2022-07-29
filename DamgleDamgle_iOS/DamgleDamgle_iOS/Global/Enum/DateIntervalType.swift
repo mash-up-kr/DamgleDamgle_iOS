@@ -15,9 +15,9 @@ enum DateIntervalType {
     var backgroundColor: UIColor {
         switch self {
         case .moreThanDay, .betweenHourAndDay:
-            return UIColor(named: "grey1000")!
+            return UIColor(named: "grey1000") ?? .systemGray
         case .lessThanHour:
-            return UIColor(named: "orange500")!
+            return UIColor(named: "orange500") ?? .systemGray
         }
     }
 }
