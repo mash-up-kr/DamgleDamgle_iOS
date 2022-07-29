@@ -7,7 +7,7 @@
 
 import UIKit
 
-class APIErrorView: UIView {
+final class APIErrorView: UIView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
