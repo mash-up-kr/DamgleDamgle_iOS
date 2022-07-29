@@ -31,7 +31,7 @@ final class LocationAuthorizationViewController: UIViewController {
     
 // MARK: - objc
     @objc
-    func didMoveToForeground() {
+    private func didMoveToForeground() {
         locationManager.checkLocationServiceAuthorization()
     }
     

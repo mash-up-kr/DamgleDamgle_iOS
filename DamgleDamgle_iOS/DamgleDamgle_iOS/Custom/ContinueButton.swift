@@ -8,7 +8,6 @@
 import UIKit
 
 final class ContinueButton: UIButton {
-    
     private enum ButtonState {
         case normal
         case disabled
@@ -16,18 +15,18 @@ final class ContinueButton: UIButton {
         var backgroundColor: UIColor {
             switch self {
             case .normal:
-                return UIColor(named: "grey1000")!
+                return UIColor(named: "grey1000") ?? .systemGray
             case .disabled:
-                return UIColor(named: "grey600")!
+                return UIColor(named: "grey600") ?? .systemGray
             }
         }
         
         var textColor: UIColor {
             switch self {
             case .normal:
-                return UIColor(named: "white")!
+                return UIColor(named: "white") ?? .systemGray
             case .disabled:
-                return UIColor(named: "grey400")!
+                return UIColor(named: "grey400") ?? .systemGray
             }
         }
     }
