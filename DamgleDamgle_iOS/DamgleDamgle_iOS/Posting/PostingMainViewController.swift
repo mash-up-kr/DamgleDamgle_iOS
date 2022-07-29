@@ -39,11 +39,13 @@ final class PostingMainViewController: UIViewController {
 extension PostingMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            mainViewImageView.image = APIState.dataNone.BackgroundimageView
-            noDataView.isHidden = false
-        } else {
+            mainViewImageView.image = APIState.error.BackgroundimageView
+        } else if indexPath.row > 0 {
             mainViewImageView.image = APIState.dataExit.BackgroundimageView
             noDataView.isHidden = true
+        } else {
+            mainViewImageView.image = APIState.dataNone.BackgroundimageView
+            noDataView.isHidden = false
         }
     }
 }
