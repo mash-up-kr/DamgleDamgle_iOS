@@ -9,6 +9,7 @@ import UIKit
 
 final class PostingMainViewController: UIViewController {
 
+    private var apiState: APIState = APIState.error
     var viewModel = PostingViewModel()
 
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ final class PostingMainViewController: UIViewController {
     @IBOutlet private weak var timeSortButton: SelectableButton!
     @IBOutlet private weak var popularitySortButton: SelectableButton!
     @IBOutlet private weak var postingTableView: UITableView!
+    @IBOutlet private weak var mainViewImageView: UIImageView!
 
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
@@ -34,15 +36,32 @@ final class PostingMainViewController: UIViewController {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            mainViewImageView.image = APIState.error.BackgroundimageView
+        } else if indexPath.row > 0 {
+            mainViewImageView.image = APIState.dataExit.BackgroundimageView
+        } else {
+            mainViewImageView.image = APIState.dataNone.BackgroundimageView
+        }
+    }
 }
 
 // MARK: - TableViewDataSource
 extension PostingMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if apiState == APIState.error {
+            return 1
+        }
         return viewModel.postModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if apiState == APIState.error {
+            let cell = tableView.dequeueReusableCell(for: indexPath) as PostErrorTableViewCell
+            return cell
+        }
+
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels[indexPath.row]
         cell.setupUI(viewModel: viewModel)
@@ -63,5 +82,20 @@ extension PostingMainViewController: UITableViewDataSource {
 extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed() {
         self.postingTableView.reloadData()
+    }
+}
+
+// TODO: 테스트용 enum값 => API 연결시 제거 예정
+enum APIState {
+    case dataExit
+    case dataNone
+    case error
+
+    var BackgroundimageView: UIImage? {
+        switch self {
+        case .dataExit: return UIImage(named: "img_list_bg")
+        case .dataNone: return nil
+        case .error: return UIImage(named: "img_list_error_bg_posting")
+        }
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol TableViewCellDelegate: AnyObject {
     func iconButtonAnimationIsClosed()
 }
+
 final class PostTableViewCell: UITableViewCell, Reusable {
     weak var delegate: TableViewCellDelegate?
     var addSelectedIcon: ((IconsButton) -> Void)?
