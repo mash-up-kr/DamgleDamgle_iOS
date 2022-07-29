@@ -56,6 +56,7 @@
 		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
 		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
 		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
+		CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA81DA62894313F0001E096 /* StoryTarget.swift */; };
 		CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89A28903748002E2065 /* Date+Extension.swift */; };
 		CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */; };
 		CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E8A028918841002E2065 /* Int+Extension.swift */; };
@@ -114,6 +115,7 @@
 		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
 		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		CBA81DA62894313F0001E096 /* StoryTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTarget.swift; sourceTree = "<group>"; };
 		CBB1E89A28903748002E2065 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalType.swift; sourceTree = "<group>"; };
 		CBB1E8A028918841002E2065 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CBA81DA4289430ED0001E096 /* Network */,
 				CB9ACC852883DF8600D2AC6B /* PostProcess */,
 				3EA4A327289180F9002D94BE /* Splash */,
 				CB7A1D96287DC1C9003320B6 /* Post */,
@@ -377,6 +380,22 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		CBA81DA4289430ED0001E096 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CBA81DA5289431270001E096 /* Story */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CBA81DA5289431270001E096 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				CBA81DA62894313F0001E096 /* StoryTarget.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
 		F6F0A3826233C1FFD8667AF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,10 +459,10 @@
 			);
 			mainGroup = 9D4E924B286745C30009F6E1;
 			packageReferences = (
-				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
-				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
-				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */,
-				CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 9D4E9255286745C30009F6E1 /* Products */;
 			projectDirPath = "";
@@ -565,6 +584,7 @@
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */,
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
@@ -797,7 +817,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -805,7 +825,7 @@
 				kind = branch;
 			};
 		};
-		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -813,7 +833,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */ = {
+		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -821,7 +841,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -834,27 +854,27 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9D4E926E286748050009F6E1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		9D4E9271286748E20009F6E1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */;
+			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 		9DCAE8A5287024DA009578E1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		9DCAE8A7287024DE009578E1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 		CB1FEA00289031A0001850B7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
