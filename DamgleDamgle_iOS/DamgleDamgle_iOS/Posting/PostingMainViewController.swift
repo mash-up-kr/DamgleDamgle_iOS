@@ -85,6 +85,7 @@ extension PostingMainViewController: TableViewCellDelegate {
     }
 }
 
+// TODO: 테스트용 enum값 => API 연결시 제거 예정
 enum APIState {
     case dataExit
     case dataNone
