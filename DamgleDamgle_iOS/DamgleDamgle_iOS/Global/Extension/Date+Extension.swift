@@ -8,11 +8,11 @@
 import Foundation
 
 extension Date {
-    var dateInSec: Int {
+    static var dateInSec: Int {
         24 * 60 * 60
     }
     
-    var hourInSec: Int {
+    static var hourInSec: Int {
         60
     }
 
@@ -27,15 +27,15 @@ extension Date {
         return startOfNextMonth
     }
     
-    func getDateIntervalType() -> (DateIntervalType, Int) {
+    func getDateIntervalType() -> (type: DateIntervalType, value: Int) {
         let currentInterval = Int(distance(to: startOfNextMonth()))
         
-        if currentInterval > dateInSec {
-            return (.moreThanDay, Int(currentInterval / dateInSec))
-        } else if hourInSec < currentInterval && currentInterval <= dateInSec {
-            return (.betweenHourAndDay, currentInterval)
+        if currentInterval > Date.dateInSec {
+            return (type: .moreThanDay, value: Int(currentInterval / Date.dateInSec))
+        } else if Date.hourInSec < currentInterval && currentInterval <= Date.dateInSec {
+            return (type:.betweenHourAndDay, value: currentInterval)
         } else {
-            return (.lessThanHour, currentInterval)
+            return (type:.lessThanHour, value: currentInterval)
         }
     }
 }
