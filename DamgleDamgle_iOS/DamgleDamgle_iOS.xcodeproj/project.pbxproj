@@ -29,6 +29,8 @@
 		9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */; };
 		9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */; };
 		9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */; };
+		9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8170C22892C1A400E0EB2A /* NoDataView.swift */; };
+		9D8170C52892C1B000E0EB2A /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8170C42892C1B000E0EB2A /* NoDataView.xib */; };
 		9D916E462875A97B004B2D3E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D916E452875A97B004B2D3E /* RoundView.swift */; };
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
@@ -93,6 +95,8 @@
 		9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		9D8170C22892C1A400E0EB2A /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		9D8170C42892C1B000E0EB2A /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				9DBDCECC28828F1100993C12 /* OneIconView.xib */,
 				9DBDCED428829E1800993C12 /* ManyIconsView.swift */,
 				9DBDCED228829E0700993C12 /* ManyIconsView.xib */,
+				9D8170C22892C1A400E0EB2A /* NoDataView.swift */,
+				9D8170C42892C1B000E0EB2A /* NoDataView.xib */,
 			);
 			path = IconsImageView;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
+				9D8170C52892C1B000E0EB2A /* NoDataView.xib in Resources */,
 				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
 				3E76244D2882ACF3002E1600 /* My.storyboard in Resources */,
 				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
@@ -583,6 +590,7 @@
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
 				9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */,
 				9D0180352894369300168064 /* NibBased.swift in Sources */,
+				9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
