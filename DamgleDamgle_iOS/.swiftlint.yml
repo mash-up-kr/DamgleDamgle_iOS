@@ -1,6 +1,12 @@
 
 # - 제작 Jercy - 
 disabled_rules: #사용하지 않는 룰
+    # case의 파리미터갯수가 5개 이하여야 한다 https://realm.github.io/SwiftLint/enum_case_associated_values_count.html
+    - enum_case_associated_values_count # new
+    
+    # 프로퍼티의 타입을 명시해야합니다. https://realm.github.io/SwiftLint/explicit_type_interface.html
+    - explicit_type_interface # new
+
     # 탭을 필요없이 두번이상 하지 않습니다 https://realm.github.io/SwiftLint/indentation_width.html
     - indentation_width
 
@@ -248,14 +254,8 @@ opt_in_rules: #사용하는 룰
     # string 빈문자열 체크시 "" 대신 isempty를 사용한다 https://realm.github.io/SwiftLint/empty_string.html
     - empty_string
     
-    # case의 파리미터갯수가 5개 이하여야 한다 https://realm.github.io/SwiftLint/enum_case_associated_values_count.html
-    - enum_case_associated_values_count # new
-    
     # 만료된 todo일경우 에러 https://realm.github.io/SwiftLint/expiring_todo.html
     - expiring_todo # new
-    
-#    # 프로퍼티의 타입을 명시해야합니다. https://realm.github.io/SwiftLint/explicit_type_interface.html
-#    - explicit_type_interface # new
 
     # fatal error는 메세지가 있어야합니다 https://realm.github.io/SwiftLint/fatal_error_message.html
     - fatal_error_message
