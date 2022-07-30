@@ -40,11 +40,11 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         iconsStartButton.isSelected = false
         iconsButtonCollection.forEach { $0.isSelected = false }
     }
-
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        setupIconsView()
-    }
+// TODO: View Life Cycle 문제해결 필요
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//        setupIconsView()
+//    }
 
     private func setViewDefault() {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
@@ -57,6 +57,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         timeLabel.text = viewModel.timeText
         contentLabel.text = viewModel.content
         selectedIcons = viewModel.selectedIcons
+        setupIconsView()
         setupIconsStartButton(selectedIcon: viewModel.icon ?? IconsButton.none)
         setupIconsButton(selectedIcon: viewModel.icon ?? IconsButton.none)
     }
