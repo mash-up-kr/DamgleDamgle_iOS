@@ -15,6 +15,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     weak var delegate: TableViewCellDelegate?
     var addSelectedIcon: ((IconsButton) -> Void)?
     var deleteSeletedIcon: ((IconsButton) -> Void)?
+    var selectedIcons: [SelectedIconButton] = []
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedButtonIcon)
@@ -40,6 +41,11 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         iconsButtonCollection.forEach { $0.isSelected = false }
     }
 
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        setupIconsView()
+    }
+
     private func setViewDefault() {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
     }
@@ -50,7 +56,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         checkMeLabel.text = viewModel.isChecked ? " • ME" : ""
         timeLabel.text = viewModel.timeText
         contentLabel.text = viewModel.content
-        setupIconsView(selectedIcons: viewModel.selectedIcons)
+        selectedIcons = viewModel.selectedIcons
         setupIconsStartButton(selectedIcon: viewModel.icon ?? IconsButton.none)
         setupIconsButton(selectedIcon: viewModel.icon ?? IconsButton.none)
     }
@@ -65,18 +71,18 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         }
     }
 
-    func setupIconsView(selectedIcons: [SelectedIconButton]) {
+    func setupIconsView() {
         if selectedIcons.isEmpty {
-            let iconsView = NoIconsView()
+            let iconsView = NoIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
         } else if selectedIcons.count == 1 {
-            let iconsView = OneIconView()
+            let iconsView = OneIconView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
             iconsView.setupText(selectedIcons: selectedIcons)
         } else {
-            let iconsView = ManyIconsView(frame: iconsBackgroundView.bounds)
+            let iconsView = ManyIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
             iconsView.setupUI(selectedIcons: selectedIcons)

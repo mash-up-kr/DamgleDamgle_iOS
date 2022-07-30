@@ -10,7 +10,7 @@ import RxSwift
 
 final class PostingMainViewController: UIViewController {
 
-    private var apiState: APIState = APIState.error
+    private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
 
     override func viewDidLoad() {
@@ -86,6 +86,8 @@ extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed() {
         self.postingTableView.reloadData()
     }
+
+
 }
 
 enum APIState {

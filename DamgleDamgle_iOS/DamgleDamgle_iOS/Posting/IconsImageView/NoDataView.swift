@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NoDataView: UIView, CustomViewType {
+final class NoDataView: UIView, NibBased {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -17,14 +17,5 @@ final class NoDataView: UIView, CustomViewType {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
-    }
-
-    func initialize() {
-        let nib = Bundle.main.loadNibNamed("NoDataView", owner: self, options: nil)
-
-        guard let noDataView = nib?.first as? UIView else { return }
-
-        noDataView.frame = self.bounds
-        addSubview(noDataView)
     }
 }
