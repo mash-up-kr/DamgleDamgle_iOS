@@ -35,6 +35,7 @@ final class SettingViewController: UIViewController, StoryboardBased {
     }
     
     @IBAction private func didTapSwitchValue(_ sender: UISwitch) {
+        // TODO: 권한 재 요청?
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge],
             completionHandler: { [weak self] didAllow, error in

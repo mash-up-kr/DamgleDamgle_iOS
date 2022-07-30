@@ -44,32 +44,27 @@ final class LocationAuthorizationViewController: UIViewController {
     func checkCurrentStatus(currentStatus: LocationAuthorizationStatus?) {
         let title: String = "위치정보 이용에 대한 엑세스 권한이 없어요"
         let message: String = "설정으로 이동해서 권한을 변경해주세요!"
-        
-        let pushAuthorizationViewController = PushAuthorizationViewController()
-        pushAuthorizationViewController.modalPresentationStyle = .overFullScreen
-        present(pushAuthorizationViewController, animated: true)
-        
-        // TODO: 일단 권한 설정없어도 넘어가게 설정, 추후 변경 필요
-//        switch currentStatus {
-//        case .authorizationDenied, .locationServiceDisabled:
-//            self.showAlertController(
-//                type: .single,
-//                title: title,
-//                message: message,
-//                okActionHandler: {
-//                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-//
-//                    if UIApplication.shared.canOpenURL(url) {
-//                        UIApplication.shared.open(url)
-//                    }
-//                })
-//        case .success:
-//            let pushAuthorizationViewController = PushAuthorizationViewController()
-//            pushAuthorizationViewController.modalPresentationStyle = .overFullScreen
-//            present(pushAuthorizationViewController, animated: true)
-//        case .locationUpdateFail, .none:
-//            break
-//        }
+    
+        switch currentStatus {
+        case .authorizationDenied, .locationServiceDisabled:
+            self.showAlertController(
+                type: .single,
+                title: title,
+                message: message,
+                okActionHandler: {
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                })
+        case .success:
+            let pushAuthorizationViewController = PushAuthorizationViewController()
+            pushAuthorizationViewController.modalPresentationStyle = .overFullScreen
+            present(pushAuthorizationViewController, animated: true)
+        case .locationUpdateFail, .none:
+            break
+        }
     }
 }
 
