@@ -84,6 +84,7 @@
 		CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */; };
 		CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */; };
 		CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0082890343C00AEC66E /* Array+Extension.swift */; };
+		CBEB534528951E540054E522 /* refreshLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEB534428951E540054E522 /* refreshLottie.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,7 @@
 		CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0082890343C00AEC66E /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		CBEB534428951E540054E522 /* refreshLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refreshLottie.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +468,7 @@
 		CBA18F2B2883F87A002572D0 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				CBEB534428951E540054E522 /* refreshLottie.json */,
 				CB1FEA0428903334001850B7 /* writeLottie.json */,
 				3EA4A3232891808F002D94BE /* splash.json */,
 			);
@@ -578,6 +581,7 @@
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
+				CBEB534528951E540054E522 /* refreshLottie.json in Resources */,
 				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
