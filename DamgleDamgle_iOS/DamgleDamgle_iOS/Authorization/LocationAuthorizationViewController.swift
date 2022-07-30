@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class LocationAuthorizationViewController: UIViewController {
-    @IBOutlet private weak var guideLabel: UILabel!
-    
+final class LocationAuthorizationViewController: UIViewController {    
     private let fullDimView: UIView = FullDimView()
     private let locationManager: LocationService = LocationService.shared
 

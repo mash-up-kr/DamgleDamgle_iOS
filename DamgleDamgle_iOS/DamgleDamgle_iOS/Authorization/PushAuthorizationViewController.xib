@@ -16,7 +16,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationAuthorizationViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="guideLabel" destination="n2z-5Z-Tm3" id="qVG-1A-im9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

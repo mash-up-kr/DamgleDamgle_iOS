@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class PushAuthorizationViewController: UIViewController {
-    @IBOutlet private weak var guideLabel: UILabel!
-    
+final class PushAuthorizationViewController: UIViewController {    
     private let fullDimView: UIView = FullDimView()
 
 // MARK: - override
