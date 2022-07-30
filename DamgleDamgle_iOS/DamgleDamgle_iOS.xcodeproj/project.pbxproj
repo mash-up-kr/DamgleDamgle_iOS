@@ -12,8 +12,16 @@
 		3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244C2882ACF3002E1600 /* MyViewController.swift */; };
 		3E7624502882AE1F002E1600 /* DGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244F2882AE1F002E1600 /* DGButton.swift */; };
 		3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624532882B3BB002E1600 /* StoryboardBased.swift */; };
-		3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyPostListViewController.swift */; };
+		3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyStoryListViewController.swift */; };
 		3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624592882C033002E1600 /* SettingViewController.swift */; };
+		3EA33C102894208D00265342 /* MyStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C0E2894208D00265342 /* MyStoryCollectionViewCell.swift */; };
+		3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C122894220B00265342 /* MyStoryListViewModel.swift */; };
+		3EA33C162894234500265342 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C152894234500265342 /* Story.swift */; };
+		3EA33C182894235E00265342 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C172894235E00265342 /* Reaction.swift */; };
+		3EA33C1A2894293500265342 /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C192894293500265342 /* StoryService.swift */; };
+		3EA4A3242891808F002D94BE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A3232891808F002D94BE /* splash.json */; };
+		3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4A325289180AB002D94BE /* SplashViewController.swift */; };
+		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0180352894369300168064 /* NibBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0180342894369300168064 /* NibBased.swift */; };
 		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
@@ -54,6 +62,8 @@
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
+		CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8228944D1D005D59D8 /* StoryService.swift */; };
+		CB4ECD8528944E3C005D59D8 /* StoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */; };
 		CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */; };
 		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
 		CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */; };
@@ -65,6 +75,10 @@
 		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
 		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
 		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
+		CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA81DA62894313F0001E096 /* StoryTarget.swift */; };
+		CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89A28903748002E2065 /* Date+Extension.swift */; };
+		CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */; };
+		CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E8A028918841002E2065 /* Int+Extension.swift */; };
 		CBE1F0092890343C00AEC66E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0052890343C00AEC66E /* String+Extension.swift */; };
 		CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */; };
 		CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */; };
@@ -77,8 +91,16 @@
 		3E76244C2882ACF3002E1600 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		3E76244F2882AE1F002E1600 /* DGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGButton.swift; sourceTree = "<group>"; };
 		3E7624532882B3BB002E1600 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardBased.swift; path = DamgleDamgle_iOS/Global/Protocol/StoryboardBased.swift; sourceTree = SOURCE_ROOT; };
-		3E7624572882BFEC002E1600 /* MyPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListViewController.swift; sourceTree = "<group>"; };
+		3E7624572882BFEC002E1600 /* MyStoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryListViewController.swift; sourceTree = "<group>"; };
 		3E7624592882C033002E1600 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3EA33C0E2894208D00265342 /* MyStoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3EA33C122894220B00265342 /* MyStoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryListViewModel.swift; sourceTree = "<group>"; };
+		3EA33C152894234500265342 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		3EA33C172894235E00265342 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
+		3EA33C192894293500265342 /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
+		3EA4A3232891808F002D94BE /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		3EA4A325289180AB002D94BE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		3EA4A32A28918153002D94BE /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0180342894369300168064 /* NibBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBased.swift; sourceTree = "<group>"; };
@@ -118,6 +140,8 @@
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
+		CB4ECD8228944D1D005D59D8 /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
+		CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRequest.swift; sourceTree = "<group>"; };
 		CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStringResource.swift; sourceTree = "<group>"; };
 		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationStatus.swift; sourceTree = "<group>"; };
@@ -129,6 +153,10 @@
 		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
 		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		CBA81DA62894313F0001E096 /* StoryTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTarget.swift; sourceTree = "<group>"; };
+		CBB1E89A28903748002E2065 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalType.swift; sourceTree = "<group>"; };
+		CBB1E8A028918841002E2065 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0052890343C00AEC66E /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -167,18 +195,21 @@
 			children = (
 				3E76244B2882ACF3002E1600 /* My.storyboard */,
 				3E76244C2882ACF3002E1600 /* MyViewController.swift */,
-				3E7624692883FAEB002E1600 /* PostList */,
+				3E7624692883FAEB002E1600 /* StoryList */,
 				3E76246A2883FC9E002E1600 /* Setting */,
 			);
 			path = My;
 			sourceTree = "<group>";
 		};
-		3E7624692883FAEB002E1600 /* PostList */ = {
+		3E7624692883FAEB002E1600 /* StoryList */ = {
 			isa = PBXGroup;
 			children = (
-				3E7624572882BFEC002E1600 /* MyPostListViewController.swift */,
+				3EA33C192894293500265342 /* StoryService.swift */,
+				3EA33C122894220B00265342 /* MyStoryListViewModel.swift */,
+				3E7624572882BFEC002E1600 /* MyStoryListViewController.swift */,
+				3EA33C0E2894208D00265342 /* MyStoryCollectionViewCell.swift */,
 			);
-			path = PostList;
+			path = StoryList;
 			sourceTree = "<group>";
 		};
 		3E76246A2883FC9E002E1600 /* Setting */ = {
@@ -187,6 +218,24 @@
 				3E7624592882C033002E1600 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		3EA33C142894230900265342 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EA33C152894234500265342 /* Story.swift */,
+				3EA33C172894235E00265342 /* Reaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3EA4A327289180F9002D94BE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				3EA4A325289180AB002D94BE /* SplashViewController.swift */,
+				3EA4A32A28918153002D94BE /* Splash.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		9D13FF732870333800B38051 /* Posting */ = {
@@ -224,6 +273,10 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CBA81DA4289430ED0001E096 /* Network */,
+				CB9ACC852883DF8600D2AC6B /* PostProcess */,
+				3EA33C142894230900265342 /* Model */,
+				3EA4A327289180F9002D94BE /* Splash */,
 				CB9ACC852883DF8600D2AC6B /* PostProcess */,
 				CB7A1D96287DC1C9003320B6 /* Post */,
 				CB7A1D91287DB5CE003320B6 /* Home */,
@@ -260,10 +313,12 @@
 		9D5E0CE728715B5F00A3705C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CBB1E89A28903748002E2065 /* Date+Extension.swift */,
 				CBE1F0082890343C00AEC66E /* Array+Extension.swift */,
 				CBE1F0052890343C00AEC66E /* String+Extension.swift */,
 				CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */,
 				CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */,
+				CBB1E8A028918841002E2065 /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -342,6 +397,14 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		CB4ECD8628944E42005D59D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CB636CD82875D3B7006603C5 /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +418,7 @@
 			children = (
 				CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */,
 				CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */,
+				CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -391,8 +455,27 @@
 			isa = PBXGroup;
 			children = (
 				CB1FEA0428903334001850B7 /* writeLottie.json */,
+				3EA4A3232891808F002D94BE /* splash.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		CBA81DA4289430ED0001E096 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CBA81DA5289431270001E096 /* Story */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CBA81DA5289431270001E096 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				CBA81DA62894313F0001E096 /* StoryTarget.swift */,
+				CB4ECD8228944D1D005D59D8 /* StoryService.swift */,
+				CB4ECD8628944E42005D59D8 /* Model */,
+			);
+			path = Story;
 			sourceTree = "<group>";
 		};
 		F6F0A3826233C1FFD8667AF4 /* Frameworks */ = {
@@ -487,6 +570,7 @@
 				9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
+				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
@@ -495,6 +579,7 @@
 				9D8170C52892C1B000E0EB2A /* NoDataView.xib in Resources */,
 				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
 				3E76244D2882ACF3002E1600 /* My.storyboard in Resources */,
+				3EA4A3242891808F002D94BE /* splash.json in Resources */,
 				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,9 +593,11 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -564,19 +651,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */,
+				CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
+				3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
+				CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				9DBDCECF2882913C00993C12 /* RotatableImageView.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */,
 				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
 				9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
 				CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
+				CB4ECD8528944E3C005D59D8 /* StoryRequest.swift in Sources */,
 				9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */,
 				3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */,
 				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
@@ -585,22 +677,28 @@
 				9DDB14EC28941A2600935AEC /* PostErrorTableViewCell.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
 				9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */,
+				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
+				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
-				3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */,
+				3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */,
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
-				9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */,
 				9D0180352894369300168064 /* NibBased.swift in Sources */,
 				9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */,
+				CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
+				3EA33C1A2894293500265342 /* StoryService.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
+				CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */,
 				3E7624502882AE1F002E1600 /* DGButton.swift in Sources */,
 				9D916E462875A97B004B2D3E /* RoundView.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 				CBE1F0092890343C00AEC66E /* String+Extension.swift in Sources */,
+				3EA33C102894208D00265342 /* MyStoryCollectionViewCell.swift in Sources */,
 				CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */,
 				9DBDCED528829E1800993C12 /* ManyIconsView.swift in Sources */,
 				9DBDCEC82882893C00993C12 /* NoIconsView.swift in Sources */,
+				3EA33C162894234500265342 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
