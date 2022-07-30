@@ -23,6 +23,7 @@
 		3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4A325289180AB002D94BE /* SplashViewController.swift */; };
 		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
+		9D0180352894369300168064 /* NibBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0180342894369300168064 /* NibBased.swift */; };
 		9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DCFC028718CFA00039594 /* SelectableButton.swift */; };
 		9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13FF742870334D00B38051 /* PostingMainViewController.swift */; };
 		9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D13FF762870339400B38051 /* PostingStoryboard.storyboard */; };
@@ -36,15 +37,26 @@
 		9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */; };
 		9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */; };
 		9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */; };
+		9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8170C22892C1A400E0EB2A /* NoDataView.swift */; };
+		9D8170C52892C1B000E0EB2A /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8170C42892C1B000E0EB2A /* NoDataView.xib */; };
 		9D916E462875A97B004B2D3E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D916E452875A97B004B2D3E /* RoundView.swift */; };
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
+		9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC52882891600993C12 /* NoIconsView.xib */; };
+		9DBDCEC82882893C00993C12 /* NoIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCEC72882893C00993C12 /* NoIconsView.swift */; };
+		9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCECA28828F0200993C12 /* OneIconView.swift */; };
+		9DBDCECD28828F1100993C12 /* OneIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCECC28828F1100993C12 /* OneIconView.xib */; };
+		9DBDCECF2882913C00993C12 /* RotatableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCECE2882913C00993C12 /* RotatableImageView.swift */; };
+		9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCED02882977800993C12 /* RoundLabel.swift */; };
+		9DBDCED328829E0700993C12 /* ManyIconsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DBDCED228829E0700993C12 /* ManyIconsView.xib */; };
+		9DBDCED528829E1800993C12 /* ManyIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBDCED428829E1800993C12 /* ManyIconsView.swift */; };
 		9DCAE8A6287024DA009578E1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A5287024DA009578E1 /* RxCocoa */; };
 		9DCAE8A8287024DE009578E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCAE8A7287024DE009578E1 /* RxSwift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 		9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */; };
 		9DD6400028719D78000D9C32 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD63FFF28719D78000D9C32 /* PostModel.swift */; };
 		9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */; };
+		9DDB14EC28941A2600935AEC /* PostErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB14EB28941A2600935AEC /* PostErrorTableViewCell.swift */; };
 		CB1FEA01289031A0001850B7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CB1FEA00289031A0001850B7 /* Alamofire */; };
 		CB1FEA0528903334001850B7 /* writeLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1FEA0428903334001850B7 /* writeLottie.json */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
@@ -91,6 +103,7 @@
 		3EA4A32A28918153002D94BE /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9D0180342894369300168064 /* NibBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBased.swift; sourceTree = "<group>"; };
 		9D0DCFC028718CFA00039594 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		9D13FF742870334D00B38051 /* PostingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D13FF762870339400B38051 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -104,13 +117,24 @@
 		9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		9D8170C22892C1A400E0EB2A /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		9D8170C42892C1B000E0EB2A /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		9D916E452875A97B004B2D3E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
+		9DBDCEC52882891600993C12 /* NoIconsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoIconsView.xib; sourceTree = "<group>"; };
+		9DBDCEC72882893C00993C12 /* NoIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIconsView.swift; sourceTree = "<group>"; };
+		9DBDCECA28828F0200993C12 /* OneIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneIconView.swift; sourceTree = "<group>"; };
+		9DBDCECC28828F1100993C12 /* OneIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneIconView.xib; sourceTree = "<group>"; };
+		9DBDCECE2882913C00993C12 /* RotatableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatableImageView.swift; sourceTree = "<group>"; };
+		9DBDCED02882977800993C12 /* RoundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
+		9DBDCED228829E0700993C12 /* ManyIconsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManyIconsView.xib; sourceTree = "<group>"; };
+		9DBDCED428829E1800993C12 /* ManyIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManyIconsView.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9DD63FFF28719D78000D9C32 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		9DDB14EB28941A2600935AEC /* PostErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostErrorTableViewCell.swift; sourceTree = "<group>"; };
 		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB1FEA0428903334001850B7 /* writeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = writeLottie.json; sourceTree = "<group>"; };
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
@@ -161,6 +185,7 @@
 			children = (
 				3E76243C287F19B6002E1600 /* Reusable.swift */,
 				3E7624532882B3BB002E1600 /* StoryboardBased.swift */,
+				9D0180342894369300168064 /* NibBased.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -218,9 +243,11 @@
 			children = (
 				9D13FF742870334D00B38051 /* PostingMainViewController.swift */,
 				9DD640012871A1DB000D9C32 /* PostTableViewCell.swift */,
+				9DDB14EB28941A2600935AEC /* PostErrorTableViewCell.swift */,
 				9DD63FFD28719C8A000D9C32 /* PostingViewModel.swift */,
 				9DD63FFF28719D78000D9C32 /* PostModel.swift */,
 				9D13FF762870339400B38051 /* PostingStoryboard.storyboard */,
+				9DBDCEC928828EA800993C12 /* IconsImageView */,
 			);
 			path = Posting;
 			sourceTree = "<group>";
@@ -301,6 +328,8 @@
 			children = (
 				9D0DCFC028718CFA00039594 /* SelectableButton.swift */,
 				9D916E452875A97B004B2D3E /* RoundView.swift */,
+				9DBDCECE2882913C00993C12 /* RotatableImageView.swift */,
+				9DBDCED02882977800993C12 /* RoundLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -323,6 +352,21 @@
 				9D9F4F89287EE9C7001771DC /* Nickname.storyboard */,
 			);
 			path = Nickname;
+			sourceTree = "<group>";
+		};
+		9DBDCEC928828EA800993C12 /* IconsImageView */ = {
+			isa = PBXGroup;
+			children = (
+				9DBDCEC72882893C00993C12 /* NoIconsView.swift */,
+				9DBDCEC52882891600993C12 /* NoIconsView.xib */,
+				9DBDCECA28828F0200993C12 /* OneIconView.swift */,
+				9DBDCECC28828F1100993C12 /* OneIconView.xib */,
+				9DBDCED428829E1800993C12 /* ManyIconsView.swift */,
+				9DBDCED228829E0700993C12 /* ManyIconsView.xib */,
+				9D8170C22892C1A400E0EB2A /* NoDataView.swift */,
+				9D8170C42892C1B000E0EB2A /* NoDataView.xib */,
+			);
+			path = IconsImageView;
 			sourceTree = "<group>";
 		};
 		A400A3597BFF519C7BA64C9A /* Pods */ = {
@@ -517,10 +561,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */,
+				9DBDCECD28828F1100993C12 /* OneIconView.xib in Resources */,
+				9DBDCED328829E0700993C12 /* ManyIconsView.xib in Resources */,
 				9D13FF772870339400B38051 /* PostingStoryboard.storyboard in Resources */,
 				9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */,
 				9D4E9264286745C40009F6E1 /* LaunchScreen.storyboard in Resources */,
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
+				9DBDCEC62882891600993C12 /* NoIconsView.xib in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
 				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
@@ -529,6 +576,7 @@
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
+				9D8170C52892C1B000E0EB2A /* NoDataView.xib in Resources */,
 				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
 				3E76244D2882ACF3002E1600 /* My.storyboard in Resources */,
 				3EA4A3242891808F002D94BE /* splash.json in Resources */,
@@ -571,7 +619,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script oif which swiftlint >/dev/null; then\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script oif which swiftlint >/dev/null; then\n#if which swiftlint >/dev/null; then\n#  swiftlint\n#else\n#  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
 		};
 		D05809317AECAE2752F3849E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -611,9 +659,11 @@
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
 				CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
+				9DBDCECF2882913C00993C12 /* RotatableImageView.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
 				3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */,
 				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
+				9DBDCECB28828F0200993C12 /* OneIconView.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
 				CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */,
@@ -624,12 +674,16 @@
 				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
+				9DDB14EC28941A2600935AEC /* PostErrorTableViewCell.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				9DBDCED12882977800993C12 /* RoundLabel.swift in Sources */,
 				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */,
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
+				9D0180352894369300168064 /* NibBased.swift in Sources */,
+				9D8170C32892C1A400E0EB2A /* NoDataView.swift in Sources */,
 				CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
 				3EA33C1A2894293500265342 /* StoryService.swift in Sources */,
@@ -642,6 +696,8 @@
 				CBE1F0092890343C00AEC66E /* String+Extension.swift in Sources */,
 				3EA33C102894208D00265342 /* MyStoryCollectionViewCell.swift in Sources */,
 				CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */,
+				9DBDCED528829E1800993C12 /* ManyIconsView.swift in Sources */,
+				9DBDCEC82882893C00993C12 /* NoIconsView.swift in Sources */,
 				3EA33C162894234500265342 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,9 +845,9 @@
 				INFOPLIST_FILE = DamgleDamgle_iOS/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치 정보를 얻기 위해 반드시 필요해요!";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 얻기 위해 반드시 필요해요!";
-				INFOPLIST_KEY_NSMainNibFile = LocationAuthorizationViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = PostingStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -820,9 +876,9 @@
 				INFOPLIST_FILE = DamgleDamgle_iOS/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "현재 위치 정보를 얻기 위해 반드시 필요해요!";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 얻기 위해 반드시 필요해요!";
-				INFOPLIST_KEY_NSMainNibFile = LocationAuthorizationViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = PostingStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
