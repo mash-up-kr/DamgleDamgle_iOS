@@ -45,7 +45,7 @@
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
-		CB4ECD8328944D1D005D59D8 /* StoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8228944D1D005D59D8 /* StoryAPI.swift */; };
+		CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8228944D1D005D59D8 /* StoryService.swift */; };
 		CB4ECD8528944E3C005D59D8 /* StoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */; };
 		CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */; };
 		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
@@ -106,7 +106,7 @@
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
-		CB4ECD8228944D1D005D59D8 /* StoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAPI.swift; sourceTree = "<group>"; };
+		CB4ECD8228944D1D005D59D8 /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
 		CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRequest.swift; sourceTree = "<group>"; };
 		CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStringResource.swift; sourceTree = "<group>"; };
 		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -404,7 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA81DA62894313F0001E096 /* StoryTarget.swift */,
-				CB4ECD8228944D1D005D59D8 /* StoryAPI.swift */,
+				CB4ECD8228944D1D005D59D8 /* StoryService.swift */,
 				CB4ECD8628944E42005D59D8 /* Model */,
 			);
 			path = Story;
@@ -579,7 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */,
-				CB4ECD8328944D1D005D59D8 /* StoryAPI.swift in Sources */,
+				CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
