@@ -15,4 +15,18 @@ struct PostModel: Identifiable {
     var userName: String
     var isChecked: Bool
     var icon: IconsButton?
+    var selectedIcons: [SelectedIconButton]
+}
+
+struct SelectedIconButton {
+    var icon: IconsButton
+    var count: Int
+
+    mutating func plusCount() {
+        self.count += 1
+    }
+
+    mutating func minusCount() {
+        self.count -= 1
+    }
 }

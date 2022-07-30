@@ -8,101 +8,101 @@
 import Foundation
 import UIKit
 
-class SelectableButton: UIButton {
+final class SelectableButton: UIButton {
 
     @IBInspectable var normalImage: UIImage? {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var selectImage: UIImage? {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var normalBackgroundColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var selectBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var normalTitleColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var selectTitleColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var normalBorderColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var selectBorderColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var normalTintColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var selectTintColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var cornerRadius: CGFloat = 8.0 {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-                    updateViewPropertie()
+        updateViewPropertie()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-                    updateViewPropertie()
+        updateViewPropertie()
     }
 
     override func prepareForInterfaceBuilder() {
-                    updateViewPropertie()
+        updateViewPropertie()
     }
 
     override var isSelected: Bool {
         didSet {
-                        updateViewPropertie()
+            updateViewPropertie()
         }
     }
 
-    private func             updateViewPropertie() {
+    private func updateViewPropertie() {
         layer.cornerRadius = cornerRadius
         setTitleColor(normalTitleColor, for: .normal)
         setTitleColor(selectTitleColor, for: .selected)
