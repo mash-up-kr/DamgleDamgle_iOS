@@ -26,7 +26,7 @@ final class SplashViewController: UIViewController, StoryboardBased {
         let animationView = Lottie.AnimationView(name: paintLottieName)
         lottieView.addSubview(animationView)
         animationView.frame = lottieView.bounds
-        animationView.contentMode = .scaleAspectFill
+        animationView.contentMode = .scaleAspectFit
 
         DispatchQueue.main.async {
             animationView.play { [weak self] _ in
