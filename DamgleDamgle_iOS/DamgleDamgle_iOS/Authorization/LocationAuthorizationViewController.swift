@@ -45,9 +45,9 @@ final class LocationAuthorizationViewController: UIViewController {
         let title: String = "위치정보 이용에 대한 엑세스 권한이 없어요"
         let message: String = "설정으로 이동해서 권한을 변경해주세요!"
         
-        let nicknameViewController = NicknameViewController.instantiate()
-        nicknameViewController.modalPresentationStyle = .overFullScreen
-        self.present(nicknameViewController, animated: true)
+        let pushAuthorizationViewController = PushAuthorizationViewController()
+        pushAuthorizationViewController.modalPresentationStyle = .overFullScreen
+        present(pushAuthorizationViewController, animated: true)
         
         // TODO: 일단 권한 설정없어도 넘어가게 설정, 추후 변경 필요
 //        switch currentStatus {
@@ -64,10 +64,9 @@ final class LocationAuthorizationViewController: UIViewController {
 //                    }
 //                })
 //        case .success:
-//            // TODO: push 권한 받는 뷰컨으로 이동
-//            let nicknameViewController = NicknameViewController.instantiate()
-//            nicknameViewController.modalPresentationStyle = .overFullScreen
-//            self.present(nicknameViewController, animated: true)
+//            let pushAuthorizationViewController = PushAuthorizationViewController()
+//            pushAuthorizationViewController.modalPresentationStyle = .overFullScreen
+//            present(pushAuthorizationViewController, animated: true)
 //        case .locationUpdateFail, .none:
 //            break
 //        }
