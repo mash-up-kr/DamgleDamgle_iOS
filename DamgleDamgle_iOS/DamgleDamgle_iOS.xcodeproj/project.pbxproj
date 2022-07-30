@@ -50,6 +50,8 @@
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
 		CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */; };
 		CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */; };
+		CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8228944D1D005D59D8 /* StoryService.swift */; };
+		CB4ECD8528944E3C005D59D8 /* StoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */; };
 		CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */; };
 		CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CD92875D3C1006603C5 /* LocationService.swift */; };
 		CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */; };
@@ -61,6 +63,7 @@
 		CBA18F2A2883E308002572D0 /* PostProcess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA18F292883E308002572D0 /* PostProcess.storyboard */; };
 		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
 		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
+		CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA81DA62894313F0001E096 /* StoryTarget.swift */; };
 		CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89A28903748002E2065 /* Date+Extension.swift */; };
 		CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */; };
 		CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E8A028918841002E2065 /* Int+Extension.swift */; };
@@ -113,6 +116,8 @@
 		CB2960662875B5EB003DBF20 /* FullDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDimView.swift; sourceTree = "<group>"; };
 		CB432ABC2875B40300840132 /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		CB432ABD2875B40300840132 /* LocationAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationAuthorizationViewController.xib; sourceTree = "<group>"; };
+		CB4ECD8228944D1D005D59D8 /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
+		CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRequest.swift; sourceTree = "<group>"; };
 		CB4F7F16288BDA96002761D3 /* CommonStringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStringResource.swift; sourceTree = "<group>"; };
 		CB636CD92875D3C1006603C5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CB636CE02875E4FF006603C5 /* LocationAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationStatus.swift; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 		CBA18F292883E308002572D0 /* PostProcess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostProcess.storyboard; sourceTree = "<group>"; };
 		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		CBA81DA62894313F0001E096 /* StoryTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTarget.swift; sourceTree = "<group>"; };
 		CBB1E89A28903748002E2065 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CBB1E89E28903E2D002E2065 /* DateIntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalType.swift; sourceTree = "<group>"; };
 		CBB1E8A028918841002E2065 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CBA81DA4289430ED0001E096 /* Network */,
+				CB9ACC852883DF8600D2AC6B /* PostProcess */,
 				3EA33C142894230900265342 /* Model */,
 				3EA4A327289180F9002D94BE /* Splash */,
 				CB9ACC852883DF8600D2AC6B /* PostProcess */,
@@ -345,6 +353,14 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		CB4ECD8628944E42005D59D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CB636CD82875D3B7006603C5 /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +414,24 @@
 				3EA4A3232891808F002D94BE /* splash.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		CBA81DA4289430ED0001E096 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CBA81DA5289431270001E096 /* Story */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CBA81DA5289431270001E096 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				CBA81DA62894313F0001E096 /* StoryTarget.swift */,
+				CB4ECD8228944D1D005D59D8 /* StoryService.swift */,
+				CB4ECD8628944E42005D59D8 /* Model */,
+			);
+			path = Story;
 			sourceTree = "<group>";
 		};
 		F6F0A3826233C1FFD8667AF4 /* Frameworks */ = {
@@ -569,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */,
+				CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
@@ -583,12 +618,14 @@
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
 				CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
+				CB4ECD8528944E3C005D59D8 /* StoryRequest.swift in Sources */,
 				9D0DCFC128718CFA00039594 /* SelectableButton.swift in Sources */,
 				3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */,
 				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */,
