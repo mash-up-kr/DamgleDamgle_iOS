@@ -30,13 +30,16 @@ final class SplashViewController: UIViewController, StoryboardBased {
 
         DispatchQueue.main.async {
             animationView.play { [weak self] _ in
-                self?.showHomeView()
+                if UserManager.shared.isLogin {
+                    self?.showHomeView()
+                } else {
+                    self?.showLocationAuthorizationView()
+                }
             }
         }
     }
     
     private func showHomeView() {
-        let homeViewController = HomeViewController()
         let keyWindow = UIApplication.shared.connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .flatMap { $0.windows }
@@ -48,7 +51,26 @@ final class SplashViewController: UIViewController, StoryboardBased {
         
         DispatchQueue.main.async {
             UIView.transition(with: keyWindow, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                let homeViewController = HomeViewController()
                 keyWindow.rootViewController = homeViewController
+            })
+        }
+    }
+    
+    private func showLocationAuthorizationView() {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+
+        guard let keyWindow = keyWindow else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            UIView.transition(with: keyWindow, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                let locationAuthorizationView = LocationAuthorizationViewController()
+                keyWindow.rootViewController = locationAuthorizationView
             })
         }
     }

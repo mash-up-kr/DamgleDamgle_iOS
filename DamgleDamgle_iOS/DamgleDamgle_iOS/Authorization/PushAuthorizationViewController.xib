@@ -24,16 +24,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn=location" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-T0-kvL">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_alert" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-T0-kvL">
                     <rect key="frame" x="153" y="115.5" width="108" height="104.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="FJT-T0-kvL" secondAttribute="height" multiplier="103:100" id="VCh-9v-LZZ"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2z-5Z-Tm3">
-                    <rect key="frame" x="105.5" y="717" width="203.5" height="43"/>
-                    <string key="text">우리 서비스를 이용하기 위해 
-위치 정보가 꼭 필요해요!</string>
+                    <rect key="frame" x="95.5" y="706" width="223" height="64.5"/>
+                    <string key="text">내 주변 새로운 담글이 발견될 때
+알려드리기 위해서는
+알림 동의가 꼭 필요해요!</string>
                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                     <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -52,7 +53,7 @@
         </view>
     </objects>
     <resources>
-        <image name="icn=location" width="100" height="100"/>
+        <image name="icn_alert" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

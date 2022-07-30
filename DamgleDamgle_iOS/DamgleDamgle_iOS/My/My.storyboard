@@ -256,7 +256,7 @@ YEOKSAMDONG</string>
                                         <color key="onTintColor" name="grey400"/>
                                         <color key="thumbTintColor" name="orange500"/>
                                         <connections>
-                                            <action selector="didTapPushSwitch:" destination="iku-fV-goJ" eventType="valueChanged" id="JNv-ec-xMG"/>
+                                            <action selector="didTapSwitchValue:" destination="iku-fV-goJ" eventType="touchUpInside" id="GjS-iy-lJE"/>
                                         </connections>
                                     </switch>
                                 </subviews>
@@ -298,6 +298,9 @@ YEOKSAMDONG</string>
                             <constraint firstItem="jSm-Jx-yVJ" firstAttribute="leading" secondItem="Wak-xB-EES" secondAttribute="leading" id="sYX-GJ-XCl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pushSwitch" destination="uXy-a5-uvE" id="syq-1l-nPI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0Q-cF-gth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

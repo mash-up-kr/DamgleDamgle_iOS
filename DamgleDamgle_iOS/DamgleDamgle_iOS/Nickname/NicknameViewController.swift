@@ -25,11 +25,9 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var changeAnimalNameButton: UIButton!
     
     @IBAction private func startButtonDidTap(_ sender: UIButton) {
+        // TODO: 회원가입시키고 accessToken받아서 UserManager에 저장
         let viewController = HomeViewController()
         UIApplication.shared.windows.first?.rootViewController = viewController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-//        let homeViewController = HomeViewController()
-//        homeViewController.modalPresentationStyle = .overFullScreen
-//        self.present(homeViewController, animated: true)
     }
 }

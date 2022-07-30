@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
-        "revision" : "2235a22ca249199cb736237f4bb9cc12b6ed416a",
-        "version" : "7.3.0"
+        "branch" : "master",
+        "revision" : "2235a22ca249199cb736237f4bb9cc12b6ed416a"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-ios.git",
       "state" : {
-        "revision" : "b04b773957e3e359730590c2e7c16d8c3874ec50",
-        "version" : "3.4.1"
+        "branch" : "master",
+        "revision" : "dd5873c3441cbbcc2d744e1fdafd1a080046ba28"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveX/RxSwift.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "e0ab8c4e18baf6679a65b325155923276b832687"
+        "revision" : "b4307ba0b6425c0ba4178e138799946c3da594f8",
+        "version" : "6.5.0"
       }
     }
   ],
