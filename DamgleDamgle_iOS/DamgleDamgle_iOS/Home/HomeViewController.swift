@@ -54,7 +54,6 @@ final class HomeViewController: UIViewController {
     
     private let refreshLottieName = "refreshLottie"
     private let lottieSize = UIScreen.main.bounds.width * 0.35
-    private let fullDimView = FullDimView()
     
 // MARK: - override
     override func viewDidLoad() {
