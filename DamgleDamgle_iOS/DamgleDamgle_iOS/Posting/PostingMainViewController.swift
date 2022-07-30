@@ -6,9 +6,12 @@
 //
 
 import UIKit
-import RxSwift
 
-final class PostingMainViewController: UIViewController {
+final class PostingMainViewController: UIViewController, StoryboardBased {
+    static var storyboard: UIStoryboard {
+        UIStoryboard(name: "PostingStoryboard", bundle: nil)
+    }
+    
 
     private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
@@ -32,6 +35,10 @@ final class PostingMainViewController: UIViewController {
     @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = false
         popularitySortButton.isSelected = true
+    }
+    
+    @IBAction func closeButtonDidTap(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 }
 

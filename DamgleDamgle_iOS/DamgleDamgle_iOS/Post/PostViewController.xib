@@ -20,7 +20,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundImageView" destination="Od8-jy-lOm" id="u7J-mi-iIC"/>
                 <outlet property="currentTextCountLabel" destination="KHg-ye-vp3" id="R76-Fz-9mW"/>
                 <outlet property="myStoryGuideLabel" destination="tA5-16-9Wn" id="iSy-mU-yAK"/>
                 <outlet property="postButton" destination="yJw-yg-zvG" id="WdQ-Ik-4kX"/>
@@ -40,6 +39,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_write_bg" translatesAutoresizingMaskIntoConstraints="NO" id="slE-ZT-UMP">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicatorBar" translatesAutoresizingMaskIntoConstraints="NO" id="1la-yE-68E">
                     <rect key="frame" x="170.5" y="38" width="73" height="50"/>
                     <constraints>
@@ -47,19 +49,19 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 이야기 남기기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tA5-16-9Wn">
-                    <rect key="frame" x="139.5" y="88" width="135" height="21"/>
+                    <rect key="frame" x="140.5" y="88" width="133" height="21.5"/>
                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남긴 글은 한 달 뒤에 사라져요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdQ-eU-0iK">
-                    <rect key="frame" x="23.5" y="232.5" width="157" height="15.5"/>
+                    <rect key="frame" x="23.5" y="232" width="154.5" height="16"/>
                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-sT-j8s">
-                    <rect key="frame" x="23.5" y="149.5" width="276" height="75"/>
+                    <rect key="frame" x="23.5" y="147.5" width="271.5" height="76.5"/>
                     <string key="text">이 장소에 나만의 글을
 남겨보세요.</string>
                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="32"/>
@@ -154,6 +156,7 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2aI-LC-hr8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="slE-ZT-UMP" secondAttribute="trailing" id="4A8-zg-coG"/>
                 <constraint firstItem="tA5-16-9Wn" firstAttribute="top" secondItem="1la-yE-68E" secondAttribute="bottom" id="8Ho-TI-zBB"/>
                 <constraint firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hs2-RG-1fA"/>
                 <constraint firstItem="SbN-ch-zk7" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.91" id="I5c-dD-pUP"/>
@@ -167,10 +170,13 @@
                 <constraint firstItem="SbN-ch-zk7" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="e2b-Xs-gCl"/>
                 <constraint firstItem="tA5-16-9Wn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eMl-R7-UMO"/>
                 <constraint firstAttribute="bottom" secondItem="yJw-yg-zvG" secondAttribute="bottom" id="f0u-Vp-VzU"/>
+                <constraint firstItem="slE-ZT-UMP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f5n-yd-TdA"/>
+                <constraint firstItem="slE-ZT-UMP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fFe-EB-PPM"/>
                 <constraint firstItem="ohk-sT-j8s" firstAttribute="leading" secondItem="TdQ-eU-0iK" secondAttribute="leading" id="hKI-7U-bFC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yJw-yg-zvG" secondAttribute="trailing" id="ihf-R9-fsi"/>
                 <constraint firstItem="1la-yE-68E" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.176329" id="laU-AK-Ved"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="1la-yE-68E" secondAttribute="top" constant="6" id="txh-4E-kY6"/>
+                <constraint firstAttribute="bottom" secondItem="slE-ZT-UMP" secondAttribute="bottom" id="xv2-QT-3aq"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="wWp-Jb-khR" appends="YES" id="9Ts-ib-XBr"/>
@@ -198,6 +204,7 @@
     <resources>
         <image name="icn_error" width="18" height="18"/>
         <image name="img_write" width="343" height="356"/>
+        <image name="img_write_bg" width="375" height="763"/>
         <image name="indicatorBar" width="64" height="5"/>
         <namedColor name="grey400">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

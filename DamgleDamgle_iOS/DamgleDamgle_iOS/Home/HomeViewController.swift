@@ -93,6 +93,9 @@ final class HomeViewController: UIViewController {
     
     @IBAction private func refreshButtonTapped(_ sender: UIButton) {
         // TODO: 새로 고침
+        let postingMainViewController = PostingNavigationController.instantiate()
+        postingMainViewController.modalPresentationStyle = .overFullScreen
+        present(postingMainViewController, animated: true)
     }
     
     @IBAction private func currentLocationButtonTapped(_ sender: UIButton) {
