@@ -12,8 +12,13 @@
 		3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244C2882ACF3002E1600 /* MyViewController.swift */; };
 		3E7624502882AE1F002E1600 /* DGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244F2882AE1F002E1600 /* DGButton.swift */; };
 		3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624532882B3BB002E1600 /* StoryboardBased.swift */; };
-		3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyPostListViewController.swift */; };
+		3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624572882BFEC002E1600 /* MyStoryListViewController.swift */; };
 		3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7624592882C033002E1600 /* SettingViewController.swift */; };
+		3EA33C102894208D00265342 /* MyStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C0E2894208D00265342 /* MyStoryCollectionViewCell.swift */; };
+		3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C122894220B00265342 /* MyStoryListViewModel.swift */; };
+		3EA33C162894234500265342 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C152894234500265342 /* Story.swift */; };
+		3EA33C182894235E00265342 /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C172894235E00265342 /* Reaction.swift */; };
+		3EA33C1A2894293500265342 /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33C192894293500265342 /* StoryService.swift */; };
 		3EA4A3242891808F002D94BE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A3232891808F002D94BE /* splash.json */; };
 		3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4A325289180AB002D94BE /* SplashViewController.swift */; };
 		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
@@ -71,8 +76,13 @@
 		3E76244C2882ACF3002E1600 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		3E76244F2882AE1F002E1600 /* DGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGButton.swift; sourceTree = "<group>"; };
 		3E7624532882B3BB002E1600 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryboardBased.swift; path = DamgleDamgle_iOS/Global/Protocol/StoryboardBased.swift; sourceTree = SOURCE_ROOT; };
-		3E7624572882BFEC002E1600 /* MyPostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListViewController.swift; sourceTree = "<group>"; };
+		3E7624572882BFEC002E1600 /* MyStoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryListViewController.swift; sourceTree = "<group>"; };
 		3E7624592882C033002E1600 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3EA33C0E2894208D00265342 /* MyStoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3EA33C122894220B00265342 /* MyStoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoryListViewModel.swift; sourceTree = "<group>"; };
+		3EA33C152894234500265342 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		3EA33C172894235E00265342 /* Reaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
+		3EA33C192894293500265342 /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
 		3EA4A3232891808F002D94BE /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		3EA4A325289180AB002D94BE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3EA4A32A28918153002D94BE /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -154,18 +164,21 @@
 			children = (
 				3E76244B2882ACF3002E1600 /* My.storyboard */,
 				3E76244C2882ACF3002E1600 /* MyViewController.swift */,
-				3E7624692883FAEB002E1600 /* PostList */,
+				3E7624692883FAEB002E1600 /* StoryList */,
 				3E76246A2883FC9E002E1600 /* Setting */,
 			);
 			path = My;
 			sourceTree = "<group>";
 		};
-		3E7624692883FAEB002E1600 /* PostList */ = {
+		3E7624692883FAEB002E1600 /* StoryList */ = {
 			isa = PBXGroup;
 			children = (
-				3E7624572882BFEC002E1600 /* MyPostListViewController.swift */,
+				3EA33C192894293500265342 /* StoryService.swift */,
+				3EA33C122894220B00265342 /* MyStoryListViewModel.swift */,
+				3E7624572882BFEC002E1600 /* MyStoryListViewController.swift */,
+				3EA33C0E2894208D00265342 /* MyStoryCollectionViewCell.swift */,
 			);
-			path = PostList;
+			path = StoryList;
 			sourceTree = "<group>";
 		};
 		3E76246A2883FC9E002E1600 /* Setting */ = {
@@ -174,6 +187,15 @@
 				3E7624592882C033002E1600 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		3EA33C142894230900265342 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EA33C152894234500265342 /* Story.swift */,
+				3EA33C172894235E00265342 /* Reaction.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3EA4A327289180F9002D94BE /* Splash */ = {
@@ -218,8 +240,9 @@
 		9D4E9256286745C30009F6E1 /* DamgleDamgle_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CB9ACC852883DF8600D2AC6B /* PostProcess */,
+				3EA33C142894230900265342 /* Model */,
 				3EA4A327289180F9002D94BE /* Splash */,
+				CB9ACC852883DF8600D2AC6B /* PostProcess */,
 				CB7A1D96287DC1C9003320B6 /* Post */,
 				CB7A1D91287DB5CE003320B6 /* Home */,
 				CB2960652875B5DA003DBF20 /* Custom */,
@@ -440,10 +463,10 @@
 			);
 			mainGroup = 9D4E924B286745C30009F6E1;
 			packageReferences = (
-				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
-				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
-				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */,
-				CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 9D4E9255286745C30009F6E1 /* Products */;
 			projectDirPath = "";
@@ -554,6 +577,7 @@
 				CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */,
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */,
 				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
@@ -565,11 +589,13 @@
 				9DD63FFE28719C8A000D9C32 /* PostingViewModel.swift in Sources */,
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
 				9DD640022871A1DB000D9C32 /* PostTableViewCell.swift in Sources */,
+				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
-				3E7624582882BFEC002E1600 /* MyPostListViewController.swift in Sources */,
+				3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */,
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
 				CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */,
 				9DD6400028719D78000D9C32 /* PostModel.swift in Sources */,
+				3EA33C1A2894293500265342 /* StoryService.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9D13FF752870334D00B38051 /* PostingMainViewController.swift in Sources */,
 				CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */,
@@ -577,7 +603,9 @@
 				9D916E462875A97B004B2D3E /* RoundView.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 				CBE1F0092890343C00AEC66E /* String+Extension.swift in Sources */,
+				3EA33C102894208D00265342 /* MyStoryCollectionViewCell.swift in Sources */,
 				CB7A1D94287DB5DD003320B6 /* HomeViewController.swift in Sources */,
+				3EA33C162894234500265342 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,7 +825,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -805,7 +833,7 @@
 				kind = branch;
 			};
 		};
-		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -813,7 +841,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */ = {
+		9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -821,7 +849,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -834,27 +862,27 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9D4E926E286748050009F6E1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 9D4E926D286748050009F6E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		9D4E9271286748E20009F6E1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios.git" */;
+			package = 9D4E9270286748E20009F6E1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 		9DCAE8A5287024DA009578E1 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		9DCAE8A7287024DE009578E1 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = 9D4E926B286746EE0009F6E1 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 		CB1FEA00289031A0001850B7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = CB1FE9FF289031A0001850B7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
