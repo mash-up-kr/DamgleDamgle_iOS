@@ -45,9 +45,9 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if viewModel.postModels.count == 0 {
             mainViewImageView.image = APIState.error.BackgroundimageView
-        } else if indexPath.row > 0 {
+        } else if viewModel.postModels.count > 0 {
             mainViewImageView.image = APIState.dataExit.BackgroundimageView
             noDataView.isHidden = true
         } else {
