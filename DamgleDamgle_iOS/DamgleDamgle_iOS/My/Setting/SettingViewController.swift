@@ -29,9 +29,26 @@ final class SettingViewController: UIViewController, StoryboardBased {
     }
     
     private func resignService() {
-        // TODO: 아이디 삭제
-        // TODO: 첫 화면으로 이동시키기
-        debugPrint("아이디 삭제 ⛔️")
+        UserManager.shared.removeAccessToken()
+        showNicnameView()
+    }
+    
+    private func showNicnameView() {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+
+        guard let keyWindow = keyWindow else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            UIView.transition(with: keyWindow, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                let nicknameViewController = NicknameViewController.instantiate()
+                keyWindow.rootViewController = nicknameViewController
+            })
+        }
     }
     
     @IBAction private func didTapSwitchValue(_ sender: UISwitch) {
