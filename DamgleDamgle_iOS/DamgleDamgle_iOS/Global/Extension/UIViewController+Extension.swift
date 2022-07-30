@@ -70,12 +70,16 @@ extension UIViewController {
         }
         
         animationView.play { _ in
-            if let animationHandler = animationHandler {
-                animationHandler()
-            }
-            
-            if let completion = completion {
-                completion()
+            DispatchQueue.main.async {
+                UIView.transition(with: self.view, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                    if let animationHandler = animationHandler {
+                        animationHandler()
+                    }
+                    
+                    if let completion = completion {
+                        completion()
+                    }
+                })
             }
         }
     }
