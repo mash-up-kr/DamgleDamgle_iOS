@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 enum StoryTarget {
-    case postStory(lat: Double, lng: Double, contentString: String)
+    case postStory(_ request: PostStoryRequest)
     case getMyStory(size: Double?, storyID: String?)
     case getStoryFeed(topBound: Double, bottomBound: Double, leftBound: Double, rightBound: Double, size: Double?, storyID: String?)
     case getStoryDetail(id: String)
@@ -25,7 +25,7 @@ extension StoryTarget: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .postStory(_, _, _), .postReaction(_, _), .postReport(_):
+        case .postStory(_), .postReaction(_, _), .postReport(_):
             return .post
         case .getMyStory(_, _), .getStoryFeed(_, _, _, _, _, _), .getStoryDetail(_):
             return .get
@@ -36,7 +36,7 @@ extension StoryTarget: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .postStory(_, _, _):
+        case .postStory(_):
             return "/v1/story"
         case .getMyStory(_, _):
             return "/v1/story/me"
@@ -62,11 +62,11 @@ extension StoryTarget: URLRequestConvertible {
     
     var parameters: Parameters? {
         switch self {
-        case let .postStory(lat, lng, contentString):
+        case .postStory(let request):
             return [
-                "x": lng,
-                "y": lat,
-                "content": contentString
+                "x": request.lng,
+                "y": request.lat,
+                "content": request.content
             ]
         case let .getMyStory(size, storyID):
             return [
@@ -104,7 +104,7 @@ extension StoryTarget: URLRequestConvertible {
         
         var encoding: URLEncoding
         switch self {
-        case .postStory(_, _, _), .postReaction(_, _):
+        case .postStory(_), .postReaction(_, _):
             encoding = URLEncoding.httpBody
         case .getMyStory(_, _), .getStoryFeed(_, _, _, _, _, _):
             encoding = URLEncoding.queryString
