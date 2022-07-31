@@ -87,11 +87,11 @@
 		CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */; };
 		CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */; };
 		CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE1F0082890343C00AEC66E /* Array+Extension.swift */; };
+		CBE8C1E828967D9B00B71F33 /* NMapsMapId.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBE8C1E728967D9B00B71F33 /* NMapsMapId.plist */; };
+		CBEB534528951E540054E522 /* refreshLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEB534428951E540054E522 /* refreshLottie.json */; };
 		CBEB5349289530750054E522 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5348289530750054E522 /* Bundle+Extension.swift */; };
 		CBEB534B28964EC60054E522 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB534A28964EC60054E522 /* GeocodingService.swift */; };
-		CBEB534D2896519E0054E522 /* NMapsMapId.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBEB534C2896519E0054E522 /* NMapsMapId.plist */; };
 		CBEB534F28965BE50054E522 /* GeocodingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB534E28965BE50054E522 /* GeocodingResponse.swift */; };
-		CBEB534528951E540054E522 /* refreshLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEB534428951E540054E522 /* refreshLottie.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,11 +176,11 @@
 		CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0072890343C00AEC66E /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CBE1F0082890343C00AEC66E /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		CBE8C1E728967D9B00B71F33 /* NMapsMapId.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NMapsMapId.plist; sourceTree = "<group>"; };
+		CBEB534428951E540054E522 /* refreshLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refreshLottie.json; sourceTree = "<group>"; };
 		CBEB5348289530750054E522 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		CBEB534A28964EC60054E522 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
-		CBEB534C2896519E0054E522 /* NMapsMapId.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NMapsMapId.plist; sourceTree = "<group>"; };
 		CBEB534E28965BE50054E522 /* GeocodingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingResponse.swift; sourceTree = "<group>"; };
-		CBEB534428951E540054E522 /* refreshLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refreshLottie.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,7 +345,7 @@
 				9DD3BC0428702BCE007907DC /* Colors.xcassets */,
 				9D4E9262286745C40009F6E1 /* LaunchScreen.storyboard */,
 				9D4E9265286745C40009F6E1 /* Info.plist */,
-				CBEB534C2896519E0054E522 /* NMapsMapId.plist */,
+				CBE8C1E728967D9B00B71F33 /* NMapsMapId.plist */,
 			);
 			path = DamgleDamgle_iOS;
 			sourceTree = "<group>";
@@ -625,11 +625,11 @@
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				9D40C53528951A590046C415 /* ManyIconsView.xib in Resources */,
-				CBEB534D2896519E0054E522 /* NMapsMapId.plist in Resources */,
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
 				9D40C52F28951A590046C415 /* OneIconView.xib in Resources */,
 				CB7A1D95287DB5DD003320B6 /* HomeViewController.xib in Resources */,
 				9D40C53428951A590046C415 /* NoIconsView.xib in Resources */,
+				CBE8C1E828967D9B00B71F33 /* NMapsMapId.plist in Resources */,
 				3E76244D2882ACF3002E1600 /* My.storyboard in Resources */,
 				3EA4A3242891808F002D94BE /* splash.json in Resources */,
 				CB432ABF2875B40300840132 /* LocationAuthorizationViewController.xib in Resources */,
