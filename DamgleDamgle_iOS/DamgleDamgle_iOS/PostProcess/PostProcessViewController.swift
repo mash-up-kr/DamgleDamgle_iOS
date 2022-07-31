@@ -38,7 +38,13 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addLottieAnimation()
+        
+        addLottieAnimation(
+            lottieName: paintLottieName,
+            lottieSize: lottieSize,
+            isNeedDimView: false) {
+                self.updateViewData(type: self.postStatus)
+            }
     }
 
 // MARK: - @IBAction
@@ -84,26 +90,5 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         
         let isCloseButtonHidden = type == .inProgress
         closeButton.isHidden = isCloseButtonHidden
-    }
-    
-    private func addLottieAnimation() {
-        let originWidth: CGFloat = UIScreen.main.bounds.width
-        let originHeight: CGFloat = UIScreen.main.bounds.height
-        
-        let animationView = Lottie.AnimationView(name: paintLottieName)
-        animationView.frame = CGRect(
-            x: (originWidth - lottieSize) / 2,
-            y: (originHeight - lottieSize) / 2,
-            width: lottieSize,
-            height: lottieSize
-        )
-        animationView.contentMode = .scaleAspectFill
-        animationView.isUserInteractionEnabled = false
-
-        view.addSubview(animationView)
-        animationView.play { _ in
-            animationView.removeFromSuperview()
-            self.updateViewData(type: self.postStatus)
-        }
     }
 }

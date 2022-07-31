@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E5CEE3B28951D390074B286 /* UserDefaultWrapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5CEE3A28951D390074B286 /* UserDefaultWrapperable.swift */; };
 		3E76243D287F19B6002E1600 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76243C287F19B6002E1600 /* Reusable.swift */; };
 		3E76244D2882ACF3002E1600 /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E76244B2882ACF3002E1600 /* My.storyboard */; };
 		3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244C2882ACF3002E1600 /* MyViewController.swift */; };
@@ -90,9 +91,11 @@
 		CBEB534B28964EC60054E522 /* GeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB534A28964EC60054E522 /* GeocodingService.swift */; };
 		CBEB534D2896519E0054E522 /* NMapsMapId.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBEB534C2896519E0054E522 /* NMapsMapId.plist */; };
 		CBEB534F28965BE50054E522 /* GeocodingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB534E28965BE50054E522 /* GeocodingResponse.swift */; };
+		CBEB534528951E540054E522 /* refreshLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CBEB534428951E540054E522 /* refreshLottie.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E5CEE3A28951D390074B286 /* UserDefaultWrapperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapperable.swift; sourceTree = "<group>"; };
 		3E76243C287F19B6002E1600 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		3E76244B2882ACF3002E1600 /* My.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
 		3E76244C2882ACF3002E1600 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 		CBEB534A28964EC60054E522 /* GeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingService.swift; sourceTree = "<group>"; };
 		CBEB534C2896519E0054E522 /* NMapsMapId.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NMapsMapId.plist; sourceTree = "<group>"; };
 		CBEB534E28965BE50054E522 /* GeocodingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingResponse.swift; sourceTree = "<group>"; };
+		CBEB534428951E540054E522 /* refreshLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refreshLottie.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,7 @@
 				3E76243C287F19B6002E1600 /* Reusable.swift */,
 				3E7624532882B3BB002E1600 /* StoryboardBased.swift */,
 				9D0180342894369300168064 /* NibBased.swift */,
+				3E5CEE3A28951D390074B286 /* UserDefaultWrapperable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 		CBA18F2B2883F87A002572D0 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				CBEB534428951E540054E522 /* refreshLottie.json */,
 				CB1FEA0428903334001850B7 /* writeLottie.json */,
 				3EA4A3232891808F002D94BE /* splash.json */,
 			);
@@ -612,6 +618,7 @@
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
+				CBEB534528951E540054E522 /* refreshLottie.json in Resources */,
 				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
@@ -700,6 +707,7 @@
 				CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
+				3E5CEE3B28951D390074B286 /* UserDefaultWrapperable.swift in Sources */,
 				9D40C52928951A590046C415 /* PostModel.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				3E8276F928950796004673D6 /* RoundView.swift in Sources */,

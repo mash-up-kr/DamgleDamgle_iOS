@@ -39,13 +39,13 @@ final class PushAuthorizationViewController: UIViewController {
                             )
                         }
                     }
-                    self?.showNicnameViewController()
+                    self?.showNicknameViewController()
                 }
             }
         )
     }
     
-    private func showNicnameViewController() {
+    private func showNicknameViewController() {
         let pushAuthorizationViewController = NicknameViewController.instantiate()
         pushAuthorizationViewController.modalPresentationStyle = .overFullScreen
         present(pushAuthorizationViewController, animated: true)

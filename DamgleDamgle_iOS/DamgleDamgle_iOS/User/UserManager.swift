@@ -9,11 +9,25 @@ import Foundation
 
 final class UserManager {
     static let shared: UserManager = UserManager()
-    
     private init() {}
+
+    @UserDefault(key: .accessToken, defaultValue: "")
+    private var accessToken: String
     
     var isLogin: Bool {
-        // TODO: userDefault에 accessToken 저장하고 삭제하는 메서드 만들어서 있는지 여부에 따라 반환
-        false
+        accessToken.isEmpty == false
+    }
+    
+    func updateAccessToken(_ accessToken: String?) {
+        guard let accessToken = accessToken else {
+            self.accessToken = ""
+            return
+        }
+
+        self.accessToken = accessToken
+    }
+    
+    func removeAccessToken() {
+        accessToken = ""
     }
 }

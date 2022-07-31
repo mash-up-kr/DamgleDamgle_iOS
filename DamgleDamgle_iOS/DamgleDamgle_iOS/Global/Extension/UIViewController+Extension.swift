@@ -5,6 +5,7 @@
 //  Created by 최혜린 on 2022/07/07.
 //
 
+import Lottie
 import UIKit
 
 extension UIViewController {
@@ -27,6 +28,60 @@ extension UIViewController {
         }
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func addLottieAnimation(lottieName: String, lottieSize: CGFloat, isNeedDimView: Bool, completion: (() -> Void)? = nil) {
+        let originWidth: CGFloat = UIScreen.main.bounds.width
+        let originHeight: CGFloat = UIScreen.main.bounds.height
+        var animationHandler: (() -> Void)?
+        
+        let animationView = Lottie.AnimationView(name: lottieName)
+        animationView.frame = CGRect(
+            x: (originWidth - lottieSize) / 2,
+            y: (originHeight - lottieSize) / 2,
+            width: lottieSize,
+            height: lottieSize
+        )
+        animationView.contentMode = .scaleAspectFill
+        animationView.isUserInteractionEnabled = false
+        
+        if isNeedDimView {
+            let fullDimView = FullDimView()
+            fullDimView.frame = CGRect(
+                x: 0,
+                y: 0,
+                width: originWidth,
+                height: originHeight
+            )
+            
+            fullDimView.addSubview(animationView)
+            view.addSubview(fullDimView)
+            
+            animationHandler = {
+                animationView.removeFromSuperview()
+                fullDimView.removeFromSuperview()
+            }
+        } else {
+            view.addSubview(animationView)
+            
+            animationHandler = {
+                animationView.removeFromSuperview()
+            }
+        }
+        
+        animationView.play { _ in
+            DispatchQueue.main.async {
+                UIView.transition(with: self.view, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                    if let animationHandler = animationHandler {
+                        animationHandler()
+                    }
+                    
+                    if let completion = completion {
+                        completion()
+                    }
+                })
+            }
+        }
     }
 }
 
