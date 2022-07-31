@@ -80,4 +80,8 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     func startUpdatingCurrentLocation() {
         manager.startUpdatingLocation()
     }
+    
+    func stopUpdatingCurrentLocation() {
+        manager.stopUpdatingLocation()
+    }
 }
