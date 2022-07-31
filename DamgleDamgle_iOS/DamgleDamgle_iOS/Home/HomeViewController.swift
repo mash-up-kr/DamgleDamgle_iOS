@@ -7,6 +7,7 @@
 
 import NMapsMap
 import UIKit
+import Lottie
 
 final class HomeViewController: UIViewController {    
     @IBOutlet private weak var currentAddressLabel: UILabel!
@@ -16,6 +17,7 @@ final class HomeViewController: UIViewController {
         }
     }
     @IBOutlet private weak var monthlyPaintingRemainingTimeLabel: UILabel!
+    @IBOutlet weak var refreshButton: UIButton!
     
     private var currentPaintingMode: DateIntervalType = .moreThanDay {
         didSet {
@@ -49,6 +51,9 @@ final class HomeViewController: UIViewController {
     }
     
     private var timer: Timer?
+    
+    private let refreshLottieName = "refreshLottie"
+    private let lottieSize = UIScreen.main.bounds.width * 0.35
     
 // MARK: - override
     override func viewDidLoad() {
@@ -93,9 +98,11 @@ final class HomeViewController: UIViewController {
     
     @IBAction private func refreshButtonTapped(_ sender: UIButton) {
         // TODO: 새로 고침
-        let postingMainViewController = PostingNavigationController.instantiate()
-        postingMainViewController.modalPresentationStyle = .overFullScreen
-        present(postingMainViewController, animated: true)
+        addLottieAnimation(
+            lottieName: refreshLottieName,
+            lottieSize: lottieSize,
+            isNeedDimView: true
+        )
     }
     
     @IBAction private func currentLocationButtonTapped(_ sender: UIButton) {
@@ -110,6 +117,12 @@ final class HomeViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func moveToListView(_ sender: UIButton) {
+        let postingMainViewController = PostingNavigationController.instantiate()
+        postingMainViewController.modalPresentationStyle = .overFullScreen
+        present(postingMainViewController, animated: true)
     }
     
 // MARK: - objc

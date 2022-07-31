@@ -26,6 +26,7 @@
                 <outlet property="currentAddressLabel" destination="7u3-dx-m73" id="v34-Gf-fA7"/>
                 <outlet property="monthlyPaintingBGView" destination="3ts-gC-AUu" id="wFg-oE-9mN"/>
                 <outlet property="monthlyPaintingRemainingTimeLabel" destination="bDg-L6-T7k" id="BSZ-HS-ebG"/>
+                <outlet property="refreshButton" destination="xn9-7x-U3w" id="nn7-z1-cHc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -115,6 +116,14 @@
                         <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="tDr-tQ-2Tl"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abh-gr-WZm">
+                    <rect key="frame" x="332.5" y="548" width="67" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <connections>
+                        <action selector="moveToListView:" destination="-1" eventType="touchUpInside" id="aag-6V-ibR"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,6 +136,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ip4-Ck-43I" secondAttribute="trailing" id="Xjw-ce-uVa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="ip4-Ck-43I" secondAttribute="leading" id="aIU-M0-uTK"/>
                 <constraint firstItem="xn9-7x-U3w" firstAttribute="centerX" secondItem="7i4-g0-Enp" secondAttribute="centerX" id="bbL-lz-GLv"/>
+                <constraint firstItem="abh-gr-WZm" firstAttribute="centerX" secondItem="xn9-7x-U3w" secondAttribute="centerX" id="dRq-AP-cLF"/>
+                <constraint firstItem="xn9-7x-U3w" firstAttribute="top" secondItem="abh-gr-WZm" secondAttribute="bottom" constant="25" id="e48-k1-f1X"/>
                 <constraint firstItem="7i4-g0-Enp" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="1.55" id="fZi-TU-MXF"/>
                 <constraint firstAttribute="top" secondItem="ip4-Ck-43I" secondAttribute="top" id="fZq-0f-aXJ"/>
                 <constraint firstItem="ip4-Ck-43I" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.135" id="gbN-Tz-xEn"/>
