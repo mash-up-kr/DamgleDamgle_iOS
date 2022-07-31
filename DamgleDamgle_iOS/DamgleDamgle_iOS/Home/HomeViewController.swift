@@ -54,6 +54,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addMapView()
+        setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,6 +108,7 @@ final class HomeViewController: UIViewController {
         case .success:
             let mapPosition = NMGLatLng(from: locationManager.currentLocation)
             mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
+            getCurrentLocationAddress()
         default:
             break
         }
@@ -139,6 +141,10 @@ final class HomeViewController: UIViewController {
     }
     
 // MARK: - UDF
+    private func setupView() {
+        currentAddressLabel.text = ""
+    }
+    
     private func addMapView() {
         mapView.frame = view.frame
         view.addSubview(mapView)
@@ -217,6 +223,22 @@ final class HomeViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(resetTimer), userInfo: nil, repeats: true)
         }
     }
+    
+    private func getCurrentLocationAddress() {
+        let request = GeocodingRequest(
+            lat: locationManager.currentLocation.latitude,
+            lng: locationManager.currentLocation.longitude
+        )
+        
+        GeocodingService.reverseGeocoding(request: request) { result in
+            switch result {
+            case .success(let address):
+                self.currentAddressLabel.text = address
+            case .failure(let error):
+                self.currentAddressLabel.text = ""
+            }
+        }
+    }
 }
 
 extension HomeViewController: LocationDataProtocol {
@@ -233,6 +255,7 @@ extension HomeViewController: LocationUpdateProtocol {
         currentLocationMarker.mapView = mapView
         
         if isFirstUpdate {
+            getCurrentLocationAddress()
             mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
             isFirstUpdate = false
         }
