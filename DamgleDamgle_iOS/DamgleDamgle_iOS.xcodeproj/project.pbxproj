@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E5CEE3B28951D390074B286 /* UserDefaultWrapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5CEE3A28951D390074B286 /* UserDefaultWrapperable.swift */; };
 		3E76243D287F19B6002E1600 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76243C287F19B6002E1600 /* Reusable.swift */; };
 		3E76244D2882ACF3002E1600 /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E76244B2882ACF3002E1600 /* My.storyboard */; };
 		3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E76244C2882ACF3002E1600 /* MyViewController.swift */; };
@@ -87,6 +88,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E5CEE3A28951D390074B286 /* UserDefaultWrapperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapperable.swift; sourceTree = "<group>"; };
 		3E76243C287F19B6002E1600 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		3E76244B2882ACF3002E1600 /* My.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
 		3E76244C2882ACF3002E1600 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				3E76243C287F19B6002E1600 /* Reusable.swift */,
 				3E7624532882B3BB002E1600 /* StoryboardBased.swift */,
 				9D0180342894369300168064 /* NibBased.swift */,
+				3E5CEE3A28951D390074B286 /* UserDefaultWrapperable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
+				3E5CEE3B28951D390074B286 /* UserDefaultWrapperable.swift in Sources */,
 				9D40C52928951A590046C415 /* PostModel.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				3E8276F928950796004673D6 /* RoundView.swift in Sources */,
