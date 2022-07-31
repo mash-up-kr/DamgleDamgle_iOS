@@ -30,10 +30,10 @@ final class SettingViewController: UIViewController, StoryboardBased {
     
     private func resignService() {
         UserManager.shared.removeAccessToken()
-        showNicnameView()
+        showNicknameViewController()
     }
     
-    private func showNicnameView() {
+    private func showNicknameViewController() {
         let keyWindow = UIApplication.shared.connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .flatMap { $0.windows }
