@@ -13,8 +13,18 @@ final class MyViewController: UIViewController, StoryboardBased {
     }
     
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var listButton: UIButton!
-    @IBOutlet private weak var settingButton: UIButton!
+    @IBOutlet private weak var listButton: UIButton! {
+        didSet {
+            listButton.layer.cornerRadius = 8.0
+            listButton.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet private weak var settingButton: UIButton!  {
+        didSet {
+            settingButton.layer.cornerRadius = 8.0
+            settingButton.layer.masksToBounds = true
+        }
+    }
 
     private var pages: [UIViewController] = []
     private var currentPage = 0
