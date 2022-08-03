@@ -274,13 +274,17 @@ YEOKSAMDONG</string>
                                     <constraint firstAttribute="bottom" secondItem="DjO-ml-R0v" secondAttribute="bottom" id="l8T-8r-oU3"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-PF-to0">
-                                <rect key="frame" x="141.5" y="818" width="131.5" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 그만 사용하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xek-JJ-R7J">
+                                <rect key="frame" x="153" y="832" width="108" height="16"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                <color key="textColor" name="grey700"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-PF-to0">
+                                <rect key="frame" x="143" y="822" width="128" height="36"/>
                                 <color key="tintColor" name="grey700"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="서비스 그만 사용하기">
-                                    <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                 <connections>
                                     <action selector="didTapResignButton:" destination="iku-fV-goJ" eventType="touchUpInside" id="wAK-Hg-TtY"/>
                                 </connections>
@@ -289,12 +293,17 @@ YEOKSAMDONG</string>
                         <viewLayoutGuide key="safeArea" id="9Ub-Td-W67"/>
                         <color key="backgroundColor" name="grey500"/>
                         <constraints>
+                            <constraint firstItem="Xek-JJ-R7J" firstAttribute="centerX" secondItem="Wak-xB-EES" secondAttribute="centerX" id="JC9-63-XCZ"/>
                             <constraint firstAttribute="trailing" secondItem="jSm-Jx-yVJ" secondAttribute="trailing" id="OZ3-9i-kAI"/>
+                            <constraint firstItem="n1H-PF-to0" firstAttribute="bottom" secondItem="Xek-JJ-R7J" secondAttribute="bottom" constant="10" id="P2g-PH-yTo"/>
                             <constraint firstItem="jSm-Jx-yVJ" firstAttribute="centerY" secondItem="XrQ-dK-6XN" secondAttribute="centerY" id="Q3p-0H-kjt"/>
-                            <constraint firstAttribute="bottom" secondItem="n1H-PF-to0" secondAttribute="bottom" constant="48" id="TUK-ty-7tc"/>
+                            <constraint firstItem="n1H-PF-to0" firstAttribute="trailing" secondItem="Xek-JJ-R7J" secondAttribute="trailing" constant="10" id="S0W-Eu-gdC"/>
                             <constraint firstItem="n1H-PF-to0" firstAttribute="centerX" secondItem="Wak-xB-EES" secondAttribute="centerX" id="UpV-bI-J9w"/>
                             <constraint firstItem="XrQ-dK-6XN" firstAttribute="top" secondItem="9Ub-Td-W67" secondAttribute="top" id="YRd-DY-oec"/>
+                            <constraint firstItem="n1H-PF-to0" firstAttribute="leading" secondItem="Xek-JJ-R7J" secondAttribute="leading" constant="-10" id="g45-07-Vjh"/>
+                            <constraint firstItem="n1H-PF-to0" firstAttribute="top" secondItem="Xek-JJ-R7J" secondAttribute="top" constant="-10" id="iye-y6-Qh7"/>
                             <constraint firstItem="XrQ-dK-6XN" firstAttribute="centerX" secondItem="Wak-xB-EES" secondAttribute="centerX" id="izI-nA-If8"/>
+                            <constraint firstAttribute="bottom" secondItem="Xek-JJ-R7J" secondAttribute="bottom" constant="48" id="sW0-P5-KoS"/>
                             <constraint firstItem="jSm-Jx-yVJ" firstAttribute="leading" secondItem="Wak-xB-EES" secondAttribute="leading" id="sYX-GJ-XCl"/>
                         </constraints>
                     </view>
