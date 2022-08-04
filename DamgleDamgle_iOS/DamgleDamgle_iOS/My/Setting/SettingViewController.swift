@@ -24,6 +24,7 @@ final class SettingViewController: UIViewController, StoryboardBased {
             DispatchQueue.main.async { [weak self] in
                 // TODO: 서버 값이랑 동기화 할지? 로컬이랑 동기화 할지?
                 self?.pushSwitch.isOn = settings.authorizationStatus == .authorized
+                
             }
         }
     }
