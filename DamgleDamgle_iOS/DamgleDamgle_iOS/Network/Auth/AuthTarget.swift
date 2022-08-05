@@ -80,12 +80,12 @@ extension AuthTarget: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         urlRequest.headers = header
         
-        var encoding: URLEncoding
+        var encoding: ParameterEncoding
         switch self {
         case .postSignUp(_), .postSignIn(_):
-            encoding = URLEncoding.httpBody
+            encoding = JSONEncoding.default
         case .getMyInfo, .patchNotification, .deleteMyInfo:
-            encoding = URLEncoding.default
+            encoding = URLEncoding.queryString
         }
         
         return try encoding.encode(urlRequest, with: parameters)

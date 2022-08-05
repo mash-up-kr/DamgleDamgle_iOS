@@ -91,7 +91,7 @@ extension PostingMainViewController: UITableViewDataSource {
 
 extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed() {
-        self.postingTableView.reloadData()
+        postingTableView.reloadData()
     }
 
 

@@ -15,8 +15,13 @@ struct AuthService {
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
-                    guard let signingResponse = try? JSONDecoder().decode(SigningResponse.self, from: data) else { return }
-                    completion(.success(signingResponse))
+                    do {
+                        let signingResponse = try JSONDecoder().decode(SigningResponse.self, from: data)
+                        completion(.success(signingResponse))
+                    } catch {
+                        completion(.failure(error))
+                        print(error.localizedDescription)
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }
