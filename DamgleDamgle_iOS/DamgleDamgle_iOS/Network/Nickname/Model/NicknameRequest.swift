@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct GetNicknameRequest: Codable {
+struct GetNicknameRequest {
     let adjective: String?
     let noun: String?
 }
 
-struct PostNicknameRequest: Codable {
+struct PostNicknameRequest {
     let adjective: String
     let noun: String
 }

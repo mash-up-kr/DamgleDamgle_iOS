@@ -16,7 +16,7 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         viewModel.delegate = self
     }
     
@@ -27,12 +27,30 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         nounLabel.text = model.noun
     }
     
+    private func showHomeView() {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+
+        guard let keyWindow = keyWindow else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            UIView.transition(with: keyWindow, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                let homeViewController = HomeViewController()
+                keyWindow.rootViewController = homeViewController
+            })
+        }
+    }
+    
     // MARK: - lnterface Links
     @IBOutlet private weak var orderNumLabel: UILabel!
     @IBOutlet private weak var adjectiveLabel: UILabel!
     @IBOutlet private weak var nounLabel: UILabel!
     @IBOutlet private weak var changeAdjectiveButton: UIButton!
-    @IBOutlet private weak var changeAnimalNameButton: UIButton!
+    @IBOutlet private weak var changeNameButton: UIButton!
     
     @IBAction private func startButtonDidTap(_ sender: UIButton) {
         // TODO: 회원가입시키고 accessToken받아서 UserManager에 저장, 아래가 방법 예시!
@@ -40,10 +58,9 @@ final class NicknameViewController: UIViewController, StoryboardBased {
             DispatchQueue.main.async { [weak self] in
                 // TODO: 서버 값이랑 동기화 할지? 로컬이랑 동기화 할지?
                 let authorizedState = settings.authorizationStatus == .authorized
-                self?.viewModel.signUp(isNotificationEnabled: authorizedState) { _ in
-                    let viewController = HomeViewController()
-                    UIApplication.shared.windows.first?.rootViewController = viewController
-                    UIApplication.shared.windows.first?.makeKeyAndVisible()
+                self?.viewModel.signUp(isNotificationEnabled: authorizedState) { [weak self] _ in
+                    guard let self = self else { return }
+                    self.showHomeView()
                 }
             }
         }

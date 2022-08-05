@@ -12,13 +12,11 @@ struct AuthService {
     static func postSignUp(request: PostSignUpRequest, completion: @escaping (Result<SigningResponse, Error>) -> Void) {
         AF.request(AuthTarget.postSignUp(request))
             .response { response in
-                print(response)
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
                     do {
-                        let decoder = JSONDecoder()
-                        let signingResponse = try decoder.decode(SigningResponse.self, from: data)
+                        let signingResponse = try JSONDecoder().decode(SigningResponse.self, from: data)
                         completion(.success(signingResponse))
                     } catch {
                         print(error.localizedDescription)

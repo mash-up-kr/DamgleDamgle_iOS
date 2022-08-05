@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NicknameResponse: Codable {
+struct NicknameResponse: Decodable {
     let name: String
     let adjective: String
     let noun: String

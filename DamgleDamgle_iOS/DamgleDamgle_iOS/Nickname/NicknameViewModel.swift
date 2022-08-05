@@ -75,18 +75,9 @@ class NicknameViewModel {
                 print(error)
             }
         }
-        
     }
     
-//    UserManager.shared.updateAccessToken(response.accessToken)
+    private func postSignUp() {
+        
+    }
 }
-
-
-//                NicknameService.postNickname(request: PostNicknameRequest(adjective: response.adjective, noun: response.noun)) { result in
-//                    switch result {
-//                    case .success(let success):
-//                        print(success)
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                }

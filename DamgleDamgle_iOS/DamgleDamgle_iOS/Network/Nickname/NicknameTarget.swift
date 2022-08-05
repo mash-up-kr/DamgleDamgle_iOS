@@ -29,9 +29,7 @@ extension NicknameTarget: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .getNickname(_):
-            return "/v1/namepicker"
-        case .postNickname(_):
+        case .getNickname(_), .postNickname(_):
             return "/v1/namepicker"
         }
     }
@@ -45,25 +43,24 @@ extension NicknameTarget: URLRequestConvertible {
     var parameters: Parameters? {
         switch self {
         case .getNickname(let request):
-            if let adjective = request.adjective {
-                if let noun = request.noun {
-                    return [
-                        "adjective": adjective,
-                        "noun": noun
-                    ]
-                } else {
-                    return [
-                        "adjective": adjective
-                    ]
-                }
-            } else {
-                if let noun = request.noun {
-                    return [
-                        "noun": noun
-                    ]
-                } else {
-                    return nil
-                }
+            let adjective = request.adjective
+            let noun = request.noun
+            switch (adjective, noun) {
+            case (let adjective?, let noun?):
+                return [
+                    "adjective": adjective,
+                    "noun": noun
+                ]
+            case (let adjective?, nil):
+                return [
+                    "adjective": adjective
+                ]
+            case (nil, let noun?):
+                return [
+                    "noun": noun
+                ]
+            case (nil, nil):
+                return nil
             }
         case .postNickname(let request):
             return [
