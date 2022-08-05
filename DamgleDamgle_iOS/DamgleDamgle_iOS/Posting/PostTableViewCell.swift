@@ -129,6 +129,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             nowSelectedButtonIcon = isSelectedIcon
         }
     }
+    
+    @IBAction private func reportButtonDidTouchUp(_ sender: UIButton) {
+        
+    }
 
     private func deselectAnotherButton(button: UIButton) {
         if button.isSelected {
