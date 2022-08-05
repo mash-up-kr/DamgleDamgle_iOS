@@ -20,6 +20,7 @@ struct NicknameService {
                         let model = try decoder.decode(NicknameResponse.self, from: data)
                         completion(.success(model))
                     } catch {
+                        completion(.failure(error))
                         print(error.localizedDescription)
                     }
                 case .failure(let error):
@@ -39,6 +40,7 @@ struct NicknameService {
                         let model = try decoder.decode(NicknameResponse.self, from: data)
                         completion(.success(model))
                     } catch {
+                        completion(.failure(error))
                         print(error.localizedDescription)
                     }
                 case .failure(let error):

@@ -58,9 +58,13 @@ final class NicknameViewController: UIViewController, StoryboardBased {
             DispatchQueue.main.async { [weak self] in
                 // TODO: 서버 값이랑 동기화 할지? 로컬이랑 동기화 할지?
                 let authorizedState = settings.authorizationStatus == .authorized
-                self?.viewModel.signUp(isNotificationEnabled: authorizedState) { [weak self] _ in
-                    guard let self = self else { return }
-                    self.showHomeView()
+                self?.viewModel.postNickname(isNotificationEnabled: authorizedState) { [weak self] isSuccess in
+                    if isSuccess {
+                        guard let self = self else { return }
+                        self.showHomeView()
+                    } else {
+                        
+                    }
                 }
             }
         }

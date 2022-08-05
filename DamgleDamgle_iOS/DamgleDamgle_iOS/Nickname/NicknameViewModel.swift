@@ -55,29 +55,32 @@ class NicknameViewModel {
         }
     }
     
-    func signUp(isNotificationEnabled: Bool, completion: @escaping (Bool) -> Void) -> Void {
+    func postNickname(isNotificationEnabled: Bool, completion: @escaping (Bool) -> Void) -> Void {
         guard let model = model else { return }
-        NicknameService.postNickname(request: PostNicknameRequest(adjective: model.adjective, noun: model.noun)) { result in
+        NicknameService.postNickname(request: PostNicknameRequest(adjective: model.adjective, noun: model.noun)) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let success):
-                AuthService.postSignUp(request: PostSignUpRequest(nickname: success.name, isNotificationEnabled: isNotificationEnabled)) { result in
-                    switch result {
-                    case .success(let response):
-                        UserManager.shared.updateAccessToken(response.accessToken)
-                        completion(true)
-                    case .failure(let error):
-                        print(error)
-                        completion(false)
-                    }
+                self.signUp(responce: success, isNotificationEnabled: isNotificationEnabled) { isSuccess in
+                    completion(isSuccess)
                 }
-                print(success)
             case .failure(let error):
+                completion(false)
                 print(error)
             }
         }
     }
     
-    private func postSignUp() {
-        
+    private func signUp(responce: NicknameResponse, isNotificationEnabled: Bool, completion: @escaping (Bool) -> Void) {
+        AuthService.postSignUp(request: PostSignUpRequest(nickname: responce.name, isNotificationEnabled: isNotificationEnabled)) { result in
+            switch result {
+            case .success(let response):
+                UserManager.shared.updateAccessToken(response.accessToken)
+                completion(true)
+            case .failure(let error):
+                completion(false)
+                print(error)
+            }
+        }
     }
 }

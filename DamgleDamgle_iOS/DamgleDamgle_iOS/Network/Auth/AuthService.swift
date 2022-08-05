@@ -19,6 +19,7 @@ struct AuthService {
                         let signingResponse = try JSONDecoder().decode(SigningResponse.self, from: data)
                         completion(.success(signingResponse))
                     } catch {
+                        completion(.failure(error))
                         print(error.localizedDescription)
                     }
                 case .failure(let error):
