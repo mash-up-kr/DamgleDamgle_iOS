@@ -64,6 +64,7 @@
 		9D954EC7289969180000F68D /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954EC6289969180000F68D /* NicknameViewModel.swift */; };
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
+		9DC936DE289D7AD60031F5F1 /* LineSpacingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 		CB1FEA0528903334001850B7 /* writeLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1FEA0428903334001850B7 /* writeLottie.json */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
@@ -161,6 +162,7 @@
 		9D954EC6289969180000F68D /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
+		9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSpacingLabel.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB1FEA0428903334001850B7 /* writeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = writeLottie.json; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				3E8276F428950796004673D6 /* RotatableImageView.swift */,
 				3E8276F528950796004673D6 /* RoundView.swift */,
 				3E8276F628950796004673D6 /* RoundLabel.swift */,
+				9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				CBE1F00C2890343C00AEC66E /* Array+Extension.swift in Sources */,
 				3E5CEE3B28951D390074B286 /* UserDefaultWrapperable.swift in Sources */,
 				9D40C52928951A590046C415 /* PostModel.swift in Sources */,
+				9DC936DE289D7AD60031F5F1 /* LineSpacingLabel.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				3E8276F928950796004673D6 /* RoundView.swift in Sources */,
 				CBEB534F28965BE50054E522 /* GeocodingResponse.swift in Sources */,

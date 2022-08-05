@@ -154,14 +154,14 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 77" translatesAutoresizingMaskIntoConstraints="NO" id="clq-PX-v4L">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="388.5"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zxcaask;mas;lxams;lxasml;asmxl;asmx;lasmlx;asml;xasa;xmas;lxmasl;xasm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zxcaask;mas;lxams;lxasml;asmxl;asmx;lasmlx;asml;xasa;xmas;lxmasl;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt" customClass="LineSpacingLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="24" y="24" width="326" height="31.5"/>
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-D1-CF2">
-                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
+                                                            <rect key="frame" x="12" y="173" width="342" height="205.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snx-co-seI">
@@ -184,7 +184,7 @@
                                                         <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="VjX-K7-CxT"/>
                                                         <constraint firstAttribute="width" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="335:348" id="Yvu-Hy-gs9"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="d72-G1-E97"/>
-                                                        <constraint firstAttribute="trailing" secondItem="U5w-D1-CF2" secondAttribute="trailing" constant="12" id="mnW-W1-h2M"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U5w-D1-CF2" secondAttribute="trailing" constant="20" id="mnW-W1-h2M"/>
                                                         <constraint firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" id="nyI-PC-2pR"/>
                                                         <constraint firstAttribute="trailing" secondItem="snx-co-seI" secondAttribute="trailing" constant="24" id="plB-e7-bvt"/>
                                                         <constraint firstAttribute="bottom" secondItem="snx-co-seI" secondAttribute="bottom" constant="16" id="sSV-ob-QbK"/>
