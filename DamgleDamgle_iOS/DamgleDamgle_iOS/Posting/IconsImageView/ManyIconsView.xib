@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,11 +24,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="335" height="184"/>
+            <rect key="frame" x="0.0" y="0.0" width="302" height="184"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=sad" translatesAutoresizingMaskIntoConstraints="NO" id="KQf-5u-MF2" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="90.5" y="-13" width="53.5" height="100"/>
+                    <rect key="frame" x="91" y="7" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="KQf-5u-MF2" secondAttribute="height" multiplier="1:1" id="QGO-8e-ecJ"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
                             <real key="value" value="-10.84"/>
@@ -36,46 +39,46 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=like" translatesAutoresizingMaskIntoConstraints="NO" id="us2-TD-hJt" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="190" y="1.5" width="89" height="89"/>
+                    <rect key="frame" x="199" y="0.5" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="us2-TD-hJt" secondAttribute="height" multiplier="1:1" id="WBT-fK-nih"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=angry" translatesAutoresizingMaskIntoConstraints="NO" id="Xx3-iz-797" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="132" y="84" width="71" height="71.5"/>
+                    <rect key="frame" x="126" y="89" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Xx3-iz-797" secondAttribute="height" multiplier="1:1" id="HRq-Ge-Sq8"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
-                            <real key="value" value="8.9800000000000004"/>
+                            <real key="value" value="9"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=amazing" translatesAutoresizingMaskIntoConstraints="NO" id="Cvh-V5-wpr" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="246.5" y="80" width="43" height="42.5"/>
+                    <rect key="frame" x="240.5" y="95.5" width="48" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Cvh-V5-wpr" secondAttribute="height" multiplier="1:1" id="0ob-a1-IaT"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
-                            <real key="value" value="16.260000000000002"/>
+                            <real key="value" value="16"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=best" translatesAutoresizingMaskIntoConstraints="NO" id="4j8-vI-tH0" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="5.5" y="75" width="89.5" height="89.5"/>
+                    <rect key="frame" x="10.5" y="79" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="4j8-vI-tH0" secondAttribute="height" multiplier="1:1" id="1Zo-hp-F6q"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
-                            <real key="value" value="-14.109999999999999"/>
+                            <real key="value" value="-14"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4J-jy-68I" customClass="RoundLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="83.5" y="71.5" width="24" height="24"/>
+                    <rect key="frame" x="93.5" y="78" width="24" height="24"/>
                     <color key="backgroundColor" name="yellow"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="RHt-I4-vfo"/>
@@ -87,7 +90,7 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGp-V5-r94" customClass="RoundLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="175.5" y="11" width="24" height="24"/>
+                    <rect key="frame" x="192.5" y="13.5" width="24" height="24"/>
                     <color key="backgroundColor" name="yellow"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="AMU-w6-TZF"/>
@@ -99,7 +102,7 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-gK-ZT3" customClass="RoundLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="58.5" y="10" width="24" height="24"/>
+                    <rect key="frame" x="60.5" y="10" width="24" height="24"/>
                     <color key="backgroundColor" name="yellow"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="e8r-5r-UA0"/>
@@ -111,7 +114,7 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfa-nG-6GG" customClass="RoundLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="283" y="79" width="24" height="24"/>
+                    <rect key="frame" x="278.5" y="95.5" width="24" height="24"/>
                     <color key="backgroundColor" name="yellow"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="BUT-X3-oK1"/>
@@ -123,7 +126,7 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLq-qZ-hds" customClass="RoundLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="206" y="131.5" width="24" height="24"/>
+                    <rect key="frame" x="204" y="142.5" width="24" height="24"/>
                     <color key="backgroundColor" name="yellow"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="DBL-2A-NcU"/>
@@ -134,21 +137,16 @@
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector 26_black_posting" translatesAutoresizingMaskIntoConstraints="NO" id="dhs-AJ-yr8" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="107" y="156" width="54" height="10"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="dhs-AJ-yr8" secondAttribute="height" multiplier="43:8" id="JAN-mw-EMa"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
-                            <real key="value" value="-3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 36979" translatesAutoresizingMaskIntoConstraints="NO" id="Ifa-H2-zUd">
-                    <rect key="frame" x="20.5" y="35.5" width="43" height="39.5"/>
+                    <rect key="frame" x="14" y="33" width="48" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Ifa-H2-zUd" secondAttribute="height" multiplier="48:44" id="bFk-7l-z7L"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="XiO-Ww-SbS">
+                    <rect key="frame" x="154" y="64" width="24" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="XiO-Ww-SbS" secondAttribute="height" multiplier="24:19" id="S2p-eX-dAB"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -156,43 +154,43 @@
             <constraints>
                 <constraint firstItem="Ifa-H2-zUd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.6" id="1K2-Db-6ob"/>
                 <constraint firstItem="Ifa-H2-zUd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.25" id="5p5-u4-bWK"/>
-                <constraint firstItem="Cvh-V5-wpr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.1" id="8JC-Px-tnP"/>
+                <constraint firstItem="Cvh-V5-wpr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.3" id="8JC-Px-tnP"/>
                 <constraint firstItem="CGp-V5-r94" firstAttribute="centerY" secondItem="us2-TD-hJt" secondAttribute="centerY" multiplier="0.5" id="BWq-K3-1KO"/>
                 <constraint firstItem="Cfa-nG-6GG" firstAttribute="centerY" secondItem="Cvh-V5-wpr" secondAttribute="centerY" multiplier="0.9" id="BhR-Kc-vBB"/>
                 <constraint firstItem="nLq-qZ-hds" firstAttribute="centerY" secondItem="Xx3-iz-797" secondAttribute="centerY" multiplier="1.2" id="Euj-ce-BVE"/>
-                <constraint firstItem="us2-TD-hJt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="100:375" id="G7q-mM-6lm"/>
-                <constraint firstItem="Cvh-V5-wpr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.6" id="H5b-7l-nrA"/>
-                <constraint firstItem="4j8-vI-tH0" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="100:375" id="J8q-oy-B85"/>
+                <constraint firstItem="us2-TD-hJt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="100:302" id="G7q-mM-6lm"/>
+                <constraint firstItem="Cvh-V5-wpr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.75" id="H5b-7l-nrA"/>
+                <constraint firstItem="4j8-vI-tH0" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="100:302" id="J8q-oy-B85"/>
                 <constraint firstItem="KQf-5u-MF2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.4" id="JgY-vy-Zwu"/>
-                <constraint firstItem="Ifa-H2-zUd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="48:375" id="OwK-XP-aeS"/>
+                <constraint firstItem="XiO-Ww-SbS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.8" id="OFK-2D-bte"/>
+                <constraint firstItem="Ifa-H2-zUd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="48:302" id="OwK-XP-aeS"/>
                 <constraint firstItem="Cfa-nG-6GG" firstAttribute="centerX" secondItem="Cvh-V5-wpr" secondAttribute="centerX" multiplier="1.1" id="Qyn-88-tFz"/>
-                <constraint firstItem="dhs-AJ-yr8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.8" id="SDu-JZ-wza"/>
-                <constraint firstItem="KQf-5u-MF2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.7" id="YbL-zN-2AK"/>
-                <constraint firstItem="us2-TD-hJt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.5" id="ZMJ-y3-bbD"/>
-                <constraint firstItem="Cvh-V5-wpr" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="48:375" id="Zeg-mj-4wa"/>
-                <constraint firstItem="us2-TD-hJt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.4" id="aOb-D2-Txu"/>
-                <constraint firstItem="Xx3-iz-797" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="beA-4B-7Ib"/>
+                <constraint firstItem="KQf-5u-MF2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.8" id="YbL-zN-2AK"/>
+                <constraint firstItem="us2-TD-hJt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.55" id="ZMJ-y3-bbD"/>
+                <constraint firstItem="Cvh-V5-wpr" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="48:302" id="Zeg-mj-4wa"/>
+                <constraint firstItem="us2-TD-hJt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.65" id="aOb-D2-Txu"/>
+                <constraint firstItem="Xx3-iz-797" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.1" id="beA-4B-7Ib"/>
+                <constraint firstItem="XiO-Ww-SbS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="1.1" id="dJK-ee-8CQ"/>
                 <constraint firstItem="nLq-qZ-hds" firstAttribute="centerX" secondItem="Xx3-iz-797" secondAttribute="centerX" multiplier="1.3" id="dYb-AI-P5f"/>
-                <constraint firstItem="4j8-vI-tH0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.3" id="gKe-Mj-0Wf"/>
+                <constraint firstItem="4j8-vI-tH0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.4" id="gKe-Mj-0Wf"/>
                 <constraint firstItem="2nC-gK-ZT3" firstAttribute="centerX" secondItem="KQf-5u-MF2" secondAttribute="centerX" multiplier="0.6" id="krS-5i-LHc"/>
                 <constraint firstItem="2nC-gK-ZT3" firstAttribute="centerY" secondItem="KQf-5u-MF2" secondAttribute="centerY" multiplier="0.6" id="kw2-c2-0gC"/>
-                <constraint firstItem="4j8-vI-tH0" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.3" id="lsZ-SX-YRo"/>
-                <constraint firstItem="dhs-AJ-yr8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="60:375" id="mMA-pV-Olb"/>
-                <constraint firstItem="D4J-jy-68I" firstAttribute="centerX" secondItem="4j8-vI-tH0" secondAttribute="centerX" multiplier="1.9" id="p2h-x8-rpN"/>
-                <constraint firstItem="dhs-AJ-yr8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.75" id="ql0-sP-DrC"/>
-                <constraint firstItem="Xx3-iz-797" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="80:375" id="sCE-Ld-vK0"/>
-                <constraint firstItem="CGp-V5-r94" firstAttribute="centerX" secondItem="us2-TD-hJt" secondAttribute="centerX" multiplier="0.8" id="tj9-6n-aD8"/>
-                <constraint firstItem="Xx3-iz-797" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.3" id="vr0-CD-kpX"/>
-                <constraint firstItem="KQf-5u-MF2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="60:375" id="xpC-k3-fd9"/>
+                <constraint firstItem="4j8-vI-tH0" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.4" id="lsZ-SX-YRo"/>
+                <constraint firstItem="D4J-jy-68I" firstAttribute="centerX" secondItem="4j8-vI-tH0" secondAttribute="centerX" multiplier="1.75" id="p2h-x8-rpN"/>
+                <constraint firstItem="Xx3-iz-797" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="80:302" id="sCE-Ld-vK0"/>
+                <constraint firstItem="CGp-V5-r94" firstAttribute="centerX" secondItem="us2-TD-hJt" secondAttribute="centerX" multiplier="0.82" id="tj9-6n-aD8"/>
+                <constraint firstItem="Xx3-iz-797" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.4" id="vr0-CD-kpX"/>
+                <constraint firstItem="XiO-Ww-SbS" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="24:302" id="wQz-Ur-g6j"/>
+                <constraint firstItem="KQf-5u-MF2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="60:302" id="xpC-k3-fd9"/>
                 <constraint firstItem="D4J-jy-68I" firstAttribute="centerY" secondItem="4j8-vI-tH0" secondAttribute="centerY" multiplier="0.7" id="yC5-bF-YFz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="2156" y="339"/>
+            <point key="canvasLocation" x="2155.072463768116" y="338.83928571428572"/>
         </view>
     </objects>
     <resources>
         <image name="Group 36979" width="57" height="54"/>
-        <image name="Vector 26_black_posting" width="47" height="13"/>
+        <image name="Vector" width="25" height="19"/>
         <image name="img=amazing" width="100" height="100"/>
         <image name="img=angry" width="100" height="100"/>
         <image name="img=best" width="100" height="100"/>
