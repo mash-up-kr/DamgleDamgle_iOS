@@ -148,6 +148,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
 
     private func openIconsButton() {
+        guard let selectedIconImage = nowSelectedButtonIcon.inActiveButtonIconimage else { return }
+        iconsStartButton.setImage(selectedIconImage, for: .selected)
+        
         let contentViewWidth = self.contentView.frame.width
         iconsButtonXPointConstraint.forEach {
             let constraint: NSLayoutConstraint = $0
@@ -166,7 +169,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
                     return nil
                 }
             }()
-
+                        
             UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let self = self, let constant = constant else { return }
                 constraint.constant = constant
@@ -254,6 +257,23 @@ enum IconsButton: Int {
             return UIImage(named: "img=best")
         case .none:
             return nil
+        }
+    }
+    
+    var inActiveButtonIconimage: UIImage? {
+        switch self {
+        case .likeButton:
+            return UIImage(named: "icn=like_inactive")
+        case .angryButton:
+            return UIImage(named: "icn=angry_inactive")
+        case .amazingButton:
+            return UIImage(named: "icn=amazing_inactive")
+        case .sadButton:
+            return UIImage(named: "icn=sad_inactive")
+        case .bestButton:
+            return UIImage(named: "icn=best_inactive")
+        case .none:
+            return UIImage(named: "icn=best_inactive")
         }
     }
 
