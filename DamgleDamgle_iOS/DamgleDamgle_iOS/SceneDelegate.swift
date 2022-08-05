@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = NicknameViewController.instantiate()
 //        window?.rootViewController = SplashViewController.instantiate()
+        window?.rootViewController = PostingNavigationController.instantiate()
         window?.makeKeyAndVisible()
     }
 
