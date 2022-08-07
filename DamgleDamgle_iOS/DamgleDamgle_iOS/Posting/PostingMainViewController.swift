@@ -12,15 +12,20 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "PostingStoryboard", bundle: nil)
     }
     
-
+    
     private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        postingTableView.reloadData()
+    }
+    
     // MARK: - InterfaceBuilder Links
     @IBOutlet private weak var timeSortButton: SelectableButton!
     @IBOutlet private weak var popularitySortButton: SelectableButton!
@@ -31,7 +36,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         timeSortButton.isSelected = true
         popularitySortButton.isSelected = false
     }
-
+    
     @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = false
         popularitySortButton.isSelected = true
@@ -65,14 +70,15 @@ extension PostingMainViewController: UITableViewDataSource {
         }
         return viewModel.postModels.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if apiState == APIState.error {
             let cell = tableView.dequeueReusableCell(for: indexPath) as PostErrorTableViewCell
             return cell
         }
-
+        
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
+        
         let viewModel = self.viewModel.postModels[indexPath.row]
         cell.setupUI(viewModel: viewModel)
         cell.addSelectedIcon = { [weak self] iconButton in
@@ -84,24 +90,44 @@ extension PostingMainViewController: UITableViewDataSource {
             self.viewModel.deleteIconInModel(original: viewModel, icon: iconsButton)
         }
         cell.delegate = self
-
+        
         return cell
     }
 }
 
 extension PostingMainViewController: TableViewCellDelegate {
+    func iconsButtonDidTap(icon: IconsButton) {
+        toastButtonAnimate(icon: icon)
+    }
+    
     func iconButtonAnimationIsClosed() {
         postingTableView.reloadData()
     }
+    
+    private func toastButtonAnimate(icon: IconsButton) {
+        let screenWidth: CGFloat = UIScreen.main.bounds.width
+        let screenHeight: CGFloat = UIScreen.main.bounds.height
+        
+        let toastLabel = ToastLabel()
+        toastLabel.setupUI(text: icon.toastMessageTitle)
 
-
+        toastLabel.frame.origin.x = screenWidth/2 - toastLabel.bounds.width/2
+        toastLabel.frame.origin.y = screenHeight - toastLabel.bounds.height - screenHeight*(64/812)
+        self.view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 5.0) {
+            toastLabel.alpha = 0.0
+        } completion: { _ in
+            toastLabel.removeFromSuperview()
+        }
+    }
 }
 
 enum APIState {
     case dataExit
     case dataNone
     case error
-
+    
     var BackgroundimageView: UIImage? {
         switch self {
         case .dataExit: return UIImage(named: "img_list_bg")
