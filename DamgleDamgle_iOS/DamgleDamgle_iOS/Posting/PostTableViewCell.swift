@@ -431,6 +431,23 @@ enum ReactionType: String, CaseIterable {
             return UIImage(named: "icn=best_inactive")
         }
     }
+    
+    var toastMessageTitle: String? {
+        switch self {
+        case .likeButton:
+            return "좋아요 이모지로 수정되었습니다!"
+        case .angryButton:
+            return "화나요 이모지로 수정되었습니다!"
+        case .amazingButton:
+            return "놀라워요 이모지로 수정되었습니다!"
+        case .sadButton:
+            return "슬퍼요 이모지로 수정되었습니다!"
+        case .bestButton:
+            return "최고에요 이모지로 수정되었습니다!"
+        case .none:
+            return nil
+        }
+    }
 
     var tag: Int {
         switch self {

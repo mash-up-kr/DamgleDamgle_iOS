@@ -31,6 +31,8 @@
 		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0180352894369300168064 /* NibBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0180342894369300168064 /* NibBased.swift */; };
+		9D10D6E828A014B200777D7D /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D10D6E728A014B200777D7D /* ToastView.swift */; };
+		9D10D6EA28A014BC00777D7D /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D10D6E928A014BC00777D7D /* ToastView.xib */; };
 		9D40C5102895199E0046C415 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C50F2895199E0046C415 /* Alamofire */; };
 		9D40C513289519A90046C415 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C512289519A90046C415 /* Kingfisher */; };
 		9D40C516289519BD0046C415 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C515289519BD0046C415 /* Lottie */; };
@@ -136,6 +138,8 @@
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0180342894369300168064 /* NibBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBased.swift; sourceTree = "<group>"; };
+		9D10D6E728A014B200777D7D /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		9D10D6E928A014BC00777D7D /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
 		9D40C51828951A590046C415 /* PostingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingNavigationController.swift; sourceTree = "<group>"; };
 		9D40C51A28951A590046C415 /* PostErrorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostErrorTableViewCell.swift; sourceTree = "<group>"; };
 		9D40C51B28951A590046C415 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
@@ -706,6 +710,7 @@
 				3EA33C1E28943E8E00265342 /* PushAuthorizationViewController.xib in Resources */,
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
+				9D10D6EA28A014BC00777D7D /* ToastView.xib in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
 				CBEB534528951E540054E522 /* refreshLottie.json in Resources */,
 				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
@@ -808,6 +813,7 @@
 				3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */,
 				CBAE75B52894FF0B006D3240 /* GeocodingTarget.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
+				9D10D6E828A014B200777D7D /* ToastView.swift in Sources */,
 				CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */,
 				9D954EBE289961FA0000F68D /* NicknameTarget.swift in Sources */,
 				9D40C53128951A590046C415 /* OneIconView.swift in Sources */,
