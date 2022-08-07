@@ -9,13 +9,13 @@ import UIKit
 
 protocol TableViewCellDelegate: AnyObject {
     func iconButtonAnimationIsClosed()
+    func iconsButtonDidTap(icon: IconsButton)
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
     weak var delegate: TableViewCellDelegate?
     var addSelectedIcon: ((IconsButton) -> Void)?
     var deleteSeletedIcon: ((IconsButton) -> Void)?
-    var selectedIcons: [SelectedIconButton] = []
     private var nowSelectedButtonIcon: IconsButton = IconsButton.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedButtonIcon)
@@ -40,11 +40,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         iconsStartButton.isSelected = false
         iconsButtonCollection.forEach { $0.isSelected = false }
     }
-// TODO: View Life Cycle 문제해결 필요
-//    override func draw(_ rect: CGRect) {
-//        super.draw(rect)
-//        setupIconsView()
-//    }
 
     private func setViewDefault() {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
@@ -56,8 +51,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         checkMeLabel.text = viewModel.isChecked ? " • ME" : ""
         timeLabel.text = viewModel.timeText
         contentLabel.text = viewModel.content
-        selectedIcons = viewModel.selectedIcons
-        setupIconsView()
+        setupIconsView(selectedButtonIcons: viewModel.selectedIcons)
         setupIconsStartButton(selectedIcon: viewModel.icon ?? IconsButton.none)
         setupIconsButton(selectedIcon: viewModel.icon ?? IconsButton.none)
     }
@@ -72,21 +66,21 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         }
     }
 
-    func setupIconsView() {
-        if selectedIcons.isEmpty {
+    func setupIconsView(selectedButtonIcons: [SelectedIconButton]) {
+        if selectedButtonIcons.isEmpty {
             let iconsView = NoIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-        } else if selectedIcons.count == 1 {
+        } else if selectedButtonIcons.count == 1 {
             let iconsView = OneIconView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupText(selectedIcons: selectedIcons)
+            iconsView.setupText(selectedIcons: selectedButtonIcons)
         } else {
             let iconsView = ManyIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupUI(selectedIcons: selectedIcons)
+            iconsView.setupUI(selectedIcons: selectedButtonIcons)
         }
     }
 
@@ -127,6 +121,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
             addSelectedIcon?(isSelectedIcon)
             nowSelectedButtonIcon = isSelectedIcon
+            delegate?.iconsButtonDidTap(icon: isSelectedIcon)
         }
     }
     
@@ -278,6 +273,23 @@ enum IconsButton: Int {
             return UIImage(named: "icn=best_inactive")
         case .none:
             return UIImage(named: "icn=best_inactive")
+        }
+    }
+    
+    var toastMessageTitle: String? {
+        switch self {
+        case .likeButton:
+            return "좋아요 이모지로 수정되었습니다!"
+        case .angryButton:
+            return "화나요 이모지로 수정되었습니다!"
+        case .amazingButton:
+            return "놀라워요 이모지로 수정되었습니다!"
+        case .sadButton:
+            return "슬퍼요 이모지로 수정되었습니다!"
+        case .bestButton:
+            return "최고에요 이모지로 수정되었습니다!"
+        case .none:
+            return nil
         }
     }
 
