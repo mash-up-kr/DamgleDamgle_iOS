@@ -31,6 +31,8 @@
 		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0180352894369300168064 /* NibBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0180342894369300168064 /* NibBased.swift */; };
+		9D10D6E828A014B200777D7D /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D10D6E728A014B200777D7D /* ToastView.swift */; };
+		9D10D6EA28A014BC00777D7D /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D10D6E928A014BC00777D7D /* ToastView.xib */; };
 		9D40C5102895199E0046C415 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C50F2895199E0046C415 /* Alamofire */; };
 		9D40C513289519A90046C415 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C512289519A90046C415 /* Kingfisher */; };
 		9D40C516289519BD0046C415 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C515289519BD0046C415 /* Lottie */; };
@@ -65,6 +67,8 @@
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
 		9DC936DE289D7AD60031F5F1 /* LineSpacingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */; };
+		9DC936E2289D87C90031F5F1 /* ToastLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC936E1289D87C90031F5F1 /* ToastLabel.xib */; };
+		9DC936E4289D87F20031F5F1 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936E3289D87F20031F5F1 /* ToastLabel.swift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 		CB1FEA0528903334001850B7 /* writeLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1FEA0428903334001850B7 /* writeLottie.json */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
@@ -132,6 +136,8 @@
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0180342894369300168064 /* NibBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBased.swift; sourceTree = "<group>"; };
+		9D10D6E728A014B200777D7D /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		9D10D6E928A014BC00777D7D /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
 		9D40C51828951A590046C415 /* PostingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingNavigationController.swift; sourceTree = "<group>"; };
 		9D40C51928951A590046C415 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9D40C51A28951A590046C415 /* PostErrorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostErrorTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,6 +171,8 @@
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
 		9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSpacingLabel.swift; sourceTree = "<group>"; };
+		9DC936E1289D87C90031F5F1 /* ToastLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastLabel.xib; sourceTree = "<group>"; };
+		9DC936E3289D87F20031F5F1 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB1FEA0428903334001850B7 /* writeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = writeLottie.json; sourceTree = "<group>"; };
@@ -265,6 +273,7 @@
 		3E8276F228950796004673D6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9DC936E0289D87A70031F5F1 /* ToastLabel */,
 				3E8276F328950796004673D6 /* SelectableButton.swift */,
 				3E8276F428950796004673D6 /* RotatableImageView.swift */,
 				3E8276F528950796004673D6 /* RoundView.swift */,
@@ -442,6 +451,17 @@
 				9D9F4F89287EE9C7001771DC /* Nickname.storyboard */,
 			);
 			path = Nickname;
+			sourceTree = "<group>";
+		};
+		9DC936E0289D87A70031F5F1 /* ToastLabel */ = {
+			isa = PBXGroup;
+			children = (
+				9DC936E3289D87F20031F5F1 /* ToastLabel.swift */,
+				9DC936E1289D87C90031F5F1 /* ToastLabel.xib */,
+				9D10D6E728A014B200777D7D /* ToastView.swift */,
+				9D10D6E928A014BC00777D7D /* ToastView.xib */,
+			);
+			path = ToastLabel;
 			sourceTree = "<group>";
 		};
 		A400A3597BFF519C7BA64C9A /* Pods */ = {
@@ -685,12 +705,14 @@
 				3EA33C1E28943E8E00265342 /* PushAuthorizationViewController.xib in Resources */,
 				CB1FEA0528903334001850B7 /* writeLottie.json in Resources */,
 				9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */,
+				9D10D6EA28A014BC00777D7D /* ToastView.xib in Resources */,
 				9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */,
 				CBEB534528951E540054E522 /* refreshLottie.json in Resources */,
 				3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */,
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
+				9DC936E2289D87C90031F5F1 /* ToastLabel.xib in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				9D40C53528951A590046C415 /* ManyIconsView.xib in Resources */,
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
@@ -787,6 +809,7 @@
 				3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */,
 				CBAE75B52894FF0B006D3240 /* GeocodingTarget.swift in Sources */,
 				CB7A1D99287DC21D003320B6 /* PostViewController.swift in Sources */,
+				9D10D6E828A014B200777D7D /* ToastView.swift in Sources */,
 				CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */,
 				9D954EBE289961FA0000F68D /* NicknameTarget.swift in Sources */,
 				9D40C53128951A590046C415 /* OneIconView.swift in Sources */,
@@ -816,6 +839,7 @@
 				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E8276F828950796004673D6 /* RotatableImageView.swift in Sources */,
+				9DC936E4289D87F20031F5F1 /* ToastLabel.swift in Sources */,
 				9D954EC7289969180000F68D /* NicknameViewModel.swift in Sources */,
 				3E8276FA28950796004673D6 /* RoundLabel.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
