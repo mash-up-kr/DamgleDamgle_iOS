@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=best" translatesAutoresizingMaskIntoConstraints="NO" id="6ga-Cc-vqR" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="89.5" y="47.5" width="89" height="89"/>
+                    <rect key="frame" x="114.5" y="39" width="106" height="106"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="6ga-Cc-vqR" secondAttribute="height" multiplier="1:1" id="inU-7V-fLV"/>
                     </constraints>
@@ -38,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-Kb-pzS" customClass="RoundLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="162" y="52.5" width="24" height="24"/>
+                    <rect key="frame" x="206" y="43" width="24" height="24"/>
                     <color key="backgroundColor" name="yellow"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="0EJ-gr-tWW"/>
@@ -49,60 +49,50 @@
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 36979" translatesAutoresizingMaskIntoConstraints="NO" id="Wga-Hz-K5A" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="59" y="26.5" width="43" height="39"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Wga-Hz-K5A" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                    <rect key="frame" x="55" y="42.5" width="58" height="53"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Wga-Hz-K5A" secondAttribute="height" multiplier="48:44" id="AlI-8m-ei8"/>
+                        <constraint firstAttribute="width" secondItem="Wga-Hz-K5A" secondAttribute="height" multiplier="58:53" id="AlI-8m-ei8"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
-                            <real key="value" value="-12.77"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 36980" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-uf-jLe" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                    <rect key="frame" x="200.5" y="107" width="27.5" height="25"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 37030" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-uf-jLe" customClass="RotatableImageView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                    <rect key="frame" x="236.5" y="104" width="46" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="fSO-uf-jLe" secondAttribute="height" multiplier="31:28" id="AhJ-Kw-lMj"/>
+                        <constraint firstAttribute="width" secondItem="fSO-uf-jLe" secondAttribute="height" multiplier="46:22" id="AhJ-Kw-lMj"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="rotationDegrees">
-                            <real key="value" value="161.03999999999999"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector 25_black" translatesAutoresizingMaskIntoConstraints="NO" id="G1r-BD-w23">
-                    <rect key="frame" x="211.5" y="68" width="59" height="11.5"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector_111" translatesAutoresizingMaskIntoConstraints="NO" id="G1r-BD-w23">
+                    <rect key="frame" x="228" y="71.5" width="30" height="23"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="G1r-BD-w23" secondAttribute="height" multiplier="66:13" id="Yk0-QU-lvc"/>
+                        <constraint firstAttribute="width" secondItem="G1r-BD-w23" secondAttribute="height" multiplier="30:23" id="Yk0-QU-lvc"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Wga-Hz-K5A" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="0.5" id="16o-ug-SXt"/>
-                <constraint firstItem="Tlk-Kb-pzS" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="0.7" id="2VP-kr-72X"/>
-                <constraint firstItem="fSO-uf-jLe" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="1.6" id="5lb-cv-DAV"/>
+                <constraint firstItem="Wga-Hz-K5A" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="0.75" id="16o-ug-SXt"/>
+                <constraint firstItem="Tlk-Kb-pzS" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="0.6" id="2VP-kr-72X"/>
+                <constraint firstItem="fSO-uf-jLe" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="1.55" id="5lb-cv-DAV"/>
                 <constraint firstItem="6ga-Cc-vqR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6cZ-cR-xUr"/>
-                <constraint firstItem="fSO-uf-jLe" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="1.3" id="DzV-Dd-Afq"/>
+                <constraint firstItem="fSO-uf-jLe" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="1.25" id="DzV-Dd-Afq"/>
                 <constraint firstItem="Tlk-Kb-pzS" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="1.3" id="LpE-sw-I1b"/>
-                <constraint firstItem="fSO-uf-jLe" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="31:375" id="RMx-NK-VwM"/>
-                <constraint firstItem="Wga-Hz-K5A" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="0.6" id="Rt9-FZ-YeY"/>
-                <constraint firstItem="G1r-BD-w23" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="1.8" id="Smr-3K-Eka"/>
-                <constraint firstItem="G1r-BD-w23" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="66:375" id="Sx6-KL-UCA"/>
-                <constraint firstItem="G1r-BD-w23" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="0.8" id="cYb-Wt-YxC"/>
-                <constraint firstItem="6ga-Cc-vqR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="100:375" id="eeT-0z-jYt"/>
-                <constraint firstItem="Wga-Hz-K5A" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="48:375" id="tPr-SF-LJ9"/>
-                <constraint firstItem="6ga-Cc-vqR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.8" id="uKu-3c-0qt"/>
+                <constraint firstItem="fSO-uf-jLe" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="46:335" id="RMx-NK-VwM"/>
+                <constraint firstItem="Wga-Hz-K5A" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="0.5" id="Rt9-FZ-YeY"/>
+                <constraint firstItem="G1r-BD-w23" firstAttribute="centerX" secondItem="6ga-Cc-vqR" secondAttribute="centerX" multiplier="1.45" id="Smr-3K-Eka"/>
+                <constraint firstItem="G1r-BD-w23" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="30:335" id="Sx6-KL-UCA"/>
+                <constraint firstItem="G1r-BD-w23" firstAttribute="centerY" secondItem="6ga-Cc-vqR" secondAttribute="centerY" multiplier="0.9" id="cYb-Wt-YxC"/>
+                <constraint firstItem="6ga-Cc-vqR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="106:335" id="eeT-0z-jYt"/>
+                <constraint firstItem="Wga-Hz-K5A" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="58:335" id="tPr-SF-LJ9"/>
+                <constraint firstItem="6ga-Cc-vqR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uKu-3c-0qt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="558.69565217391312" y="-28.125"/>
         </view>
     </objects>
     <resources>
-        <image name="Group 36979" width="57" height="54"/>
-        <image name="Group 36980" width="39" height="37"/>
-        <image name="Vector 25_black" width="68" height="25"/>
+        <image name="Group" width="59" height="54"/>
+        <image name="Group 37030" width="47" height="23"/>
+        <image name="Vector_111" width="30" height="23"/>
         <image name="img=best" width="100" height="100"/>
         <namedColor name="yellow">
             <color red="0.85900002717971802" green="0.99199998378753662" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
