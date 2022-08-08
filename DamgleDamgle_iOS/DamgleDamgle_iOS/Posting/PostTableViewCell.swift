@@ -8,8 +8,7 @@
 import UIKit
 
 protocol TableViewCellDelegate: AnyObject {
-    func iconButtonAnimationIsClosed()
-    func iconsButtonDidTap(icon: IconsButton)
+    func iconButtonAnimationIsClosed(icon: IconsButton)
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
@@ -100,7 +99,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBAction private func touchUpiconStartButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
-            closeIconsButton(isSelected: self.nowSelectedButtonIcon)
+            closeIconsButton(isSelected: nowSelectedButtonIcon)
         } else {
             sender.isSelected = true
             openIconsButton()
@@ -121,7 +120,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
             addSelectedIcon?(isSelectedIcon)
             nowSelectedButtonIcon = isSelectedIcon
-            delegate?.iconsButtonDidTap(icon: isSelectedIcon)
         }
     }
     
@@ -169,7 +167,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
                 }
             }()
                         
-            UIView.animate(withDuration: 0.5) { [weak self] in
+            UIView.animate(withDuration: 1.0) { [weak self] in
                 guard let self = self, let constant = constant else { return }
                 constraint.constant = constant
                 self.layoutIfNeeded()
@@ -182,7 +180,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             let constraint: NSLayoutConstraint = $0
             let constant: CGFloat = IconsButton.none.distRatioFromStartButton
 
-            UIView.animate(withDuration: 0.5) { [weak self] in
+            UIView.animate(withDuration: 1.0) { [weak self] in
                 guard let self = self else { return }
 
                 constraint.constant = constant
@@ -190,7 +188,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             } completion: { [weak self] _ in
                 guard let self = self else { return }
 
-                self.delegate?.iconButtonAnimationIsClosed()
+                self.delegate?.iconButtonAnimationIsClosed(icon: self.nowSelectedButtonIcon)
                 self.iconsStartButton.isSelected = false
 
                 guard let selectedIconImage = icon.selectedButtonIconsImage else { return }

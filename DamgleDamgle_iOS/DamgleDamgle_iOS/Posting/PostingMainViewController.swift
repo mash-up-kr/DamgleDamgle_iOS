@@ -32,6 +32,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var postingTableView: UITableView!
     @IBOutlet private weak var mainViewImageView: UIImageView!
     @IBOutlet private weak var noDataView: UIView!
+    
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
         popularitySortButton.isSelected = false
@@ -55,6 +56,9 @@ extension PostingMainViewController: UITableViewDelegate {
         } else if viewModel.postModels.count > 0 {
             mainViewImageView.image = APIState.dataExit.BackgroundimageView
             noDataView.isHidden = true
+            
+            let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
+//            cell.selected
         } else {
             mainViewImageView.image = APIState.dataNone.BackgroundimageView
             noDataView.isHidden = false
@@ -96,12 +100,13 @@ extension PostingMainViewController: UITableViewDataSource {
 }
 
 extension PostingMainViewController: TableViewCellDelegate {
-    func iconsButtonDidTap(icon: IconsButton) {
-        toastButtonAnimate(icon: icon)
-    }
     
-    func iconButtonAnimationIsClosed() {
-        postingTableView.reloadData()
+    func iconButtonAnimationIsClosed(icon: IconsButton) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.toastButtonAnimate(icon: icon)
+            self.postingTableView.reloadData()
+        }
     }
     
     private func toastButtonAnimate(icon: IconsButton) {
@@ -115,7 +120,7 @@ extension PostingMainViewController: TableViewCellDelegate {
         toastLabel.frame.origin.y = screenHeight - toastLabel.bounds.height - screenHeight*(64/812)
         self.view.addSubview(toastLabel)
         
-        UIView.animate(withDuration: 5.0) {
+        UIView.animate(withDuration: 2.0) {
             toastLabel.alpha = 0.0
         } completion: { _ in
             toastLabel.removeFromSuperview()
