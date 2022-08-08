@@ -171,6 +171,14 @@ extension PostingMainViewController: TableViewCellDelegate {
     }
 }
 
+
+// MARK: - ScrollViewDelegate
+extension PostingMainViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        self.navigationController?.navigationBar.backgroundColor = .red
+//    }
+}
+
 enum APIState {
     case dataExit
     case error
