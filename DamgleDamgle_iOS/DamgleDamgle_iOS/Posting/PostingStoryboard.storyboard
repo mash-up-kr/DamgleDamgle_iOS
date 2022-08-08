@@ -499,7 +499,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="grey500"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7kJ-9s-gCx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="63P-HJ-RKz"/>
                             <constraint firstItem="nhD-C8-JWe" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="6id-tT-Xbw"/>

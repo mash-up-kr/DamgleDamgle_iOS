@@ -99,6 +99,7 @@ extension PostingMainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
     
     func iconButtonAnimationIsClosed(icon: IconsButton) {
@@ -126,6 +127,14 @@ extension PostingMainViewController: TableViewCellDelegate {
             toastLabel.removeFromSuperview()
         }
     }
+}
+
+
+// MARK: - ScrollViewDelegate
+extension PostingMainViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        self.navigationController?.navigationBar.backgroundColor = .red
+//    }
 }
 
 enum APIState {
