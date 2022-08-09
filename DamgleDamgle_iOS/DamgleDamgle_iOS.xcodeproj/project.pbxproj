@@ -57,6 +57,8 @@
 		9D5E0CEF28715D8000A3705C /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */; };
 		9D5E0CF028715D8200A3705C /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */; };
 		9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */; };
+		9D708B1528A0F77900B9ABAA /* StoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D708B1428A0F77900B9ABAA /* StoryResponse.swift */; };
+		9D76AB4A28A139290060D660 /* TestPostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76AB4928A139290060D660 /* TestPostingViewModel.swift */; };
 		9D954EBE289961FA0000F68D /* NicknameTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954EBD289961FA0000F68D /* NicknameTarget.swift */; };
 		9D954EC0289962090000F68D /* NicknameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954EBF289962090000F68D /* NicknameService.swift */; };
 		9D954EC3289962240000F68D /* NicknameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954EC2289962240000F68D /* NicknameRequest.swift */; };
@@ -158,6 +160,8 @@
 		9D5E0CEB28715D3600A3705C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9D5E0CEC28715D3600A3705C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9D5E0CED28715D3600A3705C /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		9D708B1428A0F77900B9ABAA /* StoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryResponse.swift; sourceTree = "<group>"; };
+		9D76AB4928A139290060D660 /* TestPostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPostingViewModel.swift; sourceTree = "<group>"; };
 		9D954EBD289961FA0000F68D /* NicknameTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameTarget.swift; sourceTree = "<group>"; };
 		9D954EBF289962090000F68D /* NicknameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameService.swift; sourceTree = "<group>"; };
 		9D954EC2289962240000F68D /* NicknameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameRequest.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 				9D40C51828951A590046C415 /* PostingNavigationController.swift */,
 				9D40C51D28951A590046C415 /* PostTableViewCell.swift */,
 				9D40C51A28951A590046C415 /* PostErrorTableViewCell.swift */,
+				9D76AB4928A139290060D660 /* TestPostingViewModel.swift */,
 				9D40C51C28951A590046C415 /* PostingViewModel.swift */,
 				9D40C51928951A590046C415 /* PostModel.swift */,
 				9D40C51B28951A590046C415 /* PostingStoryboard.storyboard */,
@@ -489,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				CB4ECD8428944E3C005D59D8 /* StoryRequest.swift */,
+				9D708B1428A0F77900B9ABAA /* StoryResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -825,6 +831,7 @@
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
 				9D954EC52899623A0000F68D /* NicknameResponse.swift in Sources */,
 				3E8276F728950796004673D6 /* SelectableButton.swift in Sources */,
+				9DB7828C28A20C0A00F8B85F /* APIStatus.swift in Sources */,
 				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E8276F828950796004673D6 /* RotatableImageView.swift in Sources */,
@@ -842,6 +849,7 @@
 				9D40C52D28951A590046C415 /* PostTableViewCell.swift in Sources */,
 				CBB1E8A128918841002E2065 /* Int+Extension.swift in Sources */,
 				3E7624502882AE1F002E1600 /* DGButton.swift in Sources */,
+				9D76AB4A28A139290060D660 /* TestPostingViewModel.swift in Sources */,
 				9D4E925A286745C30009F6E1 /* SceneDelegate.swift in Sources */,
 				CBE1F0092890343C00AEC66E /* String+Extension.swift in Sources */,
 				3EA33C102894208D00265342 /* MyStoryCollectionViewCell.swift in Sources */,
@@ -850,6 +858,7 @@
 				3EA33C162894234500265342 /* Story.swift in Sources */,
 				9D40C53328951A590046C415 /* ManyIconsView.swift in Sources */,
 				CBD5BE332898217700FFD96D /* AuthResponse.swift in Sources */,
+				9D708B1528A0F77900B9ABAA /* StoryResponse.swift in Sources */,
 				9D954EC3289962240000F68D /* NicknameRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
