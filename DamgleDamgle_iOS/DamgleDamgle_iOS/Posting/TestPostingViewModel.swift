@@ -1,3 +1,4 @@
+<<<<<<< develop
 //
 //  TestPostingViewModel.swift
 //  DamgleDamgle_iOS
@@ -47,3 +48,5 @@ final class TestPostingViewModel {
         }
     }
 }
+=======
+>>>>>>> ✨ listView APIService 함수 구현
