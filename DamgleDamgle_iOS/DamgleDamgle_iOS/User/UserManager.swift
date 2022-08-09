@@ -70,22 +70,4 @@ final class UserManager {
     func removeAccessToken() {
         accessToken = ""
     }
-    
-    func updateUserNo(_ userNo: Int?) {
-        guard let userNo = userNo else {
-            self.userNo = 0
-            return
-        }
-
-        self.userNo = userNo
-    }
-
-    func updateRefreshToken(_ refreshToken: String?) {
-        guard let refreshToken = refreshToken else {
-            self.refreshToken = ""
-            return
-        }
-
-        self.refreshToken = refreshToken
-    }
 }
