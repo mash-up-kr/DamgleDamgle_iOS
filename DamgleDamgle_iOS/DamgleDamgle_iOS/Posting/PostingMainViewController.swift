@@ -14,9 +14,9 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     
     private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
