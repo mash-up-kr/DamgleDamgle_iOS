@@ -14,10 +14,10 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     
     
     private var apiState: APIState = APIState.dataExit
-    var viewModel = TestPostingViewModel()
-    
+    var viewModel = PostingViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidLayoutSubviews() {

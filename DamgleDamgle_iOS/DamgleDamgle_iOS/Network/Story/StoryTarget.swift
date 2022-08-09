@@ -10,7 +10,7 @@ import Foundation
 
 enum StoryTarget {
     case postStory(_ request: PostStoryRequest)
-    case getMyStory(size: Double?, storyID: String?)
+    case getMyStory(size: Int?, storyID: String?)
     case getStoryFeed(_ request: GetStoryFeedRequest)
     case getStoryDetail(id: String)
     case postReaction(storyID: String, type: String)
@@ -55,8 +55,9 @@ extension StoryTarget: URLRequestConvertible {
     
     var header: HTTPHeaders {
         [
-            "Content-Type": "application/json"
-            // TODO: key 추가
+            "Content-Type": "application/json",
+            // TODO: key 추가'
+            "Authorization": "Bearer \(UserManager.shared.accessToken)"
         ]
     }
     
@@ -102,13 +103,13 @@ extension StoryTarget: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         urlRequest.headers = header
         
-        var encoding: URLEncoding
+        var encoding: ParameterEncoding
         switch self {
-        case .postStory(_), .postReaction(_, _):
-            encoding = URLEncoding.httpBody
+        case .postStory(_), .postReaction(_, _), .postReport(_), .deleteReaction(_):
+            encoding = JSONEncoding.default
         case .getMyStory(_, _), .getStoryFeed(_):
             encoding = URLEncoding.queryString
-        case .getStoryDetail(_), .deleteReaction(_), .postReport(_):
+        case .getStoryDetail(_):
             encoding = URLEncoding.default
         }
         

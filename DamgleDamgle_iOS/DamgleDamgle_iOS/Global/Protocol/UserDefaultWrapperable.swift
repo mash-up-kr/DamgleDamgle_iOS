@@ -12,7 +12,6 @@ protocol UserDefaultWrapperable {
 
     var defaultValue: T { get set }
     var suiteName: String? { get set }
-
     var userDefaults: UserDefaults? { get }
 }
 
@@ -43,6 +42,8 @@ struct UserDefault<T>: UserDefaultWrapperable {
 extension UserDefaults {
     enum Key: String {
         case accessToken
+        case refreshToken
+        case userNo
     }
 }
 
