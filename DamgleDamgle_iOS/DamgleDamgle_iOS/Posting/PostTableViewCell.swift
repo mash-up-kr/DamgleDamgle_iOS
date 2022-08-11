@@ -286,6 +286,23 @@ enum ReactionType: String, CaseIterable {
         }
     }
     
+    var inActiveButtonimage: UIImage? {
+        switch self {
+        case .like:
+            return UIImage(named: "icn=like_inactive")
+        case .angry:
+            return UIImage(named: "icn=angry_inactive")
+        case .amazing:
+            return UIImage(named: "icn=amazing_inactive")
+        case .sad:
+            return UIImage(named: "icn=sad_inactive")
+        case .best:
+            return UIImage(named: "icn=best_inactive")
+        case .none:
+            return UIImage(named: "icn=best_inactive")
+        }
+    }
+    
     var tag: Int {
         switch self {
         case .like:
