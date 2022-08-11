@@ -14,7 +14,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     
     
     private var apiState: APIState = APIState.dataExit
-    var viewModel = PostingViewModel()
+    var viewModel = TestPostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,6 @@ extension PostingMainViewController: UITableViewDelegate {
             noDataView.isHidden = true
             
             let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
-//            cell.selected
         } else {
             mainViewImageView.image = APIState.dataNone.BackgroundimageView
             noDataView.isHidden = false
@@ -127,14 +126,6 @@ extension PostingMainViewController: TableViewCellDelegate {
             toastLabel.removeFromSuperview()
         }
     }
-}
-
-
-// MARK: - ScrollViewDelegate
-extension PostingMainViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        self.navigationController?.navigationBar.backgroundColor = .red
-//    }
 }
 
 enum APIState {

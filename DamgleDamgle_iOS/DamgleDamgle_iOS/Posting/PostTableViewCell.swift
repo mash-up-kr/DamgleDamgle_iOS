@@ -120,7 +120,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
             addSelectedIcon?(isSelectedIcon)
             nowSelectedButtonIcon = isSelectedIcon
-            delegate?.iconsButtonDidTap(icon: isSelectedIcon)
         }
     }
     
