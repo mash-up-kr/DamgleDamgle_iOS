@@ -15,8 +15,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
 
     private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
-    var testViewModel = TestPostingViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,7 +85,7 @@ extension PostingMainViewController: UITableViewDataSource {
         if apiState == APIState.error {
             return 1
         }
-        return testViewModel2.postModels.count
+        return viewModel.postModels?.stories.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,13 +100,11 @@ extension PostingMainViewController: UITableViewDataSource {
         cell.setupTestUI(viewModel: testViewModel)
         cell.addSelectedIcon = { [weak self] reaction in
             guard let self = self else { return }
-            //            self.viewModel.addIconInModel(original: viewModel, icon: iconButton)
             guard let id = testViewModel?.id else { return }
             self.viewModel.postReaction(storyID: id, type: reaction.rawValue)
         }
         cell.deleteSeletedIcon = { [weak self] in
             guard let self = self else { return }
-            //            self.viewModel.deleteIconInModel(original: viewModel, icon: iconsButton)
             guard let id = testViewModel?.id else { return }
             self.viewModel.deleteReaction(storyID: id)
         }
