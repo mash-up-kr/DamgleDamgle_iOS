@@ -37,7 +37,6 @@
 		9D40C52828951A590046C415 /* PostingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40C51828951A590046C415 /* PostingNavigationController.swift */; };
 		9D40C52A28951A590046C415 /* PostErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40C51A28951A590046C415 /* PostErrorTableViewCell.swift */; };
 		9D40C52B28951A590046C415 /* PostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D40C51B28951A590046C415 /* PostingStoryboard.storyboard */; };
-		9D40C52C28951A590046C415 /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40C51C28951A590046C415 /* PostingViewModel.swift */; };
 		9D40C52D28951A590046C415 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40C51D28951A590046C415 /* PostTableViewCell.swift */; };
 		9D40C52E28951A590046C415 /* PostingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40C51E28951A590046C415 /* PostingMainViewController.swift */; };
 		9D40C52F28951A590046C415 /* OneIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D40C52028951A590046C415 /* OneIconView.xib */; };
@@ -140,7 +139,6 @@
 		9D40C51828951A590046C415 /* PostingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingNavigationController.swift; sourceTree = "<group>"; };
 		9D40C51A28951A590046C415 /* PostErrorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostErrorTableViewCell.swift; sourceTree = "<group>"; };
 		9D40C51B28951A590046C415 /* PostingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostingStoryboard.storyboard; sourceTree = "<group>"; };
-		9D40C51C28951A590046C415 /* PostingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
 		9D40C51D28951A590046C415 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		9D40C51E28951A590046C415 /* PostingMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingMainViewController.swift; sourceTree = "<group>"; };
 		9D40C52028951A590046C415 /* OneIconView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneIconView.xib; sourceTree = "<group>"; };
@@ -818,7 +816,6 @@
 				CBEB534B28964EC60054E522 /* GeocodingService.swift in Sources */,
 				3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */,
 				9D40C53028951A590046C415 /* NoDataView.swift in Sources */,
-				9D40C52C28951A590046C415 /* PostingViewModel.swift in Sources */,
 				CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */,
 				9D40C52E28951A590046C415 /* PostingMainViewController.swift in Sources */,
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
