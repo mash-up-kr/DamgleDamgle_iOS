@@ -19,32 +19,6 @@ final class ManyIconsView: UIView, NibBased {
         initialize()
     }
 
-    // 목데이터를 사용했을 때 사용하는 함수
-    func setupUI(selectedIcons: [SelectedIconButton]) {
-        let iconsRawValue = selectedIcons.map { $0.icon.rawValue }
-        let iconsCount = selectedIcons.map { $0.count }
-
-        iconsLabelCollection.forEach {
-            if iconsRawValue.contains($0.tag) {
-                $0.isHidden = false
-
-                guard let index = iconsRawValue.firstIndex(of: $0.tag) else { return }
-                $0.text = "\(iconsCount[index])"
-            } else {
-                $0.isHidden = true
-            }
-        }
-
-        iconsImageViewCollection.forEach {
-            if iconsRawValue.contains($0.tag) {
-                $0.isHidden = false
-            } else {
-                $0.isHidden = true
-            }
-        }
-    }
-    
-    // 서버데이터를 사용했을 때 사용하는 함수
     func setupTestUI(reactions: [Reaction]) {
         let reactionsTag = reactions.map { ReactionType(rawValue: $0.type)?.tag }
         // TODO: 서버에서 reaction Count값 떨궈주면 매칭 -> 임시 Mock 데이터 적용
