@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-final class RealPostingViewModel {
+final class PostingViewModel {
     
     private(set) var postModels: MyStoryResponse?
     
