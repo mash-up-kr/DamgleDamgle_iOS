@@ -156,6 +156,10 @@ extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed(reaction: ReactionType) {
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
+    func iconButtonAnimationIsClosed() {
+        
+        activityIndicatorView.startAnimating()
+        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 // TODO: 애니메이션 에러가 있어 이를 해결한 후 함수 적용해야함
