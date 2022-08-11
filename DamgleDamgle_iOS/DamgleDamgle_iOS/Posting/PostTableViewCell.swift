@@ -123,10 +123,14 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         } else {
             sender.isSelected = true
             deselectAnotherButton(button: sender)
-
-            let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
-            addSelectedIcon?(isSelectedIcon)
-            nowSelectedButtonIcon = isSelectedIcon
+            
+//            let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
+//            addSelectedIcon?(isSelectedIcon)
+//            nowSelectedButtonIcon = isSelectedIcon
+            
+            let isSelectedReaction: ReactionType = isSelectedReaction(button: sender)
+            addSelectedIcon?(isSelectedReaction)
+            nowSelectedReaction = isSelectedReaction
         }
     }
     
@@ -172,8 +176,8 @@ final class PostTableViewCell: UITableViewCell, Reusable {
                     return nil
                 }
             }()
-                        
-            UIView.animate(withDuration: 1.0) { [weak self] in
+            
+            UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let self = self, let constant = constant else { return }
                 constraint.constant = constant
                 self.layoutIfNeeded()
