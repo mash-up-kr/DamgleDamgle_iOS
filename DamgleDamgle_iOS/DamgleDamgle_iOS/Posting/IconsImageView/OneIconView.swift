@@ -19,7 +19,7 @@ final class OneIconView: UIView, NibBased {
         initialize()
     }
     
-    func setupTestUI(reactions: [Reaction]) {
+    func setupUI(reactions: [Reaction]) {
         guard let reaction = reactions.first else { return }
         // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
 //        iconCountLabel.text = "\(reaction.count)"
