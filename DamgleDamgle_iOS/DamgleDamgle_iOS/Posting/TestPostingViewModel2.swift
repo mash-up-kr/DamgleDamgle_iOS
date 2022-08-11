@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PostingViewModel {
+final class TestPostingViewModel2 {
     
     private(set) var postModels: [PostModel]
 

@@ -49,19 +49,19 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 이야기 남기기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tA5-16-9Wn">
-                    <rect key="frame" x="140.5" y="88" width="133" height="21.5"/>
+                    <rect key="frame" x="139.5" y="88" width="135" height="21"/>
                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남긴 글은 한 달 뒤에 사라져요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdQ-eU-0iK">
-                    <rect key="frame" x="23.5" y="232" width="154.5" height="16"/>
+                    <rect key="frame" x="23.5" y="232.5" width="157" height="15.5"/>
                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-sT-j8s">
-                    <rect key="frame" x="23.5" y="147.5" width="271.5" height="76.5"/>
+                    <rect key="frame" x="23.5" y="149.5" width="276" height="75"/>
                     <string key="text">이 장소에 나만의 글을
 남겨보세요.</string>
                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="32"/>
@@ -93,16 +93,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="377" height="391.5"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-F6-ZCZ">
-                            <rect key="frame" x="310.5" y="357.5" width="46.5" height="16"/>
+                            <rect key="frame" x="312" y="358" width="45" height="15.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-ye-vp3">
-                                    <rect key="frame" x="0.0" y="0.0" width="8.5" height="16"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="7.5" height="15.5"/>
                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                     <color key="textColor" name="grey800"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/100자" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIn-Aa-e7L">
-                                    <rect key="frame" x="8.5" y="0.0" width="38" height="16"/>
+                                    <rect key="frame" x="7.5" y="0.0" width="37.5" height="15.5"/>
                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                     <color key="textColor" name="grey800"/>
                                     <nil key="highlightedColor"/>
@@ -110,7 +110,7 @@
                             </subviews>
                         </stackView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4CO-x8-6G4">
-                            <rect key="frame" x="20" y="10" width="337" height="337.5"/>
+                            <rect key="frame" x="20" y="10" width="337" height="338"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <attributedString key="attributedText">
                                 <fragment content="안녕하세요! 오늘은 이 카페에서 공감해조팀에서 회의를 하였어요~~ 다들 여기서 팀플해도 좋을듯용~~! 주인이 카공해도 뭐라고 안함~~참고하세요~~~!! 지금 넘 졸린데 오늘 일찍 자고 싶어서 커피를 마시지 않고 버틸 거에요~!!">

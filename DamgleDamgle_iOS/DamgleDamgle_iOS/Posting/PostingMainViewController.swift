@@ -12,12 +12,25 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "PostingStoryboard", bundle: nil)
     }
     
-    
+
     private var apiState: APIState = APIState.dataExit
-    var viewModel = PostingViewModel()
-    
+    var viewModel = RealPostingViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        activityIndicatorView.startAnimating()
+        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.apiState = isSuccess ? .dataExit : .error
+                self.postingTableView.reloadData()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -31,7 +44,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var popularitySortButton: SelectableButton!
     @IBOutlet private weak var postingTableView: UITableView!
     @IBOutlet private weak var mainViewImageView: UIImageView!
-    @IBOutlet private weak var noDataView: UIView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
@@ -51,17 +64,20 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if viewModel.postModels.count == 0 {
+        if apiState == APIState.error {
             mainViewImageView.image = APIState.error.BackgroundimageView
-        } else if viewModel.postModels.count > 0 {
-            mainViewImageView.image = APIState.dataExit.BackgroundimageView
-            noDataView.isHidden = true
             
-            let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
-//            cell.selected
+            activityIndicatorView.startAnimating()
+            viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.apiState = isSuccess ? .dataExit : .error
+                    self.postingTableView.reloadData()
+                    self.activityIndicatorView.stopAnimating()
+                }
+            }
         } else {
-            mainViewImageView.image = APIState.dataNone.BackgroundimageView
-            noDataView.isHidden = false
+            mainViewImageView.image = APIState.dataExit.BackgroundimageView
         }
     }
 }
@@ -72,7 +88,7 @@ extension PostingMainViewController: UITableViewDataSource {
         if apiState == APIState.error {
             return 1
         }
-        return viewModel.postModels.count
+        return testViewModel2.postModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,16 +98,21 @@ extension PostingMainViewController: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
-        
-        let viewModel = self.viewModel.postModels[indexPath.row]
-        cell.setupUI(viewModel: viewModel)
-        cell.addSelectedIcon = { [weak self] iconButton in
+        //        let viewModel = self.viewModel.postModels[indexPath.row]
+        let testViewModel = self.viewModel.postModels?.stories[indexPath.row]
+        //        cell.setupUI(viewModel: viewModel)
+        cell.setupTestUI(viewModel: testViewModel)
+        cell.addSelectedIcon = { [weak self] reaction in
             guard let self = self else { return }
-            self.viewModel.addIconInModel(original: viewModel, icon: iconButton)
+            //            self.viewModel.addIconInModel(original: viewModel, icon: iconButton)
+            guard let id = testViewModel?.id else { return }
+            self.viewModel.postReaction(storyID: id, type: reaction.rawValue)
         }
-        cell.deleteSeletedIcon = { [weak self] iconsButton in
+        cell.deleteSeletedIcon = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.deleteIconInModel(original: viewModel, icon: iconsButton)
+            //            self.viewModel.deleteIconInModel(original: viewModel, icon: iconsButton)
+            guard let id = testViewModel?.id else { return }
+            self.viewModel.deleteReaction(storyID: id)
         }
         cell.delegate = self
         
@@ -101,6 +122,16 @@ extension PostingMainViewController: UITableViewDataSource {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
+    func iconButtonAnimationIsClosed() {
+        
+        activityIndicatorView.startAnimating()
+        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.postingTableView.reloadData()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     
     func iconButtonAnimationIsClosed(icon: IconsButton) {
         DispatchQueue.main.async { [weak self] in
@@ -139,13 +170,11 @@ extension PostingMainViewController: UIScrollViewDelegate {
 
 enum APIState {
     case dataExit
-    case dataNone
     case error
     
     var BackgroundimageView: UIImage? {
         switch self {
         case .dataExit: return UIImage(named: "img_list_bg")
-        case .dataNone: return nil
         case .error: return UIImage(named: "img_list_error_bg_posting")
         }
     }
