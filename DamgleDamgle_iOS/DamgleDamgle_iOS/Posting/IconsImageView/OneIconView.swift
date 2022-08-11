@@ -19,17 +19,6 @@ final class OneIconView: UIView, NibBased {
         initialize()
     }
     
-    func setupUI(reactions: [Reaction]) {
-        guard let reaction = reactions.first else { return }
-        // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
-//        iconCountLabel.text = "\(reaction.count)"
-        iconCountLabel.text = "1"
-
-        guard let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
-        iconImageView.image = reactionImage
-    }
-    
-    // 서버데이터를 사용했을 때 함수
     func setupTestUI(reactions: [Reaction]) {
         guard let reaction = reactions.first else { return }
         // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
