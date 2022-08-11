@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TableViewCellDelegate: AnyObject {
-    func iconButtonAnimationIsClosed(icon: IconsButton)
+    func iconButtonAnimationIsClosed(reaction: ReactionType)
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
@@ -82,12 +82,12 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             let iconsView = OneIconView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupTestUI(reactions: reactions)
+            iconsView.setupUI(reactions: reactions)
         } else {
             let iconsView = ManyIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupTestUI(reactions: reactions)
+            iconsView.setupUI(reactions: reactions)
         }
     }
     
@@ -151,27 +151,12 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     private func openIconsButton() {
-        guard let selectedIconImage = nowSelectedButtonIcon.inActiveButtonIconimage else { return }
+        guard let selectedIconImage = nowSelectedReaction.inActiveButtonimage else { return }
         iconsStartButton.setImage(selectedIconImage, for: .selected)
         
-        let contentViewWidth = self.contentView.frame.width
         iconsButtonXPointConstraint.forEach {
-            let constraint: NSLayoutConstraint = $0
-            let constant: CGFloat? = {
-                if constraint.identifier == "likeButton" {
-                    return ReactionType.like.distRatioFromStartButton * contentViewWidth
-                } else if constraint.identifier == "angryButton" {
-                    return ReactionType.angry.distRatioFromStartButton * contentViewWidth
-                } else if constraint.identifier == "amazingButton" {
-                    return ReactionType.amazing.distRatioFromStartButton * contentViewWidth
-                } else if constraint.identifier == "sadButton" {
-                    return ReactionType.sad.distRatioFromStartButton * contentViewWidth
-                } else if constraint.identifier == "bestButton" {
-                    return ReactionType.best.distRatioFromStartButton * contentViewWidth
-                } else {
-                    return nil
-                }
-            }()
+            let constraint = $0
+            let constant = getConstraintConstant(constraint: $0)
             
             UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let self = self, let constant = constant else { return }
@@ -193,13 +178,34 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             } completion: { [weak self] _ in
                 guard let self = self else { return }
                 
-                self.delegate?.iconButtonAnimationIsClosed()
+                self.delegate?.iconButtonAnimationIsClosed(reaction: reaction)
                 self.iconsStartButton.isSelected = false
                 
                 guard let selectedButtonImage = reaction.selectedButtonImage else { return }
                 self.iconsStartButton.setImage(selectedButtonImage, for: .normal)
             }
         }
+    }
+    
+    private func getConstraintConstant(constraint: NSLayoutConstraint) -> CGFloat? {
+        let contentViewWidth = self.contentView.frame.width
+        let constant: CGFloat? = {
+            if constraint.identifier == "likeButton" {
+                return ReactionType.like.distRatioFromStartButton * contentViewWidth
+            } else if constraint.identifier == "angryButton" {
+                return ReactionType.angry.distRatioFromStartButton * contentViewWidth
+            } else if constraint.identifier == "amazingButton" {
+                return ReactionType.amazing.distRatioFromStartButton * contentViewWidth
+            } else if constraint.identifier == "sadButton" {
+                return ReactionType.sad.distRatioFromStartButton * contentViewWidth
+            } else if constraint.identifier == "bestButton" {
+                return ReactionType.best.distRatioFromStartButton * contentViewWidth
+            } else {
+                return nil
+            }
+        }()
+        
+        return constant
     }
 }
 
@@ -276,6 +282,23 @@ enum ReactionType: String, CaseIterable {
             return UIImage(named: "img=best")
         case .none:
             return nil
+        }
+    }
+    
+    var inActiveButtonimage: UIImage? {
+        switch self {
+        case .like:
+            return UIImage(named: "icn=like_inactive")
+        case .angry:
+            return UIImage(named: "icn=angry_inactive")
+        case .amazing:
+            return UIImage(named: "icn=amazing_inactive")
+        case .sad:
+            return UIImage(named: "icn=sad_inactive")
+        case .best:
+            return UIImage(named: "icn=best_inactive")
+        case .none:
+            return UIImage(named: "icn=best_inactive")
         }
     }
     
