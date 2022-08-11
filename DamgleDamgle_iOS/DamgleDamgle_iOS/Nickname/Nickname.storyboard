@@ -113,12 +113,16 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_nickname_ios" translatesAutoresizingMaskIntoConstraints="NO" id="bWb-Js-hrm">
                                 <rect key="frame" x="0.0" y="632.5" width="414" height="154.5"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="giy-Yd-MOr">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="grey500"/>
                         <constraints>
                             <constraint firstItem="l2N-pO-ee6" firstAttribute="top" secondItem="SM8-lV-Djb" secondAttribute="bottom" constant="46" id="1hj-fb-Hud"/>
                             <constraint firstItem="zbK-oP-7qP" firstAttribute="width" secondItem="KkA-VY-A8w" secondAttribute="width" multiplier="1:1" id="572-N8-ALI"/>
+                            <constraint firstItem="giy-Yd-MOr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="5ye-Sj-7fr"/>
                             <constraint firstItem="xIK-nh-epn" firstAttribute="width" secondItem="QEb-Cq-jf8" secondAttribute="width" multiplier="1:1" id="86h-LK-Bdx"/>
                             <constraint firstItem="bWb-Js-hrm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="CXX-WN-RAj"/>
                             <constraint firstItem="xIK-nh-epn" firstAttribute="leading" secondItem="QEb-Cq-jf8" secondAttribute="leading" id="Cfv-3x-DWz"/>
@@ -129,6 +133,7 @@
                             <constraint firstItem="xIK-nh-epn" firstAttribute="top" secondItem="QEb-Cq-jf8" secondAttribute="bottom" constant="8" id="O5V-dR-dTC"/>
                             <constraint firstItem="QEb-Cq-jf8" firstAttribute="centerY" secondItem="KkA-VY-A8w" secondAttribute="centerY" id="Pc0-Zt-Wjq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bWb-Js-hrm" secondAttribute="trailing" id="Rri-kw-JXV"/>
+                            <constraint firstItem="giy-Yd-MOr" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="T7o-DC-eMB"/>
                             <constraint firstItem="SM8-lV-Djb" firstAttribute="leading" secondItem="eJM-SV-b9J" secondAttribute="leading" id="WaR-nx-Egp"/>
                             <constraint firstItem="eJM-SV-b9J" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="bJx-C9-Wi0"/>
                             <constraint firstItem="QEb-Cq-jf8" firstAttribute="leading" secondItem="KkA-VY-A8w" secondAttribute="trailing" constant="16" id="bjh-Q6-aE5"/>
@@ -145,6 +150,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="giy-Yd-MOr" id="ubW-EO-GxG"/>
                         <outlet property="adjectiveLabel" destination="mWV-aS-o9N" id="Unj-Kh-z1N"/>
                         <outlet property="changeAdjectiveButton" destination="kZp-kU-U8Q" id="zIE-nR-Opv"/>
                         <outlet property="changeNameButton" destination="JJK-U9-JJc" id="wve-6I-XZA"/>
