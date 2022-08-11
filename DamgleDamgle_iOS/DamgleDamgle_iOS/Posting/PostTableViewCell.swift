@@ -172,8 +172,8 @@ final class PostTableViewCell: UITableViewCell, Reusable {
                     return nil
                 }
             }()
-                        
-            UIView.animate(withDuration: 1.0) { [weak self] in
+            
+            UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let self = self, let constant = constant else { return }
                 constraint.constant = constant
                 self.layoutIfNeeded()
@@ -192,8 +192,8 @@ final class PostTableViewCell: UITableViewCell, Reusable {
                 self.layoutIfNeeded()
             } completion: { [weak self] _ in
                 guard let self = self else { return }
-
-                self.delegate?.iconButtonAnimationIsClosed(icon: self.nowSelectedButtonIcon)
+                
+                self.delegate?.iconButtonAnimationIsClosed()
                 self.iconsStartButton.isSelected = false
                 
                 guard let selectedButtonImage = reaction.selectedButtonImage else { return }
@@ -295,4 +295,5 @@ enum ReactionType: String, CaseIterable {
             return 5
         }
     }
+            return 0
 }
