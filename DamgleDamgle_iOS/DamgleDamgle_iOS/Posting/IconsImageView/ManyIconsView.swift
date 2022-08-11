@@ -55,6 +55,35 @@ final class ManyIconsView: UIView, NibBased {
             }
         }
     }
+    
+    // 서버데이터를 사용했을 때 사용하는 함수
+    func setupTestUI(reactions: [Reaction]) {
+        let reactionsTag = reactions.map { ReactionType(rawValue: $0.type)?.tag }
+        // TODO: 서버에서 reaction Count값 떨궈주면 매칭 -> 임시 Mock 데이터 적용
+//        let reactionCount = reactions.map { $0.Count }
+        let reactionCount = 2
+
+        iconsLabelCollection.forEach {
+            if reactionsTag.contains($0.tag) {
+                $0.isHidden = false
+
+                guard let index = reactionsTag.firstIndex(of: $0.tag) else { return }
+                // TODO: 서버에서 reaction Count값 떨궈주면 매칭 -> 임시 Mock 데이터 적용
+//                $0.text = "\(reactionsCount[index])"
+                $0.text = "\(reactionCount)"
+            } else {
+                $0.isHidden = true
+            }
+        }
+
+        iconsImageViewCollection.forEach {
+            if reactionsTag.contains($0.tag) {
+                $0.isHidden = false
+            } else {
+                $0.isHidden = true
+            }
+        }
+    }
 
     // MARK: - InterfaceBuilder Links
 

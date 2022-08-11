@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-final class PostingViewModel {
+final class RealPostingViewModel {
     
     private(set) var postModels: MyStoryResponse?
     
@@ -45,14 +45,5 @@ final class PostingViewModel {
                 print(error)
             }
         }
-    }
-    
-    func sortTime() {
-        postModels?.stories.sort(by: { $0.createdAt > $1.createdAt })
-    }
-    
-    func sortPopularity() {
-        // TODO: 서버로부터 좋아요 숫자 Response를 받은 후 로직을 만들 예정
-        postModels?.stories.sort(by: { $0.id > $1.id })
     }
 }

@@ -13,12 +13,25 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     }
 
     private var apiState: APIState = APIState.dataExit
-    var viewModel = PostingViewModel()
-    
+    var viewModel = RealPostingViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getMyStoryResponse()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        activityIndicatorView.startAnimating()
+        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.apiState = isSuccess ? .dataExit : .error
+                self.postingTableView.reloadData()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
