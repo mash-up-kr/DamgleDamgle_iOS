@@ -319,6 +319,7 @@ enum ReactionType: String, CaseIterable {
             return 5
         }
     }
+            return 0
 }
 
 enum ReactionType: String, CaseIterable {
