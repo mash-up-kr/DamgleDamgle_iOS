@@ -12,7 +12,6 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "PostingStoryboard", bundle: nil)
     }
     
-
     private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
     
@@ -127,8 +126,6 @@ extension PostingMainViewController: TableViewCellDelegate {
             }
         }
     }
-
-
 }
 
 enum APIState {
