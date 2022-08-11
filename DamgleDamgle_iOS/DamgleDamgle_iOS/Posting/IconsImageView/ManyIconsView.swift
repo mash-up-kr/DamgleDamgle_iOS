@@ -19,7 +19,7 @@ final class ManyIconsView: UIView, NibBased {
         initialize()
     }
 
-    func setupTestUI(reactions: [Reaction]) {
+    func setupUI(reactions: [Reaction]) {
         let reactionsTag = reactions.map { ReactionType(rawValue: $0.type)?.tag }
         // TODO: 서버에서 reaction Count값 떨궈주면 매칭 -> 임시 Mock 데이터 적용
 //        let reactionCount = reactions.map { $0.Count }
