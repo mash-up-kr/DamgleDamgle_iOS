@@ -130,7 +130,7 @@ extension PostingMainViewController: UITableViewDataSource {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
-    func iconButtonAnimationIsClosed() {
+    func iconButtonAnimationIsClosed(reaction: ReactionType) {
         
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
