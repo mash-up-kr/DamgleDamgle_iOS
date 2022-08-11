@@ -123,10 +123,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         } else {
             sender.isSelected = true
             deselectAnotherButton(button: sender)
-            
-            let isSelectedReaction: ReactionType = isSelectedReaction(button: sender)
-            addSelectedIcon?(isSelectedReaction)
-            nowSelectedReaction = isSelectedReaction
+
+            let isSelectedIcon: IconsButton = isSelectedIcons(button: sender)
+            addSelectedIcon?(isSelectedIcon)
+            nowSelectedButtonIcon = isSelectedIcon
         }
     }
     
