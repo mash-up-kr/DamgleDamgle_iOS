@@ -20,7 +20,7 @@ final class LineSpacingLabel: UILabel {
     }
 
     private func updateViewPropertie() {
-        let attrString = NSMutableAttributedString(string: text!)
+        let attrString = NSMutableAttributedString(string: text ?? "")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
