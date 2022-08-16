@@ -33,7 +33,6 @@ struct StoryService {
                         completion(.success(model))
                     } catch {
                         completion(.failure(error))
-                        print(error.localizedDescription)
                     }
                 case .failure(let error):
                     completion(.failure(error))
@@ -53,7 +52,6 @@ struct StoryService {
                         completion(.success(model))
                     } catch {
                         completion(.failure(error))
-                        print(error.localizedDescription)
                     }
                 case .failure(let error):
                     completion(.failure(error))
@@ -73,7 +71,6 @@ struct StoryService {
                         completion(.success(model))
                     } catch {
                         completion(.failure(error))
-                        print(error.localizedDescription)
                     }
                 case .failure(let error):
                     completion(.failure(error))
