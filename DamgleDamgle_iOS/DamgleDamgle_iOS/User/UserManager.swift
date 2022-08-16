@@ -84,7 +84,8 @@ final class UserManager {
     func updateUserNo(_ userNo: Int?) {
         guard let userNo = userNo else {
             self.userNo = 0
-            return }
+            return
+        }
 
         self.userNo = userNo
     }
