@@ -169,9 +169,6 @@
                                                             <color key="tintColor" name="grey600"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="신고"/>
-                                                            <connections>
-                                                                <action selector="reportButtonDidTouchUp:" destination="K4B-om-Is7" eventType="touchUpInside" id="NI1-OZ-GPj"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ToastLabel: UILabel, NibBased {
+final class ToastLabel: UILabel, NibBased {
     
     private var padding = UIEdgeInsets(top: 12.0, left: 24.0, bottom: 12.0, right: 24.0)
     
@@ -33,7 +33,7 @@ class ToastLabel: UILabel, NibBased {
         return contentSize
     }
     
-    internal func setupViewProperties() {
+    func setupViewProperties() {
         font = UIFont.boldSystemFont(ofSize: 13.0)
         let newSize = self.intrinsicContentSize
         frame.size = newSize

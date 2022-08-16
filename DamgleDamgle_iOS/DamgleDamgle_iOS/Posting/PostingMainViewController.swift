@@ -56,8 +56,6 @@ extension PostingMainViewController: UITableViewDelegate {
         } else if viewModel.postModels.count > 0 {
             mainViewImageView.image = APIState.dataExit.BackgroundimageView
             noDataView.isHidden = true
-            
-            let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         } else {
             mainViewImageView.image = APIState.dataNone.BackgroundimageView
             noDataView.isHidden = false
