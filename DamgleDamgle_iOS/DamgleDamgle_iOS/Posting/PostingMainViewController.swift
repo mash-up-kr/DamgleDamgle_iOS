@@ -49,11 +49,25 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
         popularitySortButton.isSelected = false
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.activityIndicatorView.startAnimating()
+            self.viewModel.sortTime()
+            self.activityIndicatorView.stopAnimating()
+        }
     }
     
     @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = false
         popularitySortButton.isSelected = true
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.activityIndicatorView.startAnimating()
+            self.viewModel.sortPopularity()
+            self.activityIndicatorView.stopAnimating()
+        }
     }
     
     @IBAction func closeButtonDidTap(_ sender: UIBarButtonItem) {
