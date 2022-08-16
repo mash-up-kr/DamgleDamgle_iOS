@@ -18,35 +18,25 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicatorView.startAnimating()
-        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.apiState = isSuccess ? .dataExit : .error
-                self.postingTableView.reloadData()
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        activityIndicatorView.startAnimating()
-        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.apiState = isSuccess ? .dataExit : .error
-                self.postingTableView.reloadData()
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
+        loadGetMyStoryResponse()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         postingTableView.reloadData()
+    }
+    
+    func loadGetMyStoryResponse() {
+        activityIndicatorView.startAnimating()
+        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.apiState = isSuccess ? .dataExit : .error
+                self.postingTableView.reloadData()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     }
     
     // MARK: - InterfaceBuilder Links

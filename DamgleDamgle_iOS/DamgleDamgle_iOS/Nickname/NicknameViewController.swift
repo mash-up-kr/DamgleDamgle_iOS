@@ -17,6 +17,10 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
             
+        loadNicknameResponce()
+    }
+    
+    private func loadNicknameResponce() {
         self.activityIndicatorView.startAnimating()
         self.viewModel.getNickname() { [weak self] _ in
             guard let self = self else { return }

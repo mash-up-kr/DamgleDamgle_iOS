@@ -13,8 +13,10 @@ final class UserManager {
 
     @UserDefault(key: .accessToken, defaultValue: "")
     private(set) var accessToken: String
+    
     @UserDefault(key: .refreshToken, defaultValue: "")
     private(set) var refreshToken: String
+    
     @UserDefault(key: .userNo, defaultValue: 0)
     private(set) var userNo: Int
     
@@ -72,7 +74,8 @@ final class UserManager {
     func updateUserNo(_ userNo: Int?) {
         guard let userNo = userNo else {
             self.userNo = 0
-            return }
+            return
+        }
 
         self.userNo = userNo
     }
