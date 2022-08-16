@@ -8,7 +8,7 @@
 import Foundation
 
 struct MyStoryResponse: Decodable {
-    let stories: [Story]
+    var stories: [Story]
     let size: Int
 }
 
