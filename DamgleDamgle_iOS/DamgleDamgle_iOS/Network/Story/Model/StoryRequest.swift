@@ -19,5 +19,5 @@ struct GetStoryFeedRequest {
     let left: Double
     let right: Double
     let size: Int = 300
-    let startFromStoryId: String?
+    let startFromStoryId: String? = nil
 }

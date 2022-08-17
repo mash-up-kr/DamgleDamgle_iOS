@@ -44,9 +44,7 @@ extension StoryTarget: URLRequestConvertible {
             return "/v1/story/feed"
         case .getStoryDetail(let id):
             return "/v1/story/\(id)"
-        case .postReaction(let storyID, _):
-            return "/v1/story/react/\(storyID)"
-        case .deleteReaction(let storyID):
+        case .postReaction(let storyID, _), .deleteReaction(storyID: let storyID):
             return "/v1/story/react/\(storyID)"
         case .postReport(let storyID):
             return "/v1/story/report/\(storyID)"
@@ -55,8 +53,8 @@ extension StoryTarget: URLRequestConvertible {
     
     var header: HTTPHeaders {
         [
-            "Content-Type": "application/json"
-            // TODO: key 추가
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(UserManager.shared.currentAccessToken)"
         ]
     }
     
@@ -82,16 +80,12 @@ extension StoryTarget: URLRequestConvertible {
                 "size": request.size,
                 "startFromStoryID": request.startFromStoryId
             ]
-        case .getStoryDetail(_):
+        case .getStoryDetail(_), .deleteReaction(_), .postReport(_):
             return nil
         case .postReaction(_, let type):
             return [
                 "type": type
             ]
-        case .deleteReaction(_):
-            return nil
-        case .postReport(_):
-            return nil
         }
     }
     
@@ -102,10 +96,10 @@ extension StoryTarget: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         urlRequest.headers = header
         
-        var encoding: URLEncoding
+        var encoding: ParameterEncoding
         switch self {
         case .postStory(_), .postReaction(_, _):
-            encoding = URLEncoding.httpBody
+            encoding = JSONEncoding.default
         case .getMyStory(_, _), .getStoryFeed(_):
             encoding = URLEncoding.queryString
         case .getStoryDetail(_), .deleteReaction(_), .postReport(_):
