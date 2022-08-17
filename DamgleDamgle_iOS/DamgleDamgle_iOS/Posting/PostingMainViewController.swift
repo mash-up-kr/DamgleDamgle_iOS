@@ -14,7 +14,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     
 
     private var apiState: APIState = APIState.dataExit
-    var viewModel = PostingViewModel()
+    var viewModel = TempPostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
