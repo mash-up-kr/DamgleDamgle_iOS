@@ -47,6 +47,7 @@ extension UIViewController {
         
         if isNeedDimView {
             let fullDimView = FullDimView()
+            fullDimView.alpha = 0
             fullDimView.frame = CGRect(
                 x: 0,
                 y: 0,
@@ -61,6 +62,11 @@ extension UIViewController {
                 animationView.removeFromSuperview()
                 fullDimView.removeFromSuperview()
             }
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) {
+                fullDimView.alpha = 0.95
+            }
+
         } else {
             view.addSubview(animationView)
             
@@ -71,7 +77,7 @@ extension UIViewController {
         
         animationView.play { _ in
             DispatchQueue.main.async {
-                UIView.transition(with: self.view, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                UIView.transition(with: self.view, duration: 0.2, options: .transitionCrossDissolve, animations: {
                     if let animationHandler = animationHandler {
                         animationHandler()
                     }
