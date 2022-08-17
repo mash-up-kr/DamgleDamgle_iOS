@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_success" translatesAutoresizingMaskIntoConstraints="NO" id="KFj-fS-4Jr">
-                                <rect key="frame" x="166.5" y="412.5" width="81" height="81"/>
+                                <rect key="frame" x="20.5" y="266.5" width="373" height="373"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KFj-fS-4Jr" secondAttribute="height" multiplier="1:1" id="8yg-cl-Fzq"/>
                                 </constraints>
@@ -80,11 +80,11 @@
                             <constraint firstItem="vdC-kW-NDB" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" multiplier="0.4" id="EAE-wj-dhx"/>
                             <constraint firstItem="WG6-Vh-ftf" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.1" id="G3Q-Y5-SMJ"/>
                             <constraint firstItem="WG6-Vh-ftf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ODl-2n-vzn"/>
+                            <constraint firstItem="KFj-fS-4Jr" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="Tev-Hg-8N5"/>
                             <constraint firstItem="KFj-fS-4Jr" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="WVC-6f-SrE"/>
                             <constraint firstAttribute="bottom" secondItem="WG6-Vh-ftf" secondAttribute="bottom" id="bre-Gk-yc8"/>
                             <constraint firstItem="7EO-gB-aMe" firstAttribute="top" secondItem="vdC-kW-NDB" secondAttribute="bottom" constant="8" id="gLy-vV-G4p"/>
                             <constraint firstItem="vdC-kW-NDB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="jYi-YM-Za5"/>
-                            <constraint firstItem="KFj-fS-4Jr" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.09" id="m9X-Sp-Hgv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WG6-Vh-ftf" secondAttribute="trailing" id="sXl-hQ-L2T"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dtO-wV-Cma" secondAttribute="trailing" constant="5" id="xvl-vt-rzZ"/>
                             <constraint firstItem="7EO-gB-aMe" firstAttribute="leading" secondItem="vdC-kW-NDB" secondAttribute="leading" id="zFa-tj-WS5"/>
@@ -105,7 +105,7 @@
     </scenes>
     <resources>
         <image name="icn_close" width="24" height="24"/>
-        <image name="post_success" width="60" height="50.5"/>
+        <image name="post_success" width="167.5" height="167.5"/>
         <namedColor name="grey1000">
             <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
