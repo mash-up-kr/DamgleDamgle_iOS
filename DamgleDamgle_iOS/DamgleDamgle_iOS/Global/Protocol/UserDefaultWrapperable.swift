@@ -43,6 +43,8 @@ struct UserDefault<T>: UserDefaultWrapperable {
 extension UserDefaults {
     enum Key: String {
         case accessToken
+        case refreshToken
+        case userNo
     }
 }
 
