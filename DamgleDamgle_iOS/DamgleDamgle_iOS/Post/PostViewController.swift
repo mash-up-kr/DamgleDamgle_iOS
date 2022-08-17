@@ -96,11 +96,12 @@ final class PostViewController: UIViewController {
             message: StringResource.message,
             okActionTitle: StringResource.okTitle,
             okActionHandler: {
-                // TODO: Post API 연결
-                let postProcessViewController = PostProcessViewController.instantiate()
-                postProcessViewController.modalPresentationStyle = .fullScreen
-                postProcessViewController.postStatus = .success
-                self.present(postProcessViewController, animated: true)
+                self.viewModel.postStory { result in
+                    let postProcessViewController = PostProcessViewController.instantiate()
+                    postProcessViewController.modalPresentationStyle = .fullScreen
+                    postProcessViewController.postStatus = result == true ? .success : .fail
+                    self.present(postProcessViewController, animated: true)
+                }
             },
             cancelActionTitle: StringResource.cancelTitle
         )
@@ -149,6 +150,7 @@ extension PostViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let textCount = textView.text.textCountWithoutSpacingAndLines
         textViewWordCount = textCount
+        viewModel.postContent = textView.text
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
