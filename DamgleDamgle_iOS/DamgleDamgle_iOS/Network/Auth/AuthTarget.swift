@@ -51,8 +51,8 @@ extension AuthTarget: URLRequestConvertible {
     
     var header: HTTPHeaders {
         [
-            "Content-Type": "application/json"
-            // TODO: key 추가
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(UserManager.shared.currentAccessToken)"
         ]
     }
     
