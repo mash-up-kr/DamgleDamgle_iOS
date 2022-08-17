@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-class NicknameViewModel {
+final class NicknameViewModel {
     
     private(set) var model: NicknameResponse?
     
