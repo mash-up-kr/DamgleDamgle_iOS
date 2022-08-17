@@ -28,7 +28,7 @@ final class HomeViewController: UIViewController {
     private let locationManager: LocationService = LocationService.shared
     private var mapView: NMFMapView = {
         let mapView = NMFMapView()
-        mapView.minZoomLevel = 14.8
+        mapView.minZoomLevel = 14.5
         return mapView
     }()
     private var currentLocationMarker: NMFMarker = {
@@ -39,7 +39,8 @@ final class HomeViewController: UIViewController {
     private let defaultZoomLevel = 15.5
     private var isFirstUpdate = true
     private let defaultLocation = CLLocationCoordinate2D(latitude: 37.56157, longitude: 126.9966302)
-    private let postViewHeightRatio = 0.85
+    private let postViewShortRatio = 0.86
+    private let postViewLongRatio = 0.95
     private let originWidth: CGFloat = UIScreen.main.bounds.width
     private let originHeight: CGFloat = UIScreen.main.bounds.height
     
@@ -90,6 +91,10 @@ final class HomeViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 // MARK: - @IBAction
     @IBAction private func myPageButtonTapped(_ sender: UIButton) {
         let myViewController = MyViewController.instantiate()
@@ -114,8 +119,12 @@ final class HomeViewController: UIViewController {
             showDefaultLocation()
         case .success:
             let mapPosition = NMGLatLng(from: locationManager.currentLocation)
-            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
             getCurrentLocationAddress()
+            
+            let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
+            cameraUpdate.animation = .easeIn
+            cameraUpdate.animationDuration = 0.5
+            mapView.moveCamera(cameraUpdate)
         default:
             break
         }
@@ -169,9 +178,9 @@ final class HomeViewController: UIViewController {
         view.addSubview(childView.view)
         childView.view.frame = CGRect(
             x: 0,
-            y: originHeight * postViewHeightRatio,
+            y: originHeight * postViewShortRatio,
             width: originWidth,
-            height: originHeight * (1 - postViewHeightRatio)
+            height: originHeight * postViewLongRatio
         )
         addChild(childView)
         childView.didMove(toParent: self)
@@ -181,9 +190,9 @@ final class HomeViewController: UIViewController {
         if let childrenViewController = children.first as? PostViewController {
             childrenViewController.view.frame = CGRect(
                 x: 0,
-                y: originHeight * postViewHeightRatio,
+                y: originHeight * postViewShortRatio,
                 width: originWidth,
-                height: originHeight * (1 - postViewHeightRatio)
+                height: originHeight * (1 - postViewShortRatio)
             )
             childrenViewController.setUpView()
         }
