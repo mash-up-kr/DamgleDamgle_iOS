@@ -83,6 +83,7 @@
 		CBA68FC428883F7D00FE2293 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA68FC328883F7D00FE2293 /* ContinueButton.swift */; };
 		CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA704F42885BC6200263386 /* PostViewModel.swift */; };
 		CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA81DA62894313F0001E096 /* StoryTarget.swift */; };
+		CBACE18728A8DD400016B1F4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBACE18628A8DD400016B1F4 /* UIView+Extension.swift */; };
 		CBAE75B52894FF0B006D3240 /* GeocodingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE75B42894FF0B006D3240 /* GeocodingTarget.swift */; };
 		CBAE75B82894FF7E006D3240 /* GeocodingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE75B72894FF7E006D3240 /* GeocodingRequest.swift */; };
 		CBB1E89B28903748002E2065 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB1E89A28903748002E2065 /* Date+Extension.swift */; };
@@ -181,6 +182,7 @@
 		CBA68FC328883F7D00FE2293 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		CBA704F42885BC6200263386 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		CBA81DA62894313F0001E096 /* StoryTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTarget.swift; sourceTree = "<group>"; };
+		CBACE18628A8DD400016B1F4 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CBAE75B42894FF0B006D3240 /* GeocodingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingTarget.swift; sourceTree = "<group>"; };
 		CBAE75B72894FF7E006D3240 /* GeocodingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingRequest.swift; sourceTree = "<group>"; };
 		CBB1E89A28903748002E2065 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				CBE1F0062890343C00AEC66E /* UIViewController+Extension.swift */,
 				CBB1E8A028918841002E2065 /* Int+Extension.swift */,
 				CBEB5348289530750054E522 /* Bundle+Extension.swift */,
+				CBACE18628A8DD400016B1F4 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
 				3E7624582882BFEC002E1600 /* MyStoryListViewController.swift in Sources */,
 				9D954EC0289962090000F68D /* NicknameService.swift in Sources */,
+				CBACE18728A8DD400016B1F4 /* UIView+Extension.swift in Sources */,
 				CBE1F00B2890343C00AEC66E /* UIColor+Extension.swift in Sources */,
 				9D0180352894369300168064 /* NibBased.swift in Sources */,
 				CBAE75B82894FF7E006D3240 /* GeocodingRequest.swift in Sources */,
