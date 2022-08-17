@@ -49,12 +49,10 @@ final class PostingViewModel {
     
     func sortTime() {
         postModels?.stories.sort(by: { $0.createdAt > $1.createdAt })
-        print(postModels)
     }
     
     func sortPopularity() {
         // TODO: 서버로부터 좋아요 숫자 Response를 받은 후 로직을 만들 예정
         postModels?.stories.sort(by: { $0.id > $1.id })
-        print(postModels)
     }
 }
