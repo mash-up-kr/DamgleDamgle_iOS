@@ -123,7 +123,7 @@ extension UIViewController {
             case .fail:
                 return """
                 네트워크 오류 등으로 글남기기를 실패했어요.
-                다음에 다시 시도해주세요.
+                잠시 후에 다시 시도해주세요.
                 """
             }
         }
