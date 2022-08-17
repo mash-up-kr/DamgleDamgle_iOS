@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-final class PostingViewModel {
+final class TempPostingViewModel {
     
     private(set) var postModels: MyStoryResponse?
     
