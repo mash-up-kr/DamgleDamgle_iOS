@@ -67,7 +67,6 @@
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
 		9DB7828C28A20C0A00F8B85F /* APIStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7828B28A20C0A00F8B85F /* APIStatus.swift */; };
-		9DC936DE289D7AD60031F5F1 /* LineSpacingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */; };
 		9DC936E2289D87C90031F5F1 /* ToastLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC936E1289D87C90031F5F1 /* ToastLabel.xib */; };
 		9DC936E4289D87F20031F5F1 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936E3289D87F20031F5F1 /* ToastLabel.swift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
