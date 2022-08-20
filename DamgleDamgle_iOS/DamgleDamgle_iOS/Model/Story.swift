@@ -8,7 +8,7 @@
 import Foundation
 
 struct Stories: Decodable {
-    let stories: [Story]
+    var stories: [Story]
 }
 
 struct Story: Decodable, Hashable, Identifiable {
