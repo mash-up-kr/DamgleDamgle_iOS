@@ -829,6 +829,7 @@
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
 				9D954EC52899623A0000F68D /* NicknameResponse.swift in Sources */,
 				3E8276F728950796004673D6 /* SelectableButton.swift in Sources */,
+				9DB7828C28A20C0A00F8B85F /* APIStatus.swift in Sources */,
 				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E8276F828950796004673D6 /* RotatableImageView.swift in Sources */,
