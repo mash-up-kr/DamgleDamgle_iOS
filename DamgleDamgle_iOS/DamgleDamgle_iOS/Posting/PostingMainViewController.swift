@@ -18,13 +18,16 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var mainViewImageView: UIImageView!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
-    private var apiState: APIState = APIState.dataExit
+    private var apiState: APIState = .dataExit
+    var type: StoryType = .myStory
     var viewModel = PostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getMyStoryResponse()
+        if type == .myStory {
+            getMyStoryResponse()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -163,4 +166,9 @@ enum APIState {
         case .error: return UIImage(named: "img_list_error_bg_posting")
         }
     }
+}
+
+enum StoryType {
+    case allStory
+    case myStory
 }

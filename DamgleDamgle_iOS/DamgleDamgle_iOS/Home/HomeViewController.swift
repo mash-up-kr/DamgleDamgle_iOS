@@ -132,6 +132,10 @@ final class HomeViewController: UIViewController {
     
     @IBAction func moveToListView(_ sender: UIButton) {
         let postingMainViewController = PostingNavigationController.instantiate()
+        let firstViewController = postingMainViewController.children.first as? PostingMainViewController
+        firstViewController?.type = .allStory
+        // TODO: AllStory 데이터로 viewModel 데이터 초기화 필요
+//        firstViewController?.viewModel.postModels = ??
         postingMainViewController.modalPresentationStyle = .overFullScreen
         present(postingMainViewController, animated: true)
     }
