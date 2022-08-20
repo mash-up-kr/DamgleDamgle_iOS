@@ -11,5 +11,3 @@ struct MyStoryResponse: Decodable {
     var stories: [Story]
     let size: Int
 }
-
-

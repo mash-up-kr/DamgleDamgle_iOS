@@ -52,8 +52,8 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
-            // TODO: MyStory 리스폰스값 서버에서 수정해서 보내주면 소팅함수 적용예정
-//            self.viewModel.sortTime()
+            self.viewModel.sortTime()
+            self.postingTableView.reloadData()
             self.activityIndicatorView.stopAnimating()
         }
     }
@@ -65,8 +65,8 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
-            // TODO: MyStory 리스폰스값 서버에서 수정해서 보내주면 소팅함수 적용예정
-//            self.viewModel.sortPopularity()
+            self.viewModel.sortPopularity()
+            self.postingTableView.reloadData()
             self.activityIndicatorView.stopAnimating()
         }
     }
@@ -107,6 +107,7 @@ extension PostingMainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels?.stories[indexPath.row]
         cell.setupUI(viewModel: viewModel)
+        
         cell.addSelectedIcon = { [weak self] reaction in
             guard let self = self else { return }
             guard let id = viewModel?.id else { return }

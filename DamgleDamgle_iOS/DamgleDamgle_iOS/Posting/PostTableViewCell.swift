@@ -59,42 +59,52 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     func setupUI(viewModel: Story?) {
         guard let viewModel = viewModel else { return }
-        // TODO: placeAddress값 서버에서 떨궈줘야함
-        //        placeAddressLabel.text = viewModel.
-        placeAddressLabel.text = "충무로"
+        let request = GeocodingRequest(lat: viewModel.y ?? 0, lng: viewModel.x ?? 0)
+        GeocodingService.reverseGeocoding(request: request) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let address):
+                self.placeAddressLabel.text = address
+            case .failure(let error):
+                self.placeAddressLabel.text = "값을 못 받아오는중"
+            }
+        }
+        
         userNameLabel.text = viewModel.nickname
         checkMeLabel.text = viewModel.userNo == UserManager.shared.userNo ? " • ME" : ""
         timeLabel.text = viewModel.offsetTimeText
         contentLabel.text = viewModel.content
-        // TODO: Reaction 떨궈주는 값을 그려주기
-        setupTestIconsView(reactions: viewModel.reactions)
-        // TODO: 내가 선택한 Reaction 값에 따라 view 그려주기 -> 임시적으로 목데이터 사용
-        //        setupIconsStartButton(reaction: viewModel.reaction ?? IconsButton.none)
-        //        setupIconsButton(selectedIcon: viewModel.icon ?? IconsButton.none)
-        setupIconsStartButton(reaction: ReactionType.best)
-        setupIconsButton(reaction: ReactionType.best)
+        setupIconsView(reactions: viewModel.reactionSummary)
+        setupIconsStartButton(reaction: viewModel.reactionOfMine)
+        setupIconsButton(reaction: viewModel.reactionOfMine)
     }
     
-    private func setupIconsStartButton(reaction: ReactionType) {
-        iconsStartButton.setImage(reaction.selectedButtonImage, for: .normal)
+    private func setupIconsStartButton(reaction: MyReaction?) {
+        guard let reaction = reaction else { return }
+        iconsStartButton.setImage(ReactionType(rawValue: reaction.type)?.selectedButtonImage, for: .normal)
     }
     
-    private func setupIconsButton(reaction: ReactionType) {
+    private func setupIconsButton(reaction: MyReaction?) {
+        guard let reaction = reaction else { return }
+
         for button in iconsButtonCollection {
-            button.isSelected = button.tag == reaction.tag ? true : false
+            let reactionType = ReactionType(rawValue: reaction.type)
+            button.isSelected = button.tag == reactionType?.tag ? true : false
         }
     }
     
-    private func setupTestIconsView(reactions: [Reaction]) {
-        if reactions.isEmpty {
+    private func setupIconsView(reactions: [ReactionSummary]) {
+        let filterReactions = reactions.filter { $0.count != 0 }
+        
+        if filterReactions.isEmpty {
             let iconsView = NoIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-        } else if reactions.count == 1 {
+        } else if filterReactions.count == 1 {
             let iconsView = OneIconView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupUI(reactions: reactions)
+            iconsView.setupUI(reactions: filterReactions)
         } else {
             let iconsView = ManyIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)

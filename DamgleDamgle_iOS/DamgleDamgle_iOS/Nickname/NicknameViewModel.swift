@@ -20,7 +20,6 @@ final class NicknameViewModel {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }
@@ -33,7 +32,6 @@ final class NicknameViewModel {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }
@@ -46,7 +44,6 @@ final class NicknameViewModel {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }
@@ -62,7 +59,6 @@ final class NicknameViewModel {
                 }
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }
@@ -77,7 +73,6 @@ final class NicknameViewModel {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }

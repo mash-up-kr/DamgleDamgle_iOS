@@ -10,72 +10,72 @@ import UIKit
 final class MyStoryListViewModel {
     // FIXME: test data
     private var stories: [Story] = [
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
+//        Story(
+//            id: UUID().uuidString,
+//            userNo: 10,
+//            nickname: "TEST",
+//            x: 1,
+//            y: 1,
+//            content: "test",
+//            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
+//            createdAt: 1234,
+//            updatedAt: 1234
+//        ),
+//        Story(
+//            id: UUID().uuidString,
+//            userNo: 10,
+//            nickname: "TEST",
+//            x: 1,
+//            y: 1,
+//            content: "test",
+//            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
+//            createdAt: 1234,
+//            updatedAt: 1234
+//        ),
+//        Story(
+//            id: UUID().uuidString,
+//            userNo: 10,
+//            nickname: "TEST",
+//            x: 1,
+//            y: 1,
+//            content: "test",
+//            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
+//            createdAt: 1234,
+//            updatedAt: 1234
+//        ),
+//        Story(
+//            id: UUID().uuidString,
+//            userNo: 10,
+//            nickname: "TEST",
+//            x: 1,
+//            y: 1,
+//            content: "test",
+//            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
+//            createdAt: 1234,
+//            updatedAt: 1234
+//        ),
+//        Story(
+//            id: UUID().uuidString,
+//            userNo: 10,
+//            nickname: "TEST",
+//            x: 1,
+//            y: 1,
+//            content: "test",
+//            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
+//            createdAt: 1234,
+//            updatedAt: 1234
+//        ),
+//        Story(
+//            id: UUID().uuidString,
+//            userNo: 10,
+//            nickname: "TEST",
+//            x: 1,
+//            y: 1,
+//            content: "test",
+//            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
+//            createdAt: 1234,
+//            updatedAt: 1234
+//        ),
     ] {
         didSet {
             // TODO: 데이터 없을때 emptyView 보여주기

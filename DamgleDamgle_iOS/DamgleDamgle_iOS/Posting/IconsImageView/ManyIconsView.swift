@@ -8,6 +8,9 @@
 import UIKit
 
 final class ManyIconsView: UIView, NibBased {
+    
+    @IBOutlet private var iconsLabelCollection: [RoundLabel]!
+    @IBOutlet private var iconsImageViewCollection: [RotatableImageView]!
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -19,25 +22,23 @@ final class ManyIconsView: UIView, NibBased {
         initialize()
     }
 
-    func setupUI(reactions: [Reaction]) {
+    func setupUI(reactions: [ReactionSummary]) {
         setupLabel(reactions: reactions)
         setupImageView(reactions: reactions)
     }
     
-    private func setupLabel(reactions: [Reaction]) {
+    private func setupLabel(reactions: [ReactionSummary]) {
         for (id, content) in reactions.enumerated() {
             iconsLabelCollection.forEach {
                 if $0.tag == id {
                     $0.isHidden = false
-                    // TODO: 서버에서 Reaction 모델에 count 추가할 예정
-//                    $0.text = "\(content.count)"
-                    $0.text = "1"
+                    $0.text = "\(content.count)"
                 }
             }
         }
     }
     
-    private func setupImageView(reactions: [Reaction]) {
+    private func setupImageView(reactions: [ReactionSummary]) {
         for (id, content) in reactions.enumerated() {
             var reaction = ReactionType.none
             for reactionType in ReactionType.allCases {
@@ -55,9 +56,4 @@ final class ManyIconsView: UIView, NibBased {
             }
         }
     }
-
-    // MARK: - InterfaceBuilder Links
-
-    @IBOutlet private var iconsLabelCollection: [RoundLabel]!
-    @IBOutlet private var iconsImageViewCollection: [RotatableImageView]!
 }

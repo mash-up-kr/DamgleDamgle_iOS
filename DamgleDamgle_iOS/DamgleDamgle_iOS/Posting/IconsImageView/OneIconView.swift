@@ -8,6 +8,9 @@
 import UIKit
 
 final class OneIconView: UIView, NibBased {
+    
+    @IBOutlet private weak var iconImageView: RotatableImageView!
+    @IBOutlet private weak var iconCountLabel: RoundLabel!
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -19,17 +22,12 @@ final class OneIconView: UIView, NibBased {
         initialize()
     }
     
-    func setupUI(reactions: [Reaction]) {
+    func setupUI(reactions: [ReactionSummary]) {
         guard let reaction = reactions.first else { return }
         // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
-//        iconCountLabel.text = "\(reaction.count)"
-        iconCountLabel.text = "1"
+        iconCountLabel.text = "\(reaction.count)"
 
         guard let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
         iconImageView.image = reactionImage
     }
-
-    // MARK: - InterfaceBuilder Links
-    @IBOutlet private weak var iconImageView: RotatableImageView!
-    @IBOutlet private weak var iconCountLabel: RoundLabel!
 }
