@@ -7,11 +7,20 @@
 
 import UIKit
 
+// TODO: 담글 남기고 my 담글 리스트 reload
 final class MyStoryListViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
         UIStoryboard(name: "My", bundle: nil)
     }
     
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var emptyView: UIView!
+    @IBOutlet private weak var postStroyButton: UIButton! {
+        didSet {
+            postStroyButton.layer.cornerRadius = 8.0
+            postStroyButton.layer.masksToBounds = true
+        }
+    }
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.collectionViewLayout = createCompositionalLayout()
@@ -24,8 +33,25 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         configureDataSource()
-        viewModel.fetchData()
+        fetchData()
+    }
+
+    private func fetchData() {
+        loadingView.isHidden = false
+        loadingView.startAnimating()
+        viewModel.fetchData { [weak self] result in
+            switch result {
+            case .success(let count):
+                self?.emptyView.isHidden = count > 1
+            case .failure(let error):
+                // TODO: Error handling
+                debugPrint(error.localizedDescription)
+            }
+            self?.loadingView.isHidden = true
+            self?.loadingView.stopAnimating()
+        }
     }
     
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
@@ -59,6 +85,12 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             cell.configure(story: story)
             return cell
         }
+    }
+    
+    @IBAction private func postStoryButtonDidTap(_ sender: Any) {
+        let postViewController = PostViewController()
+        postViewController.updateAnimatingView()
+        present(postViewController, animated: true)
     }
     
     func hiddenScrollViewIndicator(isHidden: Bool) {

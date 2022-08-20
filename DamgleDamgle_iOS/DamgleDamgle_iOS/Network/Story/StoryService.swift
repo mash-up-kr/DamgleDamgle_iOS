@@ -21,16 +21,18 @@ struct StoryService {
             }
     }
     
-    static func getMyStory(size: Int?, storyID: String?, completion: @escaping (Result<MyStoryResponse, Error>) -> Void) {
+    func getMyStory(size: Int? = 300, storyID: String? = nil, completion: @escaping (Result<Stories?, Error>) -> Void) {
         AF.request(StoryTarget.getMyStory(size: size, storyID: storyID))
             .response { response in
                 switch response.result {
-                case .success(let data):
-                    guard let data = data else { return }
+                case .success(let value):
+                    guard let value = value else {
+                        return
+                    }
+                    
                     do {
-                        let decoder = JSONDecoder()
-                        let model = try decoder.decode(MyStoryResponse.self, from: data)
-                        completion(.success(model))
+                        let stories = try JSONDecoder().decode(Stories.self, from: value)
+                        completion(.success(stories))
                     } catch {
                         completion(.failure(error))
                     }
@@ -58,7 +60,7 @@ struct StoryService {
                 }
             }
     }
-    
+
     static func deleteReaction(storyID: String, completion: @escaping (Result<Story, Error>) -> Void ) {
         AF.request(StoryTarget.deleteReaction(storyID: storyID))
             .response { response in
@@ -82,7 +84,7 @@ struct StoryService {
         AF.request(StoryTarget.postReport(storyID: storyID))
             .response { response in
                 switch response.result {
-                case .success(let data):
+                case .success(_):
                     completion(.success(true))
                 case .failure(let error):
                     completion(.failure(error))
