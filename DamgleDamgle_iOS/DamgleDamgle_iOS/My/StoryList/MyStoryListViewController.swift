@@ -45,6 +45,7 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             switch result {
             case .success(let count):
                 self?.emptyView.isHidden = count > 1
+                self?.collectionView.reloadData()
             case .failure(let error):
                 // TODO: Error handling
                 debugPrint(error.localizedDescription)
