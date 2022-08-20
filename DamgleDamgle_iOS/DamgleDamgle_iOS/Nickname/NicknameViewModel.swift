@@ -8,49 +8,42 @@
 import Alamofire
 import Foundation
 
-protocol NicknameViewModelDelegate: AnyObject {
-    func bind()
-}
-
-class NicknameViewModel {
+final class NicknameViewModel {
     
-    private(set) var model: NicknameResponse? {
-        didSet {
-            self.delegate?.bind()
-        }
-    }
+    private(set) var model: NicknameResponse?
     
-    weak var delegate: NicknameViewModelDelegate?
-    
-    init() {
+    func getNickname(completion: @escaping (Bool) -> Void) -> Void {
         NicknameService.getNickname(request: GetNicknameRequest(adjective: nil, noun: nil)) { result in
             switch result {
             case .success(let response):
                 self.model = response
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }
     
-    func changeAdjective() -> Void {
+    func changeAdjective(completion: @escaping (Bool) -> Void) -> Void {
         NicknameService.getNickname(request: GetNicknameRequest(adjective: nil, noun: model?.noun)) { result in
             switch result {
             case .success(let response):
                 self.model = response
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }
     
-    func changeNoun() -> Void {
+    func changeNoun(completion: @escaping (Bool) -> Void) -> Void {
         NicknameService.getNickname(request: GetNicknameRequest(adjective: model?.adjective, noun: nil)) { result in
             switch result {
             case .success(let response):
                 self.model = response
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }
@@ -66,7 +59,6 @@ class NicknameViewModel {
                 }
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }
@@ -81,7 +73,6 @@ class NicknameViewModel {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }

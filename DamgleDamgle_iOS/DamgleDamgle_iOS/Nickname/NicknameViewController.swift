@@ -12,12 +12,30 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "Nickname", bundle: nil)
     }
     
+    @IBOutlet private weak var orderNumLabel: UILabel!
+    @IBOutlet private weak var adjectiveLabel: UILabel!
+    @IBOutlet private weak var nounLabel: UILabel!
+    @IBOutlet private weak var changeAdjectiveButton: UIButton!
+    @IBOutlet private weak var changeNameButton: UIButton!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
+    
     private var viewModel = NicknameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        loadNicknameResponce()
+    }
     
-        viewModel.delegate = self
+    private func loadNicknameResponce() {
+        self.activityIndicatorView.startAnimating()
+        self.viewModel.getNickname() { [weak self] _ in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.setupUI()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     }
     
     private func setupUI() {
@@ -45,13 +63,6 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         }
     }
     
-    // MARK: - lnterface Links
-    @IBOutlet private weak var orderNumLabel: UILabel!
-    @IBOutlet private weak var adjectiveLabel: UILabel!
-    @IBOutlet private weak var nounLabel: UILabel!
-    @IBOutlet private weak var changeAdjectiveButton: UIButton!
-    @IBOutlet private weak var changeNameButton: UIButton!
-    
     @IBAction private func startButtonDidTap(_ sender: UIButton) {
         // TODO: 회원가입시키고 accessToken받아서 UserManager에 저장, 아래가 방법 예시!
         UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -71,16 +82,24 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     }
     
     @IBAction private func adjectiveChangeButtonDidTap(_ sender: UIButton) {
-        viewModel.changeAdjective()
+        self.activityIndicatorView.startAnimating()
+        self.viewModel.changeAdjective() { [weak self] _ in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.setupUI()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     }
     
     @IBAction private func nounChangeButtonDidTap(_ sender: UIButton) {
-        viewModel.changeNoun()
-    }
-}
-
-extension NicknameViewController: NicknameViewModelDelegate {
-    func bind() {
-        setupUI()
+        self.activityIndicatorView.startAnimating()
+        self.viewModel.changeNoun() { [weak self] _ in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.setupUI()
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
     }
 }

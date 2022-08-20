@@ -103,16 +103,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="377" height="391.5"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-F6-ZCZ">
-                            <rect key="frame" x="310.5" y="357.5" width="46.5" height="16"/>
+                            <rect key="frame" x="312" y="358" width="45" height="15.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-ye-vp3">
-                                    <rect key="frame" x="0.0" y="0.0" width="8.5" height="16"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="7.5" height="15.5"/>
                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                     <color key="textColor" name="grey800"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/100자" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIn-Aa-e7L">
-                                    <rect key="frame" x="8.5" y="0.0" width="38" height="16"/>
+                                    <rect key="frame" x="7.5" y="0.0" width="37.5" height="15.5"/>
                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                     <color key="textColor" name="grey800"/>
                                     <nil key="highlightedColor"/>
