@@ -11,15 +11,14 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
         UIStoryboard(name: "PostingStoryboard", bundle: nil)
     }
-    
 
     private var apiState: APIState = APIState.dataExit
-    var viewModel = TempPostingViewModel()
+    var viewModel = PostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadGetMyStoryResponse()
+        getMyStoryResponse()
     }
     
     override func viewDidLayoutSubviews() {
@@ -28,7 +27,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         postingTableView.reloadData()
     }
     
-    func loadGetMyStoryResponse() {
+    func getMyStoryResponse() {
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
             guard let self = self else { return }
@@ -54,7 +53,8 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
-            self.viewModel.sortTime()
+            // TODO: MyStory 리스폰스값 서버에서 수정해서 보내주면 소팅함수 적용예정
+//            self.viewModel.sortTime()
             self.activityIndicatorView.stopAnimating()
         }
     }
@@ -66,12 +66,13 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
-            self.viewModel.sortPopularity()
+            // TODO: MyStory 리스폰스값 서버에서 수정해서 보내주면 소팅함수 적용예정
+//            self.viewModel.sortPopularity()
             self.activityIndicatorView.stopAnimating()
         }
     }
     
-    @IBAction func closeButtonDidTap(_ sender: UIBarButtonItem) {
+    @IBAction private func closeButtonDidTap(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 }
@@ -103,7 +104,7 @@ extension PostingMainViewController: UITableViewDataSource {
         if apiState == APIState.error {
             return 1
         }
-        return viewModel.postModels?.stories.count ?? 1
+        return viewModel.postModels?.stories.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,17 +115,21 @@ extension PostingMainViewController: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
-        let testViewModel = self.viewModel.postModels?.stories[indexPath.row]
-        cell.setupTestUI(viewModel: testViewModel)
+        let viewModel = self.viewModel.postModels?.stories[indexPath.row]
+        cell.setupUI(viewModel: viewModel)
         cell.addSelectedIcon = { [weak self] reaction in
             guard let self = self else { return }
-            guard let id = testViewModel?.id else { return }
-            self.viewModel.postReaction(storyID: id, type: reaction.rawValue)
+            guard let id = viewModel?.id else { return }
+            self.viewModel.postReaction(storyID: id, type: reaction.rawValue) { isSuccess in
+                // TODO: 실패했을때 대응방법 적용예정
+            }
         }
         cell.deleteSeletedIcon = { [weak self] in
             guard let self = self else { return }
-            guard let id = testViewModel?.id else { return }
-            self.viewModel.deleteReaction(storyID: id)
+            guard let id = viewModel?.id else { return }
+            self.viewModel.deleteReaction(storyID: id) { isSuccess in
+                // TODO: 실패했을때 대응방법 적용예정
+            }
         }
         cell.delegate = self
         
@@ -135,31 +140,35 @@ extension PostingMainViewController: UITableViewDataSource {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed(reaction: ReactionType) {
-        
-        activityIndicatorView.startAnimating()
-        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
-    func iconButtonAnimationIsClosed() {
-        
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.postingTableView.reloadData()
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
-    
-    func iconButtonAnimationIsClosed(icon: IconsButton) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
+                // TODO: 애니메이션 에러가 있어 이를 해결한 후 함수 적용해야함
+//                toastButtonAnimate(reaction: reaction)
                 self.postingTableView.reloadData()
                 self.activityIndicatorView.stopAnimating()
             }
         }
     }
-
-
+    
+    private func toastButtonAnimate(reaction: ReactionType) {
+        let screenWidth: CGFloat = UIScreen.main.bounds.width
+        let screenHeight: CGFloat = UIScreen.main.bounds.height
+        
+        let toastLabel = ToastLabel()
+        toastLabel.setupUI(text: reaction.toastMessageTitle)
+        
+        toastLabel.frame.origin.x = screenWidth/2 - toastLabel.bounds.width/2
+        toastLabel.frame.origin.y = screenHeight - toastLabel.bounds.height - screenHeight*(64/812)
+        self.view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 2.0) {
+            toastLabel.alpha = 0.0
+        } completion: { _ in
+            toastLabel.removeFromSuperview()
+        }
+    }
 }
 
 enum APIState {

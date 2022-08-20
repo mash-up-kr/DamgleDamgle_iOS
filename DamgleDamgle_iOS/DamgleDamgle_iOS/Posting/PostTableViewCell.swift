@@ -45,7 +45,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
     }
     
-    func setupTestUI(viewModel: Story?) {
+    func setupUI(viewModel: Story?) {
         guard let viewModel = viewModel else { return }
         // TODO: placeAddress값 서버에서 떨궈줘야함
         //        placeAddressLabel.text = viewModel.
@@ -73,7 +73,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         }
     }
     
-    func setupTestIconsView(reactions: [Reaction]) {
+    private func setupTestIconsView(reactions: [Reaction]) {
         if reactions.isEmpty {
             let iconsView = NoIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
@@ -300,6 +300,23 @@ enum ReactionType: String, CaseIterable {
             return UIImage(named: "icn=best_inactive")
         case .none:
             return UIImage(named: "icn=best_inactive")
+        }
+    }
+    
+    var toastMessageTitle: String? {
+        switch self {
+        case .like:
+            return "좋아요 이모지로 수정되었습니다!"
+        case .angry:
+            return "화나요 이모지로 수정되었습니다!"
+        case .amazing:
+            return "놀라워요 이모지로 수정되었습니다!"
+        case .sad:
+            return "슬퍼요 이모지로 수정되었습니다!"
+        case .best:
+            return "최고에요 이모지로 수정되었습니다!"
+        case .none:
+            return nil
         }
     }
     
