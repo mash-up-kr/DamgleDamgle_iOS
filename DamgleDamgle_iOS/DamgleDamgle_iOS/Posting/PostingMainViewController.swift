@@ -112,18 +112,33 @@ extension PostingMainViewController: UITableViewDataSource {
         cell.setupUI(viewModel: viewModel)
         
         cell.addSelectedIcon = { [weak self] reaction in
-            guard let self = self else { return }
-            guard let id = viewModel?.id else { return }
+            guard let self = self, let id = viewModel?.id else { return }
             self.viewModel.postReaction(storyID: id, type: reaction.rawValue) { isSuccess in
                 // TODO: 실패했을때 대응방법 적용예정
             }
         }
         cell.deleteSeletedIcon = { [weak self] in
-            guard let self = self else { return }
-            guard let id = viewModel?.id else { return }
+            guard let self = self, let id = viewModel?.id else { return }
             self.viewModel.deleteReaction(storyID: id) { isSuccess in
                 // TODO: 실패했을때 대응방법 적용예정
             }
+        }
+        
+        cell.postReport = { [weak self] in
+            guard let self = self, let id = viewModel?.id else { return }
+            // TODO: Report Logic 구현예정
+//            self.viewModel.postReport(storyID: id) { isSuccess in
+//
+//            }
+            self.showAlertController(
+                type: .single,
+                title: "신고하기 로직 테스트중입니다.",
+                message: "",
+                okActionTitle: "OK",
+                okActionHandler: nil,
+                cancelActionTitle: "",
+                cancelActionHandler: nil
+            )
         }
         cell.delegate = self
         

@@ -27,6 +27,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     weak var delegate: TableViewCellDelegate?
     var addSelectedIcon: ((ReactionType) -> Void)?
     var deleteSeletedIcon: (() -> Void)?
+    var postReport: (() -> Void)?
     private var nowSelectedReaction: ReactionType = ReactionType.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedReaction)
@@ -70,6 +71,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             }
         }
         
+        placeAddressLabel.text = "강남구 op.gg"
         userNameLabel.text = viewModel.nickname
         checkMeLabel.text = viewModel.userNo == UserManager.shared.userNo ? " • ME" : ""
         timeLabel.text = viewModel.offsetTimeText
@@ -137,6 +139,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             addSelectedIcon?(isSelectedReaction)
             nowSelectedReaction = isSelectedReaction
         }
+    }
+    
+    @IBAction private func reportButtonDidTap(_ sender: UIButton) {
+        postReport?()
     }
     
     private func deselectAnotherButton(button: UIButton) {
