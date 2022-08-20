@@ -13,7 +13,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     }
 
     private var apiState: APIState = APIState.dataExit
-    var viewModel = TempPostingViewModel()
+    var viewModel = PostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,10 +154,6 @@ extension PostingMainViewController: UITableViewDataSource {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed(reaction: ReactionType) {
-        activityIndicatorView.startAnimating()
-        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
-    func iconButtonAnimationIsClosed() {
-        
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
             guard let self = self else { return }
