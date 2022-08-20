@@ -149,7 +149,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="blP-bK-oXu">
-                                    <size key="itemSize" width="414" height="137"/>
+                                    <size key="itemSize" width="414" height="102"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -167,7 +167,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=like" translatesAutoresizingMaskIntoConstraints="NO" id="sj1-Nx-BJp">
-                                                    <rect key="frame" x="41" y="16" width="60" height="70"/>
+                                                    <rect key="frame" x="41" y="21" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="g1A-fW-Lv7"/>
                                                         <constraint firstAttribute="height" constant="60" id="hdj-G5-DtP"/>
@@ -188,7 +188,7 @@ YEOKSAMDONG</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3o-8R-pEb">
-                                                    <rect key="frame" x="82" y="67" width="16" height="16"/>
+                                                    <rect key="frame" x="82" y="62" width="16" height="16"/>
                                                     <color key="backgroundColor" name="yellow"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="16" id="GOz-JG-IL3"/>
@@ -208,13 +208,13 @@ YEOKSAMDONG</string>
                                                 <constraint firstItem="QLd-wn-VQf" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" id="LaH-WH-Vez"/>
                                                 <constraint firstItem="vxF-pL-lwS" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" constant="28" id="O8M-tc-Gir"/>
                                                 <constraint firstItem="V3o-8R-pEb" firstAttribute="trailing" secondItem="sj1-Nx-BJp" secondAttribute="trailing" constant="-3" id="Ryx-cV-JFZ"/>
-                                                <constraint firstItem="sj1-Nx-BJp" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" constant="16" id="Vr2-bI-OO3"/>
+                                                <constraint firstItem="sj1-Nx-BJp" firstAttribute="top" secondItem="YSf-M4-hgI" secondAttribute="top" constant="21" id="Vr2-bI-OO3"/>
                                                 <constraint firstItem="sj1-Nx-BJp" firstAttribute="leading" secondItem="YSf-M4-hgI" secondAttribute="leading" constant="41" id="YzT-fE-H7e"/>
                                                 <constraint firstItem="QLd-wn-VQf" firstAttribute="leading" secondItem="YSf-M4-hgI" secondAttribute="leading" id="aJp-J9-qzW"/>
                                                 <constraint firstItem="V3o-8R-pEb" firstAttribute="bottom" secondItem="sj1-Nx-BJp" secondAttribute="bottom" constant="-3" id="dSm-yd-uh6"/>
                                                 <constraint firstItem="vxF-pL-lwS" firstAttribute="leading" secondItem="sj1-Nx-BJp" secondAttribute="trailing" constant="16" id="dxe-Ad-cUG"/>
                                                 <constraint firstAttribute="bottom" secondItem="vgi-xY-lEm" secondAttribute="bottom" constant="33" id="hHt-dQ-CqP"/>
-                                                <constraint firstAttribute="bottom" secondItem="sj1-Nx-BJp" secondAttribute="bottom" constant="16" id="tFD-cA-th0"/>
+                                                <constraint firstAttribute="bottom" secondItem="sj1-Nx-BJp" secondAttribute="bottom" constant="21" id="tFD-cA-th0"/>
                                                 <constraint firstAttribute="trailing" secondItem="QLd-wn-VQf" secondAttribute="trailing" id="yXn-0b-6H5"/>
                                             </constraints>
                                         </collectionViewCellContentView>

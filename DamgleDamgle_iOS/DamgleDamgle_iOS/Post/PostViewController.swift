@@ -45,6 +45,8 @@ final class PostViewController: UIViewController {
     
     private let viewModel = PostViewModel()
     
+    var viewType: ViewType = .home
+    
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,10 +132,14 @@ final class PostViewController: UIViewController {
             message: StringResource.message,
             okActionTitle: StringResource.okTitle,
             okActionHandler: {
-                self.viewModel.postStory { result in
+                self.viewModel.postStory { [weak self] result in
+                    guard let self = self else {
+                        return
+                    }
                     let postProcessViewController = PostProcessViewController.instantiate()
                     postProcessViewController.modalPresentationStyle = .fullScreen
                     postProcessViewController.postStatus = result == true ? .success : .fail
+                    postProcessViewController.viewType = self.viewType
                     self.present(postProcessViewController, animated: true)
                 }
             },

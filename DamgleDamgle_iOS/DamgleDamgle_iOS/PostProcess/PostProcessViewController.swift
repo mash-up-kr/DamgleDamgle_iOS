@@ -8,6 +8,11 @@
 import Lottie
 import UIKit
 
+enum ViewType {
+    case setting
+    case home
+}
+
 protocol PostProcessDismissProtocol: AnyObject {
     func dismissToMain()
     func dismissToPost()
@@ -27,6 +32,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var closeButton: UIButton!
     
     var postStatus: PostStatus = .inProgress
+    var viewType: ViewType = .home
     private let paintLottieName = "writeLottie"
     private let lottieSize = UIScreen.main.bounds.width * 0.9
     
@@ -61,9 +67,13 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     }
     
     @IBAction private func closeButtonDidTap(_ sender: UIButton) {
-        let presentingViewController = self.presentingViewController as? HomeViewController
-        presentingViewController?.resetChildView()
-        self.presentingViewController?.dismiss(animated: true)
+        if viewType == .home {
+            let presentingViewController = self.presentingViewController as? HomeViewController
+            presentingViewController?.resetChildView()
+            presentingViewController?.dismiss(animated: true)
+        } else {
+            view.window?.rootViewController?.dismiss(animated: true)
+        }
     }
    
 // MARK: - UDF
@@ -82,7 +92,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         processImageView.image = type.image
         
         if let buttonTitle = type.buttonTitle {
-            nextStepButton.isHidden = false
+//            nextStepButton.isHidden = false
             nextStepButton.setTitle(buttonTitle, for: .normal)
         } else {
             nextStepButton.isHidden = true
