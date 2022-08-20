@@ -148,6 +148,6 @@ extension SettingViewController {
         static let moveToSetting = "설정으로 이동"
         static let cancel = "취소"
         static let confirm = "확인"
-        static let resignFail = "회원정보 삭제에 실패했어요. 다시 시도해주세요."
+        static let resignFail = "현재 네트워크 문제로 서비스 그만두기가 불가해요. 나중에 다시 시도해주세요."
     }
 }
