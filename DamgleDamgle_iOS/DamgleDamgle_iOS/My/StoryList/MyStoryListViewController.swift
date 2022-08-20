@@ -61,6 +61,10 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             return cell
         }
     }
+    
+    func hiddenScrollViewIndicator(isHidden: Bool) {
+        collectionView.showsVerticalScrollIndicator = !isHidden
+    }
 }
 
 extension MyStoryListViewController: UICollectionViewDelegate {

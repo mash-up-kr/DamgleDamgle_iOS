@@ -23,6 +23,9 @@ final class MyViewController: UIViewController, StoryboardBased {
             buttonBackgroundView.layer.masksToBounds = true
         }
     }
+    
+    private let listViewController = MyStoryListViewController.instantiate()
+    private let settingViewController = SettingViewController.instantiate()
 
     private var pages: [UIViewController] = []
     private var currentPage = 0
@@ -42,12 +45,10 @@ final class MyViewController: UIViewController, StoryboardBased {
         super.viewDidLoad()
         
         configurePageView()
+        setupScrollViewDelegate()
     }
     
     private func configurePageView() {
-        let listViewController = MyStoryListViewController.instantiate()
-        let settingViewController = SettingViewController.instantiate()
-        
         addChild(pageViewController)
         containerView.addSubview(pageViewController.view)
         pageViewController.view.frame = containerView.bounds
@@ -64,16 +65,17 @@ final class MyViewController: UIViewController, StoryboardBased {
             )
         }
     }
+    
+    private func setupScrollViewDelegate() {
+        let scrollView = containerView.subviews.first?.subviews.first as? UIScrollView
+        scrollView?.delegate = self
+    }
 
     @IBAction func listButtonDidTap(_ sender: UIButton) {
-        listButton.isSelected = true
-        settingButton.isSelected = false
         changePageViewController(to: Page.list.index)
     }
 
     @IBAction func settingButtonDidTap(_ sender: UIButton) {
-        listButton.isSelected = false
-        settingButton.isSelected = true
         changePageViewController(to: Page.setting.index)
     }
 
@@ -130,20 +132,31 @@ extension MyViewController: UIPageViewControllerDelegate {
         guard index < pages.count else {
             return
         }
-        listButton.isSelected = index == Page.list.index
-        settingButton.isSelected = index == Page.setting.index
+        let isList = Page(rawValue: index) == .list
+
+        listButton.isSelected = isList
+        settingButton.isSelected = !isList
+    
         currentPage = index
         
         UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
             guard let self = self else {
                 return
             }
-            let isList = Page(rawValue: index) == .list
-            
             self.buttonBackgroundListLeadingConstraint.constant = isList ? 0 : Constant.buttonWidth + Constant.stackViewSpacing
             self.buttonBackgroundListTrailingConstraint.constant = isList ? 0 : Constant.buttonWidth + Constant.stackViewSpacing
             self.view.layoutIfNeeded()
         }.startAnimation()
+    }
+}
+
+extension MyViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        listViewController.hiddenScrollViewIndicator(isHidden: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        listViewController.hiddenScrollViewIndicator(isHidden: false)
     }
 }
 
