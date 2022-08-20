@@ -10,10 +10,11 @@ import Foundation
 
 final class PostingViewModel {
     
-    private(set) var postModels: MyStoryResponse?
+    private(set) var postModels: Stories?
+    private let service = StoryService()
     
     func getMyStory(size: Int?, storyID: String?, completion: @escaping (Bool) -> Void) {
-        StoryService.getMyStory(size: size, storyID: storyID) { result in
+        service.getMyStory(size: size, storyID: storyID) { result in
             switch result {
             case .success(let response):
                 self.postModels = response
