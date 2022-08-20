@@ -20,12 +20,6 @@ final class UserManager {
     @UserDefault(key: .userNo, defaultValue: 0)
     private(set) var userNo: Int
     
-    @UserDefault(key: .refreshToken, defaultValue: "")
-    private var refreshToken: String
-    
-    @UserDefault(key: .userNo, defaultValue: 0)
-    private var userNo: Int
-    
     var isLogin: Bool {
         accessToken.isEmpty == false
     }
