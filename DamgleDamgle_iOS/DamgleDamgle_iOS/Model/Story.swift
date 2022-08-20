@@ -19,6 +19,7 @@ struct Story: Decodable, Hashable, Identifiable {
     let y: Int
     let content: String
     let reactions: [Reaction]
+//    let reposrts: [Report]
     let createdAt, updatedAt: Int
 
     var secCreateAt: Double {

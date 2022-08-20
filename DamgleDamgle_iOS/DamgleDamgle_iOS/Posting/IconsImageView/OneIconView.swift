@@ -28,16 +28,6 @@ final class OneIconView: UIView, NibBased {
         guard let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
         iconImageView.image = reactionImage
     }
-    
-    func setupTestUI(reactions: [Reaction]) {
-        guard let reaction = reactions.first else { return }
-        // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
-//        iconCountLabel.text = "\(reaction.count)"
-        iconCountLabel.text = "1"
-
-        guard let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
-        iconImageView.image = reactionImage
-    }
 
     // MARK: - InterfaceBuilder Links
     @IBOutlet private weak var iconImageView: RotatableImageView!
