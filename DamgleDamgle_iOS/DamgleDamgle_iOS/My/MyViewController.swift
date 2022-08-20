@@ -13,16 +13,14 @@ final class MyViewController: UIViewController, StoryboardBased {
     }
     
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var listButton: UIButton! {
+    @IBOutlet private weak var listButton: UIButton!
+    @IBOutlet private weak var settingButton: UIButton!
+    @IBOutlet private weak var buttonBackgroundListLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var buttonBackgroundListTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var buttonBackgroundView: UIView! {
         didSet {
-            listButton.layer.cornerRadius = 8.0
-            listButton.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet private weak var settingButton: UIButton!  {
-        didSet {
-            settingButton.layer.cornerRadius = 8.0
-            settingButton.layer.masksToBounds = true
+            buttonBackgroundView.layer.cornerRadius = 8.0
+            buttonBackgroundView.layer.masksToBounds = true
         }
     }
 
@@ -135,6 +133,17 @@ extension MyViewController: UIPageViewControllerDelegate {
         listButton.isSelected = index == Page.list.index
         settingButton.isSelected = index == Page.setting.index
         currentPage = index
+        
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            guard let self = self else {
+                return
+            }
+            let isList = Page(rawValue: index) == .list
+            
+            self.buttonBackgroundListLeadingConstraint.constant = isList ? 0 : Constant.buttonWidth + Constant.stackViewSpacing
+            self.buttonBackgroundListTrailingConstraint.constant = isList ? 0 : Constant.buttonWidth + Constant.stackViewSpacing
+            self.view.layoutIfNeeded()
+        }.startAnimation()
     }
 }
 
@@ -146,5 +155,10 @@ extension MyViewController {
         var index: Int {
             return self.rawValue
         }
+    }
+    
+    private enum Constant {
+        static let buttonWidth: CGFloat = 89.0
+        static let stackViewSpacing: CGFloat = 9.0
     }
 }

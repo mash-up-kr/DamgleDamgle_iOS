@@ -8,34 +8,19 @@
 import UIKit
 
 final class DGButton: UIButton {
-    private let selectedBackgroundColor = UIColor(named: "grey1000")
     private let selectedTextColor = UIColor.white
-    private let normalBackgroundColor = UIColor.clear
     private let normalTextColor = UIColor(named: "grey1000")
-    
-    override var isSelected: Bool {
-        didSet {
-            showSelectedAnimation(isSelected)
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUI()
+        setupTitle()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupUI()
+        setupTitle()
     }
 
-    private func setupUI() {
-        setupTitle()
-        
-        layer.masksToBounds = true
-        layer.cornerRadius = 5.0
-    }
-    
     private func setupTitle() {
         guard let title = titleLabel?.text else {
             return
@@ -64,11 +49,5 @@ final class DGButton: UIButton {
         }
 
         titleLabel?.adjustsFontSizeToFitWidth = true
-    }
-    
-    private func showSelectedAnimation(_ isSelected: Bool) {
-        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
-            self?.backgroundColor = isSelected == true ? self?.selectedBackgroundColor : self?.normalBackgroundColor
-        }.startAnimation()
     }
 }

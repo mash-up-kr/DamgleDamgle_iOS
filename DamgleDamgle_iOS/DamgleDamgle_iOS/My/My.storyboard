@@ -42,6 +42,10 @@
                                 <color key="textColor" name="grey900"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKU-mF-f45">
+                                <rect key="frame" x="114" y="258" width="89" height="40"/>
+                                <color key="backgroundColor" name="grey1000"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KIH-tO-lGM">
                                 <rect key="frame" x="114" y="258" width="186" height="40"/>
                                 <subviews>
@@ -91,22 +95,29 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="grey500"/>
                         <constraints>
+                            <constraint firstItem="WKU-mF-f45" firstAttribute="trailing" secondItem="V2u-6E-fwX" secondAttribute="trailing" id="09w-De-F7h"/>
                             <constraint firstItem="KIH-tO-lGM" firstAttribute="top" secondItem="aPm-fa-4Ra" secondAttribute="bottom" constant="64" id="1jK-1U-jUZ"/>
+                            <constraint firstItem="WKU-mF-f45" firstAttribute="leading" secondItem="V2u-6E-fwX" secondAttribute="leading" id="25r-ky-tMy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FHG-nD-UuY" secondAttribute="trailing" id="LXl-Du-CqZ"/>
                             <constraint firstItem="KIH-tO-lGM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OWw-9W-svS"/>
                             <constraint firstItem="aPm-fa-4Ra" firstAttribute="top" secondItem="kh7-sC-YGM" secondAttribute="bottom" constant="8" id="PwA-0S-8kH"/>
                             <constraint firstItem="mxS-Pf-wLZ" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.125604" id="S1Y-qh-yP1"/>
                             <constraint firstItem="mxS-Pf-wLZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="V1F-4T-4bE"/>
                             <constraint firstItem="aPm-fa-4Ra" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="V1v-VZ-xlj"/>
+                            <constraint firstItem="WKU-mF-f45" firstAttribute="bottom" secondItem="KIH-tO-lGM" secondAttribute="bottom" id="ZCH-W3-0go"/>
                             <constraint firstAttribute="bottom" secondItem="FHG-nD-UuY" secondAttribute="bottom" id="ZKv-iF-MIc"/>
                             <constraint firstItem="kh7-sC-YGM" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="h7u-Zd-tvK"/>
                             <constraint firstItem="FHG-nD-UuY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kOf-xK-uQS"/>
                             <constraint firstItem="kh7-sC-YGM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="nCm-rM-SLf"/>
+                            <constraint firstItem="WKU-mF-f45" firstAttribute="top" secondItem="KIH-tO-lGM" secondAttribute="top" id="pko-rN-vc9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mxS-Pf-wLZ" secondAttribute="trailing" constant="5" id="qMm-nq-D7n"/>
                             <constraint firstItem="FHG-nD-UuY" firstAttribute="top" secondItem="KIH-tO-lGM" secondAttribute="bottom" id="xIr-fN-HGf"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonBackgroundListLeadingConstraint" destination="25r-ky-tMy" id="0ct-F3-9Bi"/>
+                        <outlet property="buttonBackgroundListTrailingConstraint" destination="09w-De-F7h" id="xF8-z3-tOO"/>
+                        <outlet property="buttonBackgroundView" destination="WKU-mF-f45" id="krz-5L-YeW"/>
                         <outlet property="containerView" destination="FHG-nD-UuY" id="mkN-tz-gkT"/>
                         <outlet property="listButton" destination="V2u-6E-fwX" id="Vzj-Pz-J3r"/>
                         <outlet property="settingButton" destination="H8Z-hS-mcT" id="rgA-pO-3M3"/>
@@ -324,6 +335,9 @@ YEOKSAMDONG</string>
         <image name="img_mypage_bg" width="359" height="664"/>
         <image name="img_setting" width="343" height="110"/>
         <image name="mystory_reaction" width="70" height="70"/>
+        <namedColor name="grey1000">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="grey400">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
