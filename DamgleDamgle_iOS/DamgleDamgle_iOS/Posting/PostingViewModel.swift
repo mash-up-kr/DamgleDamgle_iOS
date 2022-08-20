@@ -51,7 +51,6 @@ final class PostingViewModel {
     }
     
     func sortPopularity() {
-        // TODO: 서버로부터 좋아요 숫자 Response를 받은 후 로직을 만들 예정
-        postModels?.stories.sort(by: { $0.id > $1.id })
+        postModels?.stories.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
     }
 }

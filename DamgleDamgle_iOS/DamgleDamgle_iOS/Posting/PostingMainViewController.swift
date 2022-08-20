@@ -45,6 +45,22 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         }
     }
     
+//    private func getLocationAddress() {
+//        let request = GeocodingRequest(
+//            lat: locationManager.currentLocation.latitude,
+//            lng: locationManager.currentLocation.longitude
+//        )
+//        
+//        GeocodingService.reverseGeocoding(request: request) { result in
+//            switch result {
+//            case .success(let address):
+//                self.currentAddressLabel.text = address
+//            case .failure(let error):
+//                self.currentAddressLabel.text = ""
+//            }
+//        }
+//    }
+    
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
         popularitySortButton.isSelected = false
@@ -53,7 +69,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
             // TODO: MyStory 리스폰스값 서버에서 수정해서 보내주면 소팅함수 적용예정
-//            self.viewModel.sortTime()
+            self.viewModel.sortTime()
             self.activityIndicatorView.stopAnimating()
         }
     }
@@ -66,7 +82,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
             // TODO: MyStory 리스폰스값 서버에서 수정해서 보내주면 소팅함수 적용예정
-//            self.viewModel.sortPopularity()
+            self.viewModel.sortPopularity()
             self.activityIndicatorView.stopAnimating()
         }
     }
@@ -107,6 +123,7 @@ extension PostingMainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels?.stories[indexPath.row]
         cell.setupUI(viewModel: viewModel)
+        
         cell.addSelectedIcon = { [weak self] reaction in
             guard let self = self else { return }
             guard let id = viewModel?.id else { return }
