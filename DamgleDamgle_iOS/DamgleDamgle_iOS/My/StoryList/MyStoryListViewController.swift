@@ -35,6 +35,11 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         super.viewDidLoad()
 
         configureDataSource()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         fetchData()
     }
 
@@ -45,6 +50,7 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             switch result {
             case .success(let count):
                 self?.emptyView.isHidden = count > 1
+                self?.collectionView.reloadData()
             case .failure(let error):
                 // TODO: Error handling
                 debugPrint(error.localizedDescription)
@@ -100,6 +106,9 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
 
 extension MyStoryListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: 눌렀을 때, 담글로 이동
+        // TODO: 인덱스 넘기기
+        let postingMainNavigationViewController = PostingNavigationController.instantiate()
+        postingMainNavigationViewController.modalPresentationStyle = .fullScreen
+        present(postingMainNavigationViewController, animated: true)
     }
 }

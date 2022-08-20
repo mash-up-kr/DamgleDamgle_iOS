@@ -32,6 +32,19 @@ struct Story: Decodable, Hashable, Identifiable {
         return Double(updatedAt) / 1000
     }
     
+    var mostReaction: String {
+        var mostCount: Int = 0
+        var mostReaction: String = ""
+        
+        reactionSummary.forEach { reaction in
+            if reaction.count > mostCount {
+                mostCount = reaction.count
+                mostReaction = reaction.type
+            }
+        }
+        return mostReaction
+    }
+    
     var offsetTimeText: String {
         let offsetTime = Calendar.current.dateComponents([.year,.month,.weekday,.day,.hour,.minute], from: secCreateAt.toDate ?? Date(), to: Date())
 
