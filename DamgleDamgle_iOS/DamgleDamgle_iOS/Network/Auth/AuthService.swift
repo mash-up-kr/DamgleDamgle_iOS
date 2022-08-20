@@ -34,8 +34,12 @@ struct AuthService {
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
-                    guard let signingResponse = try? JSONDecoder().decode(SigningResponse.self, from: data) else { return }
-                    completion(.success(signingResponse))
+                    do {
+                        let signingResponse = try JSONDecoder().decode(SigningResponse.self, from: data)
+                        completion(.success(signingResponse))
+                    } catch {
+                        completion(.failure(error))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -48,8 +52,12 @@ struct AuthService {
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
-                    guard let getMyInfoResponse = try? JSONDecoder().decode(GetPatchMyInfoResponse.self, from: data) else { return }
-                    completion(.success(getMyInfoResponse))
+                    do {
+                        let getMyInfoResponse = try JSONDecoder().decode(GetPatchMyInfoResponse.self, from: data)
+                        completion(.success(getMyInfoResponse))
+                    } catch {
+                        completion(.failure(error))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -62,8 +70,12 @@ struct AuthService {
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
-                    guard let patchMyInfoResponse = try? JSONDecoder().decode(GetPatchMyInfoResponse.self, from: data) else { return }
-                    completion(.success(patchMyInfoResponse))
+                    do {
+                        let patchMyInfoResponse = try JSONDecoder().decode(GetPatchMyInfoResponse.self, from: data)
+                        completion(.success(patchMyInfoResponse))
+                    } catch {
+                        completion(.failure(error))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -76,8 +88,12 @@ struct AuthService {
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
-                    guard let deleteMyInfoResponse = try? JSONDecoder().decode(DeleteMyInfoResponse.self, from: data) else { return }
-                    completion(.success(deleteMyInfoResponse))
+                    do {
+                        let deleteMyInfoResponse = try JSONDecoder().decode(DeleteMyInfoResponse.self, from: data)
+                        completion(.success(deleteMyInfoResponse))
+                    } catch {
+                        completion(.failure(error))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }
