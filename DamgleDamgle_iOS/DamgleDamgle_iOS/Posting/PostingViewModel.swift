@@ -12,7 +12,7 @@ final class PostingViewModel {
     
     private(set) var postModels: MyStoryResponse?
     
-    func getMyStory(size: Int?, storyID: String?,completion: @escaping (Bool) -> Void) {
+    func getMyStory(size: Int?, storyID: String?, completion: @escaping (Bool) -> Void) {
         StoryService.getMyStory(size: size, storyID: storyID) { result in
             switch result {
             case .success(let response):
@@ -20,29 +20,28 @@ final class PostingViewModel {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error)
             }
         }
     }
     
-    func postReaction(storyID: String, type: String) {
+    func postReaction(storyID: String, type: String, completion: @escaping (Bool) -> Void) {
         StoryService.postReaction(storyID: storyID, type: type) { result in
             switch result {
             case .success(let response):
-                print(response)
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }
     
-    func deleteReaction(storyID: String) {
+    func deleteReaction(storyID: String, completion: @escaping (Bool) -> Void) {
         StoryService.deleteReaction(storyID: storyID) { result in
             switch result {
             case .success(let response):
-                print(response)
+                completion(true)
             case .failure(let error):
-                print(error)
+                completion(false)
             }
         }
     }

@@ -24,20 +24,6 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        activityIndicatorView.startAnimating()
-        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.apiState = isSuccess ? .dataExit : .error
-                self.postingTableView.reloadData()
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
         postingTableView.reloadData()
     }
     
@@ -96,16 +82,7 @@ extension PostingMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if apiState == APIState.error {
             mainViewImageView.image = APIState.error.BackgroundimageView
-            
-            activityIndicatorView.startAnimating()
-            viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    self.apiState = isSuccess ? .dataExit : .error
-                    self.postingTableView.reloadData()
-                    self.activityIndicatorView.stopAnimating()
-                }
-            }
+            getMyStoryResponse()
         } else {
             mainViewImageView.image = APIState.dataExit.BackgroundimageView
         }
@@ -154,16 +131,7 @@ extension PostingMainViewController: UITableViewDataSource {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed(reaction: ReactionType) {
-        activityIndicatorView.startAnimating()
-        viewModel.getMyStory(size: 300, storyID: nil) { [weak self] _ in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                // TODO: 애니메이션 에러가 있어 이를 해결한 후 함수 적용해야함
-//                toastButtonAnimate(reaction: reaction)
-                self.postingTableView.reloadData()
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
+        getMyStoryResponse()
     }
     
     private func toastButtonAnimate(reaction: ReactionType) {
