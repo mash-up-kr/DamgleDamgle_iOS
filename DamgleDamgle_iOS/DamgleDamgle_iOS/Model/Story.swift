@@ -20,7 +20,7 @@ struct Story: Decodable, Hashable, Identifiable {
     let content: String
     let reactions: [Reaction]
     let reactionSummary: [ReactionSummary]
-    let reactionOfMine: ReactionOfMine?
+    let reactionOfMine: MyReaction?
     let reports: [Report]
     let createdAt, updatedAt: Int
 

@@ -79,12 +79,12 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         setupIconsButton(reaction: viewModel.reactionOfMine)
     }
     
-    private func setupIconsStartButton(reaction: ReactionOfMine?) {
+    private func setupIconsStartButton(reaction: MyReaction?) {
         guard let reaction = reaction else { return }
         iconsStartButton.setImage(ReactionType(rawValue: reaction.type)?.selectedButtonImage, for: .normal)
     }
     
-    private func setupIconsButton(reaction: ReactionOfMine?) {
+    private func setupIconsButton(reaction: MyReaction?) {
         guard let reaction = reaction else { return }
 
         for button in iconsButtonCollection {

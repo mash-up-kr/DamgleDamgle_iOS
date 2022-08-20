@@ -70,7 +70,7 @@
 		9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */; };
 		9D9F4F8A287EE9C7001771DC /* Nickname.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F4F89287EE9C7001771DC /* Nickname.storyboard */; };
 		9DA18FB728B0F25C0006EF39 /* ReactionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA18FB628B0F25C0006EF39 /* ReactionSummary.swift */; };
-		9DA18FB928B101180006EF39 /* ReactionOfMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA18FB828B101180006EF39 /* ReactionOfMine.swift */; };
+		9DA18FB928B101180006EF39 /* MyReaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA18FB828B101180006EF39 /* MyReaction.swift */; };
 		9DB760A628AFC3F5006A6E72 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB760A528AFC3F5006A6E72 /* Report.swift */; };
 		9DC777AB28B0E861002B1C76 /* APIStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC777AA28B0E861002B1C76 /* APIStatus.swift */; };
 		9DC936E2289D87C90031F5F1 /* ToastLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC936E1289D87C90031F5F1 /* ToastLabel.xib */; };
@@ -179,7 +179,7 @@
 		9D9F4F87287EE9B1001771DC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		9D9F4F89287EE9C7001771DC /* Nickname.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nickname.storyboard; sourceTree = "<group>"; };
 		9DA18FB628B0F25C0006EF39 /* ReactionSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionSummary.swift; sourceTree = "<group>"; };
-		9DA18FB828B101180006EF39 /* ReactionOfMine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionOfMine.swift; sourceTree = "<group>"; };
+		9DA18FB828B101180006EF39 /* MyReaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReaction.swift; sourceTree = "<group>"; };
 		9DB760A528AFC3F5006A6E72 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		9DC777AA28B0E861002B1C76 /* APIStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStatus.swift; sourceTree = "<group>"; };
 		9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSpacingLabel.swift; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 				3EA33C172894235E00265342 /* Reaction.swift */,
 				9DB760A528AFC3F5006A6E72 /* Report.swift */,
 				9DA18FB628B0F25C0006EF39 /* ReactionSummary.swift */,
-				9DA18FB828B101180006EF39 /* ReactionOfMine.swift */,
+				9DA18FB828B101180006EF39 /* MyReaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -898,7 +898,7 @@
 				3EA33C162894234500265342 /* Story.swift in Sources */,
 				9D40C53328951A590046C415 /* ManyIconsView.swift in Sources */,
 				CBD5BE332898217700FFD96D /* AuthResponse.swift in Sources */,
-				9DA18FB928B101180006EF39 /* ReactionOfMine.swift in Sources */,
+				9DA18FB928B101180006EF39 /* MyReaction.swift in Sources */,
 				9D708B1528A0F77900B9ABAA /* StoryResponse.swift in Sources */,
 				9D954EC3289962240000F68D /* NicknameRequest.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReactionOfMine: Decodable, Hashable {
+struct MyReaction: Decodable, Hashable {
     let userNo: Int
     let nickname: String
     let type: String
