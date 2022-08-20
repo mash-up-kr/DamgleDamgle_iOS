@@ -19,7 +19,6 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         }
     }
     
-    // TODO: viewModel 주입
     private let viewModel = MyStoryListViewModel()
     private let cellHeight = 102.0
     
@@ -60,6 +59,10 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             cell.configure(story: story)
             return cell
         }
+    }
+    
+    func hiddenScrollViewIndicator(isHidden: Bool) {
+        collectionView.showsVerticalScrollIndicator = !isHidden
     }
 }
 

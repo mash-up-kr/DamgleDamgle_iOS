@@ -12,19 +12,28 @@ final class MyViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "My", bundle: nil)
     }
     
+    @IBOutlet private weak var nicknameLabel: UILabel! {
+        didSet {
+            nicknameLabel.text = " "
+        }
+    }
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var listButton: UIButton! {
+    @IBOutlet private weak var listButton: UIButton!
+    @IBOutlet private weak var settingButton: UIButton!
+    @IBOutlet private weak var buttonBackgroundListLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var buttonBackgroundListTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var buttonBackgroundView: UIView! {
         didSet {
-            listButton.layer.cornerRadius = 8.0
-            listButton.layer.masksToBounds = true
+            buttonBackgroundView.layer.cornerRadius = 8.0
+            buttonBackgroundView.layer.masksToBounds = true
         }
     }
-    @IBOutlet private weak var settingButton: UIButton!  {
-        didSet {
-            settingButton.layer.cornerRadius = 8.0
-            settingButton.layer.masksToBounds = true
-        }
-    }
+    
+    private let viewModel = MyViewModel()
+    
+    private let listViewController = MyStoryListViewController.instantiate()
+    private let settingViewController = SettingViewController.instantiate()
 
     private var pages: [UIViewController] = []
     private var currentPage = 0
@@ -43,13 +52,33 @@ final class MyViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getMe()
         configurePageView()
+        setupScrollViewDelegate()
+    }
+    
+    private func getMe() {
+        loadingView.startAnimating()
+        loadingView.isHidden = false
+        viewModel.getMy { [weak self] result in
+            switch result {
+            case .success(let me):
+                guard let me = me,
+                      let self = self else {
+                    return
+                }
+                self.nicknameLabel.text = me.nickname
+                self.settingViewController.isAllowNotification = me.notification == true
+            case .failure(let error):
+                // TODO: error handling
+                debugPrint(error.localizedDescription)
+            }
+            self?.loadingView.stopAnimating()
+            self?.loadingView.isHidden = true
+        }
     }
     
     private func configurePageView() {
-        let listViewController = MyStoryListViewController.instantiate()
-        let settingViewController = SettingViewController.instantiate()
-        
         addChild(pageViewController)
         containerView.addSubview(pageViewController.view)
         pageViewController.view.frame = containerView.bounds
@@ -66,16 +95,17 @@ final class MyViewController: UIViewController, StoryboardBased {
             )
         }
     }
+    
+    private func setupScrollViewDelegate() {
+        let scrollView = containerView.subviews.first?.subviews.first as? UIScrollView
+        scrollView?.delegate = self
+    }
 
     @IBAction func listButtonDidTap(_ sender: UIButton) {
-        listButton.isSelected = true
-        settingButton.isSelected = false
         changePageViewController(to: Page.list.index)
     }
 
     @IBAction func settingButtonDidTap(_ sender: UIButton) {
-        listButton.isSelected = false
-        settingButton.isSelected = true
         changePageViewController(to: Page.setting.index)
     }
 
@@ -132,9 +162,31 @@ extension MyViewController: UIPageViewControllerDelegate {
         guard index < pages.count else {
             return
         }
-        listButton.isSelected = index == Page.list.index
-        settingButton.isSelected = index == Page.setting.index
+        let isList = Page(rawValue: index) == .list
+
+        listButton.isSelected = isList
+        settingButton.isSelected = !isList
+    
         currentPage = index
+        
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.buttonBackgroundListLeadingConstraint.constant = isList ? 0 : Constant.buttonWidth + Constant.stackViewSpacing
+            self.buttonBackgroundListTrailingConstraint.constant = isList ? 0 : Constant.buttonWidth + Constant.stackViewSpacing
+            self.view.layoutIfNeeded()
+        }.startAnimation()
+    }
+}
+
+extension MyViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        listViewController.hiddenScrollViewIndicator(isHidden: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        listViewController.hiddenScrollViewIndicator(isHidden: false)
     }
 }
 
@@ -146,5 +198,10 @@ extension MyViewController {
         var index: Int {
             return self.rawValue
         }
+    }
+    
+    private enum Constant {
+        static let buttonWidth: CGFloat = 89.0
+        static let stackViewSpacing: CGFloat = 9.0
     }
 }
