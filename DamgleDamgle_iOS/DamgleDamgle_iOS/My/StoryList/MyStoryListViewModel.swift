@@ -8,79 +8,7 @@
 import UIKit
 
 final class MyStoryListViewModel {
-    // FIXME: test data
-    private var stories: [Story] = [
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-        Story(
-            id: UUID().uuidString,
-            userNo: 10,
-            nickname: "TEST",
-            x: 1,
-            y: 1,
-            content: "test",
-            reactions: [Reaction(userNo: 10, nickname: "nickName", type: "type")],
-            createdAt: 1234,
-            updatedAt: 1234
-        ),
-    ] {
-        didSet {
-            // TODO: 데이터 없을때 emptyView 보여주기
-        }
-    }
+    private var stories: [Story] = []
     
     let service = StoryService()
     var dataSource: UICollectionViewDiffableDataSource<Section, Story>?
@@ -89,12 +17,18 @@ final class MyStoryListViewModel {
         stories.count
     }
     
-    func fetchData() {
-        Task {
-            // TODO: service.fetchData
-            
-            await MainActor.run {
-                applySnapshot()
+    func fetchData(completion: @escaping (Result<Int, Error>) -> Void) {
+        service.getMyStory { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let stories):
+                self.stories = stories?.stories ?? []
+                self.applySnapshot()
+                completion(.success(self.storyCount))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
@@ -103,7 +37,6 @@ final class MyStoryListViewModel {
         stories[safe: indexPath.row]
     }
     
-    @MainActor
     private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Story>()
         

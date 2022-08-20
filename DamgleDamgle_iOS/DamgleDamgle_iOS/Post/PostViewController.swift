@@ -53,49 +53,17 @@ final class PostViewController: UIViewController {
     
 // MARK: - @IBAction
     @IBAction private func swipeUpDown(_ sender: UISwipeGestureRecognizer) {
-        let originHeight: CGFloat = UIScreen.main.bounds.height
-        
-        func updateAnimatingView(heightRatio: Double, direction: UISwipeGestureRecognizer.Direction) {
-            let transformHeight = originHeight * 0.81
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) { [weak self] in
+            guard let self = self else {
+                return
+            }
 
             switch sender.direction {
             case .up:
-                let transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: -transformHeight)
-                view.transform = transform
-                
-                myStoryGuideLabel.isHidden = true
-                myStoryGuideLabel.alpha = 0
-                shortenBackgroundImageView.isHidden = true
-                shortenBackgroundImageView.alpha = 0
-                
-                postingComponents.forEach {
-                    $0.alpha = 1
-                }
-            case .down:
-                let transform: CGAffineTransform = .identity
-                view.transform = transform
-                
-                postingComponents.forEach {
-                    $0.alpha = 0
-                }
-            default:
-                break
-            }
-            
-            self.view.layoutIfNeeded()
-            
-            [swipeUpGestureRecognizer, swipeDownGestureRecognizer].forEach {
-                $0?.isEnabled.toggle()
-            }
-        }
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
-            switch sender.direction {
-            case .up:
-                updateAnimatingView(heightRatio: self.swipeUpHeightRatio, direction: sender.direction)
+                self.updateAnimatingView(heightRatio: self.swipeUpHeightRatio, direction: sender.direction)
             case .down:
                 self.postingTextView.resignFirstResponder()
-                updateAnimatingView(heightRatio: self.swipeDownHeightRatio, direction: sender.direction)
+                self.updateAnimatingView(heightRatio: self.swipeDownHeightRatio, direction: sender.direction)
             default:
                 break
             }
@@ -113,6 +81,41 @@ final class PostViewController: UIViewController {
                     break
                 }
             }
+        }
+    }
+    
+    func updateAnimatingView(heightRatio: Double = 0.05, direction: UISwipeGestureRecognizer.Direction = .up) {
+        let originHeight: CGFloat = UIScreen.main.bounds.height
+        let transformHeight = originHeight * 0.81
+
+        switch direction {
+        case .up:
+            let transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: -transformHeight)
+            view.transform = transform
+            
+            myStoryGuideLabel.isHidden = true
+            myStoryGuideLabel.alpha = 0
+            shortenBackgroundImageView.isHidden = true
+            shortenBackgroundImageView.alpha = 0
+            
+            postingComponents.forEach {
+                $0.alpha = 1
+            }
+        case .down:
+            let transform: CGAffineTransform = .identity
+            view.transform = transform
+            
+            postingComponents.forEach {
+                $0.alpha = 0
+            }
+        default:
+            break
+        }
+        
+        self.view.layoutIfNeeded()
+        
+        [swipeUpGestureRecognizer, swipeDownGestureRecognizer].forEach {
+            $0?.isEnabled.toggle()
         }
     }
     

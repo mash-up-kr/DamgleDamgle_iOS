@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Storeies: Decodable {
+struct Stories: Decodable {
     let stories: [Story]
 }
 
@@ -15,8 +15,8 @@ struct Story: Decodable, Hashable, Identifiable {
     let id: String
     let userNo: Int
     let nickname: String
-    let x: Int
-    let y: Int
+    let x: Double
+    let y: Double
     let content: String
     let reactions: [Reaction]
     let createdAt, updatedAt: Int
