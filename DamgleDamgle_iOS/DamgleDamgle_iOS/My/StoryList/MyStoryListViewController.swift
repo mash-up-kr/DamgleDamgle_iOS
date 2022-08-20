@@ -49,7 +49,7 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         viewModel.fetchData { [weak self] result in
             switch result {
             case .success(let count):
-                self?.emptyView.isHidden = count > 1
+                self?.emptyView.alpha = count >= 1 ? 0 : 1.0
                 self?.collectionView.reloadData()
             case .failure(let error):
                 // TODO: Error handling
@@ -96,6 +96,7 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     @IBAction private func postStoryButtonDidTap(_ sender: Any) {
         let postViewController = PostViewController()
         postViewController.updateAnimatingView()
+        postViewController.viewType = .setting
         present(postViewController, animated: true)
     }
     
