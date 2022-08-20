@@ -132,7 +132,7 @@ extension PostingMainViewController: UITableViewDataSource {
 //            }
             self.showAlertController(
                 type: .single,
-                title: "신고하기 로직 테스트중입니다.",
+                title: "신고하기 기능은 구현중이에요. 다음 업데이트를 기다려주세요.",
                 message: "",
                 okActionTitle: "OK",
                 okActionHandler: nil,
