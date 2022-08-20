@@ -47,6 +47,17 @@ final class PostingViewModel {
         }
     }
     
+    func postReport(storyID: String, completion: @escaping (Bool) -> Void) {
+        StoryService.postReport(storyID: storyID) { result in
+            switch result {
+            case .success(let rsponse):
+                completion(true)
+            case .failure(let error):
+                completion(false)
+            }
+        }
+    }
+    
     func sortTime() {
         postModels?.stories.sort(by: { $0.createdAt > $1.createdAt })
     }
