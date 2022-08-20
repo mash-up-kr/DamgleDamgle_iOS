@@ -12,13 +12,13 @@ final class UserManager {
     private init() {}
 
     @UserDefault(key: .accessToken, defaultValue: "")
-    private var accessToken: String
+    private(set) var accessToken: String
     
     @UserDefault(key: .refreshToken, defaultValue: "")
-    private var refreshToken: String
+    private(set) var refreshToken: String
     
     @UserDefault(key: .userNo, defaultValue: 0)
-    private var userNo: Int
+    private(set) var userNo: Int
     
     var isLogin: Bool {
         accessToken.isEmpty == false
@@ -55,13 +55,32 @@ final class UserManager {
     
     func saveUserNo(_ userNo: Int?) {
         guard let userNo = userNo else {
+            self.userNo = 0
             return
         }
-        
+
         self.userNo = userNo
     }
     
     func removeAccessToken() {
         accessToken = ""
+    }
+    
+    func updateUserNo(_ userNo: Int?) {
+        guard let userNo = userNo else {
+            self.userNo = 0
+            return
+        }
+
+        self.userNo = userNo
+    }
+
+    func updateRefreshToken(_ refreshToken: String?) {
+        guard let refreshToken = refreshToken else {
+            self.refreshToken = ""
+            return
+        }
+
+        self.refreshToken = refreshToken
     }
 }

@@ -18,13 +18,15 @@ final class OneIconView: UIView, NibBased {
         super.init(frame: frame)
         initialize()
     }
+    
+    func setupUI(reactions: [Reaction]) {
+        guard let reaction = reactions.first else { return }
+        // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
+//        iconCountLabel.text = "\(reaction.count)"
+        iconCountLabel.text = "1"
 
-    func setupText(selectedIcons: [SelectedIconButton]) {
-        guard let selectedIcon = selectedIcons.first else { return }
-        iconCountLabel.text = "\(selectedIcon.count)"
-
-        guard let iconImage = selectedIcon.icon.selectedImageViewIconImage else { return }
-        iconImageView.image = iconImage
+        guard let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
+        iconImageView.image = reactionImage
     }
 
     // MARK: - InterfaceBuilder Links

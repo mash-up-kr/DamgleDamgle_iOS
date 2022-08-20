@@ -19,26 +19,39 @@ final class ManyIconsView: UIView, NibBased {
         initialize()
     }
 
-    func setupUI(selectedIcons: [SelectedIconButton]) {
-        let iconsRawValue = selectedIcons.map { $0.icon.rawValue }
-        let iconsCount = selectedIcons.map { $0.count }
-
-        iconsLabelCollection.forEach {
-            if iconsRawValue.contains($0.tag) {
-                $0.isHidden = false
-
-                guard let index = iconsRawValue.firstIndex(of: $0.tag) else { return }
-                $0.text = "\(iconsCount[index])"
-            } else {
-                $0.isHidden = true
+    func setupUI(reactions: [Reaction]) {
+        setupLabel(reactions: reactions)
+        setupImageView(reactions: reactions)
+    }
+    
+    private func setupLabel(reactions: [Reaction]) {
+        for (id, content) in reactions.enumerated() {
+            iconsLabelCollection.forEach {
+                if $0.tag == id {
+                    $0.isHidden = false
+                    // TODO: 서버에서 Reaction 모델에 count 추가할 예정
+//                    $0.text = "\(content.count)"
+                    $0.text = "1"
+                }
             }
         }
-
-        iconsImageViewCollection.forEach {
-            if iconsRawValue.contains($0.tag) {
-                $0.isHidden = false
-            } else {
-                $0.isHidden = true
+    }
+    
+    private func setupImageView(reactions: [Reaction]) {
+        for (id, content) in reactions.enumerated() {
+            var reaction = ReactionType.none
+            for reactionType in ReactionType.allCases {
+                if reactionType.rawValue == content.type {
+                    reaction = reactionType
+                    break
+                }
+            }
+            
+            iconsImageViewCollection.forEach {
+                if $0.tag == id {
+                    $0.isHidden = false
+                    $0.image = reaction.selectedImageViewImage
+                }
             }
         }
     }
