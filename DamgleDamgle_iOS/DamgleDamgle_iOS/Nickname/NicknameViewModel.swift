@@ -76,6 +76,8 @@ class NicknameViewModel {
             switch result {
             case .success(let response):
                 UserManager.shared.updateAccessToken(response.accessToken)
+                UserManager.shared.saveRefreshToken(response.refreshToken)
+                UserManager.shared.saveUserNo(response.userNo)
                 completion(true)
             case .failure(let error):
                 completion(false)

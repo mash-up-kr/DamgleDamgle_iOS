@@ -8,6 +8,8 @@
 import UIKit
 
 final class PostViewController: UIViewController {
+    @IBOutlet weak var shortenBackgroundImageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var shortenBackgroundImageView: UIView!
     @IBOutlet private weak var myStoryGuideLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var postingTextView: UITextView!
@@ -20,7 +22,7 @@ final class PostViewController: UIViewController {
     
     private let maxTextLength = 100
     private let swipeUpHeightRatio = 0.05
-    private let swipeDownHeightRatio = 0.85
+    private let swipeDownHeightRatio = 0.86
     private var textViewWordCount: Int = 0 {
         didSet {
             currentTextCountLabel.text = "\(textViewWordCount)"
@@ -51,20 +53,35 @@ final class PostViewController: UIViewController {
     
 // MARK: - @IBAction
     @IBAction private func swipeUpDown(_ sender: UISwipeGestureRecognizer) {
-        let originWidth: CGFloat = UIScreen.main.bounds.width
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
-        func updateAnimatingView(heightRatio: Double) {
-            self.view.frame = CGRect(
-                x: 0,
-                y: originHeight * heightRatio,
-                width: originWidth,
-                height: originHeight * (1 - heightRatio)
-            )
-            self.myStoryGuideLabel.isHidden.toggle()
-            self.postingComponents.forEach {
-                $0.isHidden.toggle()
+        func updateAnimatingView(heightRatio: Double, direction: UISwipeGestureRecognizer.Direction) {
+            let transformHeight = originHeight * 0.81
+
+            switch sender.direction {
+            case .up:
+                let transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: -transformHeight)
+                view.transform = transform
+                
+                myStoryGuideLabel.isHidden = true
+                myStoryGuideLabel.alpha = 0
+                shortenBackgroundImageView.isHidden = true
+                shortenBackgroundImageView.alpha = 0
+                
+                postingComponents.forEach {
+                    $0.alpha = 1
+                }
+            case .down:
+                let transform: CGAffineTransform = .identity
+                view.transform = transform
+                
+                postingComponents.forEach {
+                    $0.alpha = 0
+                }
+            default:
+                break
             }
+            
             self.view.layoutIfNeeded()
             
             [swipeUpGestureRecognizer, swipeDownGestureRecognizer].forEach {
@@ -72,15 +89,29 @@ final class PostViewController: UIViewController {
             }
         }
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
             switch sender.direction {
             case .up:
-                updateAnimatingView(heightRatio: self.swipeUpHeightRatio)
+                updateAnimatingView(heightRatio: self.swipeUpHeightRatio, direction: sender.direction)
             case .down:
                 self.postingTextView.resignFirstResponder()
-                updateAnimatingView(heightRatio: self.swipeDownHeightRatio)
+                updateAnimatingView(heightRatio: self.swipeDownHeightRatio, direction: sender.direction)
             default:
                 break
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+                switch sender.direction {
+                case .down:
+                    self.myStoryGuideLabel.isHidden = false
+                    self.shortenBackgroundImageView.isHidden = false
+                    self.myStoryGuideLabel.alpha = 1
+                    self.shortenBackgroundImageView.alpha = 1
+                default:
+                    break
+                }
             }
         }
     }
@@ -96,11 +127,12 @@ final class PostViewController: UIViewController {
             message: StringResource.message,
             okActionTitle: StringResource.okTitle,
             okActionHandler: {
-                // TODO: Post API 연결
-                let postProcessViewController = PostProcessViewController.instantiate()
-                postProcessViewController.modalPresentationStyle = .fullScreen
-                postProcessViewController.postStatus = .success
-                self.present(postProcessViewController, animated: true)
+                self.viewModel.postStory { result in
+                    let postProcessViewController = PostProcessViewController.instantiate()
+                    postProcessViewController.modalPresentationStyle = .fullScreen
+                    postProcessViewController.postStatus = result == true ? .success : .fail
+                    self.present(postProcessViewController, animated: true)
+                }
             },
             cancelActionTitle: StringResource.cancelTitle
         )
@@ -108,10 +140,15 @@ final class PostViewController: UIViewController {
     
 // MARK: - UDF
     func setUpView() {
+        let startColor = UIColor(named: "grey500") ?? .gray
+        let endColor = UIColor(named: "gradientOrange") ?? .orange
+        shortenBackgroundImageView.addGradientLayer(startColor: startColor, endColor: endColor)
+        shortenBackgroundImageViewHeightConstraint.constant = UIScreen.main.bounds.height * 0.14
+        
         myStoryGuideLabel.isHidden = false
         textViewOverLimitButton.isHidden = true
         postingComponents.forEach {
-            $0.isHidden = true
+            $0.alpha = 0
         }
         swipeUpGestureRecognizer.isEnabled = true
         swipeDownGestureRecognizer.isEnabled = false
@@ -131,7 +168,7 @@ final class PostViewController: UIViewController {
 extension PostViewController {
     private enum StringResource {
         static let title = "담글을 이대로 남기시겠어요?"
-        static let message = "이번달 말에 담벼락이 지워지 전까지 해당 글을 수정 · 삭제할 수 없어요!"
+        static let message = "이번달 말에 담벼락이 지워지기 전까지 해당 글을 수정 · 삭제할 수 없어요!"
         static let okTitle = "이대로 남기기"
         static let cancelTitle = "다시 확인하기"
         static let textViewPlaceholder = "지도 담벼락에 나만의 글을 남겨보세요."
@@ -149,6 +186,7 @@ extension PostViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let textCount = textView.text.textCountWithoutSpacingAndLines
         textViewWordCount = textCount
+        viewModel.postContent = textView.text
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -164,10 +202,15 @@ extension PostViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        let numberOfText = newText.textCountWithoutSpacingAndLines
-        let isUnderLimit = numberOfText <= maxTextLength
-        textViewOverLimitButton.isHidden = isUnderLimit
-        return isUnderLimit
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return true
+          } else {
+          let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+          let numberOfText = newText.textCountWithoutSpacingAndLines
+          let isUnderLimit = numberOfText <= maxTextLength
+          textViewOverLimitButton.isHidden = isUnderLimit
+          return isUnderLimit
+        }
     }
 }
