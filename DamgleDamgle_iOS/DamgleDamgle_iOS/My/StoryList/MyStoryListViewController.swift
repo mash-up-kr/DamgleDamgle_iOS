@@ -19,7 +19,6 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         }
     }
     
-    // TODO: viewModel 주입
     private let viewModel = MyStoryListViewModel()
     private let cellHeight = 102.0
     

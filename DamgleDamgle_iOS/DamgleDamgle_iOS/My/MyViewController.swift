@@ -12,6 +12,12 @@ final class MyViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "My", bundle: nil)
     }
     
+    @IBOutlet private weak var nicknameLabel: UILabel! {
+        didSet {
+            nicknameLabel.text = " "
+        }
+    }
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var listButton: UIButton!
     @IBOutlet private weak var settingButton: UIButton!
@@ -23,6 +29,8 @@ final class MyViewController: UIViewController, StoryboardBased {
             buttonBackgroundView.layer.masksToBounds = true
         }
     }
+    
+    private let viewModel = MyViewModel()
     
     private let listViewController = MyStoryListViewController.instantiate()
     private let settingViewController = SettingViewController.instantiate()
@@ -44,8 +52,30 @@ final class MyViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getMe()
         configurePageView()
         setupScrollViewDelegate()
+    }
+    
+    private func getMe() {
+        loadingView.startAnimating()
+        loadingView.isHidden = false
+        viewModel.getMy { [weak self] result in
+            switch result {
+            case .success(let me):
+                guard let me = me,
+                      let self = self else {
+                    return
+                }
+                self.nicknameLabel.text = me.nickname
+                self.settingViewController.isAllowNotification = me.notification == true
+            case .failure(let error):
+                // TODO: error handling
+                debugPrint(error.localizedDescription)
+            }
+            self?.loadingView.stopAnimating()
+            self?.loadingView.isHidden = true
+        }
     }
     
     private func configurePageView() {

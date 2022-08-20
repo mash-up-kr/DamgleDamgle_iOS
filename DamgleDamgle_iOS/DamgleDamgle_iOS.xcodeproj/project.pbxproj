@@ -29,6 +29,10 @@
 		3EA4A3242891808F002D94BE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A3232891808F002D94BE /* splash.json */; };
 		3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4A325289180AB002D94BE /* SplashViewController.swift */; };
 		3EA4A32B28918153002D94BE /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA4A32A28918153002D94BE /* Splash.storyboard */; };
+		3EF4700E28B0D037001354AB /* MyTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4700D28B0D037001354AB /* MyTarget.swift */; };
+		3EF4701128B0D69F001354AB /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4701028B0D69F001354AB /* Me.swift */; };
+		3EF4701328B0E976001354AB /* MyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4701228B0E976001354AB /* MyViewModel.swift */; };
+		3EF4701528B1099D001354AB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4701428B1099D001354AB /* SettingViewModel.swift */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0180352894369300168064 /* NibBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0180342894369300168064 /* NibBased.swift */; };
 		9D40C5102895199E0046C415 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9D40C50F2895199E0046C415 /* Alamofire */; };
@@ -128,6 +132,10 @@
 		3EA4A3232891808F002D94BE /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		3EA4A325289180AB002D94BE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3EA4A32A28918153002D94BE /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		3EF4700D28B0D037001354AB /* MyTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTarget.swift; sourceTree = "<group>"; };
+		3EF4701028B0D69F001354AB /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
+		3EF4701228B0E976001354AB /* MyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewModel.swift; sourceTree = "<group>"; };
+		3EF4701428B1099D001354AB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0180342894369300168064 /* NibBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBased.swift; sourceTree = "<group>"; };
@@ -236,6 +244,7 @@
 			children = (
 				3E76244B2882ACF3002E1600 /* My.storyboard */,
 				3E76244C2882ACF3002E1600 /* MyViewController.swift */,
+				3EF4701228B0E976001354AB /* MyViewModel.swift */,
 				3E7624692883FAEB002E1600 /* StoryList */,
 				3E76246A2883FC9E002E1600 /* Setting */,
 			);
@@ -256,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				3E7624592882C033002E1600 /* SettingViewController.swift */,
+				3EF4701428B1099D001354AB /* SettingViewModel.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -295,6 +305,23 @@
 				3EA4A32A28918153002D94BE /* Splash.storyboard */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		3EF4700C28B0D024001354AB /* My */ = {
+			isa = PBXGroup;
+			children = (
+				3EF4700D28B0D037001354AB /* MyTarget.swift */,
+				3EF4700F28B0D68F001354AB /* Model */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		3EF4700F28B0D68F001354AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EF4701028B0D69F001354AB /* Me.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9D40C51728951A590046C415 /* Posting */ = {
@@ -543,6 +570,7 @@
 				CBE8C1E92896807000B71F33 /* Auth */,
 				CBAE75B32894FF00006D3240 /* ReverseGeocoding */,
 				CBA81DA5289431270001E096 /* Story */,
+				3EF4700C28B0D024001354AB /* My */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -778,6 +806,7 @@
 				9D40C52928951A590046C415 /* PostModel.swift in Sources */,
 				CB636CE12875E4FF006603C5 /* LocationAuthorizationStatus.swift in Sources */,
 				3E8276F928950796004673D6 /* RoundView.swift in Sources */,
+				3EF4700E28B0D037001354AB /* MyTarget.swift in Sources */,
 				CBEB534F28965BE50054E522 /* GeocodingResponse.swift in Sources */,
 				CBD5BE3528A16BC200FFD96D /* APIStatus.swift in Sources */,
 				3EA4A326289180AB002D94BE /* SplashViewController.swift in Sources */,
@@ -799,14 +828,17 @@
 				CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */,
 				9D40C52828951A590046C415 /* PostingNavigationController.swift in Sources */,
 				3E7624542882B3BB002E1600 /* StoryboardBased.swift in Sources */,
+				3EF4701128B0D69F001354AB /* Me.swift in Sources */,
 				CBE1F00A2890343C00AEC66E /* UIViewController+Extension.swift in Sources */,
 				CB636CDA2875D3C1006603C5 /* LocationService.swift in Sources */,
+				3EF4701328B0E976001354AB /* MyViewModel.swift in Sources */,
 				CB4ECD8528944E3C005D59D8 /* StoryRequest.swift in Sources */,
 				3E76245A2882C033002E1600 /* SettingViewController.swift in Sources */,
 				3E76244E2882ACF3002E1600 /* MyViewController.swift in Sources */,
 				9D40C52A28951A590046C415 /* PostErrorTableViewCell.swift in Sources */,
 				3EA33C1D28943E8E00265342 /* PushAuthorizationViewController.swift in Sources */,
 				CBA18F282883E2FD002572D0 /* PostProcessViewController.swift in Sources */,
+				3EF4701528B1099D001354AB /* SettingViewModel.swift in Sources */,
 				9D954EC52899623A0000F68D /* NicknameResponse.swift in Sources */,
 				3E8276F728950796004673D6 /* SelectableButton.swift in Sources */,
 				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
