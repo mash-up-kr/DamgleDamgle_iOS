@@ -56,13 +56,12 @@ final class PostViewController: UIViewController {
         let originHeight: CGFloat = UIScreen.main.bounds.height
         
         func updateAnimatingView(heightRatio: Double, direction: UISwipeGestureRecognizer.Direction) {
-            var transform: CGAffineTransform?
             let transformHeight = originHeight * 0.81
 
             switch sender.direction {
             case .up:
-                transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: -transformHeight)
-                view.transform = transform!
+                let transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: -transformHeight)
+                view.transform = transform
                 
                 myStoryGuideLabel.isHidden = true
                 myStoryGuideLabel.alpha = 0
@@ -73,8 +72,8 @@ final class PostViewController: UIViewController {
                     $0.alpha = 1
                 }
             case .down:
-                transform = .identity
-                view.transform = transform!
+                let transform = .identity
+                view.transform = transform
                 
                 postingComponents.forEach {
                     $0.alpha = 0
@@ -204,8 +203,7 @@ extension PostViewController: UITextViewDelegate {
         if text == "\n" {
             textView.resignFirstResponder()
             return true
-          }
-        else {
+          } else {
           let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
           let numberOfText = newText.textCountWithoutSpacingAndLines
           let isUnderLimit = numberOfText <= maxTextLength
