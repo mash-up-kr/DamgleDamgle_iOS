@@ -56,6 +56,9 @@ final class HomeViewController: UIViewController {
     private let refreshLottieName = "refreshLottie"
     private let lottieSize = UIScreen.main.bounds.width * 0.35
     
+    private let viewModel = HomeViewModel()
+    private var mapViewMarkerList: [NMFMarker] = []
+    
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,14 +122,37 @@ final class HomeViewController: UIViewController {
             showDefaultLocation()
         case .success:
             let mapPosition = NMGLatLng(from: locationManager.currentLocation)
-            getCurrentLocationAddress()
-            
             let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
             cameraUpdate.animation = .easeIn
             cameraUpdate.animationDuration = 0.5
             mapView.moveCamera(cameraUpdate)
+            getCurrentLocationAddress()
+            
+            viewModel.getStoryFeed { result in
+                switch result {
+                case .success(let homeModel):
+                    guard let homeModel = homeModel else { return }
+                    self.addMarker(homeModel: homeModel)
+                case .failure(let error):
+                    print("getStoryFeed", error)
+                }
+            }
         default:
             break
+        }
+    }
+    
+    func addMarker(homeModel: HomeModel) {
+        mapViewMarkerList.forEach { marker in
+            marker.mapView = nil
+            mapViewMarkerList = []
+        }
+        
+        homeModel.markerList.forEach { marker in
+            let currentMarker = NMFMarker()
+            currentMarker.position = NMGLatLng(lat: marker.markerPosition.latitude, lng: marker.markerPosition.longitude)
+            currentMarker.mapView = mapView
+            mapViewMarkerList.append(currentMarker)
         }
     }
     
@@ -256,14 +282,15 @@ final class HomeViewController: UIViewController {
             lng: locationManager.currentLocation.longitude
         )
         
-        GeocodingService.reverseGeocoding(request: request) { result in
-            switch result {
-            case .success(let address):
-                self.currentAddressLabel.text = address
-            case .failure(let error):
-                self.currentAddressLabel.text = ""
-            }
-        }
+//        GeocodingService.reverseGeocoding(request: request) { result in
+//            switch result {
+//            case .success(let address):
+//                self.currentAddressLabel.text = address
+//            case .failure(_):
+//                self.currentAddressLabel.text = ""
+//            }
+//        }
+        currentAddressLabel.text = "삼성동 테헤란로"
     }
 }
 
@@ -279,11 +306,23 @@ extension HomeViewController: LocationUpdateProtocol {
 
         currentLocationMarker.position = mapPosition
         currentLocationMarker.mapView = mapView
-        
+                
         if isFirstUpdate {
             getCurrentLocationAddress()
             mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
             isFirstUpdate = false
+        }
+
+        viewModel.currentBoundary = mapView.coveringBounds
+        
+        viewModel.getStoryFeed { result in
+            switch result {
+            case .success(let homeModel):
+                guard let homeModel = homeModel else { return }
+                self.addMarker(homeModel: homeModel)
+            case .failure(let error):
+                print("getStoryFeed", error)
+            }
         }
     }
 }

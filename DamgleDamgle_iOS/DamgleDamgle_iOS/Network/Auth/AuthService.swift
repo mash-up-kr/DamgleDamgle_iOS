@@ -20,7 +20,7 @@ struct AuthService {
                         completion(.success(signingResponse))
                     } catch {
                         completion(.failure(error))
-                        print(error.localizedDescription)
+                        print("postSignUp:", error.localizedDescription)
                     }
                 case .failure(let error):
                     completion(.failure(error))

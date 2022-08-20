@@ -7,6 +7,7 @@
 
 import CoreLocation
 import Foundation
+import NMapsMap
 
 protocol LocationDataProtocol: AnyObject {
     func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?)

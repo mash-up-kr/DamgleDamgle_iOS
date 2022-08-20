@@ -2,12 +2,18 @@
 //  StoryResponse.swift
 //  DamgleDamgle_iOS
 //
-//  Created by 최원석 on 2022/08/08.
+//  Created by 최혜린 on 2022/08/20.
 //
 
 import Foundation
 
-struct MyStoryResponse: Decodable {
-    var stories: [Story]
+// MARK: - StoryFeed
+struct StoryFeed: Decodable {
+    let stories: [Story]
     let size: Int
+}
+
+// MARK: - Report
+struct Report: Decodable, Hashable {
+    let userNo, createdAt: Int
 }

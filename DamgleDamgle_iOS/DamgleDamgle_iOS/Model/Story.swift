@@ -9,12 +9,16 @@ import Foundation
 
 struct Stories: Decodable {
     var stories: [Story]
+    let size: Int
 }
 
 struct Story: Decodable, Hashable, Identifiable {
     let id: String
     let userNo: Int
     let nickname: String
+    let address1: String?
+    let address2: String?
+    let isMine: Bool
     let x: Double
     let y: Double
     let content: String

@@ -47,7 +47,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzg-Cc-ESp">
                             <rect key="frame" x="352.5" y="56" width="61.5" height="54.5"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="nzg-Cc-ESp" secondAttribute="height" multiplier="71:63" id="tR6-9f-RGc"/>
+                                <constraint firstAttribute="width" secondItem="nzg-Cc-ESp" secondAttribute="height" multiplier="71:63" id="G6l-D1-tdv"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="icn_mypage" title=" "/>
@@ -58,8 +58,8 @@
                     </subviews>
                     <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="nzg-Cc-ESp" firstAttribute="height" secondItem="ip4-Ck-43I" secondAttribute="height" multiplier="0.492188" id="5G5-LT-tkc"/>
                         <constraint firstAttribute="trailing" secondItem="nzg-Cc-ESp" secondAttribute="trailing" id="HTn-ir-LeN"/>
+                        <constraint firstItem="nzg-Cc-ESp" firstAttribute="height" secondItem="ip4-Ck-43I" secondAttribute="height" multiplier="0.492188" id="N9Z-zI-hzl"/>
                         <constraint firstItem="7u3-dx-m73" firstAttribute="centerY" secondItem="ip4-Ck-43I" secondAttribute="centerY" multiplier="1.5" id="bUb-ch-Ljf"/>
                         <constraint firstItem="nzg-Cc-ESp" firstAttribute="leading" secondItem="7u3-dx-m73" secondAttribute="trailing" id="iIO-0Y-Vvx"/>
                         <constraint firstAttribute="bottom" secondItem="nzg-Cc-ESp" secondAttribute="bottom" id="uV9-JB-t1S"/>

@@ -74,7 +74,7 @@ final class NicknameViewController: UIViewController, StoryboardBased {
                         guard let self = self else { return }
                         self.showHomeView()
                     } else {
-                        
+
                     }
                 }
             }

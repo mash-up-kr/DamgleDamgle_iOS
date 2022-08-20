@@ -7,7 +7,4 @@
 
 import Foundation
 
-struct Report: Decodable, Hashable {
-    let userNo: Int
-    let createdAt: Int
-}
+
