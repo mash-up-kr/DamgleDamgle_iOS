@@ -11,6 +11,12 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
         UIStoryboard(name: "PostingStoryboard", bundle: nil)
     }
+    
+    @IBOutlet private weak var timeSortButton: SelectableButton!
+    @IBOutlet private weak var popularitySortButton: SelectableButton!
+    @IBOutlet private weak var postingTableView: UITableView!
+    @IBOutlet private weak var mainViewImageView: UIImageView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
     private var apiState: APIState = APIState.dataExit
     var viewModel = PostingViewModel()
@@ -27,7 +33,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         postingTableView.reloadData()
     }
     
-    func getMyStoryResponse() {
+    private func getMyStoryResponse() {
         activityIndicatorView.startAnimating()
         viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
             guard let self = self else { return }
@@ -38,13 +44,6 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
             }
         }
     }
-    
-    // MARK: - InterfaceBuilder Links
-    @IBOutlet private weak var timeSortButton: SelectableButton!
-    @IBOutlet private weak var popularitySortButton: SelectableButton!
-    @IBOutlet private weak var postingTableView: UITableView!
-    @IBOutlet private weak var mainViewImageView: UIImageView!
-    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true

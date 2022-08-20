@@ -12,6 +12,18 @@ protocol TableViewCellDelegate: AnyObject {
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
+    
+    @IBOutlet private weak var placeAddressLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var checkMeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var contentLabel: UILabel!
+    @IBOutlet private weak var iconsStartButton: UIButton!
+    @IBOutlet private weak var reportButton: UIButton!
+    @IBOutlet weak var iconsBackgroundView: UIView!
+    @IBOutlet private var iconsButtonCollection: [SelectableButton]!
+    @IBOutlet private var iconsButtonXPointConstraint: [NSLayoutConstraint]!
+    
     weak var delegate: TableViewCellDelegate?
     var addSelectedIcon: ((ReactionType) -> Void)?
     var deleteSeletedIcon: (() -> Void)?
@@ -90,19 +102,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             iconsView.setupUI(reactions: reactions)
         }
     }
-    
-    // MARK: - InterfaceBuilder Links
-    
-    @IBOutlet private weak var placeAddressLabel: UILabel!
-    @IBOutlet private weak var userNameLabel: UILabel!
-    @IBOutlet private weak var checkMeLabel: UILabel!
-    @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private weak var contentLabel: UILabel!
-    @IBOutlet private weak var iconsStartButton: UIButton!
-    @IBOutlet private weak var reportButton: UIButton!
-    @IBOutlet weak var iconsBackgroundView: UIView!
-    @IBOutlet private var iconsButtonCollection: [SelectableButton]!
-    @IBOutlet private var iconsButtonXPointConstraint: [NSLayoutConstraint]!
     
     @IBAction private func touchUpiconStartButton(_ sender: UIButton) {
         if sender.isSelected {
@@ -336,5 +335,4 @@ enum ReactionType: String, CaseIterable {
             return 5
         }
     }
-            return 0
 }

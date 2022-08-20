@@ -12,6 +12,13 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "Nickname", bundle: nil)
     }
     
+    @IBOutlet private weak var orderNumLabel: UILabel!
+    @IBOutlet private weak var adjectiveLabel: UILabel!
+    @IBOutlet private weak var nounLabel: UILabel!
+    @IBOutlet private weak var changeAdjectiveButton: UIButton!
+    @IBOutlet private weak var changeNameButton: UIButton!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
+    
     private var viewModel = NicknameViewModel()
     
     override func viewDidLoad() {
@@ -55,14 +62,6 @@ final class NicknameViewController: UIViewController, StoryboardBased {
             })
         }
     }
-    
-    // MARK: - lnterface Links
-    @IBOutlet private weak var orderNumLabel: UILabel!
-    @IBOutlet private weak var adjectiveLabel: UILabel!
-    @IBOutlet private weak var nounLabel: UILabel!
-    @IBOutlet private weak var changeAdjectiveButton: UIButton!
-    @IBOutlet private weak var changeNameButton: UIButton!
-    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
     @IBAction private func startButtonDidTap(_ sender: UIButton) {
         // TODO: 회원가입시키고 accessToken받아서 UserManager에 저장, 아래가 방법 예시!
