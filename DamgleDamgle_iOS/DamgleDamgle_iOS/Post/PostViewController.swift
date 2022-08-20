@@ -72,7 +72,7 @@ final class PostViewController: UIViewController {
                     $0.alpha = 1
                 }
             case .down:
-                let transform = .identity
+                let transform: CGAffineTransform = .identity
                 view.transform = transform
                 
                 postingComponents.forEach {
