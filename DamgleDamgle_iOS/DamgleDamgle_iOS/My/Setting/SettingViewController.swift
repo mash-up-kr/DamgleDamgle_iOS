@@ -22,7 +22,7 @@ final class SettingViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addObserser()
+        addObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +31,7 @@ final class SettingViewController: UIViewController, StoryboardBased {
         updatePushSwitch()
     }
     
-    private func addObserser() {
+    private func addObserver() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(willEnterForegroundNotification),
