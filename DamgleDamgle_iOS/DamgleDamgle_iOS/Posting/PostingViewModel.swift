@@ -10,14 +10,17 @@ import Foundation
 
 final class PostingViewModel {
     
-    private(set) var postModels: Stories?
+    private(set) var postModels: [Story]?
     private let service = StoryService()
     
     func getMyStory(size: Int?, storyID: String?, completion: @escaping (Bool) -> Void) {
-        service.getMyStory(size: size, storyID: storyID) { result in
+        service.getMyStory(size: size, storyID: storyID) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.postModels = response
+                let stories = self.removeReportStory(response: response?.stories)
+                self.postModels = stories
+                print("accesstoken", UserManager.shared.currentAccessToken)
                 completion(true)
             case .failure(let error):
                 completion(false)
@@ -59,10 +62,28 @@ final class PostingViewModel {
     }
     
     func sortTime() {
-        postModels?.stories.sort(by: { $0.createdAt > $1.createdAt })
+        postModels?.sort(by: { $0.createdAt > $1.createdAt })
     }
     
     func sortPopularity() {
-        postModels?.stories.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
+        postModels?.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
+    }
+    
+    private func removeReportStory(response: [Story]?) -> [Story] {
+        guard let response = response else { return [] }
+        var stories: [Story] = []
+        response.forEach { story in
+            if !story.reports.isEmpty {
+                story.reports.forEach { report in
+                    let reportUserNo = report.userNo
+                    if reportUserNo != UserManager.shared.currentUserNo {
+                        stories.append(story)
+                    }
+                }
+            } else {
+                stories.append(story)
+            }
+        }
+        return stories
     }
 }

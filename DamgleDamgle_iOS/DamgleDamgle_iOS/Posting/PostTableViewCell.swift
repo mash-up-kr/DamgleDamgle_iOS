@@ -59,19 +59,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     func setupUI(viewModel: Story?) {
-        guard let viewModel = viewModel else { return }
-        let request = GeocodingRequest(lat: viewModel.y ?? 0, lng: viewModel.x ?? 0)
-        GeocodingService.reverseGeocoding(request: request) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let address):
-                self.placeAddressLabel.text = address
-            case .failure(let error):
-                self.placeAddressLabel.text = "값을 못 받아오는중"
-            }
-        }
+        guard let viewModel = viewModel, let address1 = viewModel.address1, let address2 = viewModel.address2 else { return }
         
-        placeAddressLabel.text = "강남구 op.gg"
+        placeAddressLabel.text = "\(address1)\n\(address2)"
         userNameLabel.text = viewModel.nickname
         checkMeLabel.text = viewModel.userNo == UserManager.shared.userNo ? " • ME" : ""
         timeLabel.text = viewModel.offsetTimeText

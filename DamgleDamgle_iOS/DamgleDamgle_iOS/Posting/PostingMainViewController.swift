@@ -97,7 +97,7 @@ extension PostingMainViewController: UITableViewDataSource {
         if apiState == APIState.error {
             return 1
         }
-        return viewModel.postModels?.stories.count ?? 0
+        return viewModel.postModels?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,7 +108,7 @@ extension PostingMainViewController: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
-        let viewModel = self.viewModel.postModels?.stories[indexPath.row]
+        let viewModel = self.viewModel.postModels?[indexPath.row]
         cell.setupUI(viewModel: viewModel)
         
         cell.addSelectedIcon = { [weak self] reaction in
@@ -126,20 +126,32 @@ extension PostingMainViewController: UITableViewDataSource {
         
         cell.postReport = { [weak self] in
             guard let self = self, let id = viewModel?.id else { return }
-            // TODO: Report Logic 구현예정
-//            self.viewModel.postReport(storyID: id) { isSuccess in
-//
-//            }
             self.showAlertController(
-                type: .single,
-                title: "신고하기 기능은 구현중이에요. 다음 업데이트를 기다려주세요.",
-                message: "",
-                okActionTitle: "OK",
-                okActionHandler: nil,
-                cancelActionTitle: "",
-                cancelActionHandler: nil
+                type: .double,
+                title: Strings.reportTitle,
+                message: Strings.reportSubTitle,
+                okActionTitle: Strings.okReport,
+                okActionHandler: {
+                    self.viewModel.postReport(storyID: id) { isSuccess in
+                        if isSuccess {
+                            self.getMyStoryResponse()
+                        } else {
+                            self.showAlertController(
+                                type: .single,
+                                title: PostStatus.fail.statusTitle,
+                                message: PostStatus.fail.subTitle,
+                                okActionTitle: Strings.confirm,
+                                okActionHandler: nil,
+                                cancelActionTitle: "",
+                                cancelActionHandler: nil
+                            )
+                        }
+                    }
+                },
+                cancelActionTitle: Strings.cancelReport
             )
         }
+        
         cell.delegate = self
         
         return cell
@@ -168,6 +180,17 @@ extension PostingMainViewController: TableViewCellDelegate {
         } completion: { _ in
             toastLabel.removeFromSuperview()
         }
+    }
+}
+
+extension PostingMainViewController {
+    enum Strings {
+        static let reportTitle = "정말 이 글을 신고하실건가요?"
+        static let reportSubTitle = "신고한 글은\n관리자가 확인하여 곧 처리할게요."
+        static let okReport = "신고"
+        static let cancelReport = "신고 취소"
+        static let reportFail = "현재 네트워크 문제로 서비스 신고하기가 불가해요. 나중에 다시 시도해주세요."
+        static let confirm = "확인"
     }
 }
 
