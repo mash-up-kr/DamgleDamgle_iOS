@@ -50,7 +50,7 @@ struct Story: Decodable, Hashable, Identifiable {
     }
     
     var offsetTimeText: String {
-        let offsetTime = Calendar.current.dateComponents([.year,.month,.weekday,.day,.hour,.minute], from: secCreateAt.toDate ?? Date(), to: Date())
+        let offsetTime = Calendar.current.dateComponents([.year,.month,.weekday,.day,.hour,.minute, .second], from: secCreateAt.toDate ?? Date(), to: Date())
 
         let year = offsetTime.year ?? 0
         let month = offsetTime.month ?? 0
@@ -58,6 +58,7 @@ struct Story: Decodable, Hashable, Identifiable {
         let day = (offsetTime.day ?? 0) % 7
         let hour = offsetTime.hour ?? 0
         let minute = offsetTime.minute ?? 0
+        let second = offsetTime.second ?? 0
 
         if year != 0 {
             return "\(year)년 전"
@@ -69,8 +70,10 @@ struct Story: Decodable, Hashable, Identifiable {
             return "\(day)일 전"
         } else if hour != 0 {
             return "\(hour)시간 전"
-        } else {
+        } else if minute != 0 {
             return "\(minute)분 전"
+        } else {
+            return "\(second)초 전"
         }
     }
     
