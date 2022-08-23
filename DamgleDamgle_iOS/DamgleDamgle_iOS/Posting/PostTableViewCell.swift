@@ -63,7 +63,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         
         placeAddressLabel.text = "\(address1)\n\(address2)"
         userNameLabel.text = viewModel.nickname
-        checkMeLabel.text = viewModel.userNo == UserManager.shared.userNo ? " • ME" : ""
+        checkMeLabel.text = viewModel.isMine ? " • ME" : ""
         timeLabel.text = viewModel.offsetTimeText
         contentLabel.text = viewModel.content
         setupIconsView(reactions: viewModel.reactionSummary)

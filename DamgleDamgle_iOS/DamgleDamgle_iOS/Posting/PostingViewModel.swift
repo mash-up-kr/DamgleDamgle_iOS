@@ -20,7 +20,6 @@ final class PostingViewModel {
             case .success(let response):
                 let stories = self.removeReportStory(response: response?.stories)
                 self.postModels = stories
-                print("accesstoken", UserManager.shared.currentAccessToken)
                 completion(true)
             case .failure(let error):
                 completion(false)
