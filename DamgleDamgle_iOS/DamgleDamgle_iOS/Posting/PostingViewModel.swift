@@ -7,17 +7,19 @@
 
 import Alamofire
 import Foundation
+import NMapsMap
 
 final class PostingViewModel {
     
-    private(set) var postModels: Stories?
+    var currentBoundary: NMGLatLngBounds?
+    private(set) var postModels: [Story]?
     private let service = StoryService()
     
     func getMyStory(size: Int?, storyID: String?, completion: @escaping (Bool) -> Void) {
         service.getMyStory(size: size, storyID: storyID) { result in
             switch result {
             case .success(let response):
-                self.postModels = response
+                self.postModels = response?.stories
                 completion(true)
             case .failure(let error):
                 completion(false)
@@ -58,11 +60,27 @@ final class PostingViewModel {
         }
     }
     
+    func getStoryFeed(completion: @escaping (Bool) -> Void) {
+        guard let currentBoundary = currentBoundary else { return }
+        
+        let storyRequest = GetStoryFeedRequest(top: currentBoundary.northEastLat, bottom: currentBoundary.southWestLat, left: currentBoundary.southWestLng, right: currentBoundary.northEastLng)
+        
+        service.getStoryFeed(request: storyRequest) { result in
+            switch result {
+            case .success(let storyFeed):
+                self.postModels = storyFeed.stories
+                completion(true)
+            case .failure(let error):
+                completion(false)
+            }
+        }
+    }
+    
     func sortTime() {
-        postModels?.stories.sort(by: { $0.createdAt > $1.createdAt })
+        postModels?.sort(by: { $0.createdAt > $1.createdAt })
     }
     
     func sortPopularity() {
-        postModels?.stories.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
+        postModels?.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
     }
 }
