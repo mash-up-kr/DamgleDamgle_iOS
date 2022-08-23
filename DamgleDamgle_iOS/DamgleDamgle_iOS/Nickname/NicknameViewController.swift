@@ -20,29 +20,37 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var viewModel = NicknameViewModel()
+    private let refreshLottieName = "refreshLottie"
+    private let lottieSize = UIScreen.main.bounds.width * 0.35
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupUI(viewModel: NicknameResponse(name: "", adjective: "로딩중인", noun: "담글이", nth: Int.random(in: 0...99)))
             
-        loadNicknameResponce()
+        addLottieAnimation(
+            lottieName: refreshLottieName,
+            lottieSize: lottieSize,
+            isNeedDimView: true) { [weak self] in
+                guard let self = self else { return }
+                self.loadNicknameResponce()
+            }
     }
     
     private func loadNicknameResponce() {
-        self.activityIndicatorView.startAnimating()
         self.viewModel.getNickname() { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.setupUI()
-                self.activityIndicatorView.stopAnimating()
+                guard let viewModel = self.viewModel.model else { return }
+                self.setupUI(viewModel: viewModel)
             }
         }
     }
     
-    private func setupUI() {
-        guard let model = self.viewModel.model else { return }
-        orderNumLabel.text = "\(model.nth)" + "번째"
-        adjectiveLabel.text = model.adjective
-        nounLabel.text = model.noun
+    private func setupUI(viewModel: NicknameResponse) {
+        orderNumLabel.text = "\(viewModel.nth)" + "번째"
+        adjectiveLabel.text = viewModel.adjective
+        nounLabel.text = viewModel.noun
     }
     
     private func showHomeView() {
@@ -70,11 +78,18 @@ final class NicknameViewController: UIViewController, StoryboardBased {
                 // TODO: 서버 값이랑 동기화 할지? 로컬이랑 동기화 할지?
                 let authorizedState = settings.authorizationStatus == .authorized
                 self?.viewModel.postNickname(isNotificationEnabled: authorizedState) { [weak self] isSuccess in
+                    guard let self = self else { return }
+            
                     if isSuccess {
-                        guard let self = self else { return }
                         self.showHomeView()
                     } else {
-
+                        self.showAlertController(
+                            type: .double,
+                            title: Strings.title,
+                            message: Strings.message,
+                            okActionTitle: Strings.okTitle,
+                            okActionHandler: nil
+                        )
                     }
                 }
             }
@@ -86,7 +101,8 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         self.viewModel.changeAdjective() { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.setupUI()
+                guard let viewModel = self.viewModel.model else { return }
+                self.setupUI(viewModel: viewModel)
                 self.activityIndicatorView.stopAnimating()
             }
         }
@@ -97,9 +113,18 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         self.viewModel.changeNoun() { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.setupUI()
+                guard let viewModel = self.viewModel.model else { return }
+                self.setupUI(viewModel: viewModel)
                 self.activityIndicatorView.stopAnimating()
             }
         }
+    }
+}
+
+extension NicknameViewController {
+    private enum Strings {
+        static let title = "네트워크가 불안정해요."
+        static let message = "지금은 내용을 불러오기 어려워요.\n잠시 후에 다시 시도해주세요."
+        static let okTitle = "확인"
     }
 }
