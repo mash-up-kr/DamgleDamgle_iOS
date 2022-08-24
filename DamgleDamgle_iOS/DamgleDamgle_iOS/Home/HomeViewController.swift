@@ -341,34 +341,30 @@ extension HomeViewController: LocationDataProtocol {
 extension HomeViewController: LocationUpdateProtocol {
     func updateCurrentLocation(location: CLLocationCoordinate2D) {
         locationManager.stopUpdatingCurrentLocation()
+        
         let mapPosition = NMGLatLng(from: location)
+        
+        currentLocationMarker.zIndex = -100
+        currentLocationMarker.position = mapPosition
+        currentLocationMarker.mapView = mapView
+        
         let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
         cameraUpdate.animation = .easeIn
         cameraUpdate.animationDuration = 0.5
         mapView.moveCamera(cameraUpdate)
-        getCurrentLocationAddress()
-
-        currentLocationMarker.zIndex = -100
-        currentLocationMarker.position = mapPosition
-        currentLocationMarker.mapView = mapView
-                
-//        if isFirstUpdate {
-//            getCurrentLocationAddress()
-//            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
-//            isFirstUpdate = false
-//            locationManager.stopUpdatingCurrentLocation()
-//        }
-
-        viewModel.currentBoundary = mapView.coveringBounds
-        
-        viewModel.getStoryFeed { result in
-            switch result {
-            case .success(let homeModel):
-                guard let homeModel = homeModel else { return }
-                self.addMarker(homeModel: homeModel)
-            case .failure(let error):
-                print("getStoryFeed", error)
+        mapView.moveCamera(cameraUpdate) { _ in
+            self.viewModel.currentBoundary = self.mapView.coveringBounds
+            self.viewModel.getStoryFeed { result in
+                switch result {
+                case .success(let homeModel):
+                    guard let homeModel = homeModel else { return }
+                    self.addMarker(homeModel: homeModel)
+                case .failure(let error):
+                    print("getStoryFeed", error)
+                }
             }
         }
+        
+        getCurrentLocationAddress()
     }
 }
