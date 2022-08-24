@@ -64,6 +64,8 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         addMapView()
         setupView()
+        
+        locationManager.checkLocationServiceAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +80,6 @@ final class HomeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        locationManager.checkLocationServiceAuthorization()
         
         if children.isEmpty {
             setChildPostView()

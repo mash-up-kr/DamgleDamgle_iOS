@@ -69,7 +69,8 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     @IBAction private func closeButtonDidTap(_ sender: UIButton) {
         if viewType == .home {
             let presentingViewController = self.presentingViewController as? HomeViewController
-            presentingViewController?.resetChildView()
+            let postViewController = presentingViewController?.children.first as? PostViewController
+            postViewController?.animatePostView(.down)
             presentingViewController?.dismiss(animated: true)
         } else {
             view.window?.rootViewController?.dismiss(animated: true)
