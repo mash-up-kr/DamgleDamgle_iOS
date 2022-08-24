@@ -89,6 +89,7 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" name="orange500"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="kOl-zb-fto" firstAttribute="centerY" secondItem="3ts-gC-AUu" secondAttribute="centerY" id="08M-Cy-DDX"/>
                         <constraint firstAttribute="trailing" secondItem="bDg-L6-T7k" secondAttribute="trailing" constant="15" id="5v1-nr-fCC"/>
@@ -99,9 +100,12 @@
                         <constraint firstItem="bDg-L6-T7k" firstAttribute="leading" secondItem="NYo-Rl-RWd" secondAttribute="trailing" constant="8" id="sRA-T2-suJ"/>
                         <constraint firstItem="NYo-Rl-RWd" firstAttribute="leading" secondItem="kOl-zb-fto" secondAttribute="trailing" constant="8" id="ysf-t9-gH0"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="6dI-EL-pCJ" appends="YES" id="A7m-wE-aBU"/>
+                    </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i4-g0-Enp">
-                    <rect key="frame" x="328" y="671" width="76" height="62"/>
+                    <rect key="frame" x="320" y="667" width="84" height="70"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="btn_point" title=" "/>
                     <connections>
@@ -109,7 +113,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xn9-7x-U3w">
-                    <rect key="frame" x="318" y="604" width="96" height="62"/>
+                    <rect key="frame" x="310" y="600" width="104" height="62"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="btn_refresh" title=" "/>
                     <connections>
@@ -128,17 +132,20 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ip4-Ck-43I" secondAttribute="trailing" id="Xjw-ce-uVa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="ip4-Ck-43I" secondAttribute="leading" id="aIU-M0-uTK"/>
                 <constraint firstItem="xn9-7x-U3w" firstAttribute="centerX" secondItem="7i4-g0-Enp" secondAttribute="centerX" id="bbL-lz-GLv"/>
-                <constraint firstItem="abh-gr-WZm" firstAttribute="centerX" secondItem="xn9-7x-U3w" secondAttribute="centerX" id="dRq-AP-cLF"/>
-                <constraint firstItem="xn9-7x-U3w" firstAttribute="top" secondItem="abh-gr-WZm" secondAttribute="bottom" constant="25" id="e48-k1-f1X"/>
                 <constraint firstItem="7i4-g0-Enp" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="1.55" id="fZi-TU-MXF"/>
                 <constraint firstAttribute="top" secondItem="ip4-Ck-43I" secondAttribute="top" id="fZq-0f-aXJ"/>
                 <constraint firstItem="ip4-Ck-43I" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.135" id="gbN-Tz-xEn"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </view>
+        <tapGestureRecognizer id="6dI-EL-pCJ">
+            <connections>
+                <action selector="paintViewDidTap:" destination="-1" id="py3-NU-VZq"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="btn_point" width="48" height="48"/>
+        <image name="btn_point" width="56" height="56"/>
         <image name="btn_refresh" width="48" height="48"/>
         <image name="icn_mypage" width="32" height="32"/>
         <image name="icn_paint" width="24" height="24"/>
