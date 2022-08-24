@@ -47,7 +47,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhD-C8-JWe">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1378"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="uis-aL-XMV">
@@ -105,7 +105,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" name="grey500"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="fIS-OE-18b" firstAttribute="leading" secondItem="uis-aL-XMV" secondAttribute="leading" constant="20" id="Opu-eE-tGx"/>
                                         <constraint firstItem="IPO-cL-abV" firstAttribute="leading" secondItem="fIS-OE-18b" secondAttribute="trailing" constant="8" id="bja-ux-bSn"/>
@@ -122,7 +122,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-D2-Nbh">
-                                                    <rect key="frame" x="20" y="11" width="78.5" height="119"/>
+                                                    <rect key="frame" x="20" y="11" width="84" height="119"/>
                                                     <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="32"/>
                                                     <color key="textColor" name="grey1000"/>
                                                     <nil key="highlightedColor"/>
@@ -134,19 +134,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-ga-gvt">
-                                                    <rect key="frame" x="52" y="137.5" width="32" height="15"/>
+                                                    <rect key="frame" x="52" y="137.5" width="34.5" height="15"/>
                                                     <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="13"/>
                                                     <color key="textColor" name="grey1000"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-4L-yCq">
-                                                    <rect key="frame" x="362" y="137.5" width="32" height="15"/>
+                                                    <rect key="frame" x="360.5" y="137.5" width="33.5" height="15"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
                                                     <color key="textColor" name="yellow"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-Ht-4f1">
-                                                    <rect key="frame" x="91" y="144.5" width="262" height="0.5"/>
+                                                    <rect key="frame" x="93.5" y="144.5" width="258" height="0.5"/>
                                                     <color key="backgroundColor" name="grey700"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.75" id="pkx-IN-0zC"/>
@@ -159,7 +159,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="388.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zxcaask;mas;lxams;lxasml;asmxl;asmx;lasmlx;asml;xasa;xmas;lxmasl;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt" customClass="LineSpacingLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="24" y="24" width="326" height="37.5"/>
+                                                            <rect key="frame" x="24" y="24" width="326" height="38.5"/>
                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                             <color key="textColor" name="grey900"/>
                                                             <nil key="highlightedColor"/>
@@ -565,9 +565,6 @@
         </namedColor>
         <namedColor name="grey400">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="grey500">
-            <color red="0.80784313725490198" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grey600">
             <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
