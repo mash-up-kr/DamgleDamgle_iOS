@@ -59,8 +59,12 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     func setupUI(viewModel: Story?) {
-        guard let viewModel = viewModel, let address1 = viewModel.address1, let address2 = viewModel.address2 else { return }
+        guard let viewModel = viewModel, var address1 = viewModel.address1, var address2 = viewModel.address2 else { return }
         
+        if address1 == "" {
+            address1 = "역삼동"
+            address2 = "테헤란로 141"
+        }
         placeAddressLabel.text = "\(address1)\n\(address2)"
         userNameLabel.text = viewModel.nickname
         checkMeLabel.text = viewModel.isMine ? " • ME" : ""
