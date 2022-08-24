@@ -374,7 +374,7 @@
                                             <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
                                             <outlet property="iconsBackgroundView" destination="U5w-D1-CF2" id="MGq-ov-q6B"/>
                                             <outlet property="iconsStartButton" destination="Q7r-RP-3AW" id="fvH-1K-1ec"/>
-                                            <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="8zc-Gl-CsC"/>
+                                            <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="Wu1-bJ-Voh"/>
                                             <outlet property="reportButton" destination="snx-co-seI" id="vZl-Rt-HRM"/>
                                             <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>
                                             <outlet property="userNameLabel" destination="WNp-wV-5Gm" id="uNu-zC-Qrh"/>

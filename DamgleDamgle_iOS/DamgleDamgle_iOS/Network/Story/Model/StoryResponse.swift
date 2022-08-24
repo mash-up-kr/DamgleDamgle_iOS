@@ -12,8 +12,3 @@ struct StoryFeed: Decodable {
     let stories: [Story]
     let size: Int
 }
-
-// MARK: - Report
-struct Report: Decodable, Hashable {
-    let userNo, createdAt: Int
-}
