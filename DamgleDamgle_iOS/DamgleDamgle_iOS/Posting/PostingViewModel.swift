@@ -7,9 +7,11 @@
 
 import Alamofire
 import Foundation
+import NMapsMap
 
 final class PostingViewModel {
     
+    var currentBoundary: NMGLatLngBounds?
     private(set) var postModels: [Story]?
     private let service = StoryService()
     
@@ -53,6 +55,22 @@ final class PostingViewModel {
         StoryService.postReport(storyID: storyID) { result in
             switch result {
             case .success(let rsponse):
+                completion(true)
+            case .failure(let error):
+                completion(false)
+            }
+        }
+    }
+    
+    func getStoryFeed(completion: @escaping (Bool) -> Void) {
+        guard let currentBoundary = currentBoundary else { return }
+        
+        let storyRequest = GetStoryFeedRequest(top: currentBoundary.northEastLat, bottom: currentBoundary.southWestLat, left: currentBoundary.southWestLng, right: currentBoundary.northEastLng)
+        
+        service.getStoryFeed(request: storyRequest) { result in
+            switch result {
+            case .success(let storyFeed):
+                self.postModels = storyFeed.stories
                 completion(true)
             case .failure(let error):
                 completion(false)
