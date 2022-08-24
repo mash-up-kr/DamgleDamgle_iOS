@@ -148,7 +148,11 @@ extension PostingMainViewController: UITableViewDataSource {
                 okActionHandler: {
                     self.viewModel.postReport(storyID: id) { isSuccess in
                         if isSuccess {
-                            self.getMyStoryResponse()
+                            if self.type == .myStory {
+                                self.getMyStoryResponse()
+                            } else {
+                                self.getFeedStoryResponse()
+                            }
                         } else {
                             self.showAlertController(
                                 type: .single,
@@ -175,7 +179,11 @@ extension PostingMainViewController: UITableViewDataSource {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
     func iconButtonAnimationIsClosed(reaction: ReactionType) {
-        getMyStoryResponse()
+        if type == .myStory {
+            getMyStoryResponse()
+        } else {
+            getFeedStoryResponse()
+        }
     }
     
     private func toastButtonAnimate(reaction: ReactionType) {
