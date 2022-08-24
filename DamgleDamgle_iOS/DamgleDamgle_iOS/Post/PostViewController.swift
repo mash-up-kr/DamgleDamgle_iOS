@@ -21,7 +21,7 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var postButton: ContinueButton!
     
     private let maxTextLength = 100
-    private let swipeUpHeightRatio = 0.05
+    private let swipeUpHeightRatio = 0.2
     private let swipeDownHeightRatio = 0.86
     private var textViewWordCount: Int = 0 {
         didSet {
@@ -55,40 +55,12 @@ final class PostViewController: UIViewController {
     
 // MARK: - @IBAction
     @IBAction private func swipeUpDown(_ sender: UISwipeGestureRecognizer) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) { [weak self] in
-            guard let self = self else {
-                return
-            }
-
-            switch sender.direction {
-            case .up:
-                self.updateAnimatingView(heightRatio: self.swipeUpHeightRatio, direction: sender.direction)
-            case .down:
-                self.postingTextView.resignFirstResponder()
-                self.updateAnimatingView(heightRatio: self.swipeDownHeightRatio, direction: sender.direction)
-            default:
-                break
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
-                switch sender.direction {
-                case .down:
-                    self.myStoryGuideLabel.isHidden = false
-                    self.shortenBackgroundImageView.isHidden = false
-                    self.myStoryGuideLabel.alpha = 1
-                    self.shortenBackgroundImageView.alpha = 1
-                default:
-                    break
-                }
-            }
-        }
+        animatePostView(sender.direction)
     }
     
     func updateAnimatingView(heightRatio: Double = 0.05, direction: UISwipeGestureRecognizer.Direction = .up) {
         let originHeight: CGFloat = UIScreen.main.bounds.height
-        let transformHeight = originHeight * 0.81
+        let transformHeight = originHeight * 0.76
 
         switch direction {
         case .up:
@@ -121,8 +93,44 @@ final class PostViewController: UIViewController {
         }
     }
     
+    func animatePostView(_ senderDirection: UISwipeGestureRecognizer.Direction) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) { [weak self] in
+            guard let self = self else {
+                return
+            }
+
+            switch senderDirection {
+            case .up:
+                self.updateAnimatingView(heightRatio: self.swipeUpHeightRatio, direction: senderDirection)
+            case .down:
+                self.postingTextView.resignFirstResponder()
+                self.updateAnimatingView(heightRatio: self.swipeDownHeightRatio, direction: senderDirection)
+            default:
+                break
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) {
+                switch senderDirection {
+                case .down:
+                    self.myStoryGuideLabel.isHidden = false
+                    self.shortenBackgroundImageView.isHidden = false
+                    self.myStoryGuideLabel.alpha = 1
+                    self.shortenBackgroundImageView.alpha = 1
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
     @IBAction private func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        self.postingTextView.resignFirstResponder()
+        if myStoryGuideLabel.isHidden == false {
+            animatePostView(.up)
+        } else {
+            self.postingTextView.resignFirstResponder()
+        }
     }
     
     @IBAction private func postButtonTapped(_ sender: UIButton) {
