@@ -58,20 +58,24 @@ final class HomeViewController: UIViewController {
     
     private let viewModel = HomeViewModel()
     private var mapViewMarkerList: [NMFMarker] = []
+    private var isFirstShow = true
     
 // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
         addMapView()
         setupView()
-        
-        locationManager.checkLocationServiceAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         locationManager.dataDelegate = self
         locationManager.locationDelegate = self
+        
+        if isFirstShow {
+            locationManager.checkLocationServiceAuthorization()
+            isFirstShow.toggle()
+        }
         
         getLastDateOfMonth()
         
@@ -132,22 +136,6 @@ final class HomeViewController: UIViewController {
             showDefaultLocation()
         case .success:
             locationManager.startUpdatingCurrentLocation()
-//            let mapPosition = NMGLatLng(from: locationManager.currentLocation)
-//            let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
-//            cameraUpdate.animation = .easeIn
-//            cameraUpdate.animationDuration = 0.5
-//            mapView.moveCamera(cameraUpdate)
-//            getCurrentLocationAddress()
-//
-//            viewModel.getStoryFeed { result in
-//                switch result {
-//                case .success(let homeModel):
-//                    guard let homeModel = homeModel else { return }
-//                    self.addMarker(homeModel: homeModel)
-//                case .failure(let error):
-//                    print("getStoryFeed", error)
-//                }
-//            }
         default:
             break
         }
@@ -351,7 +339,6 @@ extension HomeViewController: LocationUpdateProtocol {
         let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
         cameraUpdate.animation = .easeIn
         cameraUpdate.animationDuration = 0.5
-        mapView.moveCamera(cameraUpdate)
         mapView.moveCamera(cameraUpdate) { _ in
             self.viewModel.currentBoundary = self.mapView.coveringBounds
             self.viewModel.getStoryFeed { result in
