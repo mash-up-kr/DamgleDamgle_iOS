@@ -156,14 +156,6 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func moveToListView(_ sender: UIButton) {
-        let postingMainViewController = PostingNavigationController.instantiate()
-        let firstViewController = postingMainViewController.children.first as? PostingMainViewController
-        // TODO: AllStory 데이터로 viewModel 데이터 초기화하는 로직 구현 예정
-//        firstViewController?.type = .allStory
-//        firstViewController?.viewModel.postModels = ??
-        postingMainViewController.modalPresentationStyle = .overFullScreen
-        present(postingMainViewController, animated: true)
     }
     
 // MARK: - objc
