@@ -16,8 +16,8 @@ struct Story: Decodable, Hashable, Identifiable {
     let id: String
     let userNo: Int
     let nickname: String
-    let address1: String?
-    let address2: String?
+    var address1: String?
+    var address2: String?
     let isMine: Bool
     let x: Double
     let y: Double

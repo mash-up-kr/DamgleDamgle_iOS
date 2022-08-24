@@ -17,17 +17,17 @@ struct GeocodingResponse: Codable {
     let status: Status
     let results: [ReverseResult]
     
-    func getAddress() -> String {
-        var address: String
+    func getAddress() -> [String] {
+        var address: [String]
         
-        guard let district = self.results.first?.region.area2.name else { return "" }
-        guard let town = self.results.first?.region.area3.name else { return "" }
-        guard let streetAddress = self.results.first?.land.name else { return "" }
+        guard let district = self.results.first?.region.area2.name else { return [] }
+        guard let town = self.results.first?.region.area3.name else { return [] }
+        guard let streetAddress = self.results.first?.land.name else { return [] }
         
         if streetAddress == "" {
-            address = "\(district) \(town)"
+            address = [district, town]
         } else {
-            address = "\(town) \(streetAddress)"
+            address = [town, streetAddress]
         }
         
         return address
