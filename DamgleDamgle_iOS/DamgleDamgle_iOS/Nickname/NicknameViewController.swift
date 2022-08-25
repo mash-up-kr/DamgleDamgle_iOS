@@ -26,28 +26,23 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupUI(viewModel: NicknameResponse(name: "", adjective: "로딩중인", noun: "담글이", nth: Int.random(in: 0...99)))
-            
+        setupView(viewModel: NicknameResponse(name: "", adjective: "로딩중인", noun: "담글이", nth: Int.random(in: 0...99)))
+        loadNicknameResponce()
         addLottieAnimation(
-            lottieName: refreshLottieName,
-            lottieSize: lottieSize,
-            isNeedDimView: true) { [weak self] in
-                guard let self = self else { return }
-                self.loadNicknameResponce()
-            }
+            lottieName: self.refreshLottieName,
+            lottieSize: self.lottieSize,
+            isNeedDimView: true
+        )
     }
     
     private func loadNicknameResponce() {
         self.viewModel.getNickname() { [weak self] _ in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                guard let viewModel = self.viewModel.model else { return }
-                self.setupUI(viewModel: viewModel)
-            }
+            guard let self = self, let viewModel = self.viewModel.model else { return }
+            self.setupView(viewModel: viewModel)
         }
     }
     
-    private func setupUI(viewModel: NicknameResponse) {
+    private func setupView(viewModel: NicknameResponse) {
         orderNumLabel.text = "\(viewModel.nth)" + "번째"
         adjectiveLabel.text = viewModel.adjective
         nounLabel.text = viewModel.noun
@@ -58,7 +53,7 @@ final class NicknameViewController: UIViewController, StoryboardBased {
             .compactMap { $0 as? UIWindowScene }
             .flatMap { $0.windows }
             .first { $0.isKeyWindow }
-
+        
         guard let keyWindow = keyWindow else {
             return
         }
@@ -79,7 +74,7 @@ final class NicknameViewController: UIViewController, StoryboardBased {
                 let authorizedState = settings.authorizationStatus == .authorized
                 self?.viewModel.postNickname(isNotificationEnabled: authorizedState) { [weak self] isSuccess in
                     guard let self = self else { return }
-            
+                    
                     if isSuccess {
                         self.showHomeView()
                     } else {
@@ -102,7 +97,7 @@ final class NicknameViewController: UIViewController, StoryboardBased {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 guard let viewModel = self.viewModel.model else { return }
-                self.setupUI(viewModel: viewModel)
+                self.setupView(viewModel: viewModel)
                 self.activityIndicatorView.stopAnimating()
             }
         }
@@ -114,7 +109,7 @@ final class NicknameViewController: UIViewController, StoryboardBased {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 guard let viewModel = self.viewModel.model else { return }
-                self.setupUI(viewModel: viewModel)
+                self.setupView(viewModel: viewModel)
                 self.activityIndicatorView.stopAnimating()
             }
         }

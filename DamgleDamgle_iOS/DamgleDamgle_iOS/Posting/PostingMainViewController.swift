@@ -18,9 +18,16 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var mainViewImageView: UIImageView!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
+    lazy var toastLabel = ToastLabel()
     private var apiState: APIState = .dataExit
     var type: StoryType = .myStory
     var viewModel = PostingViewModel()
+    var toastMessageReacitonType: ReactionType? {
+        didSet {
+            guard let toastMessageReacitonType = toastMessageReacitonType else { return }
+            toastButtonAnimate(reaction: toastMessageReacitonType)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +37,19 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         } else {
             getFeedStoryResponse()
         }
+        
+        setupView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         postingTableView.reloadData()
+    }
+    
+    private func setupView() {
+        self.view.addSubview(toastLabel)
+        toastLabel.alpha = 0
     }
     
     private func getMyStoryResponse() {
@@ -117,12 +131,14 @@ extension PostingMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if apiState == APIState.error {
             let cell = tableView.dequeueReusableCell(for: indexPath) as PostErrorTableViewCell
-            cell.setupUI()
+            cell.setupView()
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels?[indexPath.row]
+        cell.delegate = self
+        cell.type = self.type
         cell.setupUI(viewModel: viewModel)
         
         cell.addSelectedIcon = { [weak self] reaction in
@@ -166,33 +182,34 @@ extension PostingMainViewController: UITableViewDataSource {
             )
         }
         
-        cell.delegate = self
-        
         return cell
     }
 }
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
-    func iconButtonAnimationIsClosed(reaction: ReactionType) {
+    func endReactionButtonAnimation(reaction: ReactionType) {
         getMyStoryResponse()
+        
+        if reaction != .none {
+            toastButtonAnimate(reaction: reaction)
+        }
     }
     
     private func toastButtonAnimate(reaction: ReactionType) {
+        toastLabel.alpha = 1.0
         let screenWidth: CGFloat = UIScreen.main.bounds.width
         let screenHeight: CGFloat = UIScreen.main.bounds.height
         
-        let toastLabel = ToastLabel()
         toastLabel.setupUI(text: reaction.toastMessageTitle)
         
         toastLabel.frame.origin.x = screenWidth/2 - toastLabel.bounds.width/2
         toastLabel.frame.origin.y = screenHeight - toastLabel.bounds.height - screenHeight*(64/812)
-        self.view.addSubview(toastLabel)
         
-        UIView.animate(withDuration: 2.0) {
-            toastLabel.alpha = 0.0
-        } completion: { _ in
-            toastLabel.removeFromSuperview()
+        UIView.animate(withDuration: 2.0) { [weak self] in
+            guard let self = self else { return }
+            self.toastLabel.alpha = 0.0
+            self.view.layoutIfNeeded()
         }
     }
 }

@@ -22,7 +22,7 @@ final class ManyIconsView: UIView, NibBased {
         initialize()
     }
 
-    func setupUI(reactions: [ReactionSummary]) {
+    func setupView(reactions: [ReactionSummary]) {
         setupLabel(reactions: reactions)
         setupImageView(reactions: reactions)
     }
