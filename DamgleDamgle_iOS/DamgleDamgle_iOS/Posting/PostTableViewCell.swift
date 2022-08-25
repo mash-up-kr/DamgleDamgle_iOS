@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TableViewCellDelegate: AnyObject {
-    func iconButtonAnimationIsClosed(reaction: ReactionType)
+    func endReactionButtonAnimation(reaction: ReactionType)
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
@@ -28,6 +28,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     var addSelectedIcon: ((ReactionType) -> Void)?
     var deleteSeletedIcon: (() -> Void)?
     var postReport: (() -> Void)?
+    var type: StoryType?
     private var nowSelectedReaction: ReactionType = ReactionType.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedReaction)
@@ -36,7 +37,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setViewDefault()
+        setupView()
     }
     
     override func prepareForReuse() {
@@ -52,9 +53,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         iconsStartButton.isSelected = false
         iconsButtonCollection.forEach { $0.isSelected = false }
         iconsButtonXPointConstraint.forEach { $0.constant = 0 }
+        reportButton.isHidden = false
     }
     
-    private func setViewDefault() {
+    private func setupView() {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
     }
     
@@ -73,6 +75,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         setupIconsView(reactions: viewModel.reactionSummary)
         setupIconsStartButton(reaction: viewModel.reactionOfMine)
         setupIconsButton(reaction: viewModel.reactionOfMine)
+        reportButton.isHidden = type == .myStory ? true : false
     }
     
     private func setupIconsStartButton(reaction: MyReaction?) {
@@ -82,7 +85,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     private func setupIconsButton(reaction: MyReaction?) {
         guard let reaction = reaction else { return }
-
+        
         for button in iconsButtonCollection {
             let reactionType = ReactionType(rawValue: reaction.type)
             button.isSelected = button.tag == reactionType?.tag ? true : false
@@ -100,12 +103,12 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             let iconsView = OneIconView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupUI(reactions: filterReactions)
+            iconsView.setupView(reactions: filterReactions)
         } else {
             let iconsView = ManyIconsView(frame: .zero)
             iconsBackgroundView.addSubview(iconsView)
             iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupUI(reactions: reactions)
+            iconsView.setupView(reactions: reactions)
         }
     }
     
@@ -163,59 +166,45 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         guard let selectedIconImage = nowSelectedReaction.inActiveButtonimage else { return }
         iconsStartButton.setImage(selectedIconImage, for: .selected)
         
-        iconsButtonXPointConstraint.forEach {
-            let constraint = $0
-            let constant = getConstraintConstant(constraint: $0)
-            
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let self = self, let constant = constant else { return }
-                constraint.constant = constant
-                self.layoutIfNeeded()
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let self = self else { return }
+            self.iconsButtonXPointConstraint.forEach {
+                $0.constant = self.getConstraintConstant(constraint: $0) ?? 0
             }
+            self.layoutIfNeeded()
         }
     }
     
     private func closeIconsButton(isSelected reaction: ReactionType) {
-        iconsButtonXPointConstraint.forEach {
-            let constraint: NSLayoutConstraint = $0
-            let constant: CGFloat = 0
-            
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let self = self else { return }
-                
-                constraint.constant = constant
-                self.layoutIfNeeded()
-            } completion: { [weak self] _ in
-                guard let self = self else { return }
-                
-                self.delegate?.iconButtonAnimationIsClosed(reaction: reaction)
-                self.iconsStartButton.isSelected = false
-                
-                guard let selectedButtonImage = reaction.selectedButtonImage else { return }
-                self.iconsStartButton.setImage(selectedButtonImage, for: .normal)
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let self = self else { return }
+            self.iconsButtonXPointConstraint.forEach {
+                $0.constant = 0
             }
+            self.layoutIfNeeded()
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+            self.delegate?.endReactionButtonAnimation(reaction: reaction)
+        })
     }
     
     private func getConstraintConstant(constraint: NSLayoutConstraint) -> CGFloat? {
         let contentViewWidth = self.contentView.frame.width
-        let constant: CGFloat? = {
-            if constraint.identifier == "likeButton" {
-                return ReactionType.like.distRatioFromStartButton * contentViewWidth
-            } else if constraint.identifier == "angryButton" {
-                return ReactionType.angry.distRatioFromStartButton * contentViewWidth
-            } else if constraint.identifier == "amazingButton" {
-                return ReactionType.amazing.distRatioFromStartButton * contentViewWidth
-            } else if constraint.identifier == "sadButton" {
-                return ReactionType.sad.distRatioFromStartButton * contentViewWidth
-            } else if constraint.identifier == "bestButton" {
-                return ReactionType.best.distRatioFromStartButton * contentViewWidth
-            } else {
-                return nil
-            }
-        }()
-        
-        return constant
+        switch constraint.identifier {
+        case ReactionType.like.rawValue:
+            return ReactionType.like.distRatioFromStartButton * contentViewWidth
+        case ReactionType.angry.rawValue:
+            return ReactionType.angry.distRatioFromStartButton * contentViewWidth
+        case ReactionType.amazing.rawValue:
+            return ReactionType.amazing.distRatioFromStartButton * contentViewWidth
+        case ReactionType.sad.rawValue:
+            return ReactionType.sad.distRatioFromStartButton * contentViewWidth
+        case ReactionType.best.rawValue:
+            return ReactionType.best.distRatioFromStartButton * contentViewWidth
+        default:
+            return nil
+        }
     }
 }
 
