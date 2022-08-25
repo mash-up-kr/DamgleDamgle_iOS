@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhD-C8-JWe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_list_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nhD-C8-JWe">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
@@ -335,7 +335,7 @@
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="leading" secondItem="WNp-wV-5Gm" secondAttribute="trailing" id="2PL-aC-klj"/>
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="3gi-f2-d4R"/>
                                                 <constraint firstItem="pda-op-CUs" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="4ZA-8P-t6t"/>
-                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="sadButton" id="7PO-CC-P5f"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="sad" id="7PO-CC-P5f"/>
                                                 <constraint firstItem="mPj-Tj-DAK" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="7PS-cr-BIg"/>
                                                 <constraint firstItem="37h-h2-rEa" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="9tB-o2-hD1"/>
                                                 <constraint firstItem="iNy-Tq-STE" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="BE8-cB-GGx"/>
@@ -345,7 +345,7 @@
                                                 <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="F23-3u-25c"/>
                                                 <constraint firstItem="pda-op-CUs" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="Fba-PJ-jD5"/>
                                                 <constraint firstItem="Hcm-Ht-4f1" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="FmJ-Pt-F8d"/>
-                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="angryButton" id="GFi-jQ-1qy"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="angry" id="GFi-jQ-1qy"/>
                                                 <constraint firstItem="e3Z-KF-Uej" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="JB6-rE-ong"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="top" secondItem="cv2-ga-gvt" secondAttribute="bottom" constant="16" id="Lg3-YS-Jtb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Q7r-RP-3AW" secondAttribute="bottom" id="LsU-o7-eQH"/>
@@ -360,12 +360,12 @@
                                                 <constraint firstItem="jTf-D2-Nbh" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="dyM-De-uCZ"/>
                                                 <constraint firstItem="cv2-ga-gvt" firstAttribute="baseline" secondItem="ZSS-4L-yCq" secondAttribute="baseline" id="eEf-gh-pX3"/>
                                                 <constraint firstItem="6oT-kl-tI8" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="h9D-Q6-5xE"/>
-                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="bestButton" id="mwc-ZQ-kgD"/>
-                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="amazingButton" id="oFC-I3-uAI" userLabel="amazingButtonX Point Constraint"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="best" id="mwc-ZQ-kgD"/>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="amazing" id="oFC-I3-uAI" userLabel="amazingButtonX Point Constraint"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6oT-kl-tI8" secondAttribute="trailing" id="uYe-pg-cve"/>
                                                 <constraint firstItem="37h-h2-rEa" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="uhI-rY-qAv"/>
                                                 <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="v3a-ng-OvX"/>
-                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="likeButton" id="w7t-sg-pX4"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="like" id="w7t-sg-pX4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -557,6 +557,7 @@
         <image name="icn=sad_y" width="30" height="30"/>
         <image name="icn_close" width="24" height="24"/>
         <image name="img_error_list_posting" width="335" height="232"/>
+        <image name="img_list_bg" width="375" height="812"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -22,12 +22,9 @@ final class OneIconView: UIView, NibBased {
         initialize()
     }
     
-    func setupUI(reactions: [ReactionSummary]) {
-        guard let reaction = reactions.first else { return }
-        // TODO: 서버에서 reaction값 떨궈주면 셋팅 예정
+    func setupView(reactions: [ReactionSummary]) {
+        guard let reaction = reactions.first, let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
         iconCountLabel.text = "\(reaction.count)"
-
-        guard let reactionImage = ReactionType(rawValue: reaction.type)?.selectedImageViewImage else { return }
         iconImageView.image = reactionImage
     }
 }
