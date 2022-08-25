@@ -59,21 +59,56 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         case .inProgress:
             break
         case .success:
-            // TODO: 해당 글로 이동
+            presentMyStoryListView()
             break
         case .fail:
-            self.dismiss(animated: true)
+            dismiss()
         }
     }
     
     @IBAction private func closeButtonDidTap(_ sender: UIButton) {
+        dismiss()
+    }
+    
+    private func dismiss() {
         if viewType == .home {
             let presentingViewController = self.presentingViewController as? HomeViewController
             let postViewController = presentingViewController?.children.first as? PostViewController
             postViewController?.animatePostView(.down)
             presentingViewController?.dismiss(animated: true)
         } else {
-            view.window?.rootViewController?.dismiss(animated: true)
+            let presentingViewController = self.presentingViewController
+            let myViewController = presentingViewController?.presentingViewController as? MyViewController
+
+            dismiss(animated: false) {
+                presentingViewController?.dismiss(animated: true) {
+                    myViewController?.fetchMyStoryList()
+                }
+            }
+        }
+    }
+    
+    private func presentMyStoryListView() {
+        if viewType == .home {
+            let presentingViewController = self.presentingViewController as? HomeViewController
+
+            dismiss(animated: false) {
+                let myViewController = MyViewController.instantiate()
+                myViewController.modalPresentationStyle = .overFullScreen
+                presentingViewController?.present(myViewController, animated: false)
+                presentingViewController?.resetChildView()
+                myViewController.showMyStoryList()
+            }
+            
+        } else {
+            let presentingViewController = self.presentingViewController
+            let myViewController = presentingViewController?.presentingViewController as? MyViewController
+            
+            dismiss(animated: false) {
+                presentingViewController?.dismiss(animated: true) {
+                    myViewController?.showMyStoryList()
+                }
+            }
         }
     }
    
@@ -93,7 +128,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         processImageView.image = type.image
         
         if let buttonTitle = type.buttonTitle {
-//            nextStepButton.isHidden = false
+            nextStepButton.isHidden = false
             nextStepButton.setTitle(buttonTitle, for: .normal)
         } else {
             nextStepButton.isHidden = true

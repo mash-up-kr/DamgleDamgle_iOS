@@ -143,7 +143,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_mypage_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hok-SA-FMq">
-                                <rect key="frame" x="27.5" y="-10" width="359" height="916"/>
+                                <rect key="frame" x="27.5" y="-10" width="359" height="664"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="916" id="ZfH-sq-AOO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZfH-sq-AOO"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eft-vB-3Pv">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
@@ -306,8 +314,16 @@ YEOKSAMDONG</string>
                             <constraint firstAttribute="bottom" secondItem="eft-vB-3Pv" secondAttribute="bottom" id="glp-bu-prX"/>
                             <constraint firstItem="hok-SA-FMq" firstAttribute="centerX" secondItem="dRB-Vw-bmx" secondAttribute="centerX" id="icY-PA-05X"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5Cx-wi-LLr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="backgroundBottomConstraint" destination="5Cx-wi-LLr" id="k6O-cp-lNY"/>
+                        <outlet property="backgroundHeightConstraint" destination="ZfH-sq-AOO" id="FuV-wT-n48"/>
+                        <outlet property="backgroundImageView" destination="hok-SA-FMq" id="WHn-lz-eQe"/>
                         <outlet property="collectionView" destination="eft-vB-3Pv" id="1i7-2L-emc"/>
                         <outlet property="emptyView" destination="ef1-K0-hEk" id="fMK-4o-O8w"/>
                         <outlet property="loadingView" destination="y5o-ea-DAH" id="46K-2L-NR1"/>
@@ -326,7 +342,7 @@ YEOKSAMDONG</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 107" translatesAutoresizingMaskIntoConstraints="NO" id="XrQ-dK-6XN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_background" translatesAutoresizingMaskIntoConstraints="NO" id="XrQ-dK-6XN">
                                 <rect key="frame" x="31.5" y="44" width="351" height="182"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSm-Jx-yVJ">
@@ -435,7 +451,6 @@ YEOKSAMDONG</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Rectangle 107" width="351" height="182"/>
         <image name="icn_close" width="24" height="24"/>
         <image name="icn_profileImage" width="56" height="56"/>
         <image name="img=like" width="100" height="100"/>
@@ -443,6 +458,7 @@ YEOKSAMDONG</string>
         <image name="img_mydamgle" width="343" height="110"/>
         <image name="img_mypage_bg" width="359" height="664"/>
         <image name="img_setting" width="343" height="110"/>
+        <image name="setting_background" width="351" height="182"/>
         <namedColor name="grey1000">
             <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
