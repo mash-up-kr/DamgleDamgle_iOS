@@ -7,7 +7,6 @@
 
 import UIKit
 
-// TODO: 담글 남기고 my 담글 리스트 reload
 final class MyStoryListViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
         UIStoryboard(name: "My", bundle: nil)
@@ -15,6 +14,9 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var emptyView: UIView!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var backgroundBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var backgroundHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var postStroyButton: UIButton! {
         didSet {
             postStroyButton.layer.cornerRadius = 8.0
@@ -33,7 +35,7 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureDataSource()
     }
     
@@ -42,14 +44,15 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         
         fetchData()
     }
-
-    private func fetchData() {
+    
+    func fetchData() {
         loadingView.isHidden = false
         loadingView.startAnimating()
         viewModel.fetchData { [weak self] result in
             switch result {
             case .success(let count):
                 self?.emptyView.alpha = count >= 1 ? 0 : 1.0
+                self?.updateBackgroundImageView()
                 self?.collectionView.reloadData()
             case .failure(let error):
                 // TODO: Error handling
@@ -60,6 +63,12 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         }
     }
     
+    func showMyStoryList() {
+        let postingMainNavigationViewController = PostingNavigationController.instantiate()
+        postingMainNavigationViewController.modalPresentationStyle = .fullScreen
+        present(postingMainNavigationViewController, animated: true)
+    }
+    
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ -> NSCollectionLayoutSection in
             let itemSize = NSCollectionLayoutSize(
@@ -68,17 +77,17 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             )
             
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+            
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .absolute(self?.cellHeight ?? 0)
             )
-
+            
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
+            
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = .zero
-
+            
             return section
         }
     }
@@ -90,6 +99,17 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             let cell = collectionView.dequeueReusableCell(for: indexPath) as MyStoryCollectionViewCell
             cell.configure(story: story)
             return cell
+        }
+    }
+    
+    private func updateBackgroundImageView() {
+        if let numberOfItems = viewModel.dataSource?.snapshot().numberOfItems, numberOfItems < 5 {
+            backgroundBottomConstraint.isActive = false
+            backgroundHeightConstraint.isActive = true
+            backgroundHeightConstraint.constant = CGFloat(Int(cellHeight + 40.0) * numberOfItems)
+        } else {
+            backgroundBottomConstraint.isActive = true
+            backgroundHeightConstraint.isActive = false
         }
     }
     
@@ -107,9 +127,6 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
 
 extension MyStoryListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: 인덱스 넘기기
-        let postingMainNavigationViewController = PostingNavigationController.instantiate()
-        postingMainNavigationViewController.modalPresentationStyle = .fullScreen
-        present(postingMainNavigationViewController, animated: true)
+        showMyStoryList()
     }
 }

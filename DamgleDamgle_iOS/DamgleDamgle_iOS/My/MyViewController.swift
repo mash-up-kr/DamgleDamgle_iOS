@@ -34,7 +34,7 @@ final class MyViewController: UIViewController, StoryboardBased {
     
     private let listViewController = MyStoryListViewController.instantiate()
     private let settingViewController = SettingViewController.instantiate()
-
+    
     private var pages: [UIViewController] = []
     private var currentPage = 0
     
@@ -48,13 +48,23 @@ final class MyViewController: UIViewController, StoryboardBased {
         pageViewController.delegate = self
         return pageViewController
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getMe()
         configurePageView()
         setupScrollViewDelegate()
+    }
+    
+    func fetchMyStoryList() {
+        let myStoryListViewController = pageViewController.viewControllers?.first as? MyStoryListViewController
+        myStoryListViewController?.fetchData()
+    }
+    
+    func showMyStoryList() {
+        let myStoryListViewController = pageViewController.viewControllers?.first as? MyStoryListViewController
+        myStoryListViewController?.showMyStoryList()
     }
     
     private func getMe() {
@@ -85,7 +95,7 @@ final class MyViewController: UIViewController, StoryboardBased {
         pageViewController.didMove(toParent: self)
         pages = [listViewController, settingViewController]
         listButton.isSelected = true
-
+        
         if let firstViewController = pages.first {
             pageViewController.setViewControllers(
                 [firstViewController],
@@ -100,15 +110,15 @@ final class MyViewController: UIViewController, StoryboardBased {
         let scrollView = containerView.subviews.first?.subviews.first as? UIScrollView
         scrollView?.delegate = self
     }
-
+    
     @IBAction func listButtonDidTap(_ sender: UIButton) {
         changePageViewController(to: Page.list.index)
     }
-
+    
     @IBAction func settingButtonDidTap(_ sender: UIButton) {
         changePageViewController(to: Page.setting.index)
     }
-
+    
     private func changePageViewController(to index: Int) {
         guard pages.count > index,
               let selectedPage = pages[safe: index]
@@ -126,7 +136,7 @@ final class MyViewController: UIViewController, StoryboardBased {
         )
         selectPage(index: index)
     }
-
+    
     @IBAction private func closeButtonDidTap() {
         dismiss(animated: true)
     }
@@ -163,10 +173,10 @@ extension MyViewController: UIPageViewControllerDelegate {
             return
         }
         let isList = Page(rawValue: index) == .list
-
+        
         listButton.isSelected = isList
         settingButton.isSelected = !isList
-    
+        
         currentPage = index
         
         UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
