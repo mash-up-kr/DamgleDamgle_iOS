@@ -28,7 +28,6 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     var addSelectedIcon: ((ReactionType) -> Void)?
     var deleteSeletedIcon: (() -> Void)?
     var postReport: (() -> Void)?
-    var type: StoryType?
     private var nowSelectedReaction: ReactionType = ReactionType.none {
         didSet {
             closeIconsButton(isSelected: nowSelectedReaction)
@@ -75,7 +74,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         setupIconsView(reactions: viewModel.reactionSummary)
         setupIconsStartButton(reaction: viewModel.reactionOfMine)
         setupIconsButton(reaction: viewModel.reactionOfMine)
-        reportButton.isHidden = type == .myStory ? true : false
+        reportButton.isHidden = viewModel.isMine
     }
     
     private func setupIconsStartButton(reaction: MyReaction?) {

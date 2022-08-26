@@ -138,7 +138,6 @@ extension PostingMainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels?[indexPath.row]
         cell.delegate = self
-        cell.type = self.type
         cell.setupUI(viewModel: viewModel)
         
         cell.addSelectedIcon = { [weak self] reaction in
