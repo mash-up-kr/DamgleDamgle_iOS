@@ -191,16 +191,17 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     private func getConstraintConstant(constraint: NSLayoutConstraint) -> CGFloat? {
         let contentViewWidth = self.contentView.frame.width
-        switch constraint.identifier {
-        case ReactionType.like.rawValue:
+        guard let id = constraint.identifier else { return 0 }
+        switch ReactionType(rawValue: id) {
+        case .like:
             return ReactionType.like.distRatioFromStartButton * contentViewWidth
-        case ReactionType.angry.rawValue:
+        case .angry:
             return ReactionType.angry.distRatioFromStartButton * contentViewWidth
-        case ReactionType.amazing.rawValue:
+        case .amazing:
             return ReactionType.amazing.distRatioFromStartButton * contentViewWidth
-        case ReactionType.sad.rawValue:
+        case .sad:
             return ReactionType.sad.distRatioFromStartButton * contentViewWidth
-        case ReactionType.best.rawValue:
+        case .best:
             return ReactionType.best.distRatioFromStartButton * contentViewWidth
         default:
             return nil
