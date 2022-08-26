@@ -142,46 +142,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    func addMarker(homeModel: HomeModel) {
-        DispatchQueue.main.async {
-            self.mapViewMarkerList.forEach { marker in
-                marker.mapView = nil
-                self.mapViewMarkerList = []
-            }
-            
-            homeModel.markerList.forEach { marker in
-                let currentMarker = NMFMarker()
-                let currentMarkerView = CustomMarker(frame: CGRect(x: 0, y: 0, width: 68, height: 59))
-                
-                currentMarkerView.updateMarker(
-                    markerType: marker.isMine == true ? .my : .notMy,
-                    iconType: marker.mainIcon,
-                    storyCount: marker.storyCount
-                )
-                
-                let customMarkerViewToImage = currentMarkerView.asImage()
-                let currentImage = NMFOverlayImage(image: customMarkerViewToImage)
-                currentMarker.iconImage = currentImage
-                currentMarker.position = NMGLatLng(lat: marker.markerPosition.latitude, lng: marker.markerPosition.longitude)
-                currentMarker.mapView = self.mapView
-                
-                let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
-                    let postingMainNavigationViewController = PostingNavigationController.instantiate()
-                    let firstViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
-                    firstViewController?.viewModel.currentBoundary = marker.boundary
-                    firstViewController?.type = .allStory
-                    postingMainNavigationViewController.modalPresentationStyle = .fullScreen
-                    self?.present(postingMainNavigationViewController, animated: true)
-                    return true
-                }
-                currentMarker.touchHandler = handler
-                
-                self.mapViewMarkerList.append(currentMarker)
-            }
-        }
-    }
-    
-    @IBAction func paintViewDidTap(_ sender: UITapGestureRecognizer) {
+    @IBAction private func paintViewDidTap(_ sender: UITapGestureRecognizer) {
         showAlertController(
             type: .single,
             title: "이번달 페인트칠이란?",
@@ -316,6 +277,64 @@ final class HomeViewController: UIViewController {
                 self.currentAddressLabel.text = "\(address[0]) \(address[1])"
             case .failure(_):
                 self.currentAddressLabel.text = "삼성동 테헤란로"
+            }
+        }
+    }
+    
+    private func removeMarkers() {
+        self.mapViewMarkerList.forEach { marker in
+            marker.mapView = nil
+        }
+        
+        self.mapViewMarkerList = []
+    }
+    
+    private func createMarker(markerData: Marker) -> NMFMarker {
+        let marker = NMFMarker()
+        
+        let markerImage = createCustomMarkerView(markerData: markerData)
+        marker.iconImage = markerImage
+        marker.position = NMGLatLng(lat: markerData.markerPosition.latitude, lng: markerData.markerPosition.longitude)
+        marker.mapView = self.mapView
+        
+        let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
+            let postingMainNavigationViewController = PostingNavigationController.instantiate()
+            let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
+            postingMainViewController?.viewModel.currentBoundary = markerData.boundary
+            postingMainViewController?.type = .allStory
+            postingMainNavigationViewController.modalPresentationStyle = .fullScreen
+            self?.present(postingMainNavigationViewController, animated: true)
+            return true
+        }
+        marker.touchHandler = handler
+        
+        return marker
+    }
+    
+    private func createCustomMarkerView(markerData: Marker) -> NMFOverlayImage {
+        let customMarkerView = CustomMarker(frame: CGRect(x: 0, y: 0, width: 68, height: 59))
+        
+        customMarkerView.updateMarker(
+            markerType: markerData.isMine == true ? .my : .notMy,
+            iconType: markerData.mainIcon,
+            storyCount: markerData.storyCount
+        )
+        
+        let customMarkerImage = customMarkerView.asImage()
+        let customOverlayMarkerImage = NMFOverlayImage(image: customMarkerImage)
+        
+        return customOverlayMarkerImage
+    }
+    
+    private func addMarker(homeModel: HomeModel) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.removeMarkers()
+            
+            homeModel.markerList.forEach { markerData in
+                let customMarker = self.createMarker(markerData: markerData)
+                self.mapViewMarkerList.append(customMarker)
             }
         }
     }
