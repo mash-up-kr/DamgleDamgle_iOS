@@ -28,17 +28,14 @@ final class NicknameViewController: UIViewController, StoryboardBased {
         
         setupView(viewModel: NicknameResponse(name: "", adjective: "로딩중인", noun: "담글이", nth: Int.random(in: 0...99)))
         loadNicknameResponce()
-        addLottieAnimation(
-            lottieName: self.refreshLottieName,
-            lottieSize: self.lottieSize,
-            isNeedDimView: true
-        )
     }
     
     private func loadNicknameResponce() {
+        self.activityIndicatorView.startAnimating()
         self.viewModel.getNickname() { [weak self] _ in
             guard let self = self, let viewModel = self.viewModel.model else { return }
             self.setupView(viewModel: viewModel)
+            self.activityIndicatorView.stopAnimating()
         }
     }
     
