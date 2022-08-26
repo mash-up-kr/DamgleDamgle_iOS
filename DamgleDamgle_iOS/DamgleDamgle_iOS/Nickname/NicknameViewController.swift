@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class NicknameViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
@@ -20,29 +21,71 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var viewModel = NicknameViewModel()
+    private let fullDimView = FullDimView()
     private let refreshLottieName = "refreshLottie"
-    private let lottieSize = UIScreen.main.bounds.width * 0.35
+    
+    private lazy var animationView = Lottie.AnimationView(name: refreshLottieName)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLottieView()
         setupView(viewModel: NicknameResponse(name: "", adjective: "로딩중인", noun: "담글이", nth: Int.random(in: 0...99)))
-        loadNicknameResponce()
-    }
-    
-    private func loadNicknameResponce() {
-        self.activityIndicatorView.startAnimating()
-        self.viewModel.getNickname() { [weak self] _ in
-            guard let self = self, let viewModel = self.viewModel.model else { return }
-            self.setupView(viewModel: viewModel)
-            self.activityIndicatorView.stopAnimating()
-        }
+        fetchNicknameResponce()
     }
     
     private func setupView(viewModel: NicknameResponse) {
         orderNumLabel.text = "\(viewModel.nth)" + "번째"
         adjectiveLabel.text = viewModel.adjective
         nounLabel.text = viewModel.noun
+    }
+    
+    private func setupLottieView() {
+        let screenSize = UIScreen.main.bounds
+        let lottieSize = screenSize.width * 0.35
+
+        view.addSubview(fullDimView)
+        fullDimView.alpha = 0
+        fullDimView.frame = view.bounds
+        fullDimView.addSubview(animationView)
+        
+        animationView.frame = CGRect(
+            x: (screenSize.width - lottieSize) / 2,
+            y: (screenSize.height - lottieSize) / 2,
+            width: lottieSize,
+            height: lottieSize
+        )
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.isUserInteractionEnabled = false
+    }
+    
+    private func playLoadingLottie() {
+        animationView.play()
+        
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            self?.fullDimView.alpha = 1.0
+        }.startAnimation()
+    }
+    
+    private func stopLoadingLottie() {
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            self?.fullDimView.alpha = 0
+        }.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            self?.animationView.stop()
+        }
+    }
+    
+    private func fetchNicknameResponce() {
+        playLoadingLottie()
+        
+        self.viewModel.getNickname() { [weak self] _ in
+            guard let self = self, let viewModel = self.viewModel.model else { return }
+            self.setupView(viewModel: viewModel)
+            self.stopLoadingLottie()
+        }
     }
     
     private func showHomeView() {
