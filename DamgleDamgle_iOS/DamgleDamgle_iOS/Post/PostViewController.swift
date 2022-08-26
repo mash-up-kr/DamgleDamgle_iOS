@@ -94,7 +94,7 @@ final class PostViewController: UIViewController {
     }
     
     func animatePostView(_ senderDirection: UISwipeGestureRecognizer.Direction) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) { [weak self] in
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [weak self] in
             guard let self = self else {
                 return
             }

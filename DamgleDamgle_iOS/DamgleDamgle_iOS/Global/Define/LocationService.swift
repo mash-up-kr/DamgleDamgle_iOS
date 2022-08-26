@@ -31,11 +31,8 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
             
             let geocodingRequest = GeocodingRequest(lat: currentLocation.latitude, lng: currentLocation.longitude)
             GeocodingService.reverseGeocoding(request: geocodingRequest) { result in
-                switch result {
-                case .success(let address):
+                if case let .success(address) = result {
                     self.currentAddress = address
-                default:
-                    break
                 }
             }
         }

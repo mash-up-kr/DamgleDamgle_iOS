@@ -123,7 +123,8 @@ final class HomeViewController: UIViewController {
                 guard let homeModel = homeModel else { return }
                 self.addMarker(homeModel: homeModel)
             case .failure(let error):
-                print("getStoryFeed", error)
+                // TODO: 에러 핸들링
+                debugPrint("getStoryFeed", error)
             }
         }
     }

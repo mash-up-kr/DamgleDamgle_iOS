@@ -46,7 +46,7 @@ final class HomeViewModel {
             let firstStoryPosition = CLLocationCoordinate2D(latitude: CLLocationDegrees(firstStory.y), longitude: CLLocationDegrees(firstStory.x))
             
             let storyIdxList = storyList.map { $0.id }
-            let haveMyStory = storyList.filter { $0.isMine == true }.count > 0
+            let hasMyStory = storyList.filter { $0.isMine == true }.count > 0
             
             return Marker(
                 mainIcon: mainIcon,
@@ -54,7 +54,7 @@ final class HomeViewModel {
                 markerPosition: firstStoryPosition,
                 storyIdxList: storyIdxList,
                 boundary: boundary,
-                isMine: haveMyStory
+                isMine: hasMyStory
             )
         } else {
             return Marker(mainIcon: .none, storyCount: 0, markerPosition: CLLocationCoordinate2D(), storyIdxList: [], boundary: NMGLatLngBounds(), isMine: true)

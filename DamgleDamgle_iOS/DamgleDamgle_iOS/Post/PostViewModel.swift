@@ -16,8 +16,8 @@ final class PostViewModel {
         let postStoryRequest = PostStoryRequest(
             lat: locationService.currentLocation.latitude,
             lng: locationService.currentLocation.longitude,
-            address1: locationService.currentAddress[0],
-            address2: locationService.currentAddress[1],
+            address1: locationService.currentAddress[safe: 0] ?? "역삼동",
+            address2: locationService.currentAddress[safe: 1] ?? "테헤란로",
             content: postContent
         )
         

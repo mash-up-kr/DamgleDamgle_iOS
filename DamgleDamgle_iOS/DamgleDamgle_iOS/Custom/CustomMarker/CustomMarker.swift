@@ -8,11 +8,11 @@
 import UIKit
 import NMapsMap
 
-class CustomMarker: UIView, NibBased {
+final class CustomMarker: UIView, NibBased {
     @IBOutlet private weak var bubbleBackgroundImageView: UIImageView!
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var storyCountLabel: UILabel!
-    @IBOutlet weak var markerView: UIView!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var storyCountLabel: UILabel!
+    @IBOutlet private weak var markerView: UIView!
     
     enum MarkerType {
         case my
