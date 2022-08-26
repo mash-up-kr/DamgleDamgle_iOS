@@ -64,10 +64,10 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         }
     }
     
-    func showMyStory() {
+    func showMyStory(at indexPath: IndexPath) {
         let postingMainNavigationViewController = PostingNavigationController.instantiate()
         
-        guard let story = viewModel.story(at: IndexPath(item: 0, section: 0)),
+        guard let story = viewModel.story(at: indexPath),
               let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
         else {
             return
@@ -141,6 +141,6 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
 
 extension MyStoryListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showMyStory()
+        showMyStory(at: indexPath)
     }
 }

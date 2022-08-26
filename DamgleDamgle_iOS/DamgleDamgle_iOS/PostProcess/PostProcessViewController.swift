@@ -130,7 +130,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     }
     
     private func presentMyNewStoryViewWhenHome() {
-        let homeViewController = self.presentingViewController
+        let homeViewController = presentingViewController
         
         dismiss(animated: false) { [weak self] in
 
@@ -145,16 +145,17 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
                     
                     postingMainViewController.viewModel.postModels = [story]
                     postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
-                    homeViewController?.present(postingMainNavigationViewController, animated: false)
+                    homeViewController?.present(postingMainNavigationViewController, animated: true)
                 }
         }
     }
     
     private func presentMyNewStoryViewWhenMyPage() {
-        let postViewController = self.presentingViewController
+        let postViewController = presentingViewController as? PostViewController
         let myViewController = presentingViewController?.presentingViewController as? MyViewController
         
         dismiss(animated: false) { [weak self] in
+            postViewController?.view.isHidden = true
             postViewController?.dismiss(animated: false) {
 
                 self?.viewModel.fetchData { story in
@@ -168,7 +169,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
                     
                     postingMainViewController.viewModel.postModels = [story]
                     postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
-                    myViewController?.present(postingMainNavigationViewController, animated: false)
+                    myViewController?.present(postingMainNavigationViewController, animated: true)
                     myViewController?.fetchMyStoryList()
                 }
             }
