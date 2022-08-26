@@ -30,7 +30,7 @@ final class ManyIconsView: UIView, NibBased {
     private func setupLabel(reactions: [ReactionSummary]) {
         for (id, content) in reactions.enumerated() {
             iconsLabelCollection.forEach {
-                if $0.tag == id {
+                if $0.tag == id && content.count > 0 {
                     $0.isHidden = false
                     $0.text = "\(content.count)"
                 }
@@ -49,7 +49,7 @@ final class ManyIconsView: UIView, NibBased {
             }
             
             iconsImageViewCollection.forEach {
-                if $0.tag == id {
+                if $0.tag == id && content.count > 0 {
                     $0.isHidden = false
                     $0.image = reaction.selectedImageViewImage
                 }
