@@ -192,7 +192,7 @@ extension PostingMainViewController: UITableViewDataSource {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
-    func iconButtonAnimationIsClosed(reaction: ReactionType) {
+    func endReactionButtonAnimation(reaction: ReactionType) {
         if type == .myStory {
             getMyStoryResponse()
         } else {
