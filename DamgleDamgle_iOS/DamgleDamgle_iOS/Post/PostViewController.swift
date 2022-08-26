@@ -118,6 +118,7 @@ final class PostViewController: UIViewController {
                     postProcessViewController.viewType = self.viewType
                     self.present(postProcessViewController, animated: true)
                     
+                    self.animatePostView(.down)
                     self.resetTextView()
                 }
             },

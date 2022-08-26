@@ -106,8 +106,6 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     private func dismiss() {
         if viewType == .home {
             let presentingViewController = self.presentingViewController as? HomeViewController
-            let postViewController = presentingViewController?.children.first as? PostViewController
-            postViewController?.animatePostView(.down)
             presentingViewController?.dismiss(animated: true)
         } else {
             let presentingViewController = self.presentingViewController
@@ -129,7 +127,6 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
                 let myViewController = MyViewController.instantiate()
                 myViewController.modalPresentationStyle = .overFullScreen
                 presentingViewController?.present(myViewController, animated: false)
-                presentingViewController?.resetChildView()
                 myViewController.showMyStoryList()
             }
             
