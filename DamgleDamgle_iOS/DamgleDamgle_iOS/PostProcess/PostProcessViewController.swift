@@ -33,7 +33,8 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     var postStatus: PostStatus = .inProgress
     var viewType: ViewType = .home
-    private let paintLottieName = "writeLottie"
+    private let successLottieName = "write_success"
+    private let failLottieName = "write_fail"
     private let lottieSize = UIScreen.main.bounds.width * 0.9
     
 // MARK: - override
@@ -44,13 +45,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        addLottieAnimation(
-            lottieName: paintLottieName,
-            lottieSize: lottieSize,
-            isNeedDimView: false) {
-                self.updateViewData(type: self.postStatus)
-            }
+        showLottie()
     }
 
 // MARK: - @IBAction
@@ -68,48 +63,6 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     @IBAction private func closeButtonDidTap(_ sender: UIButton) {
         dismiss()
-    }
-    
-    private func dismiss() {
-        if viewType == .home {
-            let presentingViewController = self.presentingViewController as? HomeViewController
-            let postViewController = presentingViewController?.children.first as? PostViewController
-            postViewController?.animatePostView(.down)
-            presentingViewController?.dismiss(animated: true)
-        } else {
-            let presentingViewController = self.presentingViewController
-            let myViewController = presentingViewController?.presentingViewController as? MyViewController
-
-            dismiss(animated: false) {
-                presentingViewController?.dismiss(animated: true) {
-                    myViewController?.fetchMyStoryList()
-                }
-            }
-        }
-    }
-    
-    private func presentMyStoryListView() {
-        if viewType == .home {
-            let presentingViewController = self.presentingViewController as? HomeViewController
-
-            dismiss(animated: false) {
-                let myViewController = MyViewController.instantiate()
-                myViewController.modalPresentationStyle = .overFullScreen
-                presentingViewController?.present(myViewController, animated: false)
-                presentingViewController?.resetChildView()
-                myViewController.showMyStoryList()
-            }
-            
-        } else {
-            let presentingViewController = self.presentingViewController
-            let myViewController = presentingViewController?.presentingViewController as? MyViewController
-            
-            dismiss(animated: false) {
-                presentingViewController?.dismiss(animated: true) {
-                    myViewController?.showMyStoryList()
-                }
-            }
-        }
     }
    
 // MARK: - UDF
@@ -136,5 +89,56 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         
         let isCloseButtonHidden = type == .inProgress
         closeButton.isHidden = isCloseButtonHidden
+    }
+    
+    private func showLottie() {
+        var currentLottieName: String
+        currentLottieName = postStatus == .success ? successLottieName : failLottieName
+        
+        addLottieAnimation(
+            lottieName: currentLottieName,
+            lottieSize: lottieSize,
+            isNeedDimView: false) {
+                self.updateViewData(type: self.postStatus)
+            }
+    }
+    
+    private func dismiss() {
+        if viewType == .home {
+            let presentingViewController = self.presentingViewController as? HomeViewController
+            presentingViewController?.dismiss(animated: true)
+        } else {
+            let presentingViewController = self.presentingViewController
+            let myViewController = presentingViewController?.presentingViewController as? MyViewController
+
+            dismiss(animated: false) {
+                presentingViewController?.dismiss(animated: true) {
+                    myViewController?.fetchMyStoryList()
+                }
+            }
+        }
+    }
+    
+    private func presentMyStoryListView() {
+        if viewType == .home {
+            let presentingViewController = self.presentingViewController as? HomeViewController
+
+            dismiss(animated: false) {
+                let myViewController = MyViewController.instantiate()
+                myViewController.modalPresentationStyle = .overFullScreen
+                presentingViewController?.present(myViewController, animated: false)
+                myViewController.showMyStoryList()
+            }
+            
+        } else {
+            let presentingViewController = self.presentingViewController
+            let myViewController = presentingViewController?.presentingViewController as? MyViewController
+            
+            dismiss(animated: false) {
+                presentingViewController?.dismiss(animated: true) {
+                    myViewController?.showMyStoryList()
+                }
+            }
+        }
     }
 }
