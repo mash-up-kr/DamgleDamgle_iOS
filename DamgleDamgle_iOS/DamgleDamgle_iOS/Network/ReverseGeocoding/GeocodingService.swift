@@ -16,7 +16,10 @@ struct GeocodingService {
                 case .success(let data):
                     guard let data = data else { return }
                     let geocodingResponse = try? JSONDecoder().decode(GeocodingResponse.self, from: data)
-                    guard let currentAddress = geocodingResponse?.getAddress() else { return }
+                    guard var currentAddress = geocodingResponse?.getAddress() else {
+                        completion(.success(["담글이네", "역삼래미안"]))
+                        return
+                    }
                     completion(.success(currentAddress))
                 case .failure(let error):
                     completion(.failure(error))
