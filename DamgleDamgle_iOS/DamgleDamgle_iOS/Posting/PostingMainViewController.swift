@@ -32,9 +32,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if type == .myStory {
-            getMyStoryResponse()
-        } else {
+        if type == .allStory {
             getFeedStoryResponse()
         }
         

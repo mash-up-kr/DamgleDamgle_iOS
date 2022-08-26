@@ -73,12 +73,7 @@ final class MyViewController: UIViewController, StoryboardBased {
             self?.stopLoadingLottie()
         }
     }
-    
-    func showMyStoryList() {
-        let myStoryListViewController = pageViewController.viewControllers?.first as? MyStoryListViewController
-        myStoryListViewController?.showMyStoryList()
-    }
-    
+
     private func setupUI() {
         let screenSize = UIScreen.main.bounds
         let lottieSize = screenSize.width * 0.35

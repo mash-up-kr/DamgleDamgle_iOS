@@ -33,6 +33,8 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     var postStatus: PostStatus = .inProgress
     var viewType: ViewType = .home
+    
+    private let viewModel = PostProcessViewModel()
     private let successLottieName = "write_success"
     private let failLottieName = "write_fail"
     private let lottieSize = UIScreen.main.bounds.width * 0.9
@@ -54,7 +56,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         case .inProgress:
             break
         case .success:
-            presentMyStoryListView()
+            presentMyNewStoryView()
             break
         case .fail:
             dismiss()
@@ -119,24 +121,55 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
         }
     }
     
-    private func presentMyStoryListView() {
+    private func presentMyNewStoryView() {
         if viewType == .home {
-            let presentingViewController = self.presentingViewController as? HomeViewController
-
-            dismiss(animated: false) {
-                let myViewController = MyViewController.instantiate()
-                myViewController.modalPresentationStyle = .overFullScreen
-                presentingViewController?.present(myViewController, animated: false)
-                myViewController.showMyStoryList()
-            }
-            
+            presentMyNewStoryViewWhenHome()
         } else {
-            let presentingViewController = self.presentingViewController
-            let myViewController = presentingViewController?.presentingViewController as? MyViewController
-            
-            dismiss(animated: false) {
-                presentingViewController?.dismiss(animated: true) {
-                    myViewController?.showMyStoryList()
+            presentMyNewStoryViewWhenMyPage()
+        }
+    }
+    
+    private func presentMyNewStoryViewWhenHome() {
+        let homeViewController = self.presentingViewController
+        
+        dismiss(animated: false) { [weak self] in
+
+                self?.viewModel.fetchData { story in
+                    let postingMainNavigationViewController = PostingNavigationController.instantiate()
+
+                    guard let story = story,
+                          let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
+                    else {
+                        return
+                    }
+                    
+                    postingMainViewController.viewModel.postModels = [story]
+                    postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
+                    homeViewController?.present(postingMainNavigationViewController, animated: false)
+                }
+        }
+    }
+    
+    private func presentMyNewStoryViewWhenMyPage() {
+        let postViewController = self.presentingViewController
+        let myViewController = presentingViewController?.presentingViewController as? MyViewController
+        
+        dismiss(animated: false) { [weak self] in
+            postViewController?.dismiss(animated: false) {
+
+                self?.viewModel.fetchData { story in
+                    let postingMainNavigationViewController = PostingNavigationController.instantiate()
+
+                    guard let story = story,
+                          let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
+                    else {
+                        return
+                    }
+                    
+                    postingMainViewController.viewModel.postModels = [story]
+                    postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
+                    myViewController?.present(postingMainNavigationViewController, animated: false)
+                    myViewController?.fetchMyStoryList()
                 }
             }
         }

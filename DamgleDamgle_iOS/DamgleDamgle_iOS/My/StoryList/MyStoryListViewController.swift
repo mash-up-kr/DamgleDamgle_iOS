@@ -64,9 +64,17 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         }
     }
     
-    func showMyStoryList() {
+    func showMyStory() {
         let postingMainNavigationViewController = PostingNavigationController.instantiate()
-        postingMainNavigationViewController.modalPresentationStyle = .fullScreen
+        
+        guard let story = viewModel.story(at: IndexPath(item: 0, section: 0)),
+              let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
+        else {
+            return
+        }
+        
+        postingMainViewController.viewModel.postModels = [story]
+        postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
         present(postingMainNavigationViewController, animated: true)
     }
     
@@ -133,6 +141,6 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
 
 extension MyStoryListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showMyStoryList()
+        showMyStory()
     }
 }

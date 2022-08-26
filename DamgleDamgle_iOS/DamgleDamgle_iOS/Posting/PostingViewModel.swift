@@ -12,7 +12,7 @@ import NMapsMap
 final class PostingViewModel {
     
     var currentBoundary: NMGLatLngBounds?
-    private(set) var postModels: [Story]?
+    var postModels: [Story]?
     private let service = StoryService()
     
     func getMyStory(size: Int?, storyID: String?, completion: @escaping (Bool) -> Void) {
