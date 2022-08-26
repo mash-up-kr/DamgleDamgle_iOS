@@ -93,6 +93,63 @@ final class PostViewController: UIViewController {
         }
     }
     
+    @IBAction private func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        if myStoryGuideLabel.isHidden == false {
+            animatePostView(.up)
+        } else {
+            self.postingTextView.resignFirstResponder()
+        }
+    }
+    
+    @IBAction private func postButtonTapped(_ sender: UIButton) {
+        showAlertController(
+            type: .double,
+            title: StringResource.title,
+            message: StringResource.message,
+            okActionTitle: StringResource.okTitle,
+            okActionHandler: {
+                self.viewModel.postStory { [weak self] result in
+                    guard let self = self else {
+                        return
+                    }
+                    let postProcessViewController = PostProcessViewController.instantiate()
+                    postProcessViewController.modalPresentationStyle = .fullScreen
+                    postProcessViewController.postStatus = result == true ? .success : .fail
+                    postProcessViewController.viewType = self.viewType
+                    self.present(postProcessViewController, animated: true)
+                    
+                    self.resetTextView()
+                }
+            },
+            cancelActionTitle: StringResource.cancelTitle
+        )
+    }
+    
+// MARK: - UDF
+    func setUpView() {
+        let startColor = UIColor(named: "grey500") ?? .gray
+        let endColor = UIColor(named: "gradientOrange") ?? .orange
+        shortenBackgroundImageView.addGradientLayer(startColor: startColor, endColor: endColor)
+        shortenBackgroundImageViewHeightConstraint.constant = UIScreen.main.bounds.height * 0.14
+        
+        myStoryGuideLabel.isHidden = false
+        textViewOverLimitButton.isHidden = true
+        postingComponents.forEach {
+            $0.alpha = 0
+        }
+        swipeUpGestureRecognizer.isEnabled = true
+        swipeDownGestureRecognizer.isEnabled = false
+        
+        postingTextView.text = ""
+        textViewStatus = .placeholder
+        
+        postingTextView.delegate = self
+        
+        view.layer.cornerRadius = 24
+        view.layer.masksToBounds = true
+        view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+    }
+    
     func animatePostView(_ senderDirection: UISwipeGestureRecognizer.Direction) {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [weak self] in
             guard let self = self else {
@@ -125,59 +182,8 @@ final class PostViewController: UIViewController {
         }
     }
     
-    @IBAction private func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        if myStoryGuideLabel.isHidden == false {
-            animatePostView(.up)
-        } else {
-            self.postingTextView.resignFirstResponder()
-        }
-    }
-    
-    @IBAction private func postButtonTapped(_ sender: UIButton) {
-        showAlertController(
-            type: .double,
-            title: StringResource.title,
-            message: StringResource.message,
-            okActionTitle: StringResource.okTitle,
-            okActionHandler: {
-                self.viewModel.postStory { [weak self] result in
-                    guard let self = self else {
-                        return
-                    }
-                    let postProcessViewController = PostProcessViewController.instantiate()
-                    postProcessViewController.modalPresentationStyle = .fullScreen
-                    postProcessViewController.postStatus = result == true ? .success : .fail
-                    postProcessViewController.viewType = self.viewType
-                    self.present(postProcessViewController, animated: true)
-                }
-            },
-            cancelActionTitle: StringResource.cancelTitle
-        )
-    }
-    
-// MARK: - UDF
-    func setUpView() {
-        let startColor = UIColor(named: "grey500") ?? .gray
-        let endColor = UIColor(named: "gradientOrange") ?? .orange
-        shortenBackgroundImageView.addGradientLayer(startColor: startColor, endColor: endColor)
-        shortenBackgroundImageViewHeightConstraint.constant = UIScreen.main.bounds.height * 0.14
-        
-        myStoryGuideLabel.isHidden = false
-        textViewOverLimitButton.isHidden = true
-        postingComponents.forEach {
-            $0.alpha = 0
-        }
-        swipeUpGestureRecognizer.isEnabled = true
-        swipeDownGestureRecognizer.isEnabled = false
-        
-        postingTextView.text = ""
+    func resetTextView() {
         textViewStatus = .placeholder
-        
-        postingTextView.delegate = self
-        
-        view.layer.cornerRadius = 24
-        view.layer.masksToBounds = true
-        view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     }
 }
 
