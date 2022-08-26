@@ -12,7 +12,6 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
         UIStoryboard(name: "My", bundle: nil)
     }
     
-    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var emptyView: UIView!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var backgroundBottomConstraint: NSLayoutConstraint!
@@ -32,6 +31,8 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     
     private let viewModel = MyStoryListViewModel()
     private let cellHeight = 102.0
+
+    private var isRefresh = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +43,12 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchData()
+        if isRefresh {
+            fetchData { }
+        }
     }
     
-    func fetchData() {
-        loadingView.isHidden = false
-        loadingView.startAnimating()
+    func fetchData(completion: @escaping () -> Void) {
         viewModel.fetchData { [weak self] result in
             switch result {
             case .success(let count):
@@ -58,8 +59,8 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
                 // TODO: Error handling
                 debugPrint(error.localizedDescription)
             }
-            self?.loadingView.isHidden = true
-            self?.loadingView.stopAnimating()
+            self?.isRefresh = true
+            completion()
         }
     }
     
@@ -103,10 +104,15 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
     }
     
     private func updateBackgroundImageView() {
-        if let numberOfItems = viewModel.dataSource?.snapshot().numberOfItems, numberOfItems < 5 {
+        if let numberOfItems = viewModel.dataSource?.snapshot().numberOfItems, numberOfItems > 0, numberOfItems < 4 {
             backgroundBottomConstraint.isActive = false
             backgroundHeightConstraint.isActive = true
-            backgroundHeightConstraint.constant = CGFloat(Int(cellHeight + 40.0) * numberOfItems)
+            
+            if numberOfItems == 1 {
+                backgroundHeightConstraint.constant = cellHeight + 70.0
+            } else {
+                backgroundHeightConstraint.constant = CGFloat(Int(cellHeight + 40.0) * numberOfItems)
+            }
         } else {
             backgroundBottomConstraint.isActive = true
             backgroundHeightConstraint.isActive = false

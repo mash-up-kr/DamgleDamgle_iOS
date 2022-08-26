@@ -72,10 +72,8 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     }
     
     @IBAction private func startButtonDidTap(_ sender: UIButton) {
-        // TODO: 회원가입시키고 accessToken받아서 UserManager에 저장, 아래가 방법 예시!
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async { [weak self] in
-                // TODO: 서버 값이랑 동기화 할지? 로컬이랑 동기화 할지?
                 let authorizedState = settings.authorizationStatus == .authorized
                 self?.viewModel.postNickname(isNotificationEnabled: authorizedState) { [weak self] isSuccess in
                     guard let self = self else { return }

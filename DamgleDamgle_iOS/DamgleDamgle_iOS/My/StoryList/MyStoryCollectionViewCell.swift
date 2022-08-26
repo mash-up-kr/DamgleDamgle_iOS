@@ -20,8 +20,8 @@ final class MyStoryCollectionViewCell: UICollectionViewCell, Reusable {
         }
     }
 
-    // TODO: address 값 넣기
     func configure(story: Story?) {
+        addressLabel.text = "\(story?.address1 ?? "열심히 공사중인")\n\(story?.address2 ?? "담글이네")"
         imageView.image = ReactionType(rawValue: story?.mostReaction ?? "")?.selectedImageViewImage ?? UIImage(named: "img=empty")
         reactionCountLabel.text = "\(story?.reactionAllCount ?? 0)"
         reactionCountLabel.isHidden = story?.reactionAllCount == 0

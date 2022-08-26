@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class MyViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
@@ -14,7 +15,7 @@ final class MyViewController: UIViewController, StoryboardBased {
     
     @IBOutlet private weak var nicknameLabel: UILabel! {
         didSet {
-            nicknameLabel.text = " "
+            nicknameLabel.text = "로딩중인 1004번째 담글이"
         }
     }
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
@@ -30,6 +31,11 @@ final class MyViewController: UIViewController, StoryboardBased {
         }
     }
     
+    private let fullDimView = FullDimView()
+    private let refreshLottieName = "refreshLottie"
+    
+    private lazy var animationView = Lottie.AnimationView(name: refreshLottieName)
+
     private let viewModel = MyViewModel()
     
     private let listViewController = MyStoryListViewController.instantiate()
@@ -55,11 +61,17 @@ final class MyViewController: UIViewController, StoryboardBased {
         getMe()
         configurePageView()
         setupScrollViewDelegate()
+        setupUI()
+        fetchMyStoryList()
     }
     
     func fetchMyStoryList() {
+        playLoadingLottie()
+
         let myStoryListViewController = pageViewController.viewControllers?.first as? MyStoryListViewController
-        myStoryListViewController?.fetchData()
+        myStoryListViewController?.fetchData { [weak self] in
+            self?.stopLoadingLottie()
+        }
     }
     
     func showMyStoryList() {
@@ -67,9 +79,30 @@ final class MyViewController: UIViewController, StoryboardBased {
         myStoryListViewController?.showMyStoryList()
     }
     
+    private func setupUI() {
+        let screenSize = UIScreen.main.bounds
+        let lottieSize = screenSize.width * 0.35
+
+        view.addSubview(fullDimView)
+        fullDimView.alpha = 0
+        fullDimView.frame = view.bounds
+        fullDimView.addSubview(animationView)
+        
+        animationView.frame = CGRect(
+            x: (screenSize.width - lottieSize) / 2,
+            y: (screenSize.height - lottieSize) / 2,
+            width: lottieSize,
+            height: lottieSize
+        )
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.isUserInteractionEnabled = false
+    }
+    
     private func getMe() {
         loadingView.startAnimating()
         loadingView.isHidden = false
+        
         viewModel.getMy { [weak self] result in
             switch result {
             case .success(let me):
@@ -85,6 +118,24 @@ final class MyViewController: UIViewController, StoryboardBased {
             }
             self?.loadingView.stopAnimating()
             self?.loadingView.isHidden = true
+        }
+    }
+    
+    private func playLoadingLottie() {
+        animationView.play()
+        
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            self?.fullDimView.alpha = 1.0
+        }.startAnimation()
+    }
+    
+    private func stopLoadingLottie() {
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            self?.fullDimView.alpha = 0
+        }.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            self?.animationView.stop()
         }
     }
     
