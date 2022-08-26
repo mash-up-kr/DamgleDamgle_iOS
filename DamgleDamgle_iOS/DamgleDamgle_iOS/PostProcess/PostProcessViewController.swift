@@ -33,7 +33,8 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     var postStatus: PostStatus = .inProgress
     var viewType: ViewType = .home
-    private let paintLottieName = "writeLottie"
+    private let successLottieName = "write_success"
+    private let failLottieName = "write_fail"
     private let lottieSize = UIScreen.main.bounds.width * 0.9
     
 // MARK: - override
@@ -44,13 +45,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        addLottieAnimation(
-            lottieName: paintLottieName,
-            lottieSize: lottieSize,
-            isNeedDimView: false) {
-                self.updateViewData(type: self.postStatus)
-            }
+        showLottie()
     }
 
 // MARK: - @IBAction
@@ -68,6 +63,44 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     
     @IBAction private func closeButtonDidTap(_ sender: UIButton) {
         dismiss()
+    }
+   
+// MARK: - UDF
+    private func setUpView() {
+        updateViewData(type: .inProgress)
+    }
+    
+    private func updateViewData(type: PostStatus) {
+        processStatusTitleLabel.text = type.statusTitle
+        processStatusSubTitleLabel.text = type.subTitle
+        
+        if let image = type.image {
+            processImageView.image = image
+        }
+        
+        processImageView.image = type.image
+        
+        if let buttonTitle = type.buttonTitle {
+            nextStepButton.isHidden = false
+            nextStepButton.setTitle(buttonTitle, for: .normal)
+        } else {
+            nextStepButton.isHidden = true
+        }
+        
+        let isCloseButtonHidden = type == .inProgress
+        closeButton.isHidden = isCloseButtonHidden
+    }
+    
+    private func showLottie() {
+        var currentLottieName: String
+        currentLottieName = postStatus == .success ? successLottieName : failLottieName
+        
+        addLottieAnimation(
+            lottieName: currentLottieName,
+            lottieSize: lottieSize,
+            isNeedDimView: false) {
+                self.updateViewData(type: self.postStatus)
+            }
     }
     
     private func dismiss() {
@@ -110,31 +143,5 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
                 }
             }
         }
-    }
-   
-// MARK: - UDF
-    private func setUpView() {
-        updateViewData(type: .inProgress)
-    }
-    
-    private func updateViewData(type: PostStatus) {
-        processStatusTitleLabel.text = type.statusTitle
-        processStatusSubTitleLabel.text = type.subTitle
-        
-        if let image = type.image {
-            processImageView.image = image
-        }
-        
-        processImageView.image = type.image
-        
-        if let buttonTitle = type.buttonTitle {
-            nextStepButton.isHidden = false
-            nextStepButton.setTitle(buttonTitle, for: .normal)
-        } else {
-            nextStepButton.isHidden = true
-        }
-        
-        let isCloseButtonHidden = type == .inProgress
-        closeButton.isHidden = isCloseButtonHidden
     }
 }
