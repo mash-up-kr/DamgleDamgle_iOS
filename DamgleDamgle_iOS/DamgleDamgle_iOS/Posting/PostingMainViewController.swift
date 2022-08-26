@@ -163,11 +163,7 @@ extension PostingMainViewController: UITableViewDataSource {
                 okActionHandler: {
                     self.viewModel.postReport(storyID: id) { isSuccess in
                         if isSuccess {
-                            if self.type == .myStory {
-                                self.getMyStoryResponse()
-                            } else {
-                                self.getFeedStoryResponse()
-                            }
+                            self.getFeedStoryResponse()
                         } else {
                             self.showAlertController(
                                 type: .single,

@@ -20,8 +20,7 @@ final class PostingViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                let stories = self.removeReportStory(response: response?.stories)
-                self.postModels = stories
+                self.postModels = response?.stories
                 completion(true)
             case .failure(let error):
                 completion(false)
@@ -70,7 +69,8 @@ final class PostingViewModel {
         service.getStoryFeed(request: storyRequest) { result in
             switch result {
             case .success(let storyFeed):
-                self.postModels = storyFeed.stories
+                let stories = self.removeReportStory(response: storyFeed.stories)
+                self.postModels = stories
                 completion(true)
             case .failure(let error):
                 completion(false)
