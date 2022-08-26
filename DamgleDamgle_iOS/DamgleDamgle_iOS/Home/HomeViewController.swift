@@ -276,7 +276,7 @@ final class HomeViewController: UIViewController {
             case .success(let address):
                 self.currentAddressLabel.text = "\(address[0]) \(address[1])"
             case .failure(_):
-                self.currentAddressLabel.text = "삼성동 테헤란로"
+                self.currentAddressLabel.text = "담글이네 역삼래미안"
             }
         }
     }

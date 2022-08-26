@@ -30,6 +30,10 @@ struct GeocodingResponse: Codable {
             address = [town, streetAddress]
         }
         
+        if address.isEmpty {
+            address = ["담글이네", "역삼래미안"]
+        }
+        
         return address
     }
 }
