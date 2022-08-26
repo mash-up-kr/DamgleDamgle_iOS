@@ -72,11 +72,6 @@ final class HomeViewController: UIViewController {
         locationManager.dataDelegate = self
         locationManager.locationDelegate = self
         
-        if isFirstShow {
-            locationManager.checkLocationServiceAuthorization()
-            isFirstShow.toggle()
-        }
-        
         getLastDateOfMonth()
         
         NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -87,6 +82,11 @@ final class HomeViewController: UIViewController {
         
         if children.isEmpty {
             setChildPostView()
+        }
+        
+        if isFirstShow {
+            locationManager.checkLocationServiceAuthorization()
+            isFirstShow.toggle()
         }
     }
     
