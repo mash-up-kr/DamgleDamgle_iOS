@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icn_paint@1x-1.png",
+      "filename" : "icn=amazing@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icn_paint@2x.png",
+      "filename" : "icn=amazing@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icn_paint@3x.png",
+      "filename" : "icn=amazing@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

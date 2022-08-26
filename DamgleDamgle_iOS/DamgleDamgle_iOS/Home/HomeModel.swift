@@ -28,4 +28,5 @@ struct Marker {
     let markerPosition: CLLocationCoordinate2D
     let storyIdxList: [String]
     let boundary: NMGLatLngBounds
+    let isMine: Bool
 }

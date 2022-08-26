@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 struct GeocodingService {
-    static func reverseGeocoding(request: GeocodingRequest, completion: @escaping (Result<String, Error>) -> Void) {
+    static func reverseGeocoding(request: GeocodingRequest, completion: @escaping (Result<[String], Error>) -> Void) {
         AF.request(GeocodingTarget.getAddress(request))
             .response { response in
                 switch response.result {

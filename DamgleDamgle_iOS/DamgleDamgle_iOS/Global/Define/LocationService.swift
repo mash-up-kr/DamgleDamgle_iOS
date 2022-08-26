@@ -28,13 +28,23 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D() {
         didSet {
             locationDelegate?.updateCurrentLocation(location: currentLocation)
+            
+            let geocodingRequest = GeocodingRequest(lat: currentLocation.latitude, lng: currentLocation.longitude)
+            GeocodingService.reverseGeocoding(request: geocodingRequest) { result in
+                if case let .success(address) = result {
+                    self.currentAddress = address
+                }
+            }
         }
     }
+    
     var currentStatus: LocationAuthorizationStatus? {
         didSet {
             dataDelegate?.updateCurrentStatus(currentStatus)
         }
     }
+    
+    var currentAddress: [String] = []
     
     override private init() {
         super.init()

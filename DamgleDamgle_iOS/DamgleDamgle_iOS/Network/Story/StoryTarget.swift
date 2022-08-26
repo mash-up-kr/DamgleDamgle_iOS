@@ -64,6 +64,8 @@ extension StoryTarget: URLRequestConvertible {
             return [
                 "x": request.lng,
                 "y": request.lat,
+                "address1": request.address1,
+                "address2": request.address2,
                 "content": request.content
             ]
         case let .getMyStory(size, storyID):

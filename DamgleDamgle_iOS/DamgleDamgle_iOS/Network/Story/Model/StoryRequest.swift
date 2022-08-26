@@ -10,6 +10,8 @@ import Foundation
 struct PostStoryRequest {
     let lat: Double
     let lng: Double
+    let address1: String
+    let address2: String
     let content: String
 }
 

@@ -6,10 +6,46 @@
 //
 
 import UIKit
+import NMapsMap
 
-class CustomMarker: UIView, NibBased {
+final class CustomMarker: UIView, NibBased {
     @IBOutlet private weak var bubbleBackgroundImageView: UIImageView!
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var storyCountLabel: UILabel!
+    @IBOutlet private weak var markerView: UIView!
+    
+    enum MarkerType {
+        case my
+        case notMy
+    }
+    
+    var currentMarkerType: MarkerType = .my {
+        didSet {
+            switch currentMarkerType {
+            case .my:
+                bubbleBackgroundImageView.image = UIImage(named: "write_me_bubble") ?? UIImage.checkmark
+            case .notMy:
+                bubbleBackgroundImageView.image = UIImage(named: "write_other_bubble") ?? UIImage.checkmark
+            }
+        }
+    }
+    
+    var currentIcon: MainIcon = .none {
+        didSet {
+            iconImageView.image = UIImage(named: currentIcon.rawValue) ?? UIImage.checkmark
+        }
+    }
+    
+    var storyCount = 0 {
+        didSet {
+            markerView.isHidden = storyCount == 1
+            if storyCount <= 99 {
+                storyCountLabel.text = "\(storyCount)"
+            } else {
+                storyCountLabel.text = "99+"
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,5 +55,11 @@ class CustomMarker: UIView, NibBased {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
+    }
+    
+    func updateMarker(markerType: MarkerType, iconType: MainIcon, storyCount: Int) {
+        currentMarkerType = markerType
+        currentIcon = iconType
+        self.storyCount = storyCount
     }
 }

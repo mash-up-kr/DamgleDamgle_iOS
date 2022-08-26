@@ -40,7 +40,7 @@ final class HomeViewController: UIViewController {
     private var isFirstUpdate = true
     private let defaultLocation = CLLocationCoordinate2D(latitude: 37.56157, longitude: 126.9966302)
     private let postViewShortRatio = 0.86
-    private let postViewLongRatio = 0.95
+    private let postViewLongRatio = 0.9
     private let originWidth: CGFloat = UIScreen.main.bounds.width
     private let originHeight: CGFloat = UIScreen.main.bounds.height
     
@@ -58,6 +58,7 @@ final class HomeViewController: UIViewController {
     
     private let viewModel = HomeViewModel()
     private var mapViewMarkerList: [NMFMarker] = []
+    private var isFirstShow = true
     
 // MARK: - override
     override func viewDidLoad() {
@@ -71,6 +72,11 @@ final class HomeViewController: UIViewController {
         locationManager.dataDelegate = self
         locationManager.locationDelegate = self
         
+        if isFirstShow {
+            locationManager.checkLocationServiceAuthorization()
+            isFirstShow.toggle()
+        }
+        
         getLastDateOfMonth()
         
         NotificationCenter.default.addObserver(self, selector: #selector(didMoveToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -78,8 +84,6 @@ final class HomeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        locationManager.checkLocationServiceAuthorization()
         
         if children.isEmpty {
             setChildPostView()
@@ -106,12 +110,23 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction private func refreshButtonTapped(_ sender: UIButton) {
-        // TODO: 새로 고침
+
         addLottieAnimation(
             lottieName: refreshLottieName,
             lottieSize: lottieSize,
             isNeedDimView: true
         )
+        
+        viewModel.getStoryFeed { result in
+            switch result {
+            case .success(let homeModel):
+                guard let homeModel = homeModel else { return }
+                self.addMarker(homeModel: homeModel)
+            case .failure(let error):
+                // TODO: 에러 핸들링
+                debugPrint("getStoryFeed", error)
+            }
+        }
     }
     
     @IBAction private func currentLocationButtonTapped(_ sender: UIButton) {
@@ -121,49 +136,23 @@ final class HomeViewController: UIViewController {
         case .authorizationDenied, .locationServiceDisabled:
             showDefaultLocation()
         case .success:
-            let mapPosition = NMGLatLng(from: locationManager.currentLocation)
-            let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
-            cameraUpdate.animation = .easeIn
-            cameraUpdate.animationDuration = 0.5
-            mapView.moveCamera(cameraUpdate)
-            getCurrentLocationAddress()
-            
-            viewModel.getStoryFeed { result in
-                switch result {
-                case .success(let homeModel):
-                    guard let homeModel = homeModel else { return }
-                    self.addMarker(homeModel: homeModel)
-                case .failure(let error):
-                    print("getStoryFeed", error)
-                }
-            }
+            locationManager.startUpdatingCurrentLocation()
         default:
             break
         }
     }
     
-    func addMarker(homeModel: HomeModel) {
-        mapViewMarkerList.forEach { marker in
-            marker.mapView = nil
-            mapViewMarkerList = []
-        }
-        
-        homeModel.markerList.forEach { marker in
-            let currentMarker = NMFMarker()
-            currentMarker.position = NMGLatLng(lat: marker.markerPosition.latitude, lng: marker.markerPosition.longitude)
-            currentMarker.mapView = mapView
-            mapViewMarkerList.append(currentMarker)
-        }
-    }
-    
-    @IBAction func moveToListView(_ sender: UIButton) {
-        let postingMainViewController = PostingNavigationController.instantiate()
-        let firstViewController = postingMainViewController.children.first as? PostingMainViewController
-        // TODO: AllStory 데이터로 viewModel 데이터 초기화하는 로직 구현 예정
-//        firstViewController?.type = .allStory
-//        firstViewController?.viewModel.postModels = ??
-        postingMainViewController.modalPresentationStyle = .overFullScreen
-        present(postingMainViewController, animated: true)
+    @IBAction private func paintViewDidTap(_ sender: UITapGestureRecognizer) {
+        showAlertController(
+            type: .single,
+            title: "이번달 페인트칠이란?",
+            message: """
+            매월 마지막날,  담벼락을 새로
+            페인트칠하면 모든 담글이 깨끗히 지워져요.
+            해당 타이머를 보고 다음 페인트칠까지
+            남은 시간을 확인하세요.
+            """
+        )
     }
     
 // MARK: - objc
@@ -222,7 +211,7 @@ final class HomeViewController: UIViewController {
                 x: 0,
                 y: originHeight * postViewShortRatio,
                 width: originWidth,
-                height: originHeight * (1 - postViewShortRatio)
+                height: originHeight * postViewLongRatio
             )
             childrenViewController.setUpView()
         }
@@ -282,15 +271,72 @@ final class HomeViewController: UIViewController {
             lng: locationManager.currentLocation.longitude
         )
         
-//        GeocodingService.reverseGeocoding(request: request) { result in
-//            switch result {
-//            case .success(let address):
-//                self.currentAddressLabel.text = address
-//            case .failure(_):
-//                self.currentAddressLabel.text = ""
-//            }
-//        }
-        currentAddressLabel.text = "삼성동 테헤란로"
+        GeocodingService.reverseGeocoding(request: request) { result in
+            switch result {
+            case .success(let address):
+                self.currentAddressLabel.text = "\(address[0]) \(address[1])"
+            case .failure(_):
+                self.currentAddressLabel.text = "삼성동 테헤란로"
+            }
+        }
+    }
+    
+    private func removeMarkers() {
+        self.mapViewMarkerList.forEach { marker in
+            marker.mapView = nil
+        }
+        
+        self.mapViewMarkerList = []
+    }
+    
+    private func createMarker(markerData: Marker) -> NMFMarker {
+        let marker = NMFMarker()
+        
+        let markerImage = createCustomMarkerView(markerData: markerData)
+        marker.iconImage = markerImage
+        marker.position = NMGLatLng(lat: markerData.markerPosition.latitude, lng: markerData.markerPosition.longitude)
+        marker.mapView = self.mapView
+        
+        let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
+            let postingMainNavigationViewController = PostingNavigationController.instantiate()
+            let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
+            postingMainViewController?.viewModel.currentBoundary = markerData.boundary
+            postingMainViewController?.type = .allStory
+            postingMainNavigationViewController.modalPresentationStyle = .fullScreen
+            self?.present(postingMainNavigationViewController, animated: true)
+            return true
+        }
+        marker.touchHandler = handler
+        
+        return marker
+    }
+    
+    private func createCustomMarkerView(markerData: Marker) -> NMFOverlayImage {
+        let customMarkerView = CustomMarker(frame: CGRect(x: 0, y: 0, width: 68, height: 59))
+        
+        customMarkerView.updateMarker(
+            markerType: markerData.isMine == true ? .my : .notMy,
+            iconType: markerData.mainIcon,
+            storyCount: markerData.storyCount
+        )
+        
+        let customMarkerImage = customMarkerView.asImage()
+        let customOverlayMarkerImage = NMFOverlayImage(image: customMarkerImage)
+        
+        return customOverlayMarkerImage
+    }
+    
+    private func addMarker(homeModel: HomeModel) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.removeMarkers()
+            
+            homeModel.markerList.forEach { markerData in
+                let customMarker = self.createMarker(markerData: markerData)
+                self.mapViewMarkerList.append(customMarker)
+            }
+        }
     }
 }
 
@@ -302,27 +348,30 @@ extension HomeViewController: LocationDataProtocol {
 
 extension HomeViewController: LocationUpdateProtocol {
     func updateCurrentLocation(location: CLLocationCoordinate2D) {
+        locationManager.stopUpdatingCurrentLocation()
+        
         let mapPosition = NMGLatLng(from: location)
-
+        
+        currentLocationMarker.zIndex = -100
         currentLocationMarker.position = mapPosition
         currentLocationMarker.mapView = mapView
-                
-        if isFirstUpdate {
-            getCurrentLocationAddress()
-            mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(mapPosition, zoom: defaultZoomLevel)))
-            isFirstUpdate = false
-        }
-
-        viewModel.currentBoundary = mapView.coveringBounds
         
-        viewModel.getStoryFeed { result in
-            switch result {
-            case .success(let homeModel):
-                guard let homeModel = homeModel else { return }
-                self.addMarker(homeModel: homeModel)
-            case .failure(let error):
-                print("getStoryFeed", error)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
+        cameraUpdate.animation = .easeIn
+        cameraUpdate.animationDuration = 0.5
+        mapView.moveCamera(cameraUpdate) { _ in
+            self.viewModel.currentBoundary = self.mapView.coveringBounds
+            self.viewModel.getStoryFeed { result in
+                switch result {
+                case .success(let homeModel):
+                    guard let homeModel = homeModel else { return }
+                    self.addMarker(homeModel: homeModel)
+                case .failure(let error):
+                    print("getStoryFeed", error)
+                }
             }
         }
+        
+        getCurrentLocationAddress()
     }
 }

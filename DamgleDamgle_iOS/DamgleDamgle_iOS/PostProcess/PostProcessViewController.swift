@@ -73,8 +73,9 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     private func dismiss() {
         if viewType == .home {
             let presentingViewController = self.presentingViewController as? HomeViewController
-            presentingViewController?.resetChildView()
-            self.presentingViewController?.dismiss(animated: true)
+            let postViewController = presentingViewController?.children.first as? PostViewController
+            postViewController?.animatePostView(.down)
+            presentingViewController?.dismiss(animated: true)
         } else {
             let presentingViewController = self.presentingViewController
             let myViewController = presentingViewController?.presentingViewController as? MyViewController

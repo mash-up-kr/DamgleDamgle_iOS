@@ -38,7 +38,6 @@ final class HomeViewModel {
         return sortedReactionCountDict.first?.key ?? .none
     }
     
-    
     private func convertStoryFeedToMarker(storyList: [Story], boundary: NMGLatLngBounds) -> Marker {
         let mainIcon = findMaxReaction(stories: storyList)
         
@@ -47,16 +46,18 @@ final class HomeViewModel {
             let firstStoryPosition = CLLocationCoordinate2D(latitude: CLLocationDegrees(firstStory.y), longitude: CLLocationDegrees(firstStory.x))
             
             let storyIdxList = storyList.map { $0.id }
+            let hasMyStory = storyList.filter { $0.isMine == true }.count > 0
             
             return Marker(
                 mainIcon: mainIcon,
                 storyCount: storyList.count,
                 markerPosition: firstStoryPosition,
                 storyIdxList: storyIdxList,
-                boundary: boundary
+                boundary: boundary,
+                isMine: hasMyStory
             )
         } else {
-            return Marker(mainIcon: .none, storyCount: 0, markerPosition: CLLocationCoordinate2D(), storyIdxList: [], boundary: NMGLatLngBounds())
+            return Marker(mainIcon: .none, storyCount: 0, markerPosition: CLLocationCoordinate2D(), storyIdxList: [], boundary: NMGLatLngBounds(), isMine: true)
         }
     }
     
