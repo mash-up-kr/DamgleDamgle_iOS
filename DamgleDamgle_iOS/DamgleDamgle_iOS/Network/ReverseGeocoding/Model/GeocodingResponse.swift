@@ -20,9 +20,7 @@ struct GeocodingResponse: Codable {
     func getAddress() -> [String] {
         var address: [String]
         
-        guard let district = self.results.first?.region.area2.name else { return [] }
-        guard let town = self.results.first?.region.area3.name else { return [] }
-        guard let streetAddress = self.results.first?.land.name else { return [] }
+        guard let district = self.results.first?.region.area2.name, let town = self.results.first?.region.area3.name, let streetAddress = self.results.first?.land.name else { return ["담글이네", "역삼래미안"] }
         
         if streetAddress == "" {
             address = [district, town]

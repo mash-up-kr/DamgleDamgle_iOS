@@ -15,12 +15,13 @@ struct GeocodingService {
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
-                    let geocodingResponse = try? JSONDecoder().decode(GeocodingResponse.self, from: data)
-                    guard var currentAddress = geocodingResponse?.getAddress() else {
-                        completion(.success(["담글이네", "역삼래미안"]))
-                        return
+                    do {
+                        let geocodingResponse = try JSONDecoder().decode(GeocodingResponse.self, from: data)
+                        let currentAddress = geocodingResponse.getAddress()
+                        completion(.success(currentAddress))
+                    } catch {
+                        completion(.failure(error))
                     }
-                    completion(.success(currentAddress))
                 case .failure(let error):
                     completion(.failure(error))
                 }
