@@ -101,7 +101,10 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     }
     
     @IBAction private func closeButtonDidTap(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
+        let myViewController = navigationController?.presentingViewController as? MyViewController
+        dismiss(animated: true) {
+            myViewController?.fetchMyStoryList()
+        }
     }
 }
 
@@ -185,24 +188,31 @@ extension PostingMainViewController: UITableViewDataSource {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
-    func endReactionButtonAnimation(reaction: ReactionType) {
+    func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool) {
         if type == .myStory {
             getMyStoryResponse()
         } else {
             getFeedStoryResponse()
         }
         
-        if reaction != .none {
-            toastButtonAnimate(reaction: reaction)
-        }
+        guard isChange else { return }
+        
+        toastButtonAnimate(reaction: reaction, wasEmpty: wasEmpty, isEmpty: reaction == .none)
     }
     
-    private func toastButtonAnimate(reaction: ReactionType) {
+    // wasEmpty = 이전에 리액션 한게 없어서 비어 있었음, isEmpty = 지금 같은 리액션을 눌러서 이제 비게 됨
+    private func toastButtonAnimate(reaction: ReactionType, wasEmpty: Bool = false, isEmpty: Bool = false) {
         toastLabel.alpha = 1.0
         let screenWidth: CGFloat = UIScreen.main.bounds.width
         let screenHeight: CGFloat = UIScreen.main.bounds.height
         
-        toastLabel.setupUI(text: reaction.toastMessageTitle)
+        if wasEmpty {
+            toastLabel.setupUI(text: reaction.firstReactionTitle)
+        } else if isEmpty {
+            toastLabel.setupUI(text: reaction.removeReactionTitle)
+        } else {
+            toastLabel.setupUI(text: reaction.toastMessageTitle)
+        }
         
         toastLabel.frame.origin.x = screenWidth/2 - toastLabel.bounds.width/2
         toastLabel.frame.origin.y = screenHeight - toastLabel.bounds.height - screenHeight*(64/812)

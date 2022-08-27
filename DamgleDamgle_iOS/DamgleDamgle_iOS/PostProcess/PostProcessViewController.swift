@@ -151,7 +151,7 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
     }
     
     private func presentMyNewStoryViewWhenMyPage() {
-        let postViewController = presentingViewController as? PostViewController
+        let postViewController = presentingViewController
         let myViewController = presentingViewController?.presentingViewController as? MyViewController
         
         dismiss(animated: false) { [weak self] in

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TableViewCellDelegate: AnyObject {
-    func endReactionButtonAnimation(reaction: ReactionType)
+    func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool)
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
@@ -28,9 +28,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     var addSelectedIcon: ((ReactionType) -> Void)?
     var deleteSeletedIcon: (() -> Void)?
     var postReport: (() -> Void)?
-    private var nowSelectedReaction: ReactionType = ReactionType.none {
+    private var nowSelectedReaction: ReactionType = .none {
         didSet {
-            closeIconsButton(isSelected: nowSelectedReaction)
+            closeIconsButton(isSelected: nowSelectedReaction, wasEmpty: (oldValue == ReactionType.none) && (nowSelectedReaction != ReactionType.none))
         }
     }
     
@@ -114,7 +114,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBAction private func touchUpiconStartButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
-            closeIconsButton(isSelected: self.nowSelectedReaction)
+            closeIconsButton(isSelected: nowSelectedReaction, isChange: false)
         } else {
             sender.isSelected = true
             openIconsButton()
@@ -174,7 +174,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         }
     }
     
-    private func closeIconsButton(isSelected reaction: ReactionType) {
+    private func closeIconsButton(isSelected reaction: ReactionType, wasEmpty: Bool = false, isChange: Bool = true) {
         UIView.animate(withDuration: 0.5) { [weak self] in
             guard let self = self else { return }
             self.iconsButtonXPointConstraint.forEach {
@@ -184,7 +184,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
-            self.delegate?.endReactionButtonAnimation(reaction: reaction)
+            self.delegate?.endReactionButtonAnimation(reaction: reaction, wasEmpty: wasEmpty, isChange: isChange)
         })
     }
     
@@ -301,18 +301,26 @@ enum ReactionType: String, CaseIterable {
         }
     }
     
+    var firstReactionTitle: String {
+        "담글에 공감하셨어요!"
+    }
+    
+    var removeReactionTitle: String {
+        "공감이 취소되었어요."
+    }
+    
     var toastMessageTitle: String? {
         switch self {
         case .like:
-            return "좋아요 이모지로 수정되었습니다!"
+            return "좋아요 이모지로 수정되었어요!"
         case .angry:
-            return "화나요 이모지로 수정되었습니다!"
+            return "화나요 이모지로 수정되었어요!"
         case .amazing:
-            return "놀라워요 이모지로 수정되었습니다!"
+            return "놀라워요 이모지로 수정되었어요!"
         case .sad:
-            return "슬퍼요 이모지로 수정되었습니다!"
+            return "슬퍼요 이모지로 수정되었어요!"
         case .best:
-            return "최고에요 이모지로 수정되었습니다!"
+            return "최고에요 이모지로 수정되었어요!"
         case .none:
             return nil
         }
