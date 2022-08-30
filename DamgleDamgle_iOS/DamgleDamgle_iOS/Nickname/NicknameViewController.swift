@@ -18,8 +18,9 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var nounLabel: UILabel!
     @IBOutlet private weak var changeAdjectiveButton: UIButton!
     @IBOutlet private weak var changeNameButton: UIButton!
-    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
-    
+    @IBOutlet private weak var adjectiveIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var nounIndicatorView: UIActivityIndicatorView!
+
     private var viewModel = NicknameViewModel()
     private let fullDimView = FullDimView()
     private let refreshLottieName = "refreshLottie"
@@ -130,27 +131,35 @@ final class NicknameViewController: UIViewController, StoryboardBased {
     }
     
     @IBAction private func adjectiveChangeButtonDidTap(_ sender: UIButton) {
-        self.activityIndicatorView.startAnimating()
-        self.viewModel.changeAdjective() { [weak self] _ in
+        adjectiveIndicatorView.startAnimating()
+        viewModel.changeAdjective() { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 guard let viewModel = self.viewModel.model else { return }
                 self.setupView(viewModel: viewModel)
-                self.activityIndicatorView.stopAnimating()
+                self.adjectiveIndicatorView.stopAnimating()
             }
         }
     }
     
     @IBAction private func nounChangeButtonDidTap(_ sender: UIButton) {
-        self.activityIndicatorView.startAnimating()
-        self.viewModel.changeNoun() { [weak self] _ in
+        nounIndicatorView.startAnimating()
+        viewModel.changeNoun() { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 guard let viewModel = self.viewModel.model else { return }
                 self.setupView(viewModel: viewModel)
-                self.activityIndicatorView.stopAnimating()
+                self.nounIndicatorView.stopAnimating()
             }
         }
+    }
+    
+    @IBAction private func informationButtonDidTap(_ sender: UIButton) {
+        showAlertController(
+            type: .single,
+            title: String(format: Strings.informateionTitleFormat, orderNumLabel.text ?? "n번째"),
+            message: Strings.informateionMessage
+        )
     }
 }
 
@@ -159,5 +168,7 @@ extension NicknameViewController {
         static let title = "네트워크가 불안정해요."
         static let message = "지금은 내용을 불러오기 어려워요.\n잠시 후에 다시 시도해주세요."
         static let okTitle = "확인"
+        static let informateionTitleFormat = "%@는 나와 같은 닉네임의 개수를 뜻해요."
+        static let informateionMessage = "운이 좋다면 첫 번째 닉네임을 찾을 수 있어요. 행운을 빌어요!"
     }
 }

@@ -48,6 +48,12 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     private func setupView() {
         self.view.addSubview(toastLabel)
         toastLabel.alpha = 0
+        
+        if type == .myStory {
+            timeSortButton.isHidden = true
+            popularitySortButton.isHidden = true
+            title = Strings.myStoryTitle
+        }
     }
     
     private func getMyStoryResponse() {
@@ -233,6 +239,7 @@ extension PostingMainViewController {
         static let cancelReport = "신고 취소"
         static let reportFail = "현재 네트워크 문제로 서비스 신고하기가 불가해요. 나중에 다시 시도해주세요."
         static let confirm = "확인"
+        static let myStoryTitle = "내 담글 확인하기"
     }
 }
 
