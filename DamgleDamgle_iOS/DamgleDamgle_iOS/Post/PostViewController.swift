@@ -167,6 +167,7 @@ final class PostViewController: UIViewController {
                     
                     self.animatePostView(.down)
                     self.resetTextView()
+                    self.delegate?.postViewSwipeDidChange(.down)
                 }
             },
             cancelActionTitle: StringResource.cancelTitle
