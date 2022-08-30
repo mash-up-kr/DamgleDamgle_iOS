@@ -28,7 +28,7 @@ final class HomeViewController: UIViewController {
     private let locationManager: LocationService = LocationService.shared
     private var mapView: NMFMapView = {
         let mapView = NMFMapView()
-        mapView.minZoomLevel = 14.5
+        mapView.minZoomLevel = 10
         return mapView
     }()
     private var currentLocationMarker: NMFMarker = {
@@ -40,7 +40,7 @@ final class HomeViewController: UIViewController {
     private var isFirstUpdate = true
     private let defaultLocation = CLLocationCoordinate2D(latitude: 37.56157, longitude: 126.9966302)
     private let postViewShortRatio = 0.86
-    private let postViewLongRatio = 0.9
+    private let postViewLongRatio = 0.878
     private let originWidth: CGFloat = UIScreen.main.bounds.width
     private let originHeight: CGFloat = UIScreen.main.bounds.height
     
@@ -53,12 +53,16 @@ final class HomeViewController: UIViewController {
     
     private var timer: Timer?
     
-    private let refreshLottieName = "refreshLottie"
     private let lottieSize = UIScreen.main.bounds.width * 0.35
     
     private let viewModel = HomeViewModel()
     private var mapViewMarkerList: [NMFMarker] = []
     private var isFirstShow = true
+    
+    private let postViewController = PostViewController()
+    private let fullDimView = FullDimView()
+    private let refreshLottieName = "refreshLottie"
+    private lazy var animationView = Lottie.AnimationView(name: refreshLottieName)
     
 // MARK: - override
     override func viewDidLoad() {
@@ -110,18 +114,16 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction private func refreshButtonTapped(_ sender: UIButton) {
-
-        addLottieAnimation(
-            lottieName: refreshLottieName,
-            lottieSize: lottieSize,
-            isNeedDimView: true
-        )
+        playLoadingLottie()
+        
+        viewModel.currentBoundary = mapView.coveringBounds
         
         viewModel.getStoryFeed { result in
             switch result {
             case .success(let homeModel):
                 guard let homeModel = homeModel else { return }
                 self.addMarker(homeModel: homeModel)
+                self.stopLoadingLottie()
             case .failure(let error):
                 // TODO: 에러 핸들링
                 debugPrint("getStoryFeed", error)
@@ -184,37 +186,50 @@ final class HomeViewController: UIViewController {
 // MARK: - UDF
     private func setupView() {
         currentAddressLabel.text = ""
+        setupLottieView()
+    }
+    
+    func setupLottieView() {
+        let screenSize = UIScreen.main.bounds
+        let lottieSize = screenSize.width * 0.35
+
+        view.addSubview(fullDimView)
+
+        fullDimView.alpha = 0
+        fullDimView.frame = view.bounds
+        fullDimView.addSubview(animationView)
+        
+        animationView.frame = CGRect(
+            x: (screenSize.width - lottieSize) / 2,
+            y: (screenSize.height - lottieSize) / 2,
+            width: lottieSize,
+            height: lottieSize
+        )
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.isUserInteractionEnabled = false
     }
     
     private func addMapView() {
         mapView.frame = view.frame
         view.addSubview(mapView)
         view.sendSubviewToBack(mapView)
+        
+        mapView.addCameraDelegate(delegate: self)
+
     }
     
     private func setChildPostView() {
-        let childView: PostViewController = PostViewController()
-        view.addSubview(childView.view)
-        childView.view.frame = CGRect(
+        view.addSubview(postViewController.view)
+        postViewController.view.frame = CGRect(
             x: 0,
             y: originHeight * postViewShortRatio,
             width: originWidth,
             height: originHeight * postViewLongRatio
         )
-        addChild(childView)
-        childView.didMove(toParent: self)
-    }
-    
-    func resetChildView() {
-        if let childrenViewController = children.first as? PostViewController {
-            childrenViewController.view.frame = CGRect(
-                x: 0,
-                y: originHeight * postViewShortRatio,
-                width: originWidth,
-                height: originHeight * postViewLongRatio
-            )
-            childrenViewController.setUpView()
-        }
+        addChild(postViewController)
+        postViewController.didMove(toParent: self)
+        postViewController.delegate = self
     }
     
     private func checkCurrentStatus(currentStatus: LocationAuthorizationStatus?) {
@@ -276,7 +291,7 @@ final class HomeViewController: UIViewController {
             case .success(let address):
                 self.currentAddressLabel.text = "\(address[0]) \(address[1])"
             case .failure(_):
-                self.currentAddressLabel.text = "담글이네 역삼래미안"
+                self.currentAddressLabel.text = "담글이네 찾는 중"
             }
         }
     }
@@ -338,6 +353,25 @@ final class HomeViewController: UIViewController {
             }
         }
     }
+    
+    private func playLoadingLottie() {
+        animationView.play()
+        
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+            self?.fullDimView.alpha = 1.0
+        }.startAnimation()
+    }
+    
+    private func stopLoadingLottie() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+                self?.fullDimView.alpha = 0
+            }.startAnimation()
+            
+            self?.animationView.stop()
+        }
+    }
 }
 
 extension HomeViewController: LocationDataProtocol {
@@ -359,19 +393,46 @@ extension HomeViewController: LocationUpdateProtocol {
         let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
         cameraUpdate.animation = .easeIn
         cameraUpdate.animationDuration = 0.5
-        mapView.moveCamera(cameraUpdate) { _ in
-            self.viewModel.currentBoundary = self.mapView.coveringBounds
-            self.viewModel.getStoryFeed { result in
-                switch result {
-                case .success(let homeModel):
-                    guard let homeModel = homeModel else { return }
-                    self.addMarker(homeModel: homeModel)
-                case .failure(let error):
-                    print("getStoryFeed", error)
-                }
-            }
-        }
+        mapView.moveCamera(cameraUpdate)
         
         getCurrentLocationAddress()
+    }
+}
+
+extension HomeViewController: NMFMapViewCameraDelegate {
+    func mapViewCameraIdle(_ mapView: NMFMapView) {
+        viewModel.currentBoundary = mapView.coveringBounds
+        
+        viewModel.getStoryFeed { result in
+            switch result {
+            case .success(let homeModel):
+                guard let homeModel = homeModel else { return }
+                self.addMarker(homeModel: homeModel)
+            case .failure(let error):
+                self.showAlertController(
+                    type: .single,
+                    title: "오류 발생",
+                    message: error.localizedDescription,
+                    okActionTitle: "확인"
+                )
+            }
+        }
+    }
+}
+
+extension HomeViewController: DimViewDelegate {
+    func postViewSwipeDidChange(_ direction: UISwipeGestureRecognizer.Direction) {
+        switch direction {
+        case .up:
+            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+                self?.fullDimView.alpha = 1
+            }.startAnimation()
+        case .down:
+            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+                self?.fullDimView.alpha = 0
+            }.startAnimation()
+        default:
+            break
+        }
     }
 }

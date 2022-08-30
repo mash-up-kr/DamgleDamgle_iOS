@@ -50,6 +50,18 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         self.view.addSubview(toastLabel)
         toastLabel.alpha = 0
         
+        [timeSortButton, popularitySortButton].forEach { button in
+            let title = button?.titleLabel!.text! ?? ""
+            
+            let normalFont = UIFont(name: "Pretendard-Medium", size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .medium)
+            let normalAttributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: normalFont])
+            button?.setAttributedTitle(normalAttributedTitle, for: .normal)
+            
+            let selectedFont = UIFont(name: "Pretendard-Bold", size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .bold)
+            let selectedAttributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: selectedFont])
+            button?.setAttributedTitle(selectedAttributedTitle, for: .selected)
+        }
+        
         if storyType == .myStory {
             timeSortButton.isHidden = true
             popularitySortButton.isHidden = true

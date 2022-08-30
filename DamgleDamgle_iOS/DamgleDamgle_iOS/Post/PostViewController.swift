@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DimViewDelegate: AnyObject {
+    func postViewSwipeDidChange(_ direction: UISwipeGestureRecognizer.Direction)
+}
+
 final class PostViewController: UIViewController {
     @IBOutlet weak var shortenBackgroundImageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var shortenBackgroundImageView: UIView!
@@ -20,6 +24,8 @@ final class PostViewController: UIViewController {
     @IBOutlet private weak var swipeUpGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet private weak var postButton: ContinueButton!
     
+    @IBOutlet weak var textViewCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet var topAreaComponents: [UILabel]!
     private let maxTextLength = 100
     private let swipeUpHeightRatio = 0.2
     private let swipeDownHeightRatio = 0.86
@@ -46,6 +52,7 @@ final class PostViewController: UIViewController {
     private let viewModel = PostViewModel()
     
     var viewType: ViewType = .home
+    weak var delegate: DimViewDelegate?
     
 // MARK: - override
     override func viewDidLoad() {
@@ -53,14 +60,53 @@ final class PostViewController: UIViewController {
         setUpView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+// MARK: - @objc
+    @objc
+    func adjustInputView(_ sender: Notification) {
+        guard let userInfo = sender.userInfo else { return }
+        
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+    
+        if sender.name == UIResponder.keyboardWillShowNotification {
+            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+                self?.topAreaComponents.forEach {
+                    $0.alpha = 0
+                }
+                self?.textViewCenterYConstraint.constant = -keyboardFrame.height * 0.58
+                self?.view.layoutIfNeeded()
+            }.startAnimation()
+        } else {
+            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+                self?.topAreaComponents.forEach {
+                    $0.alpha = 1
+                }
+                self?.textViewCenterYConstraint.constant = 0
+                self?.view.layoutIfNeeded()
+            }.startAnimation()
+        }
+        debugPrint(sender.name)
+    }
+    
 // MARK: - @IBAction
     @IBAction private func swipeUpDown(_ sender: UISwipeGestureRecognizer) {
         animatePostView(sender.direction)
+        delegate?.postViewSwipeDidChange(sender.direction)
     }
     
     func updateAnimatingView(heightRatio: Double = 0.05, direction: UISwipeGestureRecognizer.Direction = .up) {
         let originHeight: CGFloat = UIScreen.main.bounds.height
-        let transformHeight = originHeight * 0.76
+        let transformHeight = originHeight * 0.738
 
         switch direction {
         case .up:
@@ -96,6 +142,7 @@ final class PostViewController: UIViewController {
     @IBAction private func backgroundTapped(_ sender: UITapGestureRecognizer) {
         if myStoryGuideLabel.isHidden == false {
             animatePostView(.up)
+            delegate?.postViewSwipeDidChange(.up)
         } else {
             self.postingTextView.resignFirstResponder()
         }

@@ -18,18 +18,23 @@ struct GeocodingResponse: Codable {
     let results: [ReverseResult]
     
     func getAddress() -> [String] {
-        var address: [String]
+        let defaultAddress = ["담글이네", "찾는 중"]
         
-        guard let district = self.results.first?.region.area2.name, let town = self.results.first?.region.area3.name, let streetAddress = self.results.first?.land.name else { return ["담글이네", "역삼래미안"] }
+        var address: [String] = []
         
-        if streetAddress == "" {
-            address = [district, town]
-        } else {
-            address = [town, streetAddress]
+        guard let town = self.results.first?.region.area3.name else { return defaultAddress }
+        
+        if let streetAddress = self.results.first?.land.name {
+            if streetAddress != "" {
+                address = [town, streetAddress]
+            } else {
+                guard let district = self.results.first?.region.area2.name else { return defaultAddress }
+                address = [district, town]
+            }
         }
-        
+    
         if address.isEmpty {
-            address = ["담글이네", "역삼래미안"]
+            address = defaultAddress
         }
         
         return address

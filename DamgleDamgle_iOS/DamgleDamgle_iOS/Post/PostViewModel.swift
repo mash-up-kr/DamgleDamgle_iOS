@@ -17,7 +17,7 @@ final class PostViewModel {
             lat: locationService.currentLocation.latitude,
             lng: locationService.currentLocation.longitude,
             address1: locationService.currentAddress[safe: 0] ?? "담글이네",
-            address2: locationService.currentAddress[safe: 1] ?? "역삼래미안",
+            address2: locationService.currentAddress[safe: 1] ?? "찾는 중",
             content: postContent
         )
         

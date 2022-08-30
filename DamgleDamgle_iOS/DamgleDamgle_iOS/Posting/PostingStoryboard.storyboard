@@ -59,6 +59,9 @@
                                             <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="최신순">
+                                                <color key="titleColor" name="grey700"/>
+                                            </state>
+                                            <state key="selected">
                                                 <color key="titleColor" name="black"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -81,10 +84,13 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-cL-abV" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                             <rect key="frame" x="62" y="22" width="34" height="28"/>
-                                            <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="인기순">
                                                 <color key="titleColor" name="grey700"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" name="black"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
