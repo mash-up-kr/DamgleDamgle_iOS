@@ -20,7 +20,8 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
 
     lazy var toastLabel = ToastLabel()
     private var apiState: APIState = .dataExit
-    var type: StoryType = .myStory
+    var storyType: StoryType = .myStory
+    var sortingType: SortType = .time
     var viewModel = PostingViewModel()
     var toastMessageReacitonType: ReactionType? {
         didSet {
@@ -32,7 +33,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if type == .allStory {
+        if storyType == .allStory {
             getFeedStoryResponse()
         }
         
@@ -49,7 +50,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         self.view.addSubview(toastLabel)
         toastLabel.alpha = 0
         
-        if type == .myStory {
+        if storyType == .myStory {
             timeSortButton.isHidden = true
             popularitySortButton.isHidden = true
             title = Strings.myStoryTitle
@@ -83,6 +84,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = true
         popularitySortButton.isSelected = false
+        sortingType = .time
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -96,6 +98,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
         timeSortButton.isSelected = false
         popularitySortButton.isSelected = true
+        sortingType = .popularity
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -145,20 +148,7 @@ extension PostingMainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as PostTableViewCell
         let viewModel = self.viewModel.postModels?[indexPath.row]
         cell.delegate = self
-        cell.setupUI(viewModel: viewModel)
-        
-        cell.addSelectedIcon = { [weak self] reaction in
-            guard let self = self, let id = viewModel?.id else { return }
-            self.viewModel.postReaction(storyID: id, type: reaction.rawValue) { isSuccess in
-                // TODO: 실패했을때 대응방법 적용예정
-            }
-        }
-        cell.deleteSeletedIcon = { [weak self] in
-            guard let self = self, let id = viewModel?.id else { return }
-            self.viewModel.deleteReaction(storyID: id) { isSuccess in
-                // TODO: 실패했을때 대응방법 적용예정
-            }
-        }
+        cell.setupUI(story: viewModel)
         
         cell.postReport = { [weak self] in
             guard let self = self, let id = viewModel?.id else { return }
@@ -195,15 +185,28 @@ extension PostingMainViewController: UITableViewDataSource {
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
     func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool) {
-        if type == .myStory {
-            getMyStoryResponse()
-        } else {
-            getFeedStoryResponse()
+        if storyType == .myStory {
+            viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
+                guard let self = self else { return }
+                self.apiState = isSuccess ? .dataExit : .error
+            }
+        } else if storyType == .allStory && sortingType == .time {
+            viewModel.getStoryFeed() { [weak self] isSuccess in
+                guard let self = self else { return }
+                self.apiState = isSuccess ? .dataExit : .error
+            }
+        } else if storyType == .allStory && sortingType == .popularity {
+            viewModel.getStoryFeed() { [weak self] isSuccess in
+                guard let self = self else { return }
+                self.viewModel.sortPopularity()
+                self.apiState = isSuccess ? .dataExit : .error
+            }
         }
         
         guard isChange else { return }
         
-        toastButtonAnimate(reaction: reaction, wasEmpty: wasEmpty, isEmpty: reaction == .none)
+        // TODO: 토스트 에러 해결이 필요함. 해결방법 생각해보겠음...
+//        toastButtonAnimate(reaction: reaction, wasEmpty: wasEmpty, isEmpty: reaction == .none)
     }
     
     // wasEmpty = 이전에 리액션 한게 없어서 비어 있었음, isEmpty = 지금 같은 리액션을 눌러서 이제 비게 됨
@@ -258,4 +261,9 @@ enum APIState {
 enum StoryType {
     case allStory
     case myStory
+}
+
+enum SortType {
+    case time
+    case popularity
 }

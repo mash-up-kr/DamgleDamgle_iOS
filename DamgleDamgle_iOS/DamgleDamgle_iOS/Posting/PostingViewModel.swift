@@ -105,11 +105,15 @@ final class PostingViewModel {
         var stories: [Story] = []
         response.forEach { story in
             if !story.reports.isEmpty {
+                var isExitReport = false
                 story.reports.forEach { report in
-                    let reportUserNo = report.userNo
-                    if reportUserNo != UserManager.shared.currentUserNo {
-                        stories.append(story)
+                    if report.userNo == UserManager.shared.userNo {
+                        isExitReport = true
                     }
+                }
+                
+                if !isExitReport {
+                    stories.append(story)
                 }
             } else {
                 stories.append(story)

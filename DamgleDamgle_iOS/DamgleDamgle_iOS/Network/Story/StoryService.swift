@@ -109,4 +109,25 @@ struct StoryService {
                 }
             }
     }
+    
+    func getStoryDetail(storyID: String, completion: @escaping (Result<Story, Error>) -> Void) {
+        AF.request(StoryTarget.getStoryDetail(id: storyID))
+            .response { response in
+                switch response.result {
+                case .success(let value):
+                    guard let value = value else {
+                        return
+                    }
+                    
+                    do {
+                        let story = try JSONDecoder().decode(Story.self, from: value)
+                        completion(.success(story))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
 }

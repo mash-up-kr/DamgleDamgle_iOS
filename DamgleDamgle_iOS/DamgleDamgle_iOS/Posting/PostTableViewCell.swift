@@ -25,6 +25,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBOutlet private var iconsButtonXPointConstraint: [NSLayoutConstraint]!
     
     weak var delegate: TableViewCellDelegate?
+    private var viewModel = PostingTableViewCellViewModel()
     var addSelectedIcon: ((ReactionType) -> Void)?
     var deleteSeletedIcon: (() -> Void)?
     var postReport: (() -> Void)?
@@ -59,27 +60,33 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
     }
     
-    func setupUI(viewModel: Story?) {
-        guard let viewModel = viewModel, var address1 = viewModel.address1, var address2 = viewModel.address2 else { return }
+    func setupUI(story: Story?) {
+        guard let story = story, var address1 = story.address1, var address2 = story.address2 else { return }
         
         if address1 == "" {
-            address1 = "역삼동"
-            address2 = "테헤란로 141"
+            address1 = "담글이네"
+            address2 = "찾는 중"
         }
+        self.viewModel.updateStoryModel(Story: story)
         placeAddressLabel.text = "\(address1)\n\(address2)"
-        userNameLabel.text = viewModel.nickname
-        checkMeLabel.text = viewModel.isMine ? " • ME" : ""
-        timeLabel.text = viewModel.offsetTimeText
-        contentLabel.text = viewModel.content
-        setupIconsView(reactions: viewModel.reactionSummary)
-        setupIconsStartButton(reaction: viewModel.reactionOfMine)
-        setupIconsButton(reaction: viewModel.reactionOfMine)
-        reportButton.isHidden = viewModel.isMine
+        userNameLabel.text = story.nickname
+        checkMeLabel.text = story.isMine ? " • ME" : ""
+        timeLabel.text = story.offsetTimeText
+        contentLabel.text = story.content
+        setupIconsView(reactions: story.reactionSummary)
+        setupIconsStartButton(reaction: story.reactionOfMine)
+        setupIconsButton(reaction: story.reactionOfMine)
+        reportButton.isHidden = story.isMine
     }
     
     private func setupIconsStartButton(reaction: MyReaction?) {
-        guard let reaction = reaction else { return }
-        iconsStartButton.setImage(ReactionType(rawValue: reaction.type)?.selectedButtonImage, for: .normal)
+        if let reaction = reaction {
+            iconsStartButton.isSelected = false
+            iconsStartButton.setImage(ReactionType(rawValue: reaction.type)?.selectedButtonImage, for: .normal)
+        } else {
+            iconsStartButton.isSelected = false
+            iconsStartButton.setImage(ReactionType.none.selectedButtonImage, for: .normal)
+        }
     }
     
     private func setupIconsButton(reaction: MyReaction?) {
@@ -92,6 +99,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     private func setupIconsView(reactions: [ReactionSummary]) {
+        iconsBackgroundView.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
+        
         let filterReactions = reactions.filter { $0.count != 0 }
         
         if filterReactions.isEmpty {
@@ -124,16 +135,36 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBAction private func touchUpIconsButton(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false
-            
-            deleteSeletedIcon?()
+        
             nowSelectedReaction = ReactionType.none
+            
+            guard let viewModel = viewModel.storyModel else { return }
+            self.viewModel.deleteReaction(storyID: viewModel.id) { result in
+                switch result {
+                case .success(let story):
+                    self.setupUI(story: story)
+                case .failure(let error):
+                    // TODO: 실패했을때 대응방법 적용예정
+                    print(error.localizedDescription)
+                }
+            }
         } else {
             sender.isSelected = true
             deselectAnotherButton(button: sender)
             
             let isSelectedReaction: ReactionType = isSelectedReaction(button: sender)
-            addSelectedIcon?(isSelectedReaction)
             nowSelectedReaction = isSelectedReaction
+            
+            guard let viewModel = viewModel.storyModel else { return }
+            self.viewModel.postReaction(storyID: viewModel.id, type: isSelectedReaction.rawValue) { result in
+                switch result {
+                case .success(let story):
+                    self.setupUI(story: story)
+                case .failure(let error):
+                    // TODO: 실패했을때 대응방법 적용예정
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
     
@@ -175,6 +206,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     private func closeIconsButton(isSelected reaction: ReactionType, wasEmpty: Bool = false, isChange: Bool = true) {
+        
         UIView.animate(withDuration: 0.5) { [weak self] in
             guard let self = self else { return }
             self.iconsButtonXPointConstraint.forEach {
@@ -182,7 +214,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             }
             self.layoutIfNeeded()
         }
-        
+                
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
             self.delegate?.endReactionButtonAnimation(reaction: reaction, wasEmpty: wasEmpty, isChange: isChange)
         })

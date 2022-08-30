@@ -301,7 +301,7 @@ final class HomeViewController: UIViewController {
             let postingMainNavigationViewController = PostingNavigationController.instantiate()
             let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
             postingMainViewController?.viewModel.currentBoundary = markerData.boundary
-            postingMainViewController?.type = .allStory
+            postingMainViewController?.storyType = .allStory
             postingMainNavigationViewController.modalPresentationStyle = .fullScreen
             self?.present(postingMainNavigationViewController, animated: true)
             return true
