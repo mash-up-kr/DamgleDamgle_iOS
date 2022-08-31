@@ -31,8 +31,14 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
             
             let geocodingRequest = GeocodingRequest(lat: currentLocation.latitude, lng: currentLocation.longitude)
             GeocodingService.reverseGeocoding(request: geocodingRequest) { result in
-                if case let .success(address) = result {
+                switch result {
+                case .success(let address):
                     self.currentAddress = address
+                case .failure(_):
+                    self.getCurrentLocationAddress(
+                        byCLLocationLatitude: self.currentLocation.latitude,
+                        Longtitude: self.currentLocation.longitude
+                    )
                 }
             }
         }
@@ -94,5 +100,41 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     
     func stopUpdatingCurrentLocation() {
         manager.stopUpdatingLocation()
+    }
+    
+    private func getCurrentLocationAddress(byCLLocationLatitude: Double, Longtitude: Double) {
+        let findLocation = CLLocation(latitude: byCLLocationLatitude, longitude: Longtitude)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        
+        geocoder.reverseGeocodeLocation(findLocation, preferredLocale: locale) { placemarks, _ in
+            if let address: [CLPlacemark] = placemarks {
+                var addressString: [String] = [
+                    address.first?.thoroughfare,
+                    address.first?.subLocality,
+                    address.first?.locality,
+                    address.first?.subAdministrativeArea,
+                    address.first?.administrativeArea,
+                    address.first?.country
+                ]
+                    .compactMap { $0 }
+                    .uniqued()
+                
+                let count = addressString.count
+
+                if count >= 2 {
+                    let address2 = addressString.removeFirst()
+                    let address1 = addressString.removeFirst()
+                    self.currentAddress = [address1, address2]
+                } else if count >= 1 {
+                    let address1 = addressString.removeFirst()
+                    self.currentAddress = [address1, "담글이네"]
+                } else {
+                    self.currentAddress = ["담글이네", "찾는 중"]
+                }
+            } else {
+                self.currentAddress = ["담글이네", "찾는 중"]
+            }
+        }
     }
 }
