@@ -18,17 +18,10 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     @IBOutlet private weak var mainViewImageView: UIImageView!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
 
-    lazy var toastLabel = ToastLabel()
     private var apiState: APIState = .dataExit
     var storyType: StoryType = .myStory
     var sortingType: SortType = .time
     var viewModel = PostingViewModel()
-    var toastMessageReacitonType: ReactionType? {
-        didSet {
-            guard let toastMessageReacitonType = toastMessageReacitonType else { return }
-            toastButtonAnimate(reaction: toastMessageReacitonType)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +40,6 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     }
     
     private func setupView() {
-        self.view.addSubview(toastLabel)
-        toastLabel.alpha = 0
-        
         [timeSortButton, popularitySortButton].forEach { button in
             let title = button?.titleLabel!.text! ?? ""
             
@@ -216,32 +206,18 @@ extension PostingMainViewController: TableViewCellDelegate {
         }
         
         guard isChange else { return }
-        
-        // TODO: 토스트 에러 해결이 필요함. 해결방법 생각해보겠음...
-//        toastButtonAnimate(reaction: reaction, wasEmpty: wasEmpty, isEmpty: reaction == .none)
+               
+        toastButtonAnimate(reaction: reaction, wasEmpty: wasEmpty, isEmpty: reaction == .none)
     }
     
     // wasEmpty = 이전에 리액션 한게 없어서 비어 있었음, isEmpty = 지금 같은 리액션을 눌러서 이제 비게 됨
     private func toastButtonAnimate(reaction: ReactionType, wasEmpty: Bool = false, isEmpty: Bool = false) {
-        toastLabel.alpha = 1.0
-        let screenWidth: CGFloat = UIScreen.main.bounds.width
-        let screenHeight: CGFloat = UIScreen.main.bounds.height
-        
         if wasEmpty {
-            toastLabel.setupUI(text: reaction.firstReactionTitle)
+            Toast.show(message: reaction.firstReactionTitle)
         } else if isEmpty {
-            toastLabel.setupUI(text: reaction.removeReactionTitle)
+            Toast.show(message: reaction.removeReactionTitle)
         } else {
-            toastLabel.setupUI(text: reaction.toastMessageTitle)
-        }
-        
-        toastLabel.frame.origin.x = screenWidth/2 - toastLabel.bounds.width/2
-        toastLabel.frame.origin.y = screenHeight - toastLabel.bounds.height - screenHeight*(64/812)
-        
-        UIView.animate(withDuration: 2.0) { [weak self] in
-            guard let self = self else { return }
-            self.toastLabel.alpha = 0.0
-            self.view.layoutIfNeeded()
+            Toast.show(message: reaction.toastMessageTitle)
         }
     }
 }

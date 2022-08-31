@@ -34,6 +34,8 @@
 		3EF4701128B0D69F001354AB /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4701028B0D69F001354AB /* Me.swift */; };
 		3EF4701328B0E976001354AB /* MyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4701228B0E976001354AB /* MyViewModel.swift */; };
 		3EF4701528B1099D001354AB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4701428B1099D001354AB /* SettingViewModel.swift */; };
+		3EF6F62A28BF933B00804770 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6F62928BF933B00804770 /* ToastView.swift */; };
+		3EF6F62C28BFAC9100804770 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF6F62B28BFAC9100804770 /* Sequence+Extension.swift */; };
 		88E73FDE876B7212F8C8D9C3 /* Pods_DamgleDamgle_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */; };
 		9D0180352894369300168064 /* NibBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0180342894369300168064 /* NibBased.swift */; };
 		9D2ED3B128BE2BCB00216523 /* PostingTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2ED3B028BE2BCB00216523 /* PostingTableViewCellViewModel.swift */; };
@@ -74,8 +76,7 @@
 		9DA18FB928B101180006EF39 /* MyReaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA18FB828B101180006EF39 /* MyReaction.swift */; };
 		9DB760A628AFC3F5006A6E72 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB760A528AFC3F5006A6E72 /* Report.swift */; };
 		9DC777AB28B0E861002B1C76 /* APIStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC777AA28B0E861002B1C76 /* APIStatus.swift */; };
-		9DC936E2289D87C90031F5F1 /* ToastLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC936E1289D87C90031F5F1 /* ToastLabel.xib */; };
-		9DC936E4289D87F20031F5F1 /* ToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936E3289D87F20031F5F1 /* ToastLabel.swift */; };
+		9DC936E4289D87F20031F5F1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936E3289D87F20031F5F1 /* Toast.swift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 		CB1FEA0528903334001850B7 /* write_success.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1FEA0428903334001850B7 /* write_success.json */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
@@ -150,6 +151,8 @@
 		3EF4701028B0D69F001354AB /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
 		3EF4701228B0E976001354AB /* MyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewModel.swift; sourceTree = "<group>"; };
 		3EF4701428B1099D001354AB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		3EF6F62928BF933B00804770 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		3EF6F62B28BFAC9100804770 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		60F0E358FD884F2F80CACC3D /* Pods_DamgleDamgle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamgleDamgle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67044446CCF993881D091722 /* Pods-DamgleDamgle_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0180342894369300168064 /* NibBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibBased.swift; sourceTree = "<group>"; };
@@ -191,8 +194,7 @@
 		9DB760A528AFC3F5006A6E72 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		9DC777AA28B0E861002B1C76 /* APIStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStatus.swift; sourceTree = "<group>"; };
 		9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSpacingLabel.swift; sourceTree = "<group>"; };
-		9DC936E1289D87C90031F5F1 /* ToastLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastLabel.xib; sourceTree = "<group>"; };
-		9DC936E3289D87F20031F5F1 /* ToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastLabel.swift; sourceTree = "<group>"; };
+		9DC936E3289D87F20031F5F1 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB1FEA0428903334001850B7 /* write_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = write_success.json; sourceTree = "<group>"; };
@@ -300,7 +302,8 @@
 		3E8276F228950796004673D6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9DC936E0289D87A70031F5F1 /* ToastLabel */,
+				9DC936E3289D87F20031F5F1 /* Toast.swift */,
+				3EF6F62928BF933B00804770 /* ToastView.swift */,
 				3E8276F328950796004673D6 /* SelectableButton.swift */,
 				3E8276F428950796004673D6 /* RotatableImageView.swift */,
 				3E8276F528950796004673D6 /* RoundView.swift */,
@@ -457,6 +460,7 @@
 				CBEB5348289530750054E522 /* Bundle+Extension.swift */,
 				9D8CB95028A24B6200078DF9 /* Double+Extension.swift */,
 				CBACE18628A8DD400016B1F4 /* UIView+Extension.swift */,
+				3EF6F62B28BFAC9100804770 /* Sequence+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -499,15 +503,6 @@
 				9D9F4F89287EE9C7001771DC /* Nickname.storyboard */,
 			);
 			path = Nickname;
-			sourceTree = "<group>";
-		};
-		9DC936E0289D87A70031F5F1 /* ToastLabel */ = {
-			isa = PBXGroup;
-			children = (
-				9DC936E3289D87F20031F5F1 /* ToastLabel.swift */,
-				9DC936E1289D87C90031F5F1 /* ToastLabel.xib */,
-			);
-			path = ToastLabel;
 			sourceTree = "<group>";
 		};
 		A400A3597BFF519C7BA64C9A /* Pods */ = {
@@ -775,7 +770,6 @@
 				9D5E0CF128715D8400A3705C /* Pretendard-SemiBold.otf in Resources */,
 				9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */,
 				9D4E9261286745C40009F6E1 /* Assets.xcassets in Resources */,
-				9DC936E2289D87C90031F5F1 /* ToastLabel.xib in Resources */,
 				9D5E0CEE28715D7D00A3705C /* Akzidenz-Grotesk BQ Bold.ttf in Resources */,
 				9D40C53528951A590046C415 /* ManyIconsView.xib in Resources */,
 				CB7A1D9A287DC21D003320B6 /* PostViewController.xib in Resources */,
@@ -857,6 +851,7 @@
 			files = (
 				CB4F7F17288BDA96002761D3 /* CommonStringResource.swift in Sources */,
 				CBEB5349289530750054E522 /* Bundle+Extension.swift in Sources */,
+				3EF6F62C28BFAC9100804770 /* Sequence+Extension.swift in Sources */,
 				CB4ECD8328944D1D005D59D8 /* StoryService.swift in Sources */,
 				CBE8C1ED2896808400B71F33 /* AuthService.swift in Sources */,
 				CBA704F52885BC6200263386 /* PostViewModel.swift in Sources */,
@@ -907,7 +902,7 @@
 				CBA81DA72894313F0001E096 /* StoryTarget.swift in Sources */,
 				3EA33C182894235E00265342 /* Reaction.swift in Sources */,
 				3E8276F828950796004673D6 /* RotatableImageView.swift in Sources */,
-				9DC936E4289D87F20031F5F1 /* ToastLabel.swift in Sources */,
+				9DC936E4289D87F20031F5F1 /* Toast.swift in Sources */,
 				9D954EC7289969180000F68D /* NicknameViewModel.swift in Sources */,
 				3E8276FA28950796004673D6 /* RoundLabel.swift in Sources */,
 				3E76243D287F19B6002E1600 /* Reusable.swift in Sources */,
@@ -918,6 +913,7 @@
 				9D0180352894369300168064 /* NibBased.swift in Sources */,
 				9DB760A628AFC3F5006A6E72 /* Report.swift in Sources */,
 				CBAE75B82894FF7E006D3240 /* GeocodingRequest.swift in Sources */,
+				3EF6F62A28BF933B00804770 /* ToastView.swift in Sources */,
 				CBB1E89F28903E2D002E2065 /* DateIntervalType.swift in Sources */,
 				9D4E9258286745C30009F6E1 /* AppDelegate.swift in Sources */,
 				9DC777AB28B0E861002B1C76 /* APIStatus.swift in Sources */,

@@ -8,6 +8,7 @@
 import NMapsMap
 import UIKit
 import Lottie
+import CoreLocation
 
 final class HomeViewController: UIViewController {    
     @IBOutlet private weak var currentAddressLabel: UILabel!
@@ -90,6 +91,7 @@ final class HomeViewController: UIViewController {
         
         if isFirstShow {
             locationManager.checkLocationServiceAuthorization()
+            getCurrentLocationAddress()
             isFirstShow.toggle()
         }
     }
@@ -286,11 +288,51 @@ final class HomeViewController: UIViewController {
             lng: locationManager.currentLocation.longitude
         )
         
-        GeocodingService.reverseGeocoding(request: request) { result in
+        GeocodingService.reverseGeocoding(request: request) { [weak self] result in
             switch result {
             case .success(let address):
-                self.currentAddressLabel.text = "\(address[0]) \(address[1])"
+                self?.currentAddressLabel.text = "\(address[0]) \(address[1])"
             case .failure(_):
+                self?.getCurrentLocationAddress(
+                    byCLLocationLatitude: self?.locationManager.currentLocation.latitude ?? .zero,
+                    Longtitude: self?.locationManager.currentLocation.longitude ?? .zero
+                )
+            }
+        }
+    }
+    
+    private func getCurrentLocationAddress(byCLLocationLatitude: Double, Longtitude: Double) {
+        let findLocation = CLLocation(latitude: byCLLocationLatitude, longitude: Longtitude)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        
+        geocoder.reverseGeocodeLocation(findLocation, preferredLocale: locale) { placemarks, _ in
+            if let address: [CLPlacemark] = placemarks {
+                var addressString: [String] = [
+                    address.first?.thoroughfare,
+                    address.first?.subLocality,
+                    address.first?.locality,
+                    address.first?.subAdministrativeArea,
+                    address.first?.administrativeArea,
+                    address.first?.country
+                ]
+                    .compactMap { $0 }
+                    .uniqued()
+                
+                let count = addressString.count
+
+                if count >= 2 {
+                    let address2 = addressString.removeFirst()
+                    let address1 = addressString.removeFirst()
+                    self.currentAddressLabel.text = "\(address1) \(address2)"
+                } else if count >= 1 {
+                    let address1 = addressString.removeFirst()
+                    self.currentAddressLabel.text = "\(address1) 담글이네"
+                } else {
+                    self.currentAddressLabel.text = "담글이네 찾는 중"
+                }
+                
+            } else {
                 self.currentAddressLabel.text = "담글이네 찾는 중"
             }
         }

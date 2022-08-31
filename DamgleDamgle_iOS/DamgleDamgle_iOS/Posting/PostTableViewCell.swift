@@ -142,7 +142,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             self.viewModel.deleteReaction(storyID: viewModel.id) { result in
                 switch result {
                 case .success(let story):
-                    self.setupUI(story: story)
+                    DispatchQueue.main.async {
+                        self.setupUI(story: story)
+                    }
                 case .failure(let error):
                     // TODO: 실패했을때 대응방법 적용예정
                     print(error.localizedDescription)
@@ -159,7 +161,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             self.viewModel.postReaction(storyID: viewModel.id, type: isSelectedReaction.rawValue) { result in
                 switch result {
                 case .success(let story):
-                    self.setupUI(story: story)
+                    DispatchQueue.main.async {
+                        self.setupUI(story: story)
+                    }
                 case .failure(let error):
                     // TODO: 실패했을때 대응방법 적용예정
                     print(error.localizedDescription)
