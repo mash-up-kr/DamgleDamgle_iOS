@@ -397,6 +397,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func playLoadingLottie() {
+        fullDimView.backgroundColor = UIColor(named: "dimViewColor")
         animationView.play()
         
         UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
@@ -464,6 +465,7 @@ extension HomeViewController: NMFMapViewCameraDelegate {
 
 extension HomeViewController: DimViewDelegate {
     func postViewSwipeDidChange(_ direction: UISwipeGestureRecognizer.Direction) {
+        fullDimView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         switch direction {
         case .up:
             UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
