@@ -12,7 +12,7 @@ import NMapsMap
 final class PostingViewModel {
     
     private let service = StoryService()
-
+    
     var currentBoundary: NMGLatLngBounds?
     var postModels: [Story]? {
         didSet {
@@ -32,7 +32,7 @@ final class PostingViewModel {
                     completion(false)
                     return
                 }
-
+                
                 self.postModels = [currentStory]
                 
                 completion(true)
@@ -41,7 +41,7 @@ final class PostingViewModel {
             }
         }
     }
-
+    
     func postReaction(storyID: String, type: String, completion: @escaping (Bool) -> Void) {
         StoryService.postReaction(storyID: storyID, type: type) { result in
             switch result {
@@ -92,12 +92,29 @@ final class PostingViewModel {
         }
     }
     
+    func getStoryDetail(id: String, completion: @escaping (Result<Story, Error>) -> Void) {
+        service.getStoryDetail(storyID: id) { result in
+            switch result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func sortTime() {
         postModels?.sort(by: { $0.createdAt > $1.createdAt })
     }
     
     func sortPopularity() {
         postModels?.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
+    }
+    
+    func chageToNewStory(story: Story) {
+        if let index = postModels?.firstIndex(where: { $0.id == story.id })  {
+            postModels?[safe: index] = story
+        }
     }
     
     private func removeReportStory(response: [Story]?) -> [Story] {

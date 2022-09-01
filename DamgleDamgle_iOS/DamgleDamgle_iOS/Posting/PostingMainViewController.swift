@@ -186,7 +186,7 @@ extension PostingMainViewController: UITableViewDataSource {
 
 // MARK: - TableViewDelegate
 extension PostingMainViewController: TableViewCellDelegate {
-    func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool) {
+    func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool, storyID: String) {
         if storyType == .myStory {
             viewModel.getMyStory(size: 300, storyID: nil) { [weak self] isSuccess in
                 guard let self = self else { return }
@@ -198,10 +198,15 @@ extension PostingMainViewController: TableViewCellDelegate {
                 self.apiState = isSuccess ? .dataExit : .error
             }
         } else if storyType == .allStory && sortingType == .popularity {
-            viewModel.getStoryFeed() { [weak self] isSuccess in
+            viewModel.getStoryDetail(id: storyID) { [weak self] result in
                 guard let self = self else { return }
-                self.viewModel.sortPopularity()
-                self.apiState = isSuccess ? .dataExit : .error
+                switch result {
+                case .success(let story):
+                    self.viewModel.chageToNewStory(story: story)
+                case .failure(let error):
+                    // TODO: 실패했을때 대응방법 적용예정
+                    print(error.localizedDescription)
+                }
             }
         }
         

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TableViewCellDelegate: AnyObject {
-    func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool)
+    func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool, storyID: String)
 }
 
 final class PostTableViewCell: UITableViewCell, Reusable {
@@ -219,8 +219,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
             self.layoutIfNeeded()
         }
                 
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
-            self.delegate?.endReactionButtonAnimation(reaction: reaction, wasEmpty: wasEmpty, isChange: isChange)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: { [weak self] in
+            guard let self = self, let id = self.viewModel.storyModel?.id else { return }
+            self.delegate?.endReactionButtonAnimation(reaction: reaction, wasEmpty: wasEmpty, isChange: isChange, storyID: id)
         })
     }
     
