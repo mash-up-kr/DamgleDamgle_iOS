@@ -33,12 +33,6 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         setupView()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        postingTableView.reloadData()
-    }
-    
     private func setupView() {
         [timeSortButton, popularitySortButton].forEach { button in
             let title = button?.titleLabel!.text! ?? ""

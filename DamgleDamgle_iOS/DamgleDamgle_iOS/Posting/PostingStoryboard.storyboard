@@ -177,7 +177,15 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-D1-CF2">
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-D1-CF2" customClass="NoIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-iR-WMF" customClass="OneIconView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-7J-rXs" customClass="ManyIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="12" y="173" width="342" height="205.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
@@ -194,17 +202,25 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="clq-PX-v4L" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" id="0Du-zq-ELT"/>
+                                                        <constraint firstItem="nEB-iR-WMF" firstAttribute="height" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="4Ik-6i-UPh"/>
                                                         <constraint firstAttribute="trailing" secondItem="clq-PX-v4L" secondAttribute="trailing" id="6kP-FY-uze"/>
                                                         <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="Ck5-KI-hPE"/>
                                                         <constraint firstItem="clq-PX-v4L" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" id="FTg-Hk-Ypq"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="height" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="Rr0-D4-It4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nrd-7J-rXs" secondAttribute="trailing" constant="20" id="Vac-Tp-AfD"/>
                                                         <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="VjX-K7-CxT"/>
                                                         <constraint firstAttribute="width" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="335:348" id="Yvu-Hy-gs9"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="d72-G1-E97"/>
-                                                        <constraint firstAttribute="trailing" secondItem="U5w-D1-CF2" secondAttribute="trailing" constant="20" id="mnW-W1-h2M"/>
+                                                        <constraint firstItem="nEB-iR-WMF" firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" constant="-10" id="evZ-HO-ISw"/>
+                                                        <constraint firstItem="Nrd-7J-rXs" firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" constant="-10" id="fVr-vv-Kfx"/>
+                                                        <constraint firstItem="nEB-iR-WMF" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="is7-LR-1d3"/>
+                                                        <constraint firstItem="Nrd-7J-rXs" firstAttribute="height" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="jec-3z-Ds4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U5w-D1-CF2" secondAttribute="trailing" constant="12" id="mnW-W1-h2M"/>
                                                         <constraint firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" id="nyI-PC-2pR"/>
                                                         <constraint firstAttribute="trailing" secondItem="snx-co-seI" secondAttribute="trailing" constant="24" id="plB-e7-bvt"/>
                                                         <constraint firstAttribute="bottom" secondItem="snx-co-seI" secondAttribute="bottom" constant="16" id="sSV-ob-QbK"/>
+                                                        <constraint firstItem="Nrd-7J-rXs" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="svC-fz-wJr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nEB-iR-WMF" secondAttribute="trailing" constant="12" id="t09-93-2Zs"/>
                                                         <constraint firstItem="2uN-0Q-JFt" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="24" id="tj7-kX-ECP"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" constant="-10" id="wJQ-GG-n0K"/>
                                                     </constraints>
@@ -385,8 +401,10 @@
                                         <connections>
                                             <outlet property="checkMeLabel" destination="cv2-ga-gvt" id="2bj-VG-AYZ"/>
                                             <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
-                                            <outlet property="iconsBackgroundView" destination="U5w-D1-CF2" id="MGq-ov-q6B"/>
                                             <outlet property="iconsStartButton" destination="Q7r-RP-3AW" id="fvH-1K-1ec"/>
+                                            <outlet property="manyIconsView" destination="Nrd-7J-rXs" id="CH2-1L-h0f"/>
+                                            <outlet property="noIconsView" destination="U5w-D1-CF2" id="MGq-ov-q6B"/>
+                                            <outlet property="oneIconView" destination="nEB-iR-WMF" id="zKN-52-3xt"/>
                                             <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="Wu1-bJ-Voh"/>
                                             <outlet property="reportButton" destination="snx-co-seI" id="vZl-Rt-HRM"/>
                                             <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>

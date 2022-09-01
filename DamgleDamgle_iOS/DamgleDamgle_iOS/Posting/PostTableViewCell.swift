@@ -20,7 +20,9 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet private weak var iconsStartButton: UIButton!
     @IBOutlet private weak var reportButton: UIButton!
-    @IBOutlet weak var iconsBackgroundView: UIView!
+    @IBOutlet private weak var noIconsView: NoIconsView!
+    @IBOutlet private weak var oneIconView: OneIconView!
+    @IBOutlet private weak var manyIconsView: ManyIconsView!
     @IBOutlet private var iconsButtonCollection: [SelectableButton]!
     @IBOutlet private var iconsButtonXPointConstraint: [NSLayoutConstraint]!
     
@@ -42,9 +44,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        iconsBackgroundView.subviews.forEach { view in
-            view.removeFromSuperview()
-        }
+
         placeAddressLabel.text = ""
         userNameLabel.text = ""
         checkMeLabel.text = ""
@@ -99,26 +99,27 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     private func setupIconsView(reactions: [ReactionSummary]) {
-        iconsBackgroundView.subviews.forEach { view in
-            view.removeFromSuperview()
-        }
-        
         let filterReactions = reactions.filter { $0.count != 0 }
         
         if filterReactions.isEmpty {
-            let iconsView = NoIconsView(frame: .zero)
-            iconsBackgroundView.addSubview(iconsView)
-            iconsView.frame = iconsBackgroundView.bounds
+            
+            noIconsView.isHidden = false
+            oneIconView.isHidden = true
+            manyIconsView.isHidden = true
         } else if filterReactions.count == 1 {
-            let iconsView = OneIconView(frame: .zero)
-            iconsBackgroundView.addSubview(iconsView)
-            iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupView(reactions: filterReactions)
+            
+            noIconsView.isHidden = true
+            oneIconView.isHidden = false
+            manyIconsView.isHidden = true
+            
+            oneIconView.setupView(reactions: filterReactions)
         } else {
-            let iconsView = ManyIconsView(frame: .zero)
-            iconsBackgroundView.addSubview(iconsView)
-            iconsView.frame = iconsBackgroundView.bounds
-            iconsView.setupView(reactions: reactions)
+            
+            noIconsView.isHidden = true
+            oneIconView.isHidden = true
+            manyIconsView.isHidden = false
+            
+            manyIconsView.setupView(reactions: reactions)
         }
     }
     
