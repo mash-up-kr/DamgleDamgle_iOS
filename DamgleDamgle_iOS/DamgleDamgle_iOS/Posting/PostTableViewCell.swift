@@ -17,7 +17,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var checkMeLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private weak var contentLabel: UILabel!
+    @IBOutlet private weak var contentLabel: VerticalAlignLabel!
     @IBOutlet private weak var iconsStartButton: UIButton!
     @IBOutlet private weak var reportButton: UIButton!
     @IBOutlet private weak var noIconsView: NoIconsView!
@@ -58,6 +58,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     private func setupView() {
         iconsStartButton.imageView?.contentMode = .scaleAspectFit
+        contentLabel.verticalAlignment = .top
     }
     
     func setupUI(story: Story?) {

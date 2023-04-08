@@ -77,6 +77,7 @@
 		9DB760A628AFC3F5006A6E72 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB760A528AFC3F5006A6E72 /* Report.swift */; };
 		9DC777AB28B0E861002B1C76 /* APIStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC777AA28B0E861002B1C76 /* APIStatus.swift */; };
 		9DC936E4289D87F20031F5F1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC936E3289D87F20031F5F1 /* Toast.swift */; };
+		9DCEF3B428C0F816002AE8C1 /* VerticalAlignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF3B328C0F816002AE8C1 /* VerticalAlignLabel.swift */; };
 		9DD3BC0528702BCE007907DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BC0428702BCE007907DC /* Colors.xcassets */; };
 		CB1FEA0528903334001850B7 /* write_success.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1FEA0428903334001850B7 /* write_success.json */; };
 		CB2960672875B5EB003DBF20 /* FullDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2960662875B5EB003DBF20 /* FullDimView.swift */; };
@@ -195,6 +196,7 @@
 		9DC777AA28B0E861002B1C76 /* APIStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStatus.swift; sourceTree = "<group>"; };
 		9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSpacingLabel.swift; sourceTree = "<group>"; };
 		9DC936E3289D87F20031F5F1 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		9DCEF3B328C0F816002AE8C1 /* VerticalAlignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAlignLabel.swift; sourceTree = "<group>"; };
 		9DD3BC0428702BCE007907DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BAA5F7979E6F5C4F82B45316 /* Pods-DamgleDamgle_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamgleDamgle_iOS.release.xcconfig"; path = "Target Support Files/Pods-DamgleDamgle_iOS/Pods-DamgleDamgle_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CB1FEA0428903334001850B7 /* write_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = write_success.json; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				3E8276F528950796004673D6 /* RoundView.swift */,
 				3E8276F628950796004673D6 /* RoundLabel.swift */,
 				9DC936DD289D7AD60031F5F1 /* LineSpacingLabel.swift */,
+				9DCEF3B328C0F816002AE8C1 /* VerticalAlignLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				9D9F4F88287EE9B2001771DC /* NicknameViewController.swift in Sources */,
 				9D40C53228951A590046C415 /* NoIconsView.swift in Sources */,
 				CB432ABE2875B40300840132 /* LocationAuthorizationViewController.swift in Sources */,
+				9DCEF3B428C0F816002AE8C1 /* VerticalAlignLabel.swift in Sources */,
 				CBACE18D28B0CC570016B1F4 /* HomeViewModel.swift in Sources */,
 				CBEB534B28964EC60054E522 /* GeocodingService.swift in Sources */,
 				3EA33C132894220B00265342 /* MyStoryListViewModel.swift in Sources */,

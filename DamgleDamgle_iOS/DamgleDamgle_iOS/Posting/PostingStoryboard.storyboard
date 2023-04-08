@@ -164,8 +164,8 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 77" translatesAutoresizingMaskIntoConstraints="NO" id="clq-PX-v4L">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="388.5"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt">
-                                                            <rect key="frame" x="24" y="24" width="326" height="127.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt" customClass="VerticalAlignLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="24" y="24" width="326" height="139"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="안녕하세요! 오늘은 이 카페에서 공감해조팀에서 회의를 하였어요~~ 다들 여기서 팀플해도 좋을듯용~~! 주인이 카공해도 뭐라고 안함~~참고하세요~~~!! 지금 넘 졸린데 오늘 일찍 자고 싶어서 커피를 마시지 않고 버틸 거에요~!!">
                                                                     <attributes>
@@ -207,8 +207,8 @@
                                                         <constraint firstAttribute="trailing" secondItem="clq-PX-v4L" secondAttribute="trailing" id="6kP-FY-uze"/>
                                                         <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="Ck5-KI-hPE"/>
                                                         <constraint firstItem="clq-PX-v4L" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" id="FTg-Hk-Ypq"/>
-                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="height" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="Rr0-D4-It4"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Nrd-7J-rXs" secondAttribute="trailing" constant="20" id="Vac-Tp-AfD"/>
+                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="height" relation="lessThanOrEqual" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="Rr0-D4-It4"/>
+                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="top" secondItem="2uN-0Q-JFt" secondAttribute="bottom" constant="10" id="Un8-A3-WBm"/>
                                                         <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="VjX-K7-CxT"/>
                                                         <constraint firstAttribute="width" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="335:348" id="Yvu-Hy-gs9"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="d72-G1-E97"/>
