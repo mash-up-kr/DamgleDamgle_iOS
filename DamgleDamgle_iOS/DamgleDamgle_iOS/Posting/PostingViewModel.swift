@@ -13,13 +13,22 @@ final class PostingViewModel {
     
     private let service = StoryService()
     
-    var currentBoundary: NMGLatLngBounds?
-    var postModels: [Story]? {
+    private(set) var currentBoundary: NMGLatLngBounds?
+    private(set) var postModels: [Story]? {
         didSet {
             storyID = postModels?.first?.id
         }
     }
-    var storyID: String?
+    private var storyID: String?
+    
+    func setMapCurrentBoundary(with boundary: NMGLatLngBounds) {
+        self.currentBoundary = boundary
+    }
+    
+    func setMyStory(with stories: [Story]) {
+        self.postModels = stories
+    }
+    
     
     func getMyStory(size: Int?, storyID: String?, completion: @escaping (Bool) -> Void) {
         service.getMyStory(size: size, storyID: storyID) { [weak self] result in
@@ -103,15 +112,24 @@ final class PostingViewModel {
         }
     }
     
-    func sortTime() {
-        postModels?.sort(by: { $0.createdAt > $1.createdAt })
+    func sortStory(with sortType: SortType) {
+        switch sortType {
+        case .time:
+            postModels?.sort(by: { $0.createdAt > $1.createdAt })
+        case .popularity:
+            postModels?.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
+        }
     }
     
-    func sortPopularity() {
-        postModels?.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
-    }
+//    func sortTime() {
+//        postModels?.sort(by: { $0.createdAt > $1.createdAt })
+//    }
+//
+//    func sortPopularity() {
+//        postModels?.sort(by: { $0.reactionAllCount > $1.reactionAllCount })
+//    }
     
-    func chageToNewStory(story: Story) {
+    func changeMyStory(with story: Story) {
         if let index = postModels?.firstIndex(where: { $0.id == story.id })  {
             postModels?[safe: index] = story
         }
@@ -119,6 +137,11 @@ final class PostingViewModel {
     
     private func removeReportStory(response: [Story]?) -> [Story] {
         guard let response = response else { return [] }
+        let newStories = removeReportStory(from: response)
+        return newStories
+    }
+    
+    private func removeReportStory(from response: [Story]) -> [Story] {
         var stories: [Story] = []
         response.forEach { story in
             if !story.reports.isEmpty {

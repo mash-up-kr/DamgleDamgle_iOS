@@ -357,9 +357,11 @@ final class HomeViewController: UIViewController {
         let handler = { [weak self] (overlay: NMFOverlay) -> Bool in
             let postingMainNavigationViewController = PostingNavigationController.instantiate()
             let postingMainViewController = postingMainNavigationViewController.viewControllers.first as? PostingMainViewController
-            postingMainViewController?.viewModel.currentBoundary = markerData.boundary
-            postingMainViewController?.storyType = .allStory
-            postingMainNavigationViewController.modalPresentationStyle = .fullScreen
+//            postingMainViewController?.viewModel.currentBoundary = markerData.boundary
+            postingMainViewController?.setMapCurrentBoundary(with: markerData.boundary)
+//            postingMainViewController?.storyType = .allStory
+            postingMainViewController?.setStoryType(with: .allStory)
+//            postingMainNavigationViewController.modalPresentationStyle = .fullScreen
             self?.present(postingMainNavigationViewController, animated: true)
             return true
         }

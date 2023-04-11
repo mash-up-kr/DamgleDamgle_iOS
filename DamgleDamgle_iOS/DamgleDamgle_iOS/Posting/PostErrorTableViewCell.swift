@@ -15,9 +15,18 @@ final class PostErrorTableViewCell: UITableViewCell, Reusable {
     @IBOutlet private weak var timeLabel: UILabel!
 
     func setupView() {
-        placeAddressLabel.text = "ERROR"
-        userNameLabel.text = "아쉬운 11번째 코알라"
-        checkMeLabel.text = " • ME"
-        timeLabel.text = "N분 전"
+        placeAddressLabel.text = Strings.placeAddressTitle
+        userNameLabel.text = Strings.userNameTitle
+        checkMeLabel.text = Strings.checkMeTitle
+        timeLabel.text = Strings.timeTitle
+    }
+}
+
+extension PostErrorTableViewCell {
+    enum Strings {
+        static let placeAddressTitle = "ERROR"
+        static let userNameTitle = "아쉬운 11번째 코알라"
+        static let checkMeTitle = " • ME"
+        static let timeTitle = "N분 전"
     }
 }

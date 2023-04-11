@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QA9-8L-ZQG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QA9-8L-ZQG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PostingNavigationController" id="QA9-8L-ZQG" customClass="PostingNavigationController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9DQ-ee-g8G">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1378"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="1374"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="uis-aL-XMV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
@@ -121,14 +121,14 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="628" id="K4B-om-Is7" customClass="PostTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116.5" width="414" height="628"/>
+                                        <rect key="frame" x="0.0" y="122" width="414" height="628"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4B-om-Is7" id="X6k-vD-rKA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-D2-Nbh">
-                                                    <rect key="frame" x="20" y="11" width="84" height="119"/>
+                                                    <rect key="frame" x="20" y="11" width="78.5" height="119"/>
                                                     <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="32"/>
                                                     <color key="textColor" name="grey1000"/>
                                                     <nil key="highlightedColor"/>
@@ -140,19 +140,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-ga-gvt">
-                                                    <rect key="frame" x="52" y="137.5" width="34.5" height="15"/>
+                                                    <rect key="frame" x="52" y="137.5" width="32" height="15"/>
                                                     <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="13"/>
                                                     <color key="textColor" name="grey1000"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-4L-yCq">
-                                                    <rect key="frame" x="360.5" y="137.5" width="33.5" height="15"/>
+                                                    <rect key="frame" x="362" y="137.5" width="32" height="15"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
                                                     <color key="textColor" name="yellow"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-Ht-4f1">
-                                                    <rect key="frame" x="93.5" y="144.5" width="258" height="0.5"/>
+                                                    <rect key="frame" x="91" y="144.5" width="262" height="0.5"/>
                                                     <color key="backgroundColor" name="grey700"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.75" id="pkx-IN-0zC"/>
@@ -170,7 +170,7 @@
                                                                 <fragment content="안녕하세요! 오늘은 이 카페에서 공감해조팀에서 회의를 하였어요~~ 다들 여기서 팀플해도 좋을듯용~~! 주인이 카공해도 뭐라고 안함~~참고하세요~~~!! 지금 넘 졸린데 오늘 일찍 자고 싶어서 커피를 마시지 않고 버틸 거에요~!!">
                                                                     <attributes>
                                                                         <color key="NSColor" name="grey900"/>
-                                                                        <font key="NSFont" size="16" name="Pretendard-Medium"/>
+                                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -185,7 +185,7 @@
                                                             <rect key="frame" x="12" y="173" width="350" height="205.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
-                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-7J-rXs" customClass="ManyIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-7J-rXs" customClass="ManyIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="12" y="173" width="342" height="205.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
@@ -423,32 +423,32 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostErrorTableViewCell" rowHeight="568" id="cCr-Rj-znt" customClass="PostErrorTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="744.5" width="414" height="568"/>
+                                        <rect key="frame" x="0.0" y="750" width="414" height="568"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cCr-Rj-znt" id="3pU-PZ-grO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="568"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7p-xf-icT">
-                                                    <rect key="frame" x="20" y="11" width="84" height="67.5"/>
+                                                    <rect key="frame" x="20" y="11" width="78.5" height="67.5"/>
                                                     <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="32"/>
                                                     <color key="textColor" name="grey900"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjs-F9-QZC">
-                                                    <rect key="frame" x="52.5" y="86" width="34.5" height="15"/>
+                                                    <rect key="frame" x="52" y="86" width="32" height="15"/>
                                                     <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="13"/>
                                                     <color key="textColor" name="grey900"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gza-te-3f3">
-                                                    <rect key="frame" x="20" y="85.5" width="32.5" height="16"/>
+                                                    <rect key="frame" x="20" y="85.5" width="32" height="16"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                                     <color key="textColor" name="grey900"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Haj-Hx-Yrq">
-                                                    <rect key="frame" x="360.5" y="85.5" width="33.5" height="16"/>
+                                                    <rect key="frame" x="362" y="85.5" width="32" height="16"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
                                                     <color key="textColor" name="yellow"/>
                                                     <nil key="highlightedColor"/>
@@ -469,7 +469,7 @@
                                                                 <fragment content="서비스 혹은 네트워크 문제로 담벼락 글을  불러올 수 없어요. 잠시 후 다시 시도해주세요.">
                                                                     <attributes>
                                                                         <color key="NSColor" name="grey800"/>
-                                                                        <font key="NSFont" size="16" name="Pretendard-Medium"/>
+                                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="7" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -498,7 +498,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpK-7W-Wrr">
-                                                    <rect key="frame" x="94" y="93.5" width="257.5" height="0.5"/>
+                                                    <rect key="frame" x="91" y="93.5" width="262" height="0.5"/>
                                                     <color key="backgroundColor" name="grey700"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.75" id="Zgw-G1-tbb"/>
@@ -541,7 +541,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jaq-w3-JIL">
-                                <rect key="frame" x="197" y="767" width="20" height="20"/>
+                                <rect key="frame" x="197" y="769" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

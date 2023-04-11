@@ -143,7 +143,8 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
                         return
                     }
                     
-                    postingMainViewController.viewModel.postModels = [story]
+//                    postingMainViewController.viewModel.postModels = [story]
+                    postingMainViewController.changeMyStory(with: [story])
                     postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
                     homeViewController?.present(postingMainNavigationViewController, animated: true)
                 }
@@ -167,7 +168,8 @@ final class PostProcessViewController: UIViewController, StoryboardBased {
                         return
                     }
                     
-                    postingMainViewController.viewModel.postModels = [story]
+//                    postingMainViewController.viewModel.postModels = [story]
+                    postingMainViewController.changeMyStory(with: [story])
                     postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
                     myViewController?.present(postingMainNavigationViewController, animated: true)
                     myViewController?.fetchMyStoryList()

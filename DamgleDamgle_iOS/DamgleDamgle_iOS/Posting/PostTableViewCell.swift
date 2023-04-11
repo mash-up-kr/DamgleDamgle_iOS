@@ -44,7 +44,11 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
+        
+        setupRenewalView()
+    }
+    
+    private func setupRenewalView() {
         placeAddressLabel.text = ""
         userNameLabel.text = ""
         checkMeLabel.text = ""
@@ -64,10 +68,8 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     func setupUI(story: Story?) {
         guard let story = story, var address1 = story.address1, var address2 = story.address2 else { return }
         
-        if address1 == "" {
-            address1 = "담글이네"
-            address2 = "찾는 중"
-        }
+        address1 = address1 == "" ? "담글이네" : address1
+        address2 = address1 == "" ? "찾는 중" : address2
         self.viewModel.updateStoryModel(Story: story)
         placeAddressLabel.text = "\(address1)\n\(address2)"
         userNameLabel.text = story.nickname
@@ -103,7 +105,7 @@ final class PostTableViewCell: UITableViewCell, Reusable {
         let filterReactions = reactions.filter { $0.count != 0 }
         
         if filterReactions.isEmpty {
-            
+
             noIconsView.isHidden = false
             oneIconView.isHidden = true
             manyIconsView.isHidden = true

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NMapsMap
 
 final class PostingMainViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
@@ -20,17 +21,36 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
 
     private var apiState: APIState = .dataExit
     var storyType: StoryType = .myStory
-    var sortingType: SortType = .time
-    var viewModel = PostingViewModel()
+    var sortType: SortType = .time
+    private var viewModel = PostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getResponse(with: storyType)
+//        if storyType == .allStory {
+//            getFeedStoryResponse()
+//        }
+        
+        setupView()
+    }
+    
+    func setMapCurrentBoundary(with boundary: NMGLatLngBounds) {
+        self.viewModel.setMapCurrentBoundary(with: boundary)
+    }
+    
+    func setStoryType(with type: StoryType) {
+        self.storyType = type
+    }
+    
+    func changeMyStory(with stories: [Story]) {
+        self.viewModel.setMyStory(with: stories)
+    }
+    
+    private func getResponse(with storyType: StoryType) {
         if storyType == .allStory {
             getFeedStoryResponse()
         }
-        
-        setupView()
     }
     
     private func setupView() {
@@ -77,32 +97,49 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
         }
     }
     
-    @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
-        timeSortButton.isSelected = true
-        popularitySortButton.isSelected = false
-        sortingType = .time
+    private func changeView(from sortType: SortType) {
+        timeSortButton.isSelected = sortType == .time ? true : false
+        popularitySortButton.isSelected = sortType == .popularity ? true : false
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.activityIndicatorView.startAnimating()
-            self.viewModel.sortTime()
+            self.viewModel.sortStory(with: sortType)
             self.postingTableView.reloadData()
             self.activityIndicatorView.stopAnimating()
         }
     }
     
-    @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
-        timeSortButton.isSelected = false
-        popularitySortButton.isSelected = true
-        sortingType = .popularity
+    @IBAction private func timeSortingButtonTouchUp(_ sender: UIButton) {
+        sortType = .time
+        changeView(from: .time)
         
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.activityIndicatorView.startAnimating()
-            self.viewModel.sortPopularity()
-            self.postingTableView.reloadData()
-            self.activityIndicatorView.stopAnimating()
-        }
+//        timeSortButton.isSelected = true
+//        popularitySortButton.isSelected = false
+        
+//        DispatchQueue.main.async { [weak self] in
+//            guard let self = self else { return }
+//            self.activityIndicatorView.startAnimating()
+//            self.viewModel.sortTime()
+//            self.postingTableView.reloadData()
+//            self.activityIndicatorView.stopAnimating()
+//        }
+    }
+    
+    @IBAction private func popularitySortButtonTouchUp(_ sender: UIButton) {
+        sortType = .popularity
+        changeView(from: .popularity)
+        
+//        timeSortButton.isSelected = false
+//        popularitySortButton.isSelected = true
+//
+//        DispatchQueue.main.async { [weak self] in
+//            guard let self = self else { return }
+//            self.activityIndicatorView.startAnimating()
+//            self.viewModel.sortPopularity()
+//            self.postingTableView.reloadData()
+//            self.activityIndicatorView.stopAnimating()
+//        }
     }
     
     @IBAction private func closeButtonDidTap(_ sender: UIBarButtonItem) {
@@ -186,17 +223,17 @@ extension PostingMainViewController: TableViewCellDelegate {
                 guard let self = self else { return }
                 self.apiState = isSuccess ? .dataExit : .error
             }
-        } else if storyType == .allStory && sortingType == .time {
+        } else if storyType == .allStory && sortType == .time {
             viewModel.getStoryFeed() { [weak self] isSuccess in
                 guard let self = self else { return }
                 self.apiState = isSuccess ? .dataExit : .error
             }
-        } else if storyType == .allStory && sortingType == .popularity {
+        } else if storyType == .allStory && sortType == .popularity {
             viewModel.getStoryDetail(id: storyID) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let story):
-                    self.viewModel.chageToNewStory(story: story)
+                    self.viewModel.changeMyStory(with: story)
                 case .failure(let error):
                     // TODO: 실패했을때 대응방법 적용예정
                     print(error.localizedDescription)
@@ -205,7 +242,6 @@ extension PostingMainViewController: TableViewCellDelegate {
         }
         
         guard isChange else { return }
-               
         toastButtonAnimate(reaction: reaction, wasEmpty: wasEmpty, isEmpty: reaction == .none)
     }
     

@@ -73,7 +73,8 @@ final class MyStoryListViewController: UIViewController, StoryboardBased {
             return
         }
         
-        postingMainViewController.viewModel.postModels = [story]
+//        postingMainViewController.viewModel.postModels = [story]
+//        postingMainViewController.
         postingMainNavigationViewController.modalPresentationStyle = .overFullScreen
         present(postingMainNavigationViewController, animated: true)
     }
