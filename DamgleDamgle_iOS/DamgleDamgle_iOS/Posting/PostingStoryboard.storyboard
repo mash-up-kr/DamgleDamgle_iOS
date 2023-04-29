@@ -185,8 +185,8 @@
                                                             <rect key="frame" x="12" y="173" width="350" height="205.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
-                                                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-7J-rXs" customClass="ManyIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
-                                                            <rect key="frame" x="12" y="173" width="342" height="205.5"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-7J-rXs" customClass="ManyIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snx-co-seI">
@@ -207,6 +207,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="clq-PX-v4L" secondAttribute="trailing" id="6kP-FY-uze"/>
                                                         <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="Ck5-KI-hPE"/>
                                                         <constraint firstItem="clq-PX-v4L" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" id="FTg-Hk-Ypq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nrd-7J-rXs" secondAttribute="trailing" constant="12" id="Hw9-kS-jko"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="height" relation="lessThanOrEqual" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="Rr0-D4-It4"/>
                                                         <constraint firstItem="U5w-D1-CF2" firstAttribute="top" secondItem="2uN-0Q-JFt" secondAttribute="bottom" constant="10" id="Un8-A3-WBm"/>
                                                         <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="VjX-K7-CxT"/>
