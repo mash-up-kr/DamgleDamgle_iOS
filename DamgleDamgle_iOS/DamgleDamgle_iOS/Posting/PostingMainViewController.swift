@@ -22,7 +22,7 @@ final class PostingMainViewController: UIViewController, StoryboardBased {
     private var apiState: APIState = .dataExit
     var storyType: StoryType = .myStory
     var sortType: SortType = .time
-    private var viewModel = PostingViewModel()
+    var viewModel = PostingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
