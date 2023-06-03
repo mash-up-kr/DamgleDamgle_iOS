@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QA9-8L-ZQG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Akzidenz-Grotesk BQ Bold.ttf">
+            <string>AkzidenzGroteskBQ-Bold</string>
+        </array>
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Posting Navigation Controller-->
+        <scene sceneID="8aS-yB-O1C">
+            <objects>
+                <navigationController storyboardIdentifier="PostingNavigationController" id="QA9-8L-ZQG" customClass="PostingNavigationController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9DQ-ee-g8G">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="3kK-be-y3G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCe-Pc-r9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-752" y="125"/>
+        </scene>
+        <!--담벼락 전체보기-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="PostingMainViewController" id="Y6W-OH-hqX" customClass="PostingMainViewController" customModule="DamgleDamgle_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_list_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nhD-C8-JWe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-9s-gCx">
+                                <rect key="frame" x="0.0" y="92" width="414" height="1374"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="uis-aL-XMV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-OE-18b" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="22" width="34" height="28"/>
+                                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="최신순">
+                                                <color key="titleColor" name="grey700"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" name="black"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalTitleColor">
+                                                    <color key="value" name="grey700"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectTitleColor">
+                                                    <color key="value" name="grey900"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="timeSortingButtonTouchUp:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xsc-kn-T0W"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPO-cL-abV" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="62" y="22" width="34" height="28"/>
+                                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="인기순">
+                                                <color key="titleColor" name="grey700"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" name="black"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="normalTitleColor">
+                                                    <color key="value" name="grey700"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="selectTitleColor">
+                                                    <color key="value" name="grey900"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="popularitySortButtonTouchUp:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n4R-5c-8kH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="fIS-OE-18b" firstAttribute="leading" secondItem="uis-aL-XMV" secondAttribute="leading" constant="20" id="Opu-eE-tGx"/>
+                                        <constraint firstItem="IPO-cL-abV" firstAttribute="leading" secondItem="fIS-OE-18b" secondAttribute="trailing" constant="8" id="bja-ux-bSn"/>
+                                        <constraint firstItem="IPO-cL-abV" firstAttribute="centerY" secondItem="uis-aL-XMV" secondAttribute="centerY" id="tmn-jh-qQH"/>
+                                        <constraint firstItem="fIS-OE-18b" firstAttribute="centerY" secondItem="uis-aL-XMV" secondAttribute="centerY" id="vmA-0W-m4R"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="628" id="K4B-om-Is7" customClass="PostTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="122" width="414" height="628"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4B-om-Is7" id="X6k-vD-rKA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-D2-Nbh">
+                                                    <rect key="frame" x="20" y="11" width="78.5" height="119"/>
+                                                    <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="32"/>
+                                                    <color key="textColor" name="grey1000"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNp-wV-5Gm">
+                                                    <rect key="frame" x="20" y="137" width="32" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                                    <color key="textColor" name="grey1000"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-ga-gvt">
+                                                    <rect key="frame" x="52" y="137.5" width="32" height="15"/>
+                                                    <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="13"/>
+                                                    <color key="textColor" name="grey1000"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-4L-yCq">
+                                                    <rect key="frame" x="362" y="137.5" width="32" height="15"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
+                                                    <color key="textColor" name="yellow"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-Ht-4f1">
+                                                    <rect key="frame" x="91" y="144.5" width="262" height="0.5"/>
+                                                    <color key="backgroundColor" name="grey700"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.75" id="pkx-IN-0zC"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oT-kl-tI8" customClass="RoundView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="168.5" width="374" height="388.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 77" translatesAutoresizingMaskIntoConstraints="NO" id="clq-PX-v4L">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="388.5"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-0Q-JFt" customClass="VerticalAlignLabel" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="24" y="24" width="326" height="139"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="안녕하세요! 오늘은 이 카페에서 공감해조팀에서 회의를 하였어요~~ 다들 여기서 팀플해도 좋을듯용~~! 주인이 카공해도 뭐라고 안함~~참고하세요~~~!! 지금 넘 졸린데 오늘 일찍 자고 싶어서 커피를 마시지 않고 버틸 거에요~!!">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="grey900"/>
+                                                                        <font key="NSFont" metaFont="system" size="16"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-D1-CF2" customClass="NoIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-iR-WMF" customClass="OneIconView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-7J-rXs" customClass="ManyIconsView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                            <rect key="frame" x="12" y="173" width="350" height="205.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snx-co-seI">
+                                                            <rect key="frame" x="320" y="344.5" width="30" height="28"/>
+                                                            <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                                            <color key="tintColor" name="grey600"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="신고"/>
+                                                            <connections>
+                                                                <action selector="reportButtonDidTap:" destination="K4B-om-Is7" eventType="touchUpInside" id="5Np-P2-S2S"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="clq-PX-v4L" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" id="0Du-zq-ELT"/>
+                                                        <constraint firstItem="nEB-iR-WMF" firstAttribute="height" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="4Ik-6i-UPh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="clq-PX-v4L" secondAttribute="trailing" id="6kP-FY-uze"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2uN-0Q-JFt" secondAttribute="trailing" constant="24" id="Ck5-KI-hPE"/>
+                                                        <constraint firstItem="clq-PX-v4L" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" id="FTg-Hk-Ypq"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nrd-7J-rXs" secondAttribute="trailing" constant="12" id="Hw9-kS-jko"/>
+                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="height" relation="lessThanOrEqual" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="Rr0-D4-It4"/>
+                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="top" secondItem="2uN-0Q-JFt" secondAttribute="bottom" constant="10" id="Un8-A3-WBm"/>
+                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="top" constant="24" id="VjX-K7-CxT"/>
+                                                        <constraint firstAttribute="width" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="335:348" id="Yvu-Hy-gs9"/>
+                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="d72-G1-E97"/>
+                                                        <constraint firstItem="nEB-iR-WMF" firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" constant="-10" id="evZ-HO-ISw"/>
+                                                        <constraint firstItem="Nrd-7J-rXs" firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" constant="-10" id="fVr-vv-Kfx"/>
+                                                        <constraint firstItem="nEB-iR-WMF" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="is7-LR-1d3"/>
+                                                        <constraint firstItem="Nrd-7J-rXs" firstAttribute="height" secondItem="clq-PX-v4L" secondAttribute="height" multiplier="184:348" id="jec-3z-Ds4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U5w-D1-CF2" secondAttribute="trailing" constant="12" id="mnW-W1-h2M"/>
+                                                        <constraint firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" id="nyI-PC-2pR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="snx-co-seI" secondAttribute="trailing" constant="24" id="plB-e7-bvt"/>
+                                                        <constraint firstAttribute="bottom" secondItem="snx-co-seI" secondAttribute="bottom" constant="16" id="sSV-ob-QbK"/>
+                                                        <constraint firstItem="Nrd-7J-rXs" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="12" id="svC-fz-wJr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nEB-iR-WMF" secondAttribute="trailing" constant="12" id="t09-93-2Zs"/>
+                                                        <constraint firstItem="2uN-0Q-JFt" firstAttribute="leading" secondItem="6oT-kl-tI8" secondAttribute="leading" constant="24" id="tj7-kX-ECP"/>
+                                                        <constraint firstItem="U5w-D1-CF2" firstAttribute="bottom" secondItem="clq-PX-v4L" secondAttribute="bottom" constant="-10" id="wJQ-GG-n0K"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-h2-rEa" userLabel="bestButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="331" y="573" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="37h-h2-rEa" secondAttribute="height" multiplier="1:1" id="73O-7e-YRO"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=best"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=best_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="q3V-bS-CcD"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-KF-Uej" userLabel="sadButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="331" y="573" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="e3Z-KF-Uej" secondAttribute="height" multiplier="1:1" id="YjZ-mD-FW3"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=sad"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=sad_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="aDP-DA-ygP"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Tq-STE" userLabel="amazingButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="331" y="573" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="iNy-Tq-STE" secondAttribute="height" multiplier="1:1" id="iO5-SC-sYY"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=amazing"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=amazing_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="Fpz-nv-eVO"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-op-CUs" userLabel="angryButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="331" y="573" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="pda-op-CUs" secondAttribute="height" multiplier="1:1" id="7er-sQ-JKu"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=angry"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=angry_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="24Y-Cx-359"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-Tj-DAK" userLabel="likeButton" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="331" y="573" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="mPj-Tj-DAK" secondAttribute="height" multiplier="1:1" id="hfF-vo-RY4"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=like"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=like_y"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="touchUpIconsButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="vFO-Sj-vcE"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-RP-3AW" customClass="SelectableButton" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="312.5" y="573" width="81.5" height="44"/>
+                                                    <color key="backgroundColor" name="grey900"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Q7r-RP-3AW" secondAttribute="height" multiplier="74:40" id="tly-A8-w0K"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="icn=best">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="normalBackgroundColor">
+                                                            <color key="value" name="grey900"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="selectBackgroundColor">
+                                                            <color key="value" name="grey400"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="icn=best_inactive"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="icn=best"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="touchUpiconStartButton:" destination="K4B-om-Is7" eventType="touchUpInside" id="gDj-dB-mgA"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="0to-2m-ddx"/>
+                                                <constraint firstItem="cv2-ga-gvt" firstAttribute="leading" secondItem="WNp-wV-5Gm" secondAttribute="trailing" id="2PL-aC-klj"/>
+                                                <constraint firstItem="cv2-ga-gvt" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="3gi-f2-d4R"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="4ZA-8P-t6t"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="sad" id="7PO-CC-P5f"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="7PS-cr-BIg"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="9tB-o2-hD1"/>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="BE8-cB-GGx"/>
+                                                <constraint firstItem="Q7r-RP-3AW" firstAttribute="top" secondItem="6oT-kl-tI8" secondAttribute="bottom" constant="16" id="BPR-gJ-c2x"/>
+                                                <constraint firstItem="jTf-D2-Nbh" firstAttribute="top" secondItem="X6k-vD-rKA" secondAttribute="topMargin" id="CV0-C2-OEP"/>
+                                                <constraint firstItem="WNp-wV-5Gm" firstAttribute="top" secondItem="jTf-D2-Nbh" secondAttribute="bottom" constant="7" id="DRn-gW-YsQ"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="F23-3u-25c"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="Fba-PJ-jD5"/>
+                                                <constraint firstItem="Hcm-Ht-4f1" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="FmJ-Pt-F8d"/>
+                                                <constraint firstItem="pda-op-CUs" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="angry" id="GFi-jQ-1qy"/>
+                                                <constraint firstItem="e3Z-KF-Uej" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="40:375" id="JB6-rE-ong"/>
+                                                <constraint firstItem="6oT-kl-tI8" firstAttribute="top" secondItem="cv2-ga-gvt" secondAttribute="bottom" constant="16" id="Lg3-YS-Jtb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Q7r-RP-3AW" secondAttribute="bottom" id="LsU-o7-eQH"/>
+                                                <constraint firstItem="Hcm-Ht-4f1" firstAttribute="leading" secondItem="cv2-ga-gvt" secondAttribute="trailing" constant="7" id="P6k-oa-bEW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Q7r-RP-3AW" secondAttribute="trailing" id="Sye-UA-dZk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZSS-4L-yCq" secondAttribute="trailing" id="TLm-rX-5Tc"/>
+                                                <constraint firstItem="ZSS-4L-yCq" firstAttribute="centerY" secondItem="WNp-wV-5Gm" secondAttribute="centerY" id="W1W-bW-apO"/>
+                                                <constraint firstItem="WNp-wV-5Gm" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="Wcf-kL-wwE"/>
+                                                <constraint firstItem="Q7r-RP-3AW" firstAttribute="width" secondItem="X6k-vD-rKA" secondAttribute="width" multiplier="74:375" id="YZ8-vx-Uh8"/>
+                                                <constraint firstItem="WNp-wV-5Gm" firstAttribute="baseline" secondItem="cv2-ga-gvt" secondAttribute="firstBaseline" id="Yjc-w5-ghM"/>
+                                                <constraint firstItem="ZSS-4L-yCq" firstAttribute="leading" secondItem="Hcm-Ht-4f1" secondAttribute="trailing" constant="9" id="aYX-Ux-syH"/>
+                                                <constraint firstItem="jTf-D2-Nbh" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="dyM-De-uCZ"/>
+                                                <constraint firstItem="cv2-ga-gvt" firstAttribute="baseline" secondItem="ZSS-4L-yCq" secondAttribute="baseline" id="eEf-gh-pX3"/>
+                                                <constraint firstItem="6oT-kl-tI8" firstAttribute="leading" secondItem="X6k-vD-rKA" secondAttribute="leadingMargin" id="h9D-Q6-5xE"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="best" id="mwc-ZQ-kgD"/>
+                                                <constraint firstItem="iNy-Tq-STE" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="amazing" id="oFC-I3-uAI" userLabel="amazingButtonX Point Constraint"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6oT-kl-tI8" secondAttribute="trailing" id="uYe-pg-cve"/>
+                                                <constraint firstItem="37h-h2-rEa" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="uhI-rY-qAv"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerY" secondItem="Q7r-RP-3AW" secondAttribute="centerY" id="v3a-ng-OvX"/>
+                                                <constraint firstItem="mPj-Tj-DAK" firstAttribute="centerX" secondItem="Q7r-RP-3AW" secondAttribute="centerX" identifier="like" id="w7t-sg-pX4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="checkMeLabel" destination="cv2-ga-gvt" id="2bj-VG-AYZ"/>
+                                            <outlet property="contentLabel" destination="2uN-0Q-JFt" id="QkI-1N-kLY"/>
+                                            <outlet property="iconsStartButton" destination="Q7r-RP-3AW" id="fvH-1K-1ec"/>
+                                            <outlet property="manyIconsView" destination="Nrd-7J-rXs" id="CH2-1L-h0f"/>
+                                            <outlet property="noIconsView" destination="U5w-D1-CF2" id="MGq-ov-q6B"/>
+                                            <outlet property="oneIconView" destination="nEB-iR-WMF" id="zKN-52-3xt"/>
+                                            <outlet property="placeAddressLabel" destination="jTf-D2-Nbh" id="Wu1-bJ-Voh"/>
+                                            <outlet property="reportButton" destination="snx-co-seI" id="vZl-Rt-HRM"/>
+                                            <outlet property="timeLabel" destination="ZSS-4L-yCq" id="gMJ-KA-v9g"/>
+                                            <outlet property="userNameLabel" destination="WNp-wV-5Gm" id="uNu-zC-Qrh"/>
+                                            <outletCollection property="iconsButtonCollection" destination="mPj-Tj-DAK" collectionClass="NSMutableArray" id="84P-pc-lQR"/>
+                                            <outletCollection property="iconsButtonCollection" destination="pda-op-CUs" collectionClass="NSMutableArray" id="iQZ-zY-zQW"/>
+                                            <outletCollection property="iconsButtonCollection" destination="iNy-Tq-STE" collectionClass="NSMutableArray" id="Hg2-NV-rvn"/>
+                                            <outletCollection property="iconsButtonCollection" destination="e3Z-KF-Uej" collectionClass="NSMutableArray" id="fUp-pz-jPs"/>
+                                            <outletCollection property="iconsButtonCollection" destination="37h-h2-rEa" collectionClass="NSMutableArray" id="gLe-wJ-fja"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="w7t-sg-pX4" collectionClass="NSMutableArray" id="ugx-oE-Oo2"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="oFC-I3-uAI" collectionClass="NSMutableArray" id="U9Q-kE-qdW"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="GFi-jQ-1qy" collectionClass="NSMutableArray" id="TqJ-LA-NQx"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="7PO-CC-P5f" collectionClass="NSMutableArray" id="9Rf-AT-bcp"/>
+                                            <outletCollection property="iconsButtonXPointConstraint" destination="mwc-ZQ-kgD" collectionClass="NSMutableArray" id="fNR-uH-XK2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostErrorTableViewCell" rowHeight="568" id="cCr-Rj-znt" customClass="PostErrorTableViewCell" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="750" width="414" height="568"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cCr-Rj-znt" id="3pU-PZ-grO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="568"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7p-xf-icT">
+                                                    <rect key="frame" x="20" y="11" width="78.5" height="67.5"/>
+                                                    <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="32"/>
+                                                    <color key="textColor" name="grey900"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjs-F9-QZC">
+                                                    <rect key="frame" x="52" y="86" width="32" height="15"/>
+                                                    <fontDescription key="fontDescription" name="AkzidenzGroteskBQ-Bold" family="Akzidenz-Grotesk BQ" pointSize="13"/>
+                                                    <color key="textColor" name="grey900"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gza-te-3f3">
+                                                    <rect key="frame" x="20" y="85.5" width="32" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                                    <color key="textColor" name="grey900"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Haj-Hx-Yrq">
+                                                    <rect key="frame" x="362" y="85.5" width="32" height="16"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
+                                                    <color key="textColor" name="yellow"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGw-VQ-eZ0" customClass="RoundView" customModule="DamgleDamgle_iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="118.5" width="374" height="382.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 77" translatesAutoresizingMaskIntoConstraints="NO" id="GhX-tc-7Xq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="382.5"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_error_list_posting" translatesAutoresizingMaskIntoConstraints="NO" id="gDv-vb-ttm">
+                                                            <rect key="frame" x="0.0" y="24" width="374" height="273"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8r-F5-L3G">
+                                                            <rect key="frame" x="19.5" y="305" width="335" height="45.5"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="서비스 혹은 네트워크 문제로 담벼락 글을  불러올 수 없어요. 잠시 후 다시 시도해주세요.">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="grey800"/>
+                                                                        <font key="NSFont" metaFont="system" size="16"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="7" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="X8r-F5-L3G" secondAttribute="bottom" constant="32" id="2eF-N8-90q"/>
+                                                        <constraint firstItem="GhX-tc-7Xq" firstAttribute="top" secondItem="rGw-VQ-eZ0" secondAttribute="top" id="Gs2-do-UZe"/>
+                                                        <constraint firstItem="X8r-F5-L3G" firstAttribute="width" secondItem="rGw-VQ-eZ0" secondAttribute="width" multiplier="300:335" id="Qno-pI-6zC"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gDv-vb-ttm" secondAttribute="trailing" id="TP1-kg-60B"/>
+                                                        <constraint firstItem="X8r-F5-L3G" firstAttribute="top" secondItem="gDv-vb-ttm" secondAttribute="bottom" constant="8" id="Zdh-P0-Y79"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GhX-tc-7Xq" secondAttribute="trailing" id="j7H-OR-OiG"/>
+                                                        <constraint firstItem="GhX-tc-7Xq" firstAttribute="leading" secondItem="rGw-VQ-eZ0" secondAttribute="leading" id="lFG-bu-2z5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GhX-tc-7Xq" secondAttribute="bottom" id="m1R-AZ-wAJ"/>
+                                                        <constraint firstItem="X8r-F5-L3G" firstAttribute="centerX" secondItem="rGw-VQ-eZ0" secondAttribute="centerX" id="mhH-1C-F7k"/>
+                                                        <constraint firstItem="gDv-vb-ttm" firstAttribute="top" secondItem="rGw-VQ-eZ0" secondAttribute="top" constant="24" id="oDw-gf-EEM"/>
+                                                        <constraint firstItem="gDv-vb-ttm" firstAttribute="leading" secondItem="rGw-VQ-eZ0" secondAttribute="leading" id="oRP-WM-7QF"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpK-7W-Wrr">
+                                                    <rect key="frame" x="91" y="93.5" width="262" height="0.5"/>
+                                                    <color key="backgroundColor" name="grey700"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.75" id="Zgw-G1-tbb"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Haj-Hx-Yrq" firstAttribute="leading" secondItem="GpK-7W-Wrr" secondAttribute="trailing" constant="9" id="0Li-6o-ALQ"/>
+                                                <constraint firstItem="Gza-te-3f3" firstAttribute="leading" secondItem="3pU-PZ-grO" secondAttribute="leadingMargin" id="1XN-I3-mnc"/>
+                                                <constraint firstItem="rGw-VQ-eZ0" firstAttribute="height" secondItem="3pU-PZ-grO" secondAttribute="height" multiplier="348:517" id="3g5-ap-NKI"/>
+                                                <constraint firstItem="GpK-7W-Wrr" firstAttribute="centerY" secondItem="Gza-te-3f3" secondAttribute="centerY" id="6ev-W3-4OB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rGw-VQ-eZ0" secondAttribute="trailing" id="847-lc-KHt"/>
+                                                <constraint firstItem="rGw-VQ-eZ0" firstAttribute="top" secondItem="Gza-te-3f3" secondAttribute="bottom" constant="17" id="8xO-ev-2H5"/>
+                                                <constraint firstItem="rGw-VQ-eZ0" firstAttribute="leading" secondItem="3pU-PZ-grO" secondAttribute="leadingMargin" id="X0a-hn-uQT"/>
+                                                <constraint firstItem="Haj-Hx-Yrq" firstAttribute="centerY" secondItem="Gza-te-3f3" secondAttribute="centerY" id="aL5-Cz-eiH"/>
+                                                <constraint firstItem="Cjs-F9-QZC" firstAttribute="leading" secondItem="Gza-te-3f3" secondAttribute="trailing" id="aUz-4i-DIE"/>
+                                                <constraint firstItem="v7p-xf-icT" firstAttribute="leading" secondItem="3pU-PZ-grO" secondAttribute="leadingMargin" id="afA-nn-bKd"/>
+                                                <constraint firstItem="Cjs-F9-QZC" firstAttribute="centerY" secondItem="Gza-te-3f3" secondAttribute="centerY" id="bGw-tc-g2F"/>
+                                                <constraint firstItem="GpK-7W-Wrr" firstAttribute="leading" secondItem="Cjs-F9-QZC" secondAttribute="trailing" constant="7" id="iBr-6W-kTY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rGw-VQ-eZ0" secondAttribute="bottom" constant="56" id="j9R-i0-6Dd"/>
+                                                <constraint firstItem="Gza-te-3f3" firstAttribute="top" secondItem="v7p-xf-icT" secondAttribute="bottom" constant="7" id="kyD-oQ-eMw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Haj-Hx-Yrq" secondAttribute="trailing" id="mFH-xP-dyF"/>
+                                                <constraint firstItem="Gza-te-3f3" firstAttribute="baseline" secondItem="Cjs-F9-QZC" secondAttribute="firstBaseline" id="mYp-sX-tGG"/>
+                                                <constraint firstItem="v7p-xf-icT" firstAttribute="top" secondItem="3pU-PZ-grO" secondAttribute="topMargin" id="rsw-Ng-kPl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="checkMeLabel" destination="Cjs-F9-QZC" id="ZeA-1x-gAx"/>
+                                            <outlet property="placeAddressLabel" destination="v7p-xf-icT" id="TYA-vt-7HO"/>
+                                            <outlet property="timeLabel" destination="Haj-Hx-Yrq" id="7Aq-o3-5Vc"/>
+                                            <outlet property="userNameLabel" destination="Gza-te-3f3" id="bda-g0-p5N"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="7kF-13-mpL"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Eeb-9s-dcG"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jaq-w3-JIL">
+                                <rect key="frame" x="197" y="769" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7kJ-9s-gCx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="63P-HJ-RKz"/>
+                            <constraint firstItem="nhD-C8-JWe" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="6id-tT-Xbw"/>
+                            <constraint firstItem="7kJ-9s-gCx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8n6-9c-Seb"/>
+                            <constraint firstAttribute="trailing" secondItem="nhD-C8-JWe" secondAttribute="trailing" id="FKs-fA-ebi"/>
+                            <constraint firstItem="nhD-C8-JWe" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="GyP-yV-heM"/>
+                            <constraint firstItem="Jaq-w3-JIL" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Xzf-P7-ARm"/>
+                            <constraint firstItem="Jaq-w3-JIL" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="fyu-oP-4za"/>
+                            <constraint firstItem="nhD-C8-JWe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="kfV-WS-2E5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7kJ-9s-gCx" secondAttribute="bottom" id="rwF-qR-U2I"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7kJ-9s-gCx" secondAttribute="trailing" id="tNQ-JO-lL4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="담벼락 전체보기" id="IUc-dZ-tnj">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icn_close" style="plain" id="6UK-rs-YPR">
+                            <color key="tintColor" name="grey1000"/>
+                            <connections>
+                                <action selector="closeButtonDidTap:" destination="Y6W-OH-hqX" id="0jy-QK-InB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Jaq-w3-JIL" id="FzK-HR-Rxb"/>
+                        <outlet property="mainViewImageView" destination="nhD-C8-JWe" id="Tw1-bq-aTf"/>
+                        <outlet property="popularitySortButton" destination="IPO-cL-abV" id="f1D-j7-ms1"/>
+                        <outlet property="postingTableView" destination="7kJ-9s-gCx" id="WVa-ia-2va"/>
+                        <outlet property="timeSortButton" destination="fIS-OE-18b" id="gYE-pk-qFT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="179.71014492753625" y="124.55357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Rectangle 77" width="343" height="356"/>
+        <image name="icn=amazing" width="30" height="30"/>
+        <image name="icn=amazing_y" width="30" height="30"/>
+        <image name="icn=angry" width="30" height="30"/>
+        <image name="icn=angry_y" width="30" height="30"/>
+        <image name="icn=best" width="30" height="30"/>
+        <image name="icn=best_inactive" width="30" height="30"/>
+        <image name="icn=best_y" width="30" height="30"/>
+        <image name="icn=like" width="30" height="30"/>
+        <image name="icn=like_y" width="30" height="30"/>
+        <image name="icn=sad" width="30" height="30"/>
+        <image name="icn=sad_y" width="30" height="30"/>
+        <image name="icn_close" width="24" height="24"/>
+        <image name="img_error_list_posting" width="335" height="232"/>
+        <image name="img_list_bg" width="375" height="812"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey1000">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey400">
+            <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey600">
+            <color red="0.62000000476837158" green="0.62000000476837158" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey700">
+            <color red="0.37999999523162842" green="0.37999999523162842" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey800">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey900">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellow">
+            <color red="0.85900002717971802" green="0.99199998378753662" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

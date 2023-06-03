@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomMarker">
+            <connections>
+                <outlet property="bubbleBackgroundImageView" destination="Ekt-Nr-kDn" id="Oi7-bf-wGL"/>
+                <outlet property="iconImageView" destination="sh8-uE-1Od" id="0gm-zz-x4p"/>
+                <outlet property="markerView" destination="h5b-DP-XAV" id="9Hl-PG-5xy"/>
+                <outlet property="storyCountLabel" destination="wT2-TS-bj2" id="R0B-gE-cNv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="68" height="59"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="write_me_bubble" translatesAutoresizingMaskIntoConstraints="NO" id="Ekt-Nr-kDn">
+                    <rect key="frame" x="0.0" y="7" width="60" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="91T-Iz-7Mp"/>
+                        <constraint firstAttribute="width" constant="60" id="VbG-uo-G2y"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img=amazing" translatesAutoresizingMaskIntoConstraints="NO" id="sh8-uE-1Od">
+                    <rect key="frame" x="15.5" y="16.5" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="sh8-uE-1Od" secondAttribute="height" multiplier="1:1" id="8NQ-B5-WMI"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5b-DP-XAV" userLabel="markerView">
+                    <rect key="frame" x="43" y="0.0" width="24" height="24"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="markerNumber" translatesAutoresizingMaskIntoConstraints="NO" id="uHm-jb-Q82">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="uHm-jb-Q82" secondAttribute="height" multiplier="1:1" id="Ylh-1B-NyI"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT2-TS-bj2">
+                            <rect key="frame" x="2.5" y="6" width="19" height="12"/>
+                            <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="10"/>
+                            <color key="textColor" name="grey1000"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="uHm-jb-Q82" secondAttribute="bottom" id="5RN-gX-k66"/>
+                        <constraint firstItem="wT2-TS-bj2" firstAttribute="centerX" secondItem="uHm-jb-Q82" secondAttribute="centerX" id="77C-aA-jcX"/>
+                        <constraint firstAttribute="trailing" secondItem="uHm-jb-Q82" secondAttribute="trailing" id="7Pb-SV-3Dd"/>
+                        <constraint firstItem="wT2-TS-bj2" firstAttribute="centerY" secondItem="uHm-jb-Q82" secondAttribute="centerY" id="PUx-T2-S93"/>
+                        <constraint firstAttribute="width" constant="24" id="R6w-A7-xCC"/>
+                        <constraint firstAttribute="width" secondItem="h5b-DP-XAV" secondAttribute="height" multiplier="1:1" id="UvL-NZ-ezQ"/>
+                        <constraint firstItem="uHm-jb-Q82" firstAttribute="top" secondItem="h5b-DP-XAV" secondAttribute="top" id="gpW-9R-kcY"/>
+                        <constraint firstItem="uHm-jb-Q82" firstAttribute="leading" secondItem="h5b-DP-XAV" secondAttribute="leading" id="y9z-Jj-vCX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sh8-uE-1Od" firstAttribute="centerY" secondItem="Ekt-Nr-kDn" secondAttribute="centerY" multiplier="0.97" id="MTm-1e-xRB"/>
+                <constraint firstItem="h5b-DP-XAV" firstAttribute="trailing" secondItem="Ekt-Nr-kDn" secondAttribute="trailing" constant="7" id="PE5-2n-U0R"/>
+                <constraint firstItem="sh8-uE-1Od" firstAttribute="centerX" secondItem="Ekt-Nr-kDn" secondAttribute="centerX" id="VTW-1e-f2a"/>
+                <constraint firstItem="Ekt-Nr-kDn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dZw-EO-ynM"/>
+                <constraint firstItem="sh8-uE-1Od" firstAttribute="width" secondItem="Ekt-Nr-kDn" secondAttribute="width" multiplier="0.48" id="kB4-xv-cVA"/>
+                <constraint firstItem="h5b-DP-XAV" firstAttribute="top" secondItem="Ekt-Nr-kDn" secondAttribute="top" constant="-7" id="wTb-5c-t1W"/>
+                <constraint firstItem="Ekt-Nr-kDn" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-2" id="x0C-6A-i1V"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="566.66666666666674" y="434.93303571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img=amazing" width="100" height="100"/>
+        <image name="markerNumber" width="26" height="26"/>
+        <image name="write_me_bubble" width="60" height="50.5"/>
+        <namedColor name="grey1000">
+            <color red="0.1289999932050705" green="0.1289999932050705" blue="0.1289999932050705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
