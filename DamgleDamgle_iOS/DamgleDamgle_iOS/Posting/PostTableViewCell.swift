@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol TableViewCellDelegate: AnyObject {
     func endReactionButtonAnimation(reaction: ReactionType, wasEmpty: Bool, isChange: Bool, storyID: String)
 }
@@ -38,8 +39,10 @@ final class PostTableViewCell: UITableViewCell, Reusable {
     }
     
     override func awakeFromNib() {
-        super.awakeFromNib()
+      super.awakeFromNib()
+      MainActor.assumeIsolated {
         setupView()
+      }
     }
     
     override func prepareForReuse() {

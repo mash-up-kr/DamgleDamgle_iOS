@@ -31,7 +31,7 @@ final class PostingTableViewCellViewModel  {
         StoryService.postReaction(storyID: storyID, type: type) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let response):
+            case .success(_):
                 self.service.getStoryDetail(storyID: storyID) { result in
                     switch result {
                     case .success(let response):
@@ -51,7 +51,7 @@ final class PostingTableViewCellViewModel  {
         StoryService.deleteReaction(storyID: storyID) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let response):
+            case .success(_):
                 self.service.getStoryDetail(storyID: storyID) { result in
                     switch result {
                     case .success(let response):

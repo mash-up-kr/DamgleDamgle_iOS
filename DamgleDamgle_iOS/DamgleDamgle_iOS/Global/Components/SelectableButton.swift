@@ -5,7 +5,6 @@
 //  Created by 최원석 on 2022/07/03.
 //
 
-import Foundation
 import UIKit
 
 final class SelectableButton: UIButton {
@@ -93,7 +92,9 @@ final class SelectableButton: UIButton {
     }
 
     override func prepareForInterfaceBuilder() {
+      MainActor.assumeIsolated {
         updateViewPropertie()
+      }
     }
 
     override var isSelected: Bool {

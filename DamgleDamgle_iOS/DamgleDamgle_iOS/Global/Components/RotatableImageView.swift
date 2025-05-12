@@ -25,9 +25,12 @@ final class RotatableImageView: UIImageView {
         updateViewPropertie()
     }
 
-    override func prepareForInterfaceBuilder() {
-        updateViewPropertie()
+  // prepareForInterfaceBuilder는 비동기 호출됨
+  override func prepareForInterfaceBuilder() {
+    MainActor.assumeIsolated {
+      updateViewPropertie()
     }
+  }
 
     private func updateViewPropertie() {
         let angle = NSNumber(value: rotationDegrees / 180.0 * Float.pi)

@@ -1,16 +1,20 @@
 PODS:
-  - NMapsMap (3.15.0)
+  - NMapsGeometry (1.0.1)
+  - NMapsMap-Legacy (3.17.0):
+    - NMapsGeometry
 
 DEPENDENCIES:
-  - NMapsMap
+  - NMapsMap-Legacy
 
 SPEC REPOS:
-  trunk:
-    - NMapsMap
+  https://github.com/navermaps/NMapsMapLegacySpecs.git:
+    - NMapsGeometry
+    - NMapsMap-Legacy
 
 SPEC CHECKSUMS:
-  NMapsMap: f151761c088d6516064c59da03ab6503769486e6
+  NMapsGeometry: 909ff399c6eaa4ca8c8d0317445b9e5ee745a5d5
+  NMapsMap-Legacy: 528860cccfa3450eee2d658b5d058ede85b01234
 
-PODFILE CHECKSUM: b3be6552f4419cf93ee6161833932d75c6247df6
+PODFILE CHECKSUM: bf646385cdef15ab3c730a528673c6968ee55b73
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2

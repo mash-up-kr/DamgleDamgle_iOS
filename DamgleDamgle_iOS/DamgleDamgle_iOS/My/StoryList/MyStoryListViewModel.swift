@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 final class MyStoryListViewModel {
     private var stories: [Story] = []
     
@@ -22,13 +23,15 @@ final class MyStoryListViewModel {
             guard let self = self else {
                 return
             }
-            switch result {
-            case .success(let stories):
+            Task { @MainActor in
+              switch result {
+              case .success(let stories):
                 self.stories = stories?.stories ?? []
                 self.applySnapshot()
                 completion(.success(self.storyCount))
-            case .failure(let error):
+              case .failure(let error):
                 completion(.failure(error))
+              }
             }
         }
     }

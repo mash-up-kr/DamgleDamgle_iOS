@@ -70,8 +70,8 @@ extension StoryTarget: URLRequestConvertible {
             ]
         case let .getMyStory(size, storyID):
             return [
-                "size": size,
-                "storyID": storyID
+                "size": size ?? 1,
+                "storyID": storyID ?? ""
             ]
         case .getStoryFeed(let request):
             return [
@@ -80,7 +80,7 @@ extension StoryTarget: URLRequestConvertible {
                 "left": request.left,
                 "right": request.right,
                 "size": request.size,
-                "startFromStoryID": request.startFromStoryId
+                "startFromStoryID": request.startFromStoryId ?? ""
             ]
         case .getStoryDetail(_), .deleteReaction(_), .postReport(_):
             return nil

@@ -68,7 +68,11 @@ final class LocationAuthorizationViewController: UIViewController {
 
 // MARK: - extension
 extension LocationAuthorizationViewController: LocationDataProtocol {
-    func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?) {
+  nonisolated func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?) {
+    Task {
+      await MainActor.run {
         checkCurrentStatus(currentStatus: currentStatus)
+      }
     }
+  }
 }

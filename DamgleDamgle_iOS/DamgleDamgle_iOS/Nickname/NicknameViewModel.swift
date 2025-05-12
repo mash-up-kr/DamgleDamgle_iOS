@@ -18,7 +18,7 @@ final class NicknameViewModel {
             case .success(let response):
                 self.model = response
                 completion(true)
-            case .failure(let error):
+            case .failure(_):
                 completion(false)
             }
         }
@@ -30,7 +30,7 @@ final class NicknameViewModel {
             case .success(let response):
                 self.model = response
                 completion(true)
-            case .failure(let error):
+            case .failure(_):
                 completion(false)
             }
         }
@@ -42,7 +42,7 @@ final class NicknameViewModel {
             case .success(let response):
                 self.model = response
                 completion(true)
-            case .failure(let error):
+            case .failure(_):
                 completion(false)
             }
         }
@@ -57,7 +57,7 @@ final class NicknameViewModel {
                 self.signUp(responce: success, isNotificationEnabled: isNotificationEnabled) { isSuccess in
                     completion(isSuccess)
                 }
-            case .failure(let error):
+            case .failure(_):
                 completion(false)
             }
         }
@@ -71,7 +71,7 @@ final class NicknameViewModel {
                 UserManager.shared.saveRefreshToken(response.refreshToken)
                 UserManager.shared.saveUserNo(response.userNo)
                 completion(true)
-            case .failure(let error):
+            case .failure(_):
                 completion(false)
             }
         }

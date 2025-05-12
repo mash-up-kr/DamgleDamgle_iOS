@@ -17,6 +17,14 @@ protocol LocationUpdateProtocol: AnyObject {
     func updateCurrentLocation(location: CLLocationCoordinate2D)
 }
 
+/*
+ UserManager랑 비슷한 상황
+ 
+ 여기는 UI랑 관계가 있으므로, MainActor로 변경해봄
+ 그랬더니 CLLocationManagerDelegate에서 에러 발생
+ */
+
+@MainActor
 final class LocationService: NSObject, CLLocationManagerDelegate {
     static let shared: LocationService = LocationService()
     
@@ -58,18 +66,33 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
 // MARK: - Delegate
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationServiceAuthorization()
+  /*
+   영상처럼 MainActor.assumeIsolated를 사용할까 했는데,
+   앱이 포그라운드에서 실행되든 백그라운드에서 실행되든 상관 없습니다. 라고 문서에 나와있어서 변경
+   
+   근데 좀 찾아보니까 Task { await MainActor.run { ... } }이 isolation 판단하는게 더 명확?하다고해서 흠 일단 써봄
+   */
+  nonisolated(unsafe) func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    Task { @MainActor in
+      checkLocationServiceAuthorization()
     }
+  }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  nonisolated(unsafe) func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    Task {
+      await MainActor.run {
         guard let location = locations.first else { return }
         currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+      }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        currentStatus = .locationUpdateFail
+  }
+  
+  // 일단 배웠으니 해봤는데, 위험할 것 같음
+  nonisolated(unsafe) func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    MainActor.assumeIsolated {
+      currentStatus = .locationUpdateFail
     }
+  }
     
 // MARK: - UDF
     func checkLocationServiceAuthorization() {
@@ -91,6 +114,8 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
             currentStatus = .authorizationDenied
         case .authorizedWhenInUse, .authorizedAlways:
             currentStatus = .success
+        @unknown default:
+            break
         }
     }
     
