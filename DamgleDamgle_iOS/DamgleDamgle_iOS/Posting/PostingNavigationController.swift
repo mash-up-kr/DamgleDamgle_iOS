@@ -12,9 +12,10 @@ final class PostingNavigationController: UINavigationController, StoryboardBased
         UIStoryboard(name: "PostingStoryboard", bundle: nil)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.modalPresentationStyle = .fullScreen
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    MainActor.assumeIsolated {
+      self.modalPresentationStyle = .fullScreen
     }
+  }
 }

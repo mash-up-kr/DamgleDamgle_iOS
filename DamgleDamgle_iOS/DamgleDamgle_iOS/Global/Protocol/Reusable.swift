@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol Reusable: AnyObject {
     static var reusableIdentifier: String { get }
 }

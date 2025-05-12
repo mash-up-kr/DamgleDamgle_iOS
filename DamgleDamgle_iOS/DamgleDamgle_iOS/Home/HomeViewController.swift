@@ -420,65 +420,73 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: LocationDataProtocol {
-    func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?) {
-        checkCurrentStatus(currentStatus: currentStatus)
+  nonisolated func updateCurrentStatus(_ currentStatus: LocationAuthorizationStatus?) {
+    Task { @MainActor in
+      checkCurrentStatus(currentStatus: currentStatus)
     }
+  }
 }
 
 extension HomeViewController: LocationUpdateProtocol {
-    func updateCurrentLocation(location: CLLocationCoordinate2D) {
-        locationManager.stopUpdatingCurrentLocation()
-        
-        let mapPosition = NMGLatLng(from: location)
-        
-        currentLocationMarker.zIndex = -100
-        currentLocationMarker.position = mapPosition
-        currentLocationMarker.mapView = mapView
-        
-        let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
-        cameraUpdate.animation = .easeIn
-        cameraUpdate.animationDuration = 0.5
-        mapView.moveCamera(cameraUpdate)
-        
-        getCurrentLocationAddress()
+  nonisolated func updateCurrentLocation(location: CLLocationCoordinate2D) {
+    Task { @MainActor in
+      locationManager.stopUpdatingCurrentLocation()
+      
+      let mapPosition = NMGLatLng(from: location)
+      
+      currentLocationMarker.zIndex = -100
+      currentLocationMarker.position = mapPosition
+      currentLocationMarker.mapView = mapView
+      
+      let cameraUpdate = NMFCameraUpdate(scrollTo: mapPosition, zoomTo: defaultZoomLevel)
+      cameraUpdate.animation = .easeIn
+      cameraUpdate.animationDuration = 0.5
+      mapView.moveCamera(cameraUpdate)
+      
+      getCurrentLocationAddress()
     }
+  }
 }
 
 extension HomeViewController: NMFMapViewCameraDelegate {
-    func mapViewCameraIdle(_ mapView: NMFMapView) {
+  nonisolated func mapViewCameraIdle(_ mapView: NMFMapView) {
+      Task { @MainActor in
         viewModel.currentBoundary = mapView.coveringBounds
         
         viewModel.getStoryFeed { result in
-            switch result {
-            case .success(let homeModel):
-                guard let homeModel = homeModel else { return }
-                self.addMarker(homeModel: homeModel)
-            case .failure(let error):
-                self.showAlertController(
-                    type: .single,
-                    title: "오류 발생",
-                    message: error.localizedDescription,
-                    okActionTitle: "확인"
-                )
-            }
+          switch result {
+          case .success(let homeModel):
+            guard let homeModel = homeModel else { return }
+            self.addMarker(homeModel: homeModel)
+          case .failure(let error):
+            self.showAlertController(
+              type: .single,
+              title: "오류 발생",
+              message: error.localizedDescription,
+              okActionTitle: "확인"
+            )
+          }
         }
+      }
     }
 }
 
 extension HomeViewController: DimViewDelegate {
-    func postViewSwipeDidChange(_ direction: UISwipeGestureRecognizer.Direction) {
-        fullDimView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        switch direction {
-        case .up:
-            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
-                self?.fullDimView.alpha = 1
-            }.startAnimation()
-        case .down:
-            UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
-                self?.fullDimView.alpha = 0
-            }.startAnimation()
-        default:
-            break
-        }
+  nonisolated func postViewSwipeDidChange(_ direction: UISwipeGestureRecognizer.Direction) {
+    Task { @MainActor in
+      fullDimView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+      switch direction {
+      case .up:
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+          self?.fullDimView.alpha = 1
+        }.startAnimation()
+      case .down:
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) { [weak self] in
+          self?.fullDimView.alpha = 0
+        }.startAnimation()
+      default:
+        break
+      }
     }
+  }
 }

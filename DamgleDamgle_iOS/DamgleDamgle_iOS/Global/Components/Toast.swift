@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 final class Toast: NSObject {
 
     private static let shared = Toast()

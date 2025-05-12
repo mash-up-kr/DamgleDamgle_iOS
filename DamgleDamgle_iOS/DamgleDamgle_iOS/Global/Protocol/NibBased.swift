@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol NibBased: AnyObject {
     static var identifier: String { get }
     func initialize()

@@ -18,6 +18,12 @@ protocol PostProcessDismissProtocol: AnyObject {
     func dismissToPost()
 }
 
+/*
+ Main actor-isolated static property 'storyboard' cannot be used to satisfy nonisolated protocol requirement
+ Add '@preconcurrency' to the 'StoryboardBased' conformance to defer isolation checking to run time
+ 
+ 여기다만 하는 것 보다 자주 쓰일거라 StoryboardBased에서 하는게 나을 것 같아서 여기 수정 X
+ */
 final class PostProcessViewController: UIViewController, StoryboardBased {
     static var storyboard: UIStoryboard {
         UIStoryboard(name: "PostProcess", bundle: nil)

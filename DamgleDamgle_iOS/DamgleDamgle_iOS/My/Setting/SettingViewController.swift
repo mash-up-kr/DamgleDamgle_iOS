@@ -41,12 +41,12 @@ final class SettingViewController: UIViewController, StoryboardBased {
     }
     
     private func updatePushSwitch() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            DispatchQueue.main.async { [weak self] in
-                self?.settingButton.isHidden = settings.authorizationStatus == .authorized
-                self?.pushSwitch.isOn = self?.isAllowNotification == true
-            }
+      UNUserNotificationCenter.current().getNotificationSettings { settings in
+        DispatchQueue.main.async { [weak self] in
+          self?.settingButton.isHidden = settings.authorizationStatus == .authorized
+          self?.pushSwitch.isOn = self?.isAllowNotification == true
         }
+      }
     }
     
     private func resignService() {
